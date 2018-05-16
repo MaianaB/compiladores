@@ -1,0 +1,12 @@
+grammar com.ufcg.compiladores.Go with org.eclipse.xtext.common.Terminals
+
+generate go "http://www.ufcg.com/compiladores/Go"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
+
+letter:
+	('a'..'z'|'A'..'Z'|'_');
