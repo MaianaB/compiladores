@@ -78,6 +78,84 @@ escaped_char:
 	CHAR ("a" | "b" | "f" | "n" | "r" | "t" | "v" | CHAR | "'" | '"')
 ;
 
+string_lit:
+	raw_string_lit | interpreted_string_lit 
+;
+
+raw_string_lit: 
+	"'" ( NEWLINE ) "'" //ADICIONAR unicode_char
+;
+
+interpreted_string_lit : 
+	'"' ( unicode_value | byte_value ) '"'
+;
+
+Type :
+	TypeName | TypeLit | "(" {Type} ")" 
+;
+
+TypeName:
+	 identifier | QualifiedIdent 
+;
+
+TypeLit:
+	ArrayType | StructType | PointerType | FunctionType | InterfaceType |
+	    SliceType | MapType | ChannelType 
+;
+
+ArrayType:
+	 "[" ArrayLength "]" ElementType 
+;
+
+ArrayLength:
+	Expression
+;
+
+ElementType: 
+	Type
+; 
+//
+//SliceType :
+//	"[" "]" ElementType 	
+//;
+//
+//StructType : 
+//	"struct" "{" ( FieldDecl ";" ) "}"
+//;
+//
+//FieldDecl:
+//	(IdentifierList Type | EmbeddedField) [ Tag ]
+//;
+//
+//EmbeddedField:
+//	[ "*" ] TypeName
+//;
+// 
+//Tag: 
+//	string_lit
+//;
+
+// Declarations and scope
+IdentifierList:
+	identifier ( "," identifier ) 
+;
+
+
+// Expressions
+QualifiedIdent:
+	PackageName "." identifier
+;
+
+// Package
+PackageClause  :
+	"package" PackageName 
+;
+
+PackageName:
+	identifier
+;
+
+
 CHAR: "\'";
 
 
@@ -92,3 +170,28 @@ terminal OCTAL_DIGIT:
 
 terminal HEX_DIGIT:
 	("0".."9" | "A".."F" | "a".."f");
+	
+terminal NEWLINE:
+	'\u000A'
+;
+
+terminal BINARY_OP:
+	"||" | "&&" | REL_OP | ADD_OP | MUL_OP
+;
+
+terminal fragment REL_OP:
+	"==" | "!=" | "<" | "<=" | ">" | ">="
+;
+
+terminal fragment ADD_OP:
+	"+" | "-" | "|" | "^"
+;
+
+terminal fragment MUL_OP: 
+	"*" | "/" | "%" | "<<" | ">>" | "&" | "&^"
+;
+
+terminal fragment UNARY_OP:
+	"+" | "-" | "!" | "^" | "*" | "&" | "<-"
+;
+	
