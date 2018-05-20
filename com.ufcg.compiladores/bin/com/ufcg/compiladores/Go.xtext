@@ -90,8 +90,8 @@ interpreted_string_lit :
 	'"' ( unicode_value | byte_value ) '"'
 ;
 
-Type :
-	TypeName | TypeLit | "(" {Type} ")" 
+Type:
+	TypeName | "(" Type ")" | TypeLit
 ;
 
 TypeName:
@@ -104,7 +104,7 @@ TypeLit:
 ;
 
 ArrayType:
-	 "[" ArrayLength "]" ElementType 
+	 "[" ArrayLength "]" element += ElementType 
 ;
 
 ArrayLength:
@@ -113,27 +113,87 @@ ArrayLength:
 
 ElementType: 
 	Type
+;
+
+StructType : 
+	"struct" "{" ( FieldDecl ";" ) "}"
+;
+
+FieldDecl:
+	(IdentifierList Type | EmbeddedField) ( Tag )
+;
+
+EmbeddedField:
+	( "*" ) TypeName
+;
+ 
+Tag: 
+	string_lit
+;
+
+PointerType: 
+	"*" BaseType 
+;
+
+BaseType:
+	Type
+;
+
+FunctionType:
+	"func" Signature
+;	
+SliceType :
+	"[" "]" ElementType 	
+;
+
+Signature:
+	Parameters ( result += Result )
 ; 
-//
-//SliceType :
-//	"[" "]" ElementType 	
-//;
-//
-//StructType : 
-//	"struct" "{" ( FieldDecl ";" ) "}"
-//;
-//
-//FieldDecl:
-//	(IdentifierList Type | EmbeddedField) [ Tag ]
-//;
-//
-//EmbeddedField:
-//	[ "*" ] TypeName
-//;
-// 
-//Tag: 
-//	string_lit
-//;
+
+Result:
+	Parameters | Type
+;
+
+Parameters: 
+	"(" ( ParameterList ( "," ) ) ")"
+;
+
+ParameterList:
+	ParameterDecl ( "," aux += ParameterDecl )
+; 
+
+ParameterDecl:
+	( IdentifierList ) ( "..." ) Type
+; 
+
+InterfaceType:
+	"interface" "{" ( MethodSpec ";" ) "}"
+;
+
+MethodSpec:
+	MethodName Signature | InterfaceTypeName
+;
+
+MethodName:
+	identifier
+;
+ 
+InterfaceTypeName: 
+	TypeName
+;
+
+
+MapType:
+	"map" "[" KeyType "]" element += ElementType
+;
+
+KeyType:
+	Type 
+;
+
+ChannelType:
+	( "chan" | "chan" "<-" | "<-" "chan" ) ElementType
+;
 
 // Declarations and scope
 IdentifierList:
@@ -142,9 +202,70 @@ IdentifierList:
 
 
 // Expressions
+
+/*
+Operand:
+	Literal | OperandName | "(" Expression ")"
+;
+
+Literal:
+	BasicLit | CompositeLit | FunctionLit
+;
+
+BasicLit:
+	int_lit | float_lit | imaginary_lit | rune_lit | string_lit
+;*/
+
+OperandName:
+	identifier | QualifiedIdent
+;
+
 QualifiedIdent:
 	PackageName "." identifier
 ;
+/*
+// Exp. Operators
+// RECURSÃO À ESQUERDA
+Expression:
+	UnaryExpr | Expression binary_op Expression
+;
+
+UnaryExpr:
+	PrimaryExpr | UNARY_OP UnaryExpr
+;
+
+//Exp. Primary expressions
+
+PrimaryExpr:
+	Operand |
+	Conversion |
+	MethodExpr |
+	PrimaryExpr Selector |
+	PrimaryExpr Index |
+	PrimaryExpr Slice |
+	PrimaryExpr TypeAssertion |
+	PrimaryExpr Arguments
+;
+
+Selector:
+	"." identifier
+;
+
+Index:
+	"[" Expression "]"
+;
+Slice:
+	"[" ( Expression ) ":" ( Expression ) "]"
+    "[" ( Expression ) ":" Expression ":" Expression "]" 
+                 
+;
+TypeAssertion:
+	"." "(" Type ")"
+;
+
+Arguments:
+	"(" ( ( ExpressionList | Type ( "," ExpressionList )) ( "..." ) ( "," ) ) ")"
+; */
 
 // Package
 PackageClause  :
@@ -175,23 +296,23 @@ terminal NEWLINE:
 	'\u000A'
 ;
 
-terminal BINARY_OP:
-	"||" | "&&" | REL_OP | ADD_OP | MUL_OP
-;
-
-terminal fragment REL_OP:
+terminal REL_OP:
 	"==" | "!=" | "<" | "<=" | ">" | ">="
 ;
 
-terminal fragment ADD_OP:
+binary_op:
+	"||" | "&&" | REL_OP | ADD_OP | MUL_OP
+;
+
+terminal ADD_OP:
 	"+" | "-" | "|" | "^"
 ;
 
-terminal fragment MUL_OP: 
+terminal MUL_OP: 
 	"*" | "/" | "%" | "<<" | ">>" | "&" | "&^"
 ;
 
-terminal fragment UNARY_OP:
+terminal UNARY_OP:
 	"+" | "-" | "!" | "^" | "*" | "&" | "<-"
 ;
 	
