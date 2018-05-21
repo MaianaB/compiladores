@@ -99,8 +99,9 @@ TypeName:
 ;
 
 TypeLit:
-	ArrayType | StructType | PointerType | FunctionType | InterfaceType |
-	    SliceType | MapType | ChannelType 
+	// ArrayType | StructType | PointerType | FunctionType | InterfaceType |
+	//    SliceType | MapType | ChannelType
+	ArrayType 
 ;
 
 ArrayType:
