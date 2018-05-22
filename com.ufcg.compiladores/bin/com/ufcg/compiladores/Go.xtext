@@ -7,7 +7,143 @@ Model:
 	
 Greeting:
 	'Hello' name=ID '!';
-	
+
+Type:
+	TypeName | TypeLit=TypeLit | "(" Type ")"
+;
+
+TypeName:
+	identifier | QualifiedIdent
+;
+
+TypeLit:
+	ArrayType | StructType | PointerType | FunctionType | InterfaceType | SliceType | MapType | ChannelType
+;
+
+ArrayLength:
+	Expression
+;
+
+ArrayType:
+	"[" ArrayLength "]" Type=Type
+;
+
+ElementType:
+	Type=Type
+;
+
+SliceType:
+	"[" "]" ElementType
+;
+
+StructType:
+	"struct" "{" (FieldDecl ";")* ";"
+;
+
+FieldDecl:
+	(IdentifierList Type | EmbeddedField)(Tag)?
+;
+
+EmbeddedField:
+	("*")? TypeName
+;
+
+Tag:
+	string_lit
+;
+
+PointerType:
+	"*" BaseType
+;
+
+BaseType:
+	Type=Type
+;
+
+FunctionType:
+	"func" Signature=Signature
+;
+
+Signature:
+	Parameters (Result)?
+;
+
+Result:
+	Parameters | Type=Type
+;
+
+Parameters:
+	"(" (ParameterList (",")?)? ")"
+;
+
+ParameterList:
+	ParameterDecl ("," ParameterDecl)?
+;
+
+ParameterDecl:
+	(IdentifierList)? ("...")? Type
+;
+
+InterfaceType:
+	"interface" "{" (MethodSpec=MethodSpec ";")? "}"
+;
+
+MethodSpec:
+	MethodName Signature | InterfaceTypeName
+;
+
+MethodName:
+	identifier
+;
+
+InterfaceTypeName:
+	TypeName
+;
+
+MapType:
+	"map" "[" KeyType "]" ElementType=ElementType
+;
+
+KeyType:
+	Type=Type
+;
+
+ChannelType:
+	("chan" | "chan" "<-" | "<-" "chan") ElementType
+;
+
+Block:
+	"{" StatementList "}"
+;
+
+StatementList:
+	(Statement ";")?
+;
+
+Declaration:
+	ConstDecl | TypeDecl | VarDecl
+;
+
+TopLevelDecl:
+	Declaration | FunctionDecl | MethodDecl
+;
+
+ConstDecl:
+	"const" (ConstSepc | "(" (ConstSpec ";")? ")")
+;
+
+ConstSpec:
+	IdentifierList ((Type)? "=" ExpressionList)?
+;
+
+IdentifierList:
+	identifier ("," identifier)?
+;
+
+ExpressionList:
+	Expression ("," Expression)?
+;
+
 comments:
 	LETTER*"//"LETTER* | LETTER*"/*"LETTER*"*/";
 	
@@ -32,6 +168,26 @@ hex_lit:
 
 float_lit:
 	decimals "." (decimals)? (exponent)? | decimals exponent | "." decimals (exponent)?
+;
+
+string_lit:
+	raw_string_lit | interpreted_string_lit
+;
+
+raw_string_lit:
+	"'" (unicode_char | newline)? "'"
+;
+
+interpreted_string_lit:
+	'"' (unicode_value | byte_value)? '"'
+;
+
+unicode_char:
+	"?" | "." | "," | "!"
+;
+
+newline:
+	"U+000A"
 ;
 
 decimals: 
@@ -79,6 +235,7 @@ escaped_char:
 ;
 
 CHAR: "\'";
+
 
 terminal LETTER:
 	('a'..'z'|'A'..'Z'|'_');
