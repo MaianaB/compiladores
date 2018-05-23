@@ -7,5 +7,9 @@ Bundle-SymbolicName: com.ufcg.compiladores.ide; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.ufcg.compiladores,
  org.eclipse.xtext.ide,
- org.eclipse.xtext.xbase.ide
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.ufcg.compiladores.ide.contentassist.antlr,
+ com.ufcg.compiladores.ide.contentassist.antlr.internal
+

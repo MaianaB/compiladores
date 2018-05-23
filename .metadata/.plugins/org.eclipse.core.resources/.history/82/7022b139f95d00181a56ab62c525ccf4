@@ -1,0 +1,427 @@
+grammar com.ufcg.compiladores.Go with org.eclipse.xtext.common.Terminals
+
+generate go "http://www.ufcg.com/compiladores/Go"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
+
+Type:
+	TypeName | TypeLit=TypeLit | "(" Type ")"
+;
+
+TypeName:
+	identifier | QualifiedIdent
+;
+
+TypeLit:
+	ArrayType | StructType | PointerType | FunctionType | InterfaceType | SliceType | MapType | ChannelType
+;
+
+ArrayLength:
+	Expression
+;
+
+ArrayType:
+	"[" ArrayLength "]" Type=Type
+;
+
+ElementType:
+	Type=Type
+;
+
+SliceType:
+	"[" "]" ElementType
+;
+
+StructType:
+	"struct" "{" (FieldDecl=FieldDecl ";")* ";"
+;
+
+FieldDecl:
+	(IdentifierList Type | EmbeddedField)(Tag)?
+;
+
+EmbeddedField:
+	("*")? TypeName
+;
+
+Tag:
+	string_lit
+;
+
+PointerType:
+	"*" BaseType
+;
+
+BaseType:
+	Type=Type
+;
+
+FunctionType:
+	"func" Signature=Signature
+;
+
+Signature:
+	Parameters (Result=Result)?
+;
+
+Result:
+	Parameters | Type=Type
+;
+
+Parameters:
+	"(" (ParameterList (",")?)? ")"
+;
+
+ParameterList:
+	ParameterDecl ("," ParameterDecl=ParameterList)?
+;
+
+ParameterDecl:
+	(IdentifierList)? ("...")? Type
+;
+
+InterfaceType:
+	"interface" "{" (MethodSpec=MethodSpec ";")? "}"
+;
+
+MethodSpec:
+	MethodName Signature | InterfaceTypeName
+;
+
+MethodName:
+	identifier
+;
+
+InterfaceTypeName:
+	TypeName
+;
+
+MapType:
+	"map" "[" KeyType "]" ElementType=ElementType
+;
+
+KeyType:
+	Type=Type
+;
+
+ChannelType:
+	("chan" | "chan" "<-" | "<-" "chan") ElementType
+;
+
+Block:
+	"{" StatementList "}"
+;
+
+StatementList:
+	(Statement ";")?
+;
+
+Declaration:
+	ConstDecl | TypeDecl | VarDecl
+;
+
+TopLevelDecl:
+	Declaration | FunctionDecl | MethodDecl
+;
+
+ConstDecl:
+	"const" (ConstSpec | "(" (ConstSpec ";")? ")")
+;
+
+ConstSpec:
+	IdentifierList ((Type)? "=" ExpressionList=ExpressionList)?
+;
+
+IdentifierList:
+	identifier ("," identifier)?
+;
+
+ExpressionList:
+	Expression ("," Expression=Expression)?
+;
+
+TypeDecl:
+	"type" (TypeSpec | "(" (TypeSpec ";")? ")")
+;
+
+TypeSpec:
+	AliasDecl | TypeDef
+;
+
+AliasDecl:
+	identifier "=" Type
+;
+
+TypeDef:
+	identifier Type
+;
+
+VarDecl:
+	"var" (VarSpec | "(" (VarSpec ";")? ")")
+;
+
+VarSpec:
+	IdentifierList (Type ("=" ExpressionList=FunctionBody)? | "=" ExpressionList)
+;
+
+ShortVarDecl:
+	IdentifierList ":=" ExpressionList
+;
+
+FunctionDecl:
+	"func" FunctionName Signature (FunctionBody=FunctionBody)?
+;
+
+FunctionName:
+	identifier
+;
+
+FunctionBody:
+	Block
+;
+
+MethodDecl:
+	"func" Receiver MethodName Signature (FunctionBody=FunctionBody)?
+;
+
+Receiver:
+	Parameters
+;
+
+Operand:
+	Literal | OperandName | "(" Expression ")"
+;
+
+Literal:
+	BasicLit | CompositeLit | FunctionLit
+;
+
+BasicLit:
+	int_lit | float_lit | rune_lit | string_lit
+;
+
+OperandName:
+	identifier | QualifiedIdent
+;
+
+QualifiedIdent:
+	PackageName "." identifier
+;
+
+CompositeLit:
+	LiteralType LiteralValue=LiteralValue
+;
+
+LiteralType:
+	StructType | ArrayType=ArrayType | "[" "..." "]" ElementType | SliceType | MapType | TypeName
+;
+
+LiteralValue:
+	"{" (ElementList=ElementList (",")?)? "}"
+;
+
+ElementList:
+	KeyedElement ("," KeyedElement=KeyedElement)?
+;
+
+Element:
+	Expression | LiteralValue
+;
+
+KeyedElement:
+	(Key ":")? Element=Element
+;
+
+Key:
+	FieldName | Expression | LiteralValue
+;
+
+FieldName:
+	identifier
+;
+
+FunctionLit:
+	"func" Signature FunctionBody=FunctionBody
+;
+
+PrimaryExpr:
+	Operand=Operand PrimaryExprLinha | Conversion PrimaryExprLinha=PrimaryExprLinha | MethodExpr PrimaryExprLinha=PrimaryExprLinha
+;
+
+PrimaryExprLinha:
+	(Selector PrimaryExprLinha=PrimaryExprLinha | Index PrimaryExprLinha=PrimaryExprLinha | 
+	Slice PrimaryExprLinha=PrimaryExprLinha | TypeAssertion PrimaryExprLinha=PrimaryExprLinha | Arguments PrimaryExprLinha=PrimaryExprLinha)?
+;
+
+Selector:
+	"." identifier
+;
+
+Index:
+	"[" Expression "]"
+;
+
+Slice:
+	"[" (Expression)? ":" (Expression=Expression)? ":" Expression=Expression "]" 
+;
+
+SliceLinha:
+	(":" Expression) "]"
+;
+
+TypeAssertion:
+	"." "(" Type ")"
+;
+
+Arguments:
+	"(" ( (ExpressionList | Type ("," ExpressionList=ExpressionList)?) ("...")? (",")?)? ")"
+;
+
+MethodExpr:
+	ReceiverType "." MethodName
+;
+
+ReceiverType:
+	Type
+;
+
+Expression:
+	UnaryExpr | Expression binary_op Expression
+;
+
+UnaryExpr:
+	PrimaryExpr=PrimaryExpr | unary_op UnaryExpr
+;
+
+binary_op:
+	"||" | "&&" | rel_op | add_op | mul_op
+;
+
+rel_op:
+	"==" | "!=" | "<" | "<=" | ">" | ">="
+;
+
+add_op:
+	"+" | "-" | "|" | "ˆ"
+;
+
+mul_op:
+	"*" | "/" | "%" | "<<" | ">>" | "&" | "&^"
+;
+
+unary_op:
+	"+" | "-" | "!" | "^" | "*" | "&" | "<-"
+;
+
+Conversion:
+	Type "(" Expression=Expression (",")? ")"
+;
+
+comments:
+	LETTER*"//"LETTER* | LETTER*"/*"LETTER*"*/";
+	
+identifier:
+	LETTER (LETTER | DECIMAL_DIGIT)*;
+	
+int_lit:
+	decimal_lit | octal_lit | hex_lit
+;
+
+decimal_lit:
+	DECIMAL_DIGIT (DECIMAL_DIGIT)*
+;
+
+octal_lit:
+	"0" OCTAL_DIGIT*
+;
+
+hex_lit:
+	"0" ( "x" | "X" ) HEX_DIGIT HEX_DIGIT*
+;
+
+float_lit:
+	decimals "." (decimals)? (exponent)? | decimals exponent | "." decimals (exponent)?
+;
+
+string_lit:
+	raw_string_lit | interpreted_string_lit
+;
+
+raw_string_lit:
+	"'" (unicode_char | newline)? "'"
+;
+
+interpreted_string_lit:
+	'"' (unicode_value | byte_value)? '"'
+;
+
+unicode_char:
+	"?" | "." | "," | "!"
+;
+
+newline:
+	"U+000A"
+;
+
+decimals: 
+	DECIMAL_DIGIT DECIMAL_DIGIT*
+;
+
+exponent:
+	("e" | "E") ("+" | "-")? decimals
+;
+
+imaginary_lit:
+	(decimals | float_lit) "i"
+;
+
+rune_lit:
+	"'" (unicode_value | byte_value) "'"
+;
+
+unicode_value:
+	LETTER | little_u_value | big_u_value | escaped_char 
+;
+
+byte_value:
+	octal_byte_value | hex_byte_value
+;
+
+octal_byte_value:
+	CHAR OCTAL_DIGIT OCTAL_DIGIT OCTAL_DIGIT	
+;
+
+hex_byte_value:
+	CHAR "x" HEX_DIGIT HEX_DIGIT
+;
+
+little_u_value:
+	CHAR "u" HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+;
+
+big_u_value:
+	CHAR "U" HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+;
+
+escaped_char:
+	CHAR ("a" | "b" | "f" | "n" | "r" | "t" | "v" | CHAR | "'" | '"')
+;
+
+CHAR: "\'";
+
+
+terminal LETTER:
+	('a'..'z'|'A'..'Z'|'_');
+	
+terminal DECIMAL_DIGIT:
+	("0".."9");
+	
+terminal OCTAL_DIGIT:
+	("0".."7");
+
+terminal HEX_DIGIT:
+	("0".."9" | "A".."F" | "a".."f");

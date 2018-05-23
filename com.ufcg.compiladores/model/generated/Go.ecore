@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="go" nsURI="http://www.ufcg.com/compiladores/Go" nsPrefix="go">
+  <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="greetings" upperBound="-1"
+        eType="#//Greeting" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Greeting">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Type" eSuperTypes="#//FieldDecl #//Result #//ParameterDecl #//ConstSpec #//AliasDecl #//TypeDef #//VarSpec #//TypeAssertion #//Arguments #//ReceiverType #//Conversion">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TypeLit" eType="#//TypeLit"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Expression" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeLit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ArrayLength" eSuperTypes="#//ArrayType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Type" eType="#//Type" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArrayType" eSuperTypes="#//TypeLit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementType" eSuperTypes="#//SliceType #//ChannelType #//LiteralType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Type" eType="#//Type" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SliceType" eSuperTypes="#//TypeLit #//LiteralType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StructType" eSuperTypes="#//TypeLit #//LiteralType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FieldDecl" eType="#//FieldDecl"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FieldDecl"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PointerType" eSuperTypes="#//TypeLit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BaseType" eSuperTypes="#//PointerType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Type" eType="#//Type" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionType" eSuperTypes="#//TypeLit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Signature" eType="#//Signature"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Signature" eSuperTypes="#//MethodSpec #//FunctionDecl #//FunctionLit">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FunctionBody" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Result"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameters" eSuperTypes="#//Signature #//Result #//Receiver">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Result" eType="#//Result"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterList" eSuperTypes="#//Parameters"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterDecl" eSuperTypes="#//ParameterList">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ParameterDecl" eType="#//ParameterDecl"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InterfaceType" eSuperTypes="#//TypeLit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="MethodSpec" eType="#//MethodSpec"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MethodSpec"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MapType" eSuperTypes="#//TypeLit #//LiteralType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="KeyType" eSuperTypes="#//MapType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ElementType" eType="#//ElementType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Type" eType="#//Type" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChannelType" eSuperTypes="#//TypeLit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Declaration" eSuperTypes="#//TopLevelDecl"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TopLevelDecl"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConstDecl" eSuperTypes="#//Declaration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConstSpec" eSuperTypes="#//ConstDecl">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ExpressionList" eType="#//ExpressionList"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExpressionList" eSuperTypes="#//VarSpec #//ShortVarDecl #//Arguments"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeDecl" eSuperTypes="#//Declaration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeSpec" eSuperTypes="#//TypeDecl"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AliasDecl" eSuperTypes="#//TypeSpec"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeDef" eSuperTypes="#//TypeSpec"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VarDecl" eSuperTypes="#//Declaration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VarSpec" eSuperTypes="#//VarDecl"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ShortVarDecl"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionDecl" eSuperTypes="#//TopLevelDecl"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MethodDecl" eSuperTypes="#//TopLevelDecl"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Receiver" eSuperTypes="#//MethodDecl">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Signature" eType="#//Signature"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operand" eSuperTypes="#//PrimaryExpr"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Literal" eSuperTypes="#//Operand"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeLit" eSuperTypes="#//Literal"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LiteralType" eSuperTypes="#//CompositeLit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="LiteralValue" eType="#//LiteralValue"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ArrayType" eType="#//ArrayType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LiteralValue" eSuperTypes="#//Element #//Key">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ElementList" eType="#//ElementList"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementList"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Element"/>
+  <eClassifiers xsi:type="ecore:EClass" name="KeyedElement" eSuperTypes="#//ElementList">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="KeyedElement" eType="#//KeyedElement"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Element" eType="#//Element"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Key" eSuperTypes="#//KeyedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionLit" eSuperTypes="#//Literal"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimaryExpr">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PrimaryExprLinha" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Index"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Slice">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Expression" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SliceLinha"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeAssertion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Arguments"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MethodExpr" eSuperTypes="#//PrimaryExpr"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ReceiverType" eSuperTypes="#//MethodExpr"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="#//ArrayLength #//ExpressionList #//Operand #//Element #//Key #//Index #//Slice #//SliceLinha #//ExpressionLinha"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExpressionLinha"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnaryExpr" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ExpressionLinha" eType="#//ExpressionLinha"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PrimaryExpr" eType="#//PrimaryExpr"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Conversion" eSuperTypes="#//PrimaryExpr"/>
+</ecore:EPackage>
