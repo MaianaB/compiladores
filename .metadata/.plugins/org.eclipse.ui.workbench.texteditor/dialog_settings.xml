@@ -2,13 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="unicode" key="selection"/>
+		<item value="PrimaryExpr:" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="unicode"/>
+			<item value="PrimaryExpr:"/>
+			<item value="PrimaryExpr"/>
+			<item value="Expression:"/>
+			<item value="ExpressionList:"/>
+			<item value="&quot;(&quot;"/>
+			<item value="&quot;(&quot; T"/>
+			<item value="&quot;( &quot; T"/>
+			<item value="&quot;(  T"/>
+			<item value="expressionlinha"/>
+			<item value="expression:"/>
+			<item value="expression"/>
+			<item value="slicetype"/>
+			<item value="SliceType"/>
+			<item value="Source"/>
+			<item value="Empression:"/>
 		</list>
 		<list key="replacehistory">
 		</list>

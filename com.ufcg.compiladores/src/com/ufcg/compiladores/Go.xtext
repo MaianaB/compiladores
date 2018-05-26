@@ -2,6 +2,10 @@ grammar com.ufcg.compiladores.Go with org.eclipse.xtext.common.Terminals
 
 generate go "http://www.ufcg.com/compiladores/Go"
 
+ SouceFile:
+	PackageClause ";" (ImportDecl ";")* (TopLevelDecl ";")?
+ ;
+
 Type:
 	 TypeName | TypeLit | "(" Type ")"
 ;
@@ -36,7 +40,7 @@ StructType:
 ;
 
 FieldDecl:
-	{FieldDecl} (IdentifierList Type | EmbeddedField)(Tag)?
+	(IdentifierList Type | EmbeddedField) (Tag)?
 ;
 
 EmbeddedField:
@@ -256,8 +260,7 @@ PrimaryExpr:
 
 PrimaryExprLinha:
 	Selector PrimaryExpr | 
-		Index PrimaryExpr | 
-		Slice PrimaryExpr | 
+		"[" Expression? IndexLinha PrimaryExpr | 
 		TypeAssertion PrimaryExpr | 
 		Arguments PrimaryExpr |
 		ANY_OTHER
@@ -267,16 +270,12 @@ Selector:
 	"." identifier
 ;
 
-Index:
-	"[" Expression "]"
+IndexLinha:
+	"]" | Slice
 ;
 
 Slice:
-	"[" (Expression)? ":" (Expression)? ":" Expression "]" 
-;
-
-SliceLinha:
-	(":" Expression) "]"
+	":" (Expression)? ":" Expression "]" 
 ;
 
 TypeAssertion:
@@ -284,7 +283,7 @@ TypeAssertion:
 ;
 
 Arguments:
-	"(" ( (ExpressionList | Type ("," ExpressionList)?) ("...")? (",")?)? ")"
+	"(" ( (=>ExpressionList | Type ("," ExpressionList)?) ("...")? (",")?)? ")"
 ;
 
 MethodExpr:
@@ -300,7 +299,7 @@ Expression:
 ;
 
 ExpressionLinha:
-	binary_op Expression | ANY_OTHER
+	binary_op Expression ExpressionLinha | ANY_OTHER
 ;
 
 UnaryExpr:
@@ -347,7 +346,7 @@ EmptyStmt:
 ;
 
 LabeledStmt:
-	Label ":" Statement=Statement
+	Label ":" Statement
 ;
 
 Label:
@@ -359,7 +358,7 @@ ExpressionStmt:
 ;
 
 SendStmt:
-	Channel "<-" Expression=Expression
+	Channel "<-" Expression
 ;
 
 Channel:
@@ -379,7 +378,7 @@ assign_op:
 ;
 
 IfStmt:
-	"if" (SimpleStmt ";")? Expression Block ("else" (IfStmt=IfStmt | Block))?
+	"if" (SimpleStmt ";")? Expression Block ("else" (IfStmt | Block))?
 ;
 
 SwitchStmt:
@@ -415,7 +414,7 @@ TypeSwitchCase:
 ;
 
 TypeList:
-	Type ("," Type=Type)*
+	Type ("," Type)*
 ;
 
 ForStmt:
@@ -427,7 +426,7 @@ Condition:
 ;
 
 ForClause:
-	(InitStmt)? ";" (Condition=Condition)? ";" (PostStmt=PostStmt)?
+	(InitStmt)? ";" (Condition)? ";" (PostStmt)?
 ;
 
 InitStmt:
@@ -439,7 +438,7 @@ PostStmt:
 ;
 
 RangeClause:
-	(ExpressionList "=" | IdentifierList ":=")? "range" Expression=Expression
+	(ExpressionList "=" | IdentifierList ":=")? "range" Expression
 ;
 
 GoStmt:
@@ -459,7 +458,7 @@ CommCase:
 ;
  
 RecvStmt:
- 	(ExpressionList "=" | IdentifierList ":=")? RecvExpr=RecvExpr
+ 	(ExpressionList "=" | IdentifierList ":=")? RecvExpr
 ;
  
  RecvExpr:
@@ -489,10 +488,6 @@ RecvStmt:
  
  DeferStmt:
  	"defer" Expression
- ;
- 
- SouceFile:
- 	PackageClause ";" (ImportDecl ";")* (TopLevelDecl ";")?
  ;
  
  PackageClause:
