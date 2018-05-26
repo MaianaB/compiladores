@@ -2,7 +2,7 @@ grammar com.ufcg.compiladores.Go with org.eclipse.xtext.common.Terminals
 
 generate go "http://www.ufcg.com/compiladores/Go"
 
- SouceFile:
+SouceFile:
 	PackageClause ";" (ImportDecl ";")* (TopLevelDecl ";")?
  ;
 
@@ -15,15 +15,15 @@ TypeName:
 ;
 
 TypeNameLinha:
-	"." identifier | QualifiedIdent
+	"." identifier | QualifiedIdent | ANY_OTHER
 ;
 
 TypeLit:
-	"[" TypeLitLinha | StructType | PointerType | FunctionType | InterfaceType | MapType | ChannelType
+	"[" TypeLitLinha+=TypeLitLinha | StructType+=StructType | PointerType+=PointerType | FunctionType+=FunctionType | InterfaceType+=InterfaceType | MapType+=MapType | ChannelType+=ChannelType
 ;
 
 TypeLitLinha:
-	ArrayLength "]" ElementType |
+	ArrayLength "]" ElementType+=ElementType |
 	"]" ElementType
 ;
 
@@ -36,7 +36,7 @@ ElementType:
 ;
 
 StructType:
-	"struct" "{" (FieldDecl ";")* ";"
+	"struct" "{" (FieldDecl+=FieldDecl ";")* ";"
 ;
 
 FieldDecl:
@@ -52,11 +52,7 @@ Tag:
 ;
 
 PointerType:
-	"*" BaseType
-;
-
-BaseType:
-	Type
+	"*" Type
 ;
 
 FunctionType:
@@ -64,7 +60,7 @@ FunctionType:
 ;
 
 Signature:
-	Parameters (Result)?
+	Parameters (Result+=Result)?
 ;
 
 Result:
@@ -76,7 +72,7 @@ Parameters:
 ;
 
 ParameterList:
-	ParameterDecl ("," ParameterDecl)?
+	ParameterDecl ("," ParameterDecl+=ParameterDecl)?
 ;
 
 ParameterDecl:
@@ -100,7 +96,7 @@ InterfaceTypeName:
 ;
 
 MapType:
-	"map" "[" KeyType "]" ElementType
+	"map" "[" KeyType "]" ElementType+=ElementType
 ;
 
 KeyType:
@@ -132,7 +128,7 @@ ConstDecl:
 ;
 
 ConstSpec:
-	IdentifierList ((Type)? "=" ExpressionList)?
+	IdentifierList ((Type)? "=" ExpressionList+=ExpressionList)?
 ;
 
 IdentifierList:
@@ -164,7 +160,7 @@ VarDecl:
 ;
 
 VarSpec:
-	IdentifierList (Type ("=" ExpressionList)? | "=" ExpressionList)
+	IdentifierList (Type ("=" ExpressionList+=ExpressionList)? | "=" ExpressionList)
 ;
 
 ShortVarDecl:
@@ -172,7 +168,7 @@ ShortVarDecl:
 ;
 
 FunctionDecl:
-	"func" FunctionName Signature (FunctionBody)?
+	"func" FunctionName Signature (FunctionBody+=FunctionBody)?
 ;
 
 FunctionName:
@@ -180,11 +176,11 @@ FunctionName:
 ;
 
 FunctionBody:
-	Block
+	Block+=Block
 ;
 
 MethodDecl:
-	"func" Receiver MethodName Signature (FunctionBody)?
+	"func" Receiver MethodName Signature+=Signature (FunctionBody)?
 ;
 
 Receiver:
@@ -212,7 +208,7 @@ QualifiedIdent:
 ;
 
 CompositeLit:
-	LiteralType LiteralValue
+	LiteralType LiteralValue+=LiteralValue
 ;
 
 LiteralType:
@@ -220,7 +216,7 @@ LiteralType:
 ;
 
 LiteralTypeLinha:
-	ArrayLength "]" ElementType |
+	ArrayLength "]" ElementType+=ElementType |
 	"]" ElementType |
 	"..." "]"
 ;
@@ -230,7 +226,7 @@ LiteralValue:
 ;
 
 ElementList:
-	KeyedElement ("," KeyedElement)?
+	KeyedElement ("," KeyedElement+=KeyedElement)?
 ;
 
 Element:
@@ -238,7 +234,7 @@ Element:
 ;
 
 KeyedElement:
-	(Key ":")? Element
+	(Key ":")? Element+=Element
 ;
 
 Key:
@@ -250,19 +246,19 @@ FieldName:
 ;
 
 FunctionLit:
-	"func" Signature FunctionBody
+	"func" Signature FunctionBody+=FunctionBody
 ;
 
 PrimaryExpr:
-	Operand PrimaryExprLinha | Conversion PrimaryExprLinha | 
-	MethodExpr PrimaryExprLinha
+	Operand PrimaryExprLinha+=PrimaryExprLinha | Conversion PrimaryExprLinha+=PrimaryExprLinha | 
+	MethodExpr PrimaryExprLinha+=PrimaryExprLinha
 ;
 
 PrimaryExprLinha:
-	Selector PrimaryExpr | 
-		"[" Expression? IndexLinha PrimaryExpr | 
-		TypeAssertion PrimaryExpr | 
-		Arguments PrimaryExpr |
+	Selector PrimaryExpr PrimaryExprLinha+=PrimaryExprLinha | 
+		"[" Expression? IndexLinha+=IndexLinha PrimaryExprLinha+=PrimaryExprLinha | 
+		TypeAssertion PrimaryExprLinha+=PrimaryExprLinha | 
+		Arguments PrimaryExprLinha+=PrimaryExprLinha |
 		ANY_OTHER
 ;
 
@@ -295,15 +291,16 @@ ReceiverType:
 ;
 
 Expression:
-	UnaryExpr ExpressionLinha
+	UnaryExpr ExpressionLinha+=ExpressionLinha
 ;
 
 ExpressionLinha:
-	binary_op Expression ExpressionLinha | ANY_OTHER
+	binary_op Expression ExpressionLinha+=ExpressionLinha | ANY_OTHER
 ;
 
 UnaryExpr:
-	PrimaryExpr | unary_op UnaryExpr
+//	PrimaryExpr | unary_op UnaryExpr
+unary_op UnaryExpr
 ;
 
 binary_op:
@@ -327,13 +324,13 @@ unary_op:
 ;
 
 Conversion:
-	Type "(" Expression (",")? ")"
+	Type "(" Expression+=Expression (",")? ")"
 ;
 
 Statement:
-	Declaration | LabeledStmt | SimpleStmt |
+	Declaration | LabeledStmt=LabeledStmt | SimpleStmt |
 	GoStmt | ReturnStmt | BreakStmt | ContinueStmt | GotoStmt |
-	FallthroughStmt | Block | IfStmt | SwitchStmt | SelectStmt | ForStmt |
+	FallthroughStmt | Block | IfStmt | SwitchStmt | SelectStmt | ForStmt=ForStmt |
 	DeferStmt
 ;
 
@@ -342,7 +339,7 @@ SimpleStmt:
 ;
 
 EmptyStmt:
-	{None}
+	ANY_OTHER
 ;
 
 LabeledStmt:
@@ -358,7 +355,7 @@ ExpressionStmt:
 ;
 
 SendStmt:
-	Channel "<-" Expression
+	Channel "<-" Expression+=Expression
 ;
 
 Channel:
@@ -378,27 +375,24 @@ assign_op:
 ;
 
 IfStmt:
-	"if" (SimpleStmt ";")? Expression Block ("else" (IfStmt | Block))?
+	"if" (SimpleStmt ";")? Expression+=Expression Block+=Block ("else" (IfStmt+=IfStmt | Block+=Block))?
 ;
 
 SwitchStmt:
-	ExprSwitchStmt | TypeSwitchStmt
-;
-
-ExprSwitchStmt:
-	"switch" (SimpleStmt ";")? (Expression)? "{" (ExprCaseClause)* "}"
+	"switch" (SimpleStmt ";")? switch_stmt_linha+=switch_stmt_linha
 ;
 
 ExprCaseClause:
-	ExprSwitchCase ":" StatementList
+	ExprSwitchCase ":" StatementList+=StatementList
 ;
 
 ExprSwitchCase:
 	"case" ExpressionList | "default"
 ;
 
-TypeSwitchStmt:
-	"switch" (SimpleStmt ";")? TypeSwitchGuard=TypeSwitchGuard "{" (TypeCaseClause=TypeCaseClause)* "}"
+switch_stmt_linha:
+	TypeSwitchGuard+=TypeSwitchGuard "{" (TypeCaseClause+=TypeCaseClause)* "}" |
+	(Expression+=Expression)? "{" (ExprCaseClause+=ExprCaseClause)* "}"
 ;
 
 TypeSwitchGuard:
@@ -406,7 +400,7 @@ TypeSwitchGuard:
 ;
 
 TypeCaseClause:
-	TypeSwitchCase ":" StatementList=StatementList
+	TypeSwitchCase ":" StatementList+=StatementList
 ;
 
 TypeSwitchCase:
@@ -414,11 +408,11 @@ TypeSwitchCase:
 ;
 
 TypeList:
-	Type ("," Type)*
+	Type ("," Type+=Type)*
 ;
 
 ForStmt:
-	"for"(Condition | ForClause | RangeClause)? Block
+	"for" (Condition | ForClause | RangeClause)? Block
 ;
 
 Condition:
@@ -426,7 +420,7 @@ Condition:
 ;
 
 ForClause:
-	(InitStmt)? ";" (Condition)? ";" (PostStmt)?
+	(InitStmt)? ";" (Condition+=Condition)? ";" (PostStmt+=PostStmt)?
 ;
 
 InitStmt:
@@ -446,7 +440,7 @@ GoStmt:
 ;
 
 SelectStmt:
-	"select" "{" (CommClause)* "}"
+	"select" "{" (CommClause+=CommClause)* "}"
 ;
  
 CommClause:
@@ -458,7 +452,7 @@ CommCase:
 ;
  
 RecvStmt:
- 	(ExpressionList "=" | IdentifierList ":=")? RecvExpr
+ 	(ExpressionList "=" | IdentifierList ":=")? RecvExpr+=RecvExpr
 ;
  
  RecvExpr:
@@ -466,7 +460,7 @@ RecvStmt:
  ;
  
  ReturnStmt:
- 	"return" (ExpressionList)?
+ 	"return" (ExpressionList+=ExpressionList)?
  ;
  
  BreakStmt:
@@ -487,7 +481,7 @@ RecvStmt:
  ;
  
  DeferStmt:
- 	"defer" Expression
+ 	"defer" Expression+=Expression
  ;
  
  PackageClause:
