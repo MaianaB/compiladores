@@ -120,11 +120,7 @@ Declaration:
 ;
 
 TopLevelDecl:
-	Declaration | "func" topLevelDeclLinha
-;
-
-topLevelDeclLinha:
-	FunctionName Signature (FunctionBody+=FunctionBody)? | Receiver MethodName Signature+=Signature (FunctionBody)?
+	Declaration | FunctionDecl | MethodDecl
 ;
 
 ConstDecl:
@@ -171,21 +167,21 @@ ShortVarDecl:
 	IdentifierList ":=" ExpressionList
 ;
 
-//FunctionDecl:
-//	"func" FunctionName Signature (FunctionBody+=FunctionBody)?
-//;
+FunctionDecl:
+	"func" FunctionName Signature (FunctionBody+=FunctionBody)?
+;
 
 FunctionName:
 	identifier
 ;
 
 FunctionBody:
-	Block
+	Block+=Block
 ;
 
-//MethodDecl:
-//	"func" Receiver MethodName Signature+=Signature (FunctionBody)?
-//;
+MethodDecl:
+	"func" Receiver MethodName Signature+=Signature (FunctionBody)?
+;
 
 Receiver:
 	Parameters
@@ -283,7 +279,7 @@ TypeAssertion:
 ;
 
 Arguments:
-	"(" ( (=>ExpressionList | Type ("," ExpressionList+=ExpressionList)?) ("...")? (",")?)? ")"
+	"(" ( (=>ExpressionList | Type ("," ExpressionList)?) ("...")? (",")?)? ")"
 ;
 
 MethodExpr:
@@ -333,9 +329,9 @@ Conversion:
 
 Statement:
 	Declaration+=Declaration | LabeledStmt=LabeledStmt | SimpleStmt+=SimpleStmt |
-	GoStmt=GoStmt | ReturnStmt=ReturnStmt | BreakStmt+=BreakStmt | ContinueStmt+=ContinueStmt | GotoStmt+=GotoStmt |
-	FallthroughStmt+=FallthroughStmt | Block=Block | IfStmt=IfStmt | SwitchStmt=SwitchStmt | SelectStmt=SelectStmt | ForStmt=ForStmt |
-	DeferStmt=DeferStmt
+	GoStmt=GoStmt | ReturnStmt=ReturnStmt | BreakStmt | ContinueStmt | GotoStmt |
+	FallthroughStmt | Block=Block | IfStmt=IfStmt | SwitchStmt | SelectStmt | ForStmt=ForStmt |
+	DeferStmt
 ;
 
 SimpleStmt:

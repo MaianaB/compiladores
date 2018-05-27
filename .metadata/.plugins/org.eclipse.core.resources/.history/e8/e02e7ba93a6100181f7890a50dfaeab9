@@ -120,11 +120,7 @@ Declaration:
 ;
 
 TopLevelDecl:
-	Declaration | "func" topLevelDeclLinha
-;
-
-topLevelDeclLinha:
-	FunctionName Signature (FunctionBody+=FunctionBody)? | Receiver MethodName Signature+=Signature (FunctionBody)?
+	Declaration | FunctionDecl | MethodDecl
 ;
 
 ConstDecl:
@@ -140,7 +136,7 @@ IdentifierList:
 ;
 
 ExpressionList:
-	Expression ("," Expression+=Expression)?
+	Expression ("," Expression)?
 ;
 
 TypeDecl:
@@ -171,21 +167,21 @@ ShortVarDecl:
 	IdentifierList ":=" ExpressionList
 ;
 
-//FunctionDecl:
-//	"func" FunctionName Signature (FunctionBody+=FunctionBody)?
-//;
+FunctionDecl:
+	"func" FunctionName Signature (FunctionBody+=FunctionBody)?
+;
 
 FunctionName:
 	identifier
 ;
 
 FunctionBody:
-	Block
+	Block+=Block
 ;
 
-//MethodDecl:
-//	"func" Receiver MethodName Signature+=Signature (FunctionBody)?
-//;
+MethodDecl:
+	"func" Receiver MethodName Signature+=Signature (FunctionBody)?
+;
 
 Receiver:
 	Parameters
@@ -226,7 +222,7 @@ LiteralTypeLinha:
 ;
 
 LiteralValue:
-	"{" (ElementList+=ElementList (",")?)? "}"
+	"{" (ElementList (",")?)? "}"
 ;
 
 ElementList:
@@ -242,7 +238,7 @@ KeyedElement:
 ;
 
 Key:
-	FieldName | Expression+=Expression | LiteralValue
+	FieldName | Expression | LiteralValue
 ;
 
 FieldName:
@@ -283,7 +279,7 @@ TypeAssertion:
 ;
 
 Arguments:
-	"(" ( (=>ExpressionList | Type ("," ExpressionList+=ExpressionList)?) ("...")? (",")?)? ")"
+	"(" ( (=>ExpressionList | Type ("," ExpressionList)?) ("...")? (",")?)? ")"
 ;
 
 MethodExpr:
@@ -332,10 +328,10 @@ Conversion:
 ;
 
 Statement:
-	Declaration+=Declaration | LabeledStmt=LabeledStmt | SimpleStmt+=SimpleStmt |
-	GoStmt=GoStmt | ReturnStmt=ReturnStmt | BreakStmt+=BreakStmt | ContinueStmt+=ContinueStmt | GotoStmt+=GotoStmt |
-	FallthroughStmt+=FallthroughStmt | Block=Block | IfStmt=IfStmt | SwitchStmt=SwitchStmt | SelectStmt=SelectStmt | ForStmt=ForStmt |
-	DeferStmt=DeferStmt
+	Declaration | LabeledStmt=LabeledStmt | SimpleStmt |
+	GoStmt | ReturnStmt | BreakStmt | ContinueStmt | GotoStmt |
+	FallthroughStmt | Block | IfStmt | SwitchStmt | SelectStmt | ForStmt=ForStmt |
+	DeferStmt
 ;
 
 SimpleStmt:
@@ -379,7 +375,7 @@ assign_op:
 ;
 
 IfStmt:
-	"if" (SimpleStmt ";")? Expression+=Expression Block ("else" (IfStmt+=IfStmt | Block+=Block))?
+	"if" (SimpleStmt ";")? Expression+=Expression Block+=Block ("else" (IfStmt+=IfStmt | Block+=Block))?
 ;
 
 SwitchStmt:

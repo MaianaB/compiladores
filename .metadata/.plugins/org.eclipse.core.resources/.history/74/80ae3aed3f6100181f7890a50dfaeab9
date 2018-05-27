@@ -333,9 +333,9 @@ Conversion:
 
 Statement:
 	Declaration+=Declaration | LabeledStmt=LabeledStmt | SimpleStmt+=SimpleStmt |
-	GoStmt=GoStmt | ReturnStmt=ReturnStmt | BreakStmt+=BreakStmt | ContinueStmt+=ContinueStmt | GotoStmt+=GotoStmt |
-	FallthroughStmt+=FallthroughStmt | Block=Block | IfStmt=IfStmt | SwitchStmt=SwitchStmt | SelectStmt=SelectStmt | ForStmt=ForStmt |
-	DeferStmt=DeferStmt
+	GoStmt=GoStmt | ReturnStmt=ReturnStmt | BreakStmt | ContinueStmt | GotoStmt |
+	FallthroughStmt | Block=Block | IfStmt=IfStmt | SwitchStmt=SwitchStmt | SelectStmt | ForStmt=ForStmt |
+	DeferStmt
 ;
 
 SimpleStmt:
