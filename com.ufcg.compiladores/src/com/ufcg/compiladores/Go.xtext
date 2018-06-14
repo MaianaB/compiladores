@@ -112,7 +112,7 @@ Block:
 ;
 
 StatementList:
-	(Statement ";")?
+	(Statement ";")
 ;
 
 Declaration:
@@ -124,7 +124,7 @@ TopLevelDecl:
 ;
 
 topLevelDeclLinha:
-	FunctionName Signature (FunctionBody+=FunctionBody)? | Receiver MethodName Signature+=Signature (FunctionBody)?
+	FunctionName Signature (FunctionBody+=FunctionBody)? | Receiver MethodName Signature+=Signature (FunctionBody+=FunctionBody)?
 ;
 
 ConstDecl:
@@ -171,9 +171,9 @@ ShortVarDecl:
 	IdentifierList ":=" ExpressionList
 ;
 
-//FunctionDecl:
-//	"func" FunctionName Signature (FunctionBody+=FunctionBody)?
-//;
+FunctionDecl:
+	"func" FunctionName Signature (FunctionBody+=FunctionBody)?
+;
 
 FunctionName:
 	identifier
@@ -183,9 +183,9 @@ FunctionBody:
 	Block
 ;
 
-//MethodDecl:
-//	"func" Receiver MethodName Signature+=Signature (FunctionBody)?
-//;
+MethodDecl:
+	"func" Receiver MethodName Signature+=Signature (FunctionBody+=FunctionBody)?
+;
 
 Receiver:
 	Parameters
@@ -275,7 +275,7 @@ IndexLinha:
 ;
 
 Slice:
-	":" (Expression)? ":" Expression "]" 
+	":" (decimals)? ":" decimals "]" 
 ;
 
 TypeAssertion:
@@ -332,10 +332,10 @@ Conversion:
 ;
 
 Statement:
-	Declaration+=Declaration | LabeledStmt=LabeledStmt | SimpleStmt+=SimpleStmt |
-	GoStmt=GoStmt | ReturnStmt=ReturnStmt | BreakStmt+=BreakStmt | ContinueStmt+=ContinueStmt | GotoStmt+=GotoStmt |
-	FallthroughStmt+=FallthroughStmt | Block=Block | IfStmt=IfStmt | SwitchStmt=SwitchStmt | SelectStmt=SelectStmt | ForStmt=ForStmt |
-	DeferStmt=DeferStmt
+	Declaration+=Declaration | LabeledStmt+=LabeledStmt | SimpleStmt+=SimpleStmt |
+	GoStmt+=GoStmt | ReturnStmt+=ReturnStmt | BreakStmt+=BreakStmt | ContinueStmt+=ContinueStmt | GotoStmt+=GotoStmt |
+	FallthroughStmt+=FallthroughStmt | Block+=Block | IfStmt+=IfStmt | SwitchStmt+=SwitchStmt | SelectStmt+=SelectStmt | ForStmt+=ForStmt |
+	DeferStmt+=DeferStmt
 ;
 
 SimpleStmt:
@@ -371,7 +371,7 @@ IncDecStmt:
 ;
 
 Assignment:
-	ExpressionList assign_op ExpressionList
+	ExpressionList assign_op ExpressionList+=ExpressionList
 ;
 
 assign_op:
@@ -379,7 +379,7 @@ assign_op:
 ;
 
 IfStmt:
-	"if" (SimpleStmt ";")? Expression+=Expression Block ("else" (IfStmt+=IfStmt | Block+=Block))?
+	"if" (SimpleStmt ";")? Expression+=Expression Block+=Block ("else" (IfStmt+=IfStmt | Block+=Block))?
 ;
 
 SwitchStmt:
@@ -416,7 +416,7 @@ TypeList:
 ;
 
 ForStmt:
-	"for" (Condition | ForClause | RangeClause)? Block
+	"for" (Condition | ForClause | RangeClause)? //Block
 ;
 
 Condition:
@@ -436,7 +436,7 @@ PostStmt:
 ;
 
 RangeClause:
-	(ExpressionList "=" | IdentifierList ":=")? "range" Expression
+	(ExpressionList "=" | IdentifierList ":=")? "range"// Expression
 ;
 
 GoStmt:
@@ -448,7 +448,7 @@ SelectStmt:
 ;
  
 CommClause:
- 	CommCase ":" StatementList
+ 	CommCase ":" //StatementList
 ;
  
 CommCase:

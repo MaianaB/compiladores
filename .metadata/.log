@@ -9078,3 +9078,70 @@ java.lang.IllegalArgumentException: Comparison method violates its general contr
 	at org.eclipse.xtext.ui.editor.model.XtextDocument.internalModify(XtextDocument.java:162)
 	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.run(XtextReconciler.java:360)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SESSION 2018-06-13 21:33:45.434 -----------------------------------------------
+eclipse.buildId=4.7.3.M20180330-0640
+java.version=1.8.0_171
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=pt_BR
+Framework arguments:  -product org.eclipse.epp.package.jee.product -keyring /Users/antunesdantas/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -keyring /Users/antunesdantas/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2018-06-13 21:36:00.430
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.apache.log4j 4 0 2018-06-13 21:40:40.023
+!MESSAGE org.eclipse.xtext.xtext.XtextLinker  - Comparison method violates its general contract!
+
+!STACK 0
+java.lang.IllegalArgumentException: Comparison method violates its general contract!
+	at java.util.TimSort.mergeHi(TimSort.java:899)
+	at java.util.TimSort.mergeAt(TimSort.java:516)
+	at java.util.TimSort.mergeForceCollapse(TimSort.java:457)
+	at java.util.TimSort.sort(TimSort.java:254)
+	at java.util.Arrays.sort(Arrays.java:1512)
+	at java.util.ArrayList.sort(ArrayList.java:1462)
+	at java.util.Collections.sort(Collections.java:175)
+	at org.eclipse.xtext.EcoreUtil2.getSortedCommonCompatibleTypeCandidates(EcoreUtil2.java:373)
+	at org.eclipse.xtext.EcoreUtil2.getCompatibleType(EcoreUtil2.java:336)
+	at org.eclipse.xtext.xtext.ecoreInference.EClassifierInfos.getCompatibleType(EClassifierInfos.java:153)
+	at org.eclipse.xtext.xtext.ecoreInference.EClassifierInfos.getCompatibleTypeOf(EClassifierInfos.java:165)
+	at org.eclipse.xtext.xtext.ecoreInference.TypeHierarchyHelper.liftUpFeaturesInto(TypeHierarchyHelper.java:105)
+	at org.eclipse.xtext.xtext.ecoreInference.TypeHierarchyHelper.liftUpFeaturesInto(TypeHierarchyHelper.java:95)
+	at org.eclipse.xtext.xtext.ecoreInference.TypeHierarchyHelper.liftUpFeaturesInto(TypeHierarchyHelper.java:95)
+	at org.eclipse.xtext.xtext.ecoreInference.TypeHierarchyHelper.liftUpFeaturesInto(TypeHierarchyHelper.java:95)
+	at org.eclipse.xtext.xtext.ecoreInference.TypeHierarchyHelper.liftUpFeaturesInto(TypeHierarchyHelper.java:95)
+	at org.eclipse.xtext.xtext.ecoreInference.TypeHierarchyHelper.liftUpFeaturesInto(TypeHierarchyHelper.java:95)
+	at org.eclipse.xtext.xtext.ecoreInference.TypeHierarchyHelper.liftUpFeaturesInto(TypeHierarchyHelper.java:95)
+	at org.eclipse.xtext.xtext.ecoreInference.TypeHierarchyHelper.liftUpFeaturesInto(TypeHierarchyHelper.java:95)
+	at org.eclipse.xtext.xtext.ecoreInference.TypeHierarchyHelper.liftUpFeaturesInto(TypeHierarchyHelper.java:95)
+	at org.eclipse.xtext.xtext.ecoreInference.TypeHierarchyHelper.liftUpFeaturesInto(TypeHierarchyHelper.java:95)
+	at org.eclipse.xtext.xtext.ecoreInference.TypeHierarchyHelper.liftUpFeaturesInto(TypeHierarchyHelper.java:95)
+	at org.eclipse.xtext.xtext.ecoreInference.TypeHierarchyHelper.liftUpFeaturesInto(TypeHierarchyHelper.java:95)
+	at org.eclipse.xtext.xtext.ecoreInference.TypeHierarchyHelper.liftUpFeaturesInto(TypeHierarchyHelper.java:95)
+	at org.eclipse.xtext.xtext.ecoreInference.TypeHierarchyHelper.liftUpFeaturesRecursively(TypeHierarchyHelper.java:79)
+	at org.eclipse.xtext.xtext.ecoreInference.TypeHierarchyHelper.liftUpFeaturesRecursively(TypeHierarchyHelper.java:187)
+	at org.eclipse.xtext.xtext.ecoreInference.Xtext2EcoreTransformer.normalizeAndValidateGeneratedPackages(Xtext2EcoreTransformer.java:627)
+	at org.eclipse.xtext.xtext.ecoreInference.Xtext2EcoreTransformer.transform(Xtext2EcoreTransformer.java:152)
+	at org.eclipse.xtext.xtext.XtextLinker.linkModel(XtextLinker.java:259)
+	at org.eclipse.xtext.resource.XtextResource.doLinking(XtextResource.java:340)
+	at org.eclipse.xtext.linking.lazy.LazyLinkingResource.doLinking(LazyLinkingResource.java:107)
+	at org.eclipse.xtext.xtext.GrammarResource.superDoLinking(GrammarResource.java:48)
+	at org.eclipse.xtext.xtext.GrammarResource$LinkingTrigger.installDerivedState(GrammarResource.java:95)
+	at org.eclipse.xtext.resource.DerivedStateAwareResource.installDerivedState(DerivedStateAwareResource.java:243)
+	at org.eclipse.xtext.resource.DerivedStateAwareResource.getContents(DerivedStateAwareResource.java:97)
+	at org.eclipse.emf.ecore.util.EcoreUtil.getAllContents(EcoreUtil.java:1178)
+	at org.eclipse.xtext.linking.lazy.LazyLinkingResource.resolveLazyCrossReferences(LazyLinkingResource.java:125)
+	at org.eclipse.xtext.EcoreUtil2.resolveLazyCrossReferences(EcoreUtil2.java:500)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.postParse(XtextDocumentReconcileStrategy.java:207)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.doReconcile(XtextDocumentReconcileStrategy.java:185)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.reconcile(XtextDocumentReconcileStrategy.java:90)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.doRun(XtextReconciler.java:450)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.access$3(XtextReconciler.java:430)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:364)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:1)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:37)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.modify(XtextDocument.java:433)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.internalModify(XtextDocument.java:166)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.run(XtextReconciler.java:361)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)

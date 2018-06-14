@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="PrimaryExpr:" key="selection"/>
+		<item value="Statement" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="PrimaryExpr:"/>
-			<item value="PrimaryExpr"/>
-			<item value="Expression:"/>
-			<item value="ExpressionList:"/>
-			<item value="&quot;(&quot;"/>
-			<item value="&quot;(&quot; T"/>
-			<item value="&quot;( &quot; T"/>
-			<item value="&quot;(  T"/>
-			<item value="expressionlinha"/>
-			<item value="expression:"/>
-			<item value="expression"/>
-			<item value="slicetype"/>
-			<item value="SliceType"/>
-			<item value="Source"/>
-			<item value="Empression:"/>
+			<item value="statement"/>
+			<item value="block:"/>
+			<item value="FunctionName Signature (FunctionBody+=FunctionBody)?"/>
+			<item value="FunctionName Signature (FunctionBody+=FunctionBody)? | Receiver MethodName Signature+=Signature (FunctionBody)?"/>
+			<item value="linha"/>
+			<item value="FunctionDecl"/>
+			<item value="functiondecl"/>
+			<item value="functi"/>
+			<item value="method"/>
+			<item value="function"/>
+			<item value="declaration"/>
+			<item value="VarDecl"/>
+			<item value="vardecl"/>
+			<item value="typedecl"/>
+			<item value="statementlist:"/>
 		</list>
 		<list key="replacehistory">
 		</list>
@@ -31,7 +31,7 @@
 		<item value="290" key="DIALOG_WIDTH"/>
 		<item value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont" key="DIALOG_FONT_NAME"/>
 		<item value="409" key="DIALOG_HEIGHT"/>
-		<item value="214" key="DIALOG_X_ORIGIN"/>
-		<item value="178" key="DIALOG_Y_ORIGIN"/>
+		<item value="840" key="DIALOG_X_ORIGIN"/>
+		<item value="86" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

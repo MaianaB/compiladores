@@ -3,14 +3,13 @@
  */
 package com.ufcg.compiladores;
 
-import com.ufcg.compiladores.GoStandaloneSetupGenerated;
-
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
  */
 @SuppressWarnings("all")
-public class GoStandaloneSetup extends GoStandaloneSetupGenerated {
+public class GoStandaloneSetup /* implements GoStandaloneSetupGenerated  */{
   public static void doSetup() {
-    new GoStandaloneSetup().createInjectorAndDoEMFRegistration();
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method createInjectorAndDoEMFRegistration() is undefined for the type GoStandaloneSetup");
   }
 }

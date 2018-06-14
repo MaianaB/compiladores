@@ -3,12 +3,8 @@
  */
 package com.ufcg.compiladores.ide;
 
-import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.ufcg.compiladores.GoRuntimeModule;
 import com.ufcg.compiladores.GoStandaloneSetup;
-import com.ufcg.compiladores.ide.GoIdeModule;
-import org.eclipse.xtext.util.Modules2;
 
 /**
  * Initialization support for running Xtext languages as language servers.
@@ -17,8 +13,8 @@ import org.eclipse.xtext.util.Modules2;
 public class GoIdeSetup extends GoStandaloneSetup {
   @Override
   public Injector createInjector() {
-    GoRuntimeModule _goRuntimeModule = new GoRuntimeModule();
-    GoIdeModule _goIdeModule = new GoIdeModule();
-    return Guice.createInjector(Modules2.mixin(_goRuntimeModule, _goIdeModule));
+    throw new Error("Unresolved compilation problems:"
+      + "\nType mismatch: cannot convert from GoRuntimeModule to Module"
+      + "\nType mismatch: cannot convert from GoIdeModule to Module");
   }
 }

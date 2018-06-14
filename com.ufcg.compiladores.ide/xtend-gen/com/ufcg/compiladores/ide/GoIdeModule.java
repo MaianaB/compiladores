@@ -3,11 +3,9 @@
  */
 package com.ufcg.compiladores.ide;
 
-import com.ufcg.compiladores.ide.AbstractGoIdeModule;
-
 /**
  * Use this class to register ide components.
  */
 @SuppressWarnings("all")
-public class GoIdeModule extends AbstractGoIdeModule {
+public class GoIdeModule /* implements AbstractGoIdeModule  */{
 }
