@@ -3,27 +3,21 @@
  */
 package com.ufcg.compiladores.go.impl;
 
-import com.ufcg.compiladores.go.Condition;
-import com.ufcg.compiladores.go.ForClause;
-import com.ufcg.compiladores.go.ForStmt;
+import com.ufcg.compiladores.go.Assignment;
+import com.ufcg.compiladores.go.ExpressionStmt;
 import com.ufcg.compiladores.go.GoPackage;
-import com.ufcg.compiladores.go.InitStmt;
-import com.ufcg.compiladores.go.PostStmt;
+import com.ufcg.compiladores.go.IncDecStmt;
+import com.ufcg.compiladores.go.SendStmt;
+import com.ufcg.compiladores.go.ShortVarDecl;
 import com.ufcg.compiladores.go.SimpleStmt;
-import com.ufcg.compiladores.go.SwitchStmt;
-import com.ufcg.compiladores.go.switch_stmt_linha;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,44 +27,87 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.ufcg.compiladores.go.impl.SimpleStmtImpl#getSwitch_stmt_linha <em>Switch stmt linha</em>}</li>
- *   <li>{@link com.ufcg.compiladores.go.impl.SimpleStmtImpl#getCondition <em>Condition</em>}</li>
- *   <li>{@link com.ufcg.compiladores.go.impl.SimpleStmtImpl#getPostStmt <em>Post Stmt</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.SimpleStmtImpl#getEmptyStmt <em>Empty Stmt</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.SimpleStmtImpl#getExpressionStmt <em>Expression Stmt</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.SimpleStmtImpl#getSendStmt <em>Send Stmt</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.SimpleStmtImpl#getIncDecStmt <em>Inc Dec Stmt</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.SimpleStmtImpl#getAssignment <em>Assignment</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.SimpleStmtImpl#getShortVarDecl <em>Short Var Decl</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SimpleStmtImpl extends IfStmtImpl implements SimpleStmt
+public class SimpleStmtImpl extends SwitchStmtImpl implements SimpleStmt
 {
   /**
-   * The cached value of the '{@link #getSwitch_stmt_linha() <em>Switch stmt linha</em>}' containment reference list.
+   * The default value of the '{@link #getEmptyStmt() <em>Empty Stmt</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSwitch_stmt_linha()
+   * @see #getEmptyStmt()
    * @generated
    * @ordered
    */
-  protected EList<switch_stmt_linha> switch_stmt_linha;
+  protected static final String EMPTY_STMT_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference list.
+   * The cached value of the '{@link #getEmptyStmt() <em>Empty Stmt</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCondition()
+   * @see #getEmptyStmt()
    * @generated
    * @ordered
    */
-  protected EList<Condition> condition;
+  protected String emptyStmt = EMPTY_STMT_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getPostStmt() <em>Post Stmt</em>}' containment reference list.
+   * The cached value of the '{@link #getExpressionStmt() <em>Expression Stmt</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPostStmt()
+   * @see #getExpressionStmt()
    * @generated
    * @ordered
    */
-  protected EList<PostStmt> postStmt;
+  protected ExpressionStmt expressionStmt;
+
+  /**
+   * The cached value of the '{@link #getSendStmt() <em>Send Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSendStmt()
+   * @generated
+   * @ordered
+   */
+  protected SendStmt sendStmt;
+
+  /**
+   * The cached value of the '{@link #getIncDecStmt() <em>Inc Dec Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIncDecStmt()
+   * @generated
+   * @ordered
+   */
+  protected IncDecStmt incDecStmt;
+
+  /**
+   * The cached value of the '{@link #getAssignment() <em>Assignment</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAssignment()
+   * @generated
+   * @ordered
+   */
+  protected Assignment assignment;
+
+  /**
+   * The cached value of the '{@link #getShortVarDecl() <em>Short Var Decl</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getShortVarDecl()
+   * @generated
+   * @ordered
+   */
+  protected ShortVarDecl shortVarDecl;
 
   /**
    * <!-- begin-user-doc -->
@@ -98,13 +135,9 @@ public class SimpleStmtImpl extends IfStmtImpl implements SimpleStmt
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<switch_stmt_linha> getSwitch_stmt_linha()
+  public String getEmptyStmt()
   {
-    if (switch_stmt_linha == null)
-    {
-      switch_stmt_linha = new EObjectContainmentEList<switch_stmt_linha>(switch_stmt_linha.class, this, GoPackage.SIMPLE_STMT__SWITCH_STMT_LINHA);
-    }
-    return switch_stmt_linha;
+    return emptyStmt;
   }
 
   /**
@@ -112,13 +145,12 @@ public class SimpleStmtImpl extends IfStmtImpl implements SimpleStmt
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Condition> getCondition()
+  public void setEmptyStmt(String newEmptyStmt)
   {
-    if (condition == null)
-    {
-      condition = new EObjectContainmentEList<Condition>(Condition.class, this, GoPackage.SIMPLE_STMT__CONDITION);
-    }
-    return condition;
+    String oldEmptyStmt = emptyStmt;
+    emptyStmt = newEmptyStmt;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__EMPTY_STMT, oldEmptyStmt, emptyStmt));
   }
 
   /**
@@ -126,13 +158,239 @@ public class SimpleStmtImpl extends IfStmtImpl implements SimpleStmt
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<PostStmt> getPostStmt()
+  public ExpressionStmt getExpressionStmt()
   {
-    if (postStmt == null)
+    return expressionStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExpressionStmt(ExpressionStmt newExpressionStmt, NotificationChain msgs)
+  {
+    ExpressionStmt oldExpressionStmt = expressionStmt;
+    expressionStmt = newExpressionStmt;
+    if (eNotificationRequired())
     {
-      postStmt = new EObjectContainmentEList<PostStmt>(PostStmt.class, this, GoPackage.SIMPLE_STMT__POST_STMT);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__EXPRESSION_STMT, oldExpressionStmt, newExpressionStmt);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return postStmt;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExpressionStmt(ExpressionStmt newExpressionStmt)
+  {
+    if (newExpressionStmt != expressionStmt)
+    {
+      NotificationChain msgs = null;
+      if (expressionStmt != null)
+        msgs = ((InternalEObject)expressionStmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__EXPRESSION_STMT, null, msgs);
+      if (newExpressionStmt != null)
+        msgs = ((InternalEObject)newExpressionStmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__EXPRESSION_STMT, null, msgs);
+      msgs = basicSetExpressionStmt(newExpressionStmt, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__EXPRESSION_STMT, newExpressionStmt, newExpressionStmt));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SendStmt getSendStmt()
+  {
+    return sendStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSendStmt(SendStmt newSendStmt, NotificationChain msgs)
+  {
+    SendStmt oldSendStmt = sendStmt;
+    sendStmt = newSendStmt;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__SEND_STMT, oldSendStmt, newSendStmt);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSendStmt(SendStmt newSendStmt)
+  {
+    if (newSendStmt != sendStmt)
+    {
+      NotificationChain msgs = null;
+      if (sendStmt != null)
+        msgs = ((InternalEObject)sendStmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__SEND_STMT, null, msgs);
+      if (newSendStmt != null)
+        msgs = ((InternalEObject)newSendStmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__SEND_STMT, null, msgs);
+      msgs = basicSetSendStmt(newSendStmt, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__SEND_STMT, newSendStmt, newSendStmt));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IncDecStmt getIncDecStmt()
+  {
+    return incDecStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetIncDecStmt(IncDecStmt newIncDecStmt, NotificationChain msgs)
+  {
+    IncDecStmt oldIncDecStmt = incDecStmt;
+    incDecStmt = newIncDecStmt;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__INC_DEC_STMT, oldIncDecStmt, newIncDecStmt);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIncDecStmt(IncDecStmt newIncDecStmt)
+  {
+    if (newIncDecStmt != incDecStmt)
+    {
+      NotificationChain msgs = null;
+      if (incDecStmt != null)
+        msgs = ((InternalEObject)incDecStmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__INC_DEC_STMT, null, msgs);
+      if (newIncDecStmt != null)
+        msgs = ((InternalEObject)newIncDecStmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__INC_DEC_STMT, null, msgs);
+      msgs = basicSetIncDecStmt(newIncDecStmt, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__INC_DEC_STMT, newIncDecStmt, newIncDecStmt));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Assignment getAssignment()
+  {
+    return assignment;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetAssignment(Assignment newAssignment, NotificationChain msgs)
+  {
+    Assignment oldAssignment = assignment;
+    assignment = newAssignment;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__ASSIGNMENT, oldAssignment, newAssignment);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAssignment(Assignment newAssignment)
+  {
+    if (newAssignment != assignment)
+    {
+      NotificationChain msgs = null;
+      if (assignment != null)
+        msgs = ((InternalEObject)assignment).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__ASSIGNMENT, null, msgs);
+      if (newAssignment != null)
+        msgs = ((InternalEObject)newAssignment).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__ASSIGNMENT, null, msgs);
+      msgs = basicSetAssignment(newAssignment, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__ASSIGNMENT, newAssignment, newAssignment));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ShortVarDecl getShortVarDecl()
+  {
+    return shortVarDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetShortVarDecl(ShortVarDecl newShortVarDecl, NotificationChain msgs)
+  {
+    ShortVarDecl oldShortVarDecl = shortVarDecl;
+    shortVarDecl = newShortVarDecl;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__SHORT_VAR_DECL, oldShortVarDecl, newShortVarDecl);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setShortVarDecl(ShortVarDecl newShortVarDecl)
+  {
+    if (newShortVarDecl != shortVarDecl)
+    {
+      NotificationChain msgs = null;
+      if (shortVarDecl != null)
+        msgs = ((InternalEObject)shortVarDecl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__SHORT_VAR_DECL, null, msgs);
+      if (newShortVarDecl != null)
+        msgs = ((InternalEObject)newShortVarDecl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIMPLE_STMT__SHORT_VAR_DECL, null, msgs);
+      msgs = basicSetShortVarDecl(newShortVarDecl, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SIMPLE_STMT__SHORT_VAR_DECL, newShortVarDecl, newShortVarDecl));
   }
 
   /**
@@ -145,12 +403,16 @@ public class SimpleStmtImpl extends IfStmtImpl implements SimpleStmt
   {
     switch (featureID)
     {
-      case GoPackage.SIMPLE_STMT__SWITCH_STMT_LINHA:
-        return ((InternalEList<?>)getSwitch_stmt_linha()).basicRemove(otherEnd, msgs);
-      case GoPackage.SIMPLE_STMT__CONDITION:
-        return ((InternalEList<?>)getCondition()).basicRemove(otherEnd, msgs);
-      case GoPackage.SIMPLE_STMT__POST_STMT:
-        return ((InternalEList<?>)getPostStmt()).basicRemove(otherEnd, msgs);
+      case GoPackage.SIMPLE_STMT__EXPRESSION_STMT:
+        return basicSetExpressionStmt(null, msgs);
+      case GoPackage.SIMPLE_STMT__SEND_STMT:
+        return basicSetSendStmt(null, msgs);
+      case GoPackage.SIMPLE_STMT__INC_DEC_STMT:
+        return basicSetIncDecStmt(null, msgs);
+      case GoPackage.SIMPLE_STMT__ASSIGNMENT:
+        return basicSetAssignment(null, msgs);
+      case GoPackage.SIMPLE_STMT__SHORT_VAR_DECL:
+        return basicSetShortVarDecl(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -165,12 +427,18 @@ public class SimpleStmtImpl extends IfStmtImpl implements SimpleStmt
   {
     switch (featureID)
     {
-      case GoPackage.SIMPLE_STMT__SWITCH_STMT_LINHA:
-        return getSwitch_stmt_linha();
-      case GoPackage.SIMPLE_STMT__CONDITION:
-        return getCondition();
-      case GoPackage.SIMPLE_STMT__POST_STMT:
-        return getPostStmt();
+      case GoPackage.SIMPLE_STMT__EMPTY_STMT:
+        return getEmptyStmt();
+      case GoPackage.SIMPLE_STMT__EXPRESSION_STMT:
+        return getExpressionStmt();
+      case GoPackage.SIMPLE_STMT__SEND_STMT:
+        return getSendStmt();
+      case GoPackage.SIMPLE_STMT__INC_DEC_STMT:
+        return getIncDecStmt();
+      case GoPackage.SIMPLE_STMT__ASSIGNMENT:
+        return getAssignment();
+      case GoPackage.SIMPLE_STMT__SHORT_VAR_DECL:
+        return getShortVarDecl();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -180,23 +448,28 @@ public class SimpleStmtImpl extends IfStmtImpl implements SimpleStmt
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case GoPackage.SIMPLE_STMT__SWITCH_STMT_LINHA:
-        getSwitch_stmt_linha().clear();
-        getSwitch_stmt_linha().addAll((Collection<? extends switch_stmt_linha>)newValue);
+      case GoPackage.SIMPLE_STMT__EMPTY_STMT:
+        setEmptyStmt((String)newValue);
         return;
-      case GoPackage.SIMPLE_STMT__CONDITION:
-        getCondition().clear();
-        getCondition().addAll((Collection<? extends Condition>)newValue);
+      case GoPackage.SIMPLE_STMT__EXPRESSION_STMT:
+        setExpressionStmt((ExpressionStmt)newValue);
         return;
-      case GoPackage.SIMPLE_STMT__POST_STMT:
-        getPostStmt().clear();
-        getPostStmt().addAll((Collection<? extends PostStmt>)newValue);
+      case GoPackage.SIMPLE_STMT__SEND_STMT:
+        setSendStmt((SendStmt)newValue);
+        return;
+      case GoPackage.SIMPLE_STMT__INC_DEC_STMT:
+        setIncDecStmt((IncDecStmt)newValue);
+        return;
+      case GoPackage.SIMPLE_STMT__ASSIGNMENT:
+        setAssignment((Assignment)newValue);
+        return;
+      case GoPackage.SIMPLE_STMT__SHORT_VAR_DECL:
+        setShortVarDecl((ShortVarDecl)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -212,14 +485,23 @@ public class SimpleStmtImpl extends IfStmtImpl implements SimpleStmt
   {
     switch (featureID)
     {
-      case GoPackage.SIMPLE_STMT__SWITCH_STMT_LINHA:
-        getSwitch_stmt_linha().clear();
+      case GoPackage.SIMPLE_STMT__EMPTY_STMT:
+        setEmptyStmt(EMPTY_STMT_EDEFAULT);
         return;
-      case GoPackage.SIMPLE_STMT__CONDITION:
-        getCondition().clear();
+      case GoPackage.SIMPLE_STMT__EXPRESSION_STMT:
+        setExpressionStmt((ExpressionStmt)null);
         return;
-      case GoPackage.SIMPLE_STMT__POST_STMT:
-        getPostStmt().clear();
+      case GoPackage.SIMPLE_STMT__SEND_STMT:
+        setSendStmt((SendStmt)null);
+        return;
+      case GoPackage.SIMPLE_STMT__INC_DEC_STMT:
+        setIncDecStmt((IncDecStmt)null);
+        return;
+      case GoPackage.SIMPLE_STMT__ASSIGNMENT:
+        setAssignment((Assignment)null);
+        return;
+      case GoPackage.SIMPLE_STMT__SHORT_VAR_DECL:
+        setShortVarDecl((ShortVarDecl)null);
         return;
     }
     super.eUnset(featureID);
@@ -235,12 +517,18 @@ public class SimpleStmtImpl extends IfStmtImpl implements SimpleStmt
   {
     switch (featureID)
     {
-      case GoPackage.SIMPLE_STMT__SWITCH_STMT_LINHA:
-        return switch_stmt_linha != null && !switch_stmt_linha.isEmpty();
-      case GoPackage.SIMPLE_STMT__CONDITION:
-        return condition != null && !condition.isEmpty();
-      case GoPackage.SIMPLE_STMT__POST_STMT:
-        return postStmt != null && !postStmt.isEmpty();
+      case GoPackage.SIMPLE_STMT__EMPTY_STMT:
+        return EMPTY_STMT_EDEFAULT == null ? emptyStmt != null : !EMPTY_STMT_EDEFAULT.equals(emptyStmt);
+      case GoPackage.SIMPLE_STMT__EXPRESSION_STMT:
+        return expressionStmt != null;
+      case GoPackage.SIMPLE_STMT__SEND_STMT:
+        return sendStmt != null;
+      case GoPackage.SIMPLE_STMT__INC_DEC_STMT:
+        return incDecStmt != null;
+      case GoPackage.SIMPLE_STMT__ASSIGNMENT:
+        return assignment != null;
+      case GoPackage.SIMPLE_STMT__SHORT_VAR_DECL:
+        return shortVarDecl != null;
     }
     return super.eIsSet(featureID);
   }
@@ -251,96 +539,15 @@ public class SimpleStmtImpl extends IfStmtImpl implements SimpleStmt
    * @generated
    */
   @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+  public String toString()
   {
-    if (baseClass == SwitchStmt.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.SIMPLE_STMT__SWITCH_STMT_LINHA: return GoPackage.SWITCH_STMT__SWITCH_STMT_LINHA;
-        default: return -1;
-      }
-    }
-    if (baseClass == ForStmt.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == ForClause.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.SIMPLE_STMT__CONDITION: return GoPackage.FOR_CLAUSE__CONDITION;
-        case GoPackage.SIMPLE_STMT__POST_STMT: return GoPackage.FOR_CLAUSE__POST_STMT;
-        default: return -1;
-      }
-    }
-    if (baseClass == InitStmt.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == PostStmt.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
+    if (eIsProxy()) return super.toString();
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == SwitchStmt.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.SWITCH_STMT__SWITCH_STMT_LINHA: return GoPackage.SIMPLE_STMT__SWITCH_STMT_LINHA;
-        default: return -1;
-      }
-    }
-    if (baseClass == ForStmt.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == ForClause.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.FOR_CLAUSE__CONDITION: return GoPackage.SIMPLE_STMT__CONDITION;
-        case GoPackage.FOR_CLAUSE__POST_STMT: return GoPackage.SIMPLE_STMT__POST_STMT;
-        default: return -1;
-      }
-    }
-    if (baseClass == InitStmt.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == PostStmt.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (EmptyStmt: ");
+    result.append(emptyStmt);
+    result.append(')');
+    return result.toString();
   }
 
 } //SimpleStmtImpl

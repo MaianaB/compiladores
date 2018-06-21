@@ -3,20 +3,55 @@
  */
 package com.ufcg.compiladores.go.impl;
 
+import com.ufcg.compiladores.go.FunctionBody;
 import com.ufcg.compiladores.go.FunctionLit;
 import com.ufcg.compiladores.go.GoPackage;
+import com.ufcg.compiladores.go.Signature;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Function Lit</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.impl.FunctionLitImpl#getSignature <em>Signature</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.FunctionLitImpl#getFunctionBody <em>Function Body</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class FunctionLitImpl extends LiteralImpl implements FunctionLit
 {
+  /**
+   * The cached value of the '{@link #getSignature() <em>Signature</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSignature()
+   * @generated
+   * @ordered
+   */
+  protected Signature signature;
+
+  /**
+   * The cached value of the '{@link #getFunctionBody() <em>Function Body</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFunctionBody()
+   * @generated
+   * @ordered
+   */
+  protected FunctionBody functionBody;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +71,196 @@ public class FunctionLitImpl extends LiteralImpl implements FunctionLit
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.FUNCTION_LIT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Signature getSignature()
+  {
+    return signature;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSignature(Signature newSignature, NotificationChain msgs)
+  {
+    Signature oldSignature = signature;
+    signature = newSignature;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.FUNCTION_LIT__SIGNATURE, oldSignature, newSignature);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSignature(Signature newSignature)
+  {
+    if (newSignature != signature)
+    {
+      NotificationChain msgs = null;
+      if (signature != null)
+        msgs = ((InternalEObject)signature).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.FUNCTION_LIT__SIGNATURE, null, msgs);
+      if (newSignature != null)
+        msgs = ((InternalEObject)newSignature).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.FUNCTION_LIT__SIGNATURE, null, msgs);
+      msgs = basicSetSignature(newSignature, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.FUNCTION_LIT__SIGNATURE, newSignature, newSignature));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FunctionBody getFunctionBody()
+  {
+    return functionBody;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFunctionBody(FunctionBody newFunctionBody, NotificationChain msgs)
+  {
+    FunctionBody oldFunctionBody = functionBody;
+    functionBody = newFunctionBody;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.FUNCTION_LIT__FUNCTION_BODY, oldFunctionBody, newFunctionBody);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFunctionBody(FunctionBody newFunctionBody)
+  {
+    if (newFunctionBody != functionBody)
+    {
+      NotificationChain msgs = null;
+      if (functionBody != null)
+        msgs = ((InternalEObject)functionBody).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.FUNCTION_LIT__FUNCTION_BODY, null, msgs);
+      if (newFunctionBody != null)
+        msgs = ((InternalEObject)newFunctionBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.FUNCTION_LIT__FUNCTION_BODY, null, msgs);
+      msgs = basicSetFunctionBody(newFunctionBody, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.FUNCTION_LIT__FUNCTION_BODY, newFunctionBody, newFunctionBody));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.FUNCTION_LIT__SIGNATURE:
+        return basicSetSignature(null, msgs);
+      case GoPackage.FUNCTION_LIT__FUNCTION_BODY:
+        return basicSetFunctionBody(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.FUNCTION_LIT__SIGNATURE:
+        return getSignature();
+      case GoPackage.FUNCTION_LIT__FUNCTION_BODY:
+        return getFunctionBody();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.FUNCTION_LIT__SIGNATURE:
+        setSignature((Signature)newValue);
+        return;
+      case GoPackage.FUNCTION_LIT__FUNCTION_BODY:
+        setFunctionBody((FunctionBody)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.FUNCTION_LIT__SIGNATURE:
+        setSignature((Signature)null);
+        return;
+      case GoPackage.FUNCTION_LIT__FUNCTION_BODY:
+        setFunctionBody((FunctionBody)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.FUNCTION_LIT__SIGNATURE:
+        return signature != null;
+      case GoPackage.FUNCTION_LIT__FUNCTION_BODY:
+        return functionBody != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //FunctionLitImpl

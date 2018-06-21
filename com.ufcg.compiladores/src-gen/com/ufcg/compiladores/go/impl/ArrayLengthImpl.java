@@ -4,30 +4,17 @@
 package com.ufcg.compiladores.go.impl;
 
 import com.ufcg.compiladores.go.ArrayLength;
-import com.ufcg.compiladores.go.CompositeLit;
-import com.ufcg.compiladores.go.ElementType;
+import com.ufcg.compiladores.go.Expression;
 import com.ufcg.compiladores.go.GoPackage;
-import com.ufcg.compiladores.go.Literal;
-import com.ufcg.compiladores.go.LiteralType;
-import com.ufcg.compiladores.go.LiteralTypeLinha;
-import com.ufcg.compiladores.go.LiteralValue;
-import com.ufcg.compiladores.go.Operand;
-import com.ufcg.compiladores.go.PrimaryExpr;
-import com.ufcg.compiladores.go.PrimaryExprLinha;
-import com.ufcg.compiladores.go.TypeSwitchGuard;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,55 +24,22 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.ufcg.compiladores.go.impl.ArrayLengthImpl#getIndexLinha <em>Index Linha</em>}</li>
- *   <li>{@link com.ufcg.compiladores.go.impl.ArrayLengthImpl#getPrimaryExprLinha <em>Primary Expr Linha</em>}</li>
- *   <li>{@link com.ufcg.compiladores.go.impl.ArrayLengthImpl#getLiteralValue <em>Literal Value</em>}</li>
- *   <li>{@link com.ufcg.compiladores.go.impl.ArrayLengthImpl#getElementType <em>Element Type</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.ArrayLengthImpl#getExpression <em>Expression</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ArrayLengthImpl extends TypeLitLinhaImpl implements ArrayLength
+public class ArrayLengthImpl extends MinimalEObjectImpl.Container implements ArrayLength
 {
   /**
-   * The cached value of the '{@link #getIndexLinha() <em>Index Linha</em>}' attribute list.
+   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getIndexLinha()
+   * @see #getExpression()
    * @generated
    * @ordered
    */
-  protected EList<String> indexLinha;
-
-  /**
-   * The cached value of the '{@link #getPrimaryExprLinha() <em>Primary Expr Linha</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPrimaryExprLinha()
-   * @generated
-   * @ordered
-   */
-  protected EList<PrimaryExprLinha> primaryExprLinha;
-
-  /**
-   * The cached value of the '{@link #getLiteralValue() <em>Literal Value</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLiteralValue()
-   * @generated
-   * @ordered
-   */
-  protected EList<LiteralValue> literalValue;
-
-  /**
-   * The cached value of the '{@link #getElementType() <em>Element Type</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getElementType()
-   * @generated
-   * @ordered
-   */
-  protected EList<ElementType> elementType;
+  protected Expression expression;
 
   /**
    * <!-- begin-user-doc -->
@@ -113,13 +67,9 @@ public class ArrayLengthImpl extends TypeLitLinhaImpl implements ArrayLength
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getIndexLinha()
+  public Expression getExpression()
   {
-    if (indexLinha == null)
-    {
-      indexLinha = new EDataTypeEList<String>(String.class, this, GoPackage.ARRAY_LENGTH__INDEX_LINHA);
-    }
-    return indexLinha;
+    return expression;
   }
 
   /**
@@ -127,13 +77,16 @@ public class ArrayLengthImpl extends TypeLitLinhaImpl implements ArrayLength
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<PrimaryExprLinha> getPrimaryExprLinha()
+  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
   {
-    if (primaryExprLinha == null)
+    Expression oldExpression = expression;
+    expression = newExpression;
+    if (eNotificationRequired())
     {
-      primaryExprLinha = new EObjectContainmentEList<PrimaryExprLinha>(PrimaryExprLinha.class, this, GoPackage.ARRAY_LENGTH__PRIMARY_EXPR_LINHA);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.ARRAY_LENGTH__EXPRESSION, oldExpression, newExpression);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return primaryExprLinha;
+    return msgs;
   }
 
   /**
@@ -141,27 +94,20 @@ public class ArrayLengthImpl extends TypeLitLinhaImpl implements ArrayLength
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<LiteralValue> getLiteralValue()
+  public void setExpression(Expression newExpression)
   {
-    if (literalValue == null)
+    if (newExpression != expression)
     {
-      literalValue = new EObjectContainmentEList<LiteralValue>(LiteralValue.class, this, GoPackage.ARRAY_LENGTH__LITERAL_VALUE);
+      NotificationChain msgs = null;
+      if (expression != null)
+        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.ARRAY_LENGTH__EXPRESSION, null, msgs);
+      if (newExpression != null)
+        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.ARRAY_LENGTH__EXPRESSION, null, msgs);
+      msgs = basicSetExpression(newExpression, msgs);
+      if (msgs != null) msgs.dispatch();
     }
-    return literalValue;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<ElementType> getElementType()
-  {
-    if (elementType == null)
-    {
-      elementType = new EObjectContainmentEList<ElementType>(ElementType.class, this, GoPackage.ARRAY_LENGTH__ELEMENT_TYPE);
-    }
-    return elementType;
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.ARRAY_LENGTH__EXPRESSION, newExpression, newExpression));
   }
 
   /**
@@ -174,12 +120,8 @@ public class ArrayLengthImpl extends TypeLitLinhaImpl implements ArrayLength
   {
     switch (featureID)
     {
-      case GoPackage.ARRAY_LENGTH__PRIMARY_EXPR_LINHA:
-        return ((InternalEList<?>)getPrimaryExprLinha()).basicRemove(otherEnd, msgs);
-      case GoPackage.ARRAY_LENGTH__LITERAL_VALUE:
-        return ((InternalEList<?>)getLiteralValue()).basicRemove(otherEnd, msgs);
-      case GoPackage.ARRAY_LENGTH__ELEMENT_TYPE:
-        return ((InternalEList<?>)getElementType()).basicRemove(otherEnd, msgs);
+      case GoPackage.ARRAY_LENGTH__EXPRESSION:
+        return basicSetExpression(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -194,14 +136,8 @@ public class ArrayLengthImpl extends TypeLitLinhaImpl implements ArrayLength
   {
     switch (featureID)
     {
-      case GoPackage.ARRAY_LENGTH__INDEX_LINHA:
-        return getIndexLinha();
-      case GoPackage.ARRAY_LENGTH__PRIMARY_EXPR_LINHA:
-        return getPrimaryExprLinha();
-      case GoPackage.ARRAY_LENGTH__LITERAL_VALUE:
-        return getLiteralValue();
-      case GoPackage.ARRAY_LENGTH__ELEMENT_TYPE:
-        return getElementType();
+      case GoPackage.ARRAY_LENGTH__EXPRESSION:
+        return getExpression();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -211,27 +147,13 @@ public class ArrayLengthImpl extends TypeLitLinhaImpl implements ArrayLength
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case GoPackage.ARRAY_LENGTH__INDEX_LINHA:
-        getIndexLinha().clear();
-        getIndexLinha().addAll((Collection<? extends String>)newValue);
-        return;
-      case GoPackage.ARRAY_LENGTH__PRIMARY_EXPR_LINHA:
-        getPrimaryExprLinha().clear();
-        getPrimaryExprLinha().addAll((Collection<? extends PrimaryExprLinha>)newValue);
-        return;
-      case GoPackage.ARRAY_LENGTH__LITERAL_VALUE:
-        getLiteralValue().clear();
-        getLiteralValue().addAll((Collection<? extends LiteralValue>)newValue);
-        return;
-      case GoPackage.ARRAY_LENGTH__ELEMENT_TYPE:
-        getElementType().clear();
-        getElementType().addAll((Collection<? extends ElementType>)newValue);
+      case GoPackage.ARRAY_LENGTH__EXPRESSION:
+        setExpression((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -247,17 +169,8 @@ public class ArrayLengthImpl extends TypeLitLinhaImpl implements ArrayLength
   {
     switch (featureID)
     {
-      case GoPackage.ARRAY_LENGTH__INDEX_LINHA:
-        getIndexLinha().clear();
-        return;
-      case GoPackage.ARRAY_LENGTH__PRIMARY_EXPR_LINHA:
-        getPrimaryExprLinha().clear();
-        return;
-      case GoPackage.ARRAY_LENGTH__LITERAL_VALUE:
-        getLiteralValue().clear();
-        return;
-      case GoPackage.ARRAY_LENGTH__ELEMENT_TYPE:
-        getElementType().clear();
+      case GoPackage.ARRAY_LENGTH__EXPRESSION:
+        setExpression((Expression)null);
         return;
     }
     super.eUnset(featureID);
@@ -273,173 +186,10 @@ public class ArrayLengthImpl extends TypeLitLinhaImpl implements ArrayLength
   {
     switch (featureID)
     {
-      case GoPackage.ARRAY_LENGTH__INDEX_LINHA:
-        return indexLinha != null && !indexLinha.isEmpty();
-      case GoPackage.ARRAY_LENGTH__PRIMARY_EXPR_LINHA:
-        return primaryExprLinha != null && !primaryExprLinha.isEmpty();
-      case GoPackage.ARRAY_LENGTH__LITERAL_VALUE:
-        return literalValue != null && !literalValue.isEmpty();
-      case GoPackage.ARRAY_LENGTH__ELEMENT_TYPE:
-        return elementType != null && !elementType.isEmpty();
+      case GoPackage.ARRAY_LENGTH__EXPRESSION:
+        return expression != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == PrimaryExprLinha.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.ARRAY_LENGTH__INDEX_LINHA: return GoPackage.PRIMARY_EXPR_LINHA__INDEX_LINHA;
-        case GoPackage.ARRAY_LENGTH__PRIMARY_EXPR_LINHA: return GoPackage.PRIMARY_EXPR_LINHA__PRIMARY_EXPR_LINHA;
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeSwitchGuard.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == PrimaryExpr.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Operand.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Literal.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == CompositeLit.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == LiteralType.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.ARRAY_LENGTH__LITERAL_VALUE: return GoPackage.LITERAL_TYPE__LITERAL_VALUE;
-        default: return -1;
-      }
-    }
-    if (baseClass == LiteralTypeLinha.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == PrimaryExprLinha.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.PRIMARY_EXPR_LINHA__INDEX_LINHA: return GoPackage.ARRAY_LENGTH__INDEX_LINHA;
-        case GoPackage.PRIMARY_EXPR_LINHA__PRIMARY_EXPR_LINHA: return GoPackage.ARRAY_LENGTH__PRIMARY_EXPR_LINHA;
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeSwitchGuard.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == PrimaryExpr.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Operand.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Literal.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == CompositeLit.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == LiteralType.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.LITERAL_TYPE__LITERAL_VALUE: return GoPackage.ARRAY_LENGTH__LITERAL_VALUE;
-        default: return -1;
-      }
-    }
-    if (baseClass == LiteralTypeLinha.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (IndexLinha: ");
-    result.append(indexLinha);
-    result.append(')');
-    return result.toString();
   }
 
 } //ArrayLengthImpl

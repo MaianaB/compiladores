@@ -3,17 +3,77 @@
  */
 package com.ufcg.compiladores.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Comm Case</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.CommCase#getSendStmt <em>Send Stmt</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.CommCase#getRecvStmt <em>Recv Stmt</em>}</li>
+ * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getCommCase()
  * @model
  * @generated
  */
-public interface CommCase extends CommClause
+public interface CommCase extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Send Stmt</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Send Stmt</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Send Stmt</em>' containment reference.
+   * @see #setSendStmt(SendStmt)
+   * @see com.ufcg.compiladores.go.GoPackage#getCommCase_SendStmt()
+   * @model containment="true"
+   * @generated
+   */
+  SendStmt getSendStmt();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.CommCase#getSendStmt <em>Send Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Send Stmt</em>' containment reference.
+   * @see #getSendStmt()
+   * @generated
+   */
+  void setSendStmt(SendStmt value);
+
+  /**
+   * Returns the value of the '<em><b>Recv Stmt</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Recv Stmt</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Recv Stmt</em>' containment reference.
+   * @see #setRecvStmt(RecvStmt)
+   * @see com.ufcg.compiladores.go.GoPackage#getCommCase_RecvStmt()
+   * @model containment="true"
+   * @generated
+   */
+  RecvStmt getRecvStmt();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.CommCase#getRecvStmt <em>Recv Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Recv Stmt</em>' containment reference.
+   * @see #getRecvStmt()
+   * @generated
+   */
+  void setRecvStmt(RecvStmt value);
+
 } // CommCase

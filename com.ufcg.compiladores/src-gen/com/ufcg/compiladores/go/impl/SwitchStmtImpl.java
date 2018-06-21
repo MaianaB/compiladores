@@ -7,19 +7,14 @@ import com.ufcg.compiladores.go.GoPackage;
 import com.ufcg.compiladores.go.SwitchStmt;
 import com.ufcg.compiladores.go.switch_stmt_linha;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,14 +32,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class SwitchStmtImpl extends MinimalEObjectImpl.Container implements SwitchStmt
 {
   /**
-   * The cached value of the '{@link #getSwitch_stmt_linha() <em>Switch stmt linha</em>}' containment reference list.
+   * The cached value of the '{@link #getSwitch_stmt_linha() <em>Switch stmt linha</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getSwitch_stmt_linha()
    * @generated
    * @ordered
    */
-  protected EList<switch_stmt_linha> switch_stmt_linha;
+  protected switch_stmt_linha switch_stmt_linha;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,13 +67,47 @@ public class SwitchStmtImpl extends MinimalEObjectImpl.Container implements Swit
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<switch_stmt_linha> getSwitch_stmt_linha()
+  public switch_stmt_linha getSwitch_stmt_linha()
   {
-    if (switch_stmt_linha == null)
-    {
-      switch_stmt_linha = new EObjectContainmentEList<switch_stmt_linha>(switch_stmt_linha.class, this, GoPackage.SWITCH_STMT__SWITCH_STMT_LINHA);
-    }
     return switch_stmt_linha;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSwitch_stmt_linha(switch_stmt_linha newSwitch_stmt_linha, NotificationChain msgs)
+  {
+    switch_stmt_linha oldSwitch_stmt_linha = switch_stmt_linha;
+    switch_stmt_linha = newSwitch_stmt_linha;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SWITCH_STMT__SWITCH_STMT_LINHA, oldSwitch_stmt_linha, newSwitch_stmt_linha);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSwitch_stmt_linha(switch_stmt_linha newSwitch_stmt_linha)
+  {
+    if (newSwitch_stmt_linha != switch_stmt_linha)
+    {
+      NotificationChain msgs = null;
+      if (switch_stmt_linha != null)
+        msgs = ((InternalEObject)switch_stmt_linha).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SWITCH_STMT__SWITCH_STMT_LINHA, null, msgs);
+      if (newSwitch_stmt_linha != null)
+        msgs = ((InternalEObject)newSwitch_stmt_linha).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SWITCH_STMT__SWITCH_STMT_LINHA, null, msgs);
+      msgs = basicSetSwitch_stmt_linha(newSwitch_stmt_linha, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SWITCH_STMT__SWITCH_STMT_LINHA, newSwitch_stmt_linha, newSwitch_stmt_linha));
   }
 
   /**
@@ -92,7 +121,7 @@ public class SwitchStmtImpl extends MinimalEObjectImpl.Container implements Swit
     switch (featureID)
     {
       case GoPackage.SWITCH_STMT__SWITCH_STMT_LINHA:
-        return ((InternalEList<?>)getSwitch_stmt_linha()).basicRemove(otherEnd, msgs);
+        return basicSetSwitch_stmt_linha(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -118,15 +147,13 @@ public class SwitchStmtImpl extends MinimalEObjectImpl.Container implements Swit
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
       case GoPackage.SWITCH_STMT__SWITCH_STMT_LINHA:
-        getSwitch_stmt_linha().clear();
-        getSwitch_stmt_linha().addAll((Collection<? extends switch_stmt_linha>)newValue);
+        setSwitch_stmt_linha((switch_stmt_linha)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -143,7 +170,7 @@ public class SwitchStmtImpl extends MinimalEObjectImpl.Container implements Swit
     switch (featureID)
     {
       case GoPackage.SWITCH_STMT__SWITCH_STMT_LINHA:
-        getSwitch_stmt_linha().clear();
+        setSwitch_stmt_linha((switch_stmt_linha)null);
         return;
     }
     super.eUnset(featureID);
@@ -160,7 +187,7 @@ public class SwitchStmtImpl extends MinimalEObjectImpl.Container implements Swit
     switch (featureID)
     {
       case GoPackage.SWITCH_STMT__SWITCH_STMT_LINHA:
-        return switch_stmt_linha != null && !switch_stmt_linha.isEmpty();
+        return switch_stmt_linha != null;
     }
     return super.eIsSet(featureID);
   }

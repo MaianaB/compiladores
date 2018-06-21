@@ -3,17 +3,131 @@
  */
 package com.ufcg.compiladores.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Primary Expr</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.PrimaryExpr#getOperand <em>Operand</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.PrimaryExpr#getPrimaryExprLinha <em>Primary Expr Linha</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.PrimaryExpr#getConversion <em>Conversion</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.PrimaryExpr#getMethodExpr <em>Method Expr</em>}</li>
+ * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getPrimaryExpr()
  * @model
  * @generated
  */
-public interface PrimaryExpr extends PrimaryExprLinha, TypeSwitchGuard
+public interface PrimaryExpr extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Operand</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Operand</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Operand</em>' containment reference.
+   * @see #setOperand(Operand)
+   * @see com.ufcg.compiladores.go.GoPackage#getPrimaryExpr_Operand()
+   * @model containment="true"
+   * @generated
+   */
+  Operand getOperand();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.PrimaryExpr#getOperand <em>Operand</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Operand</em>' containment reference.
+   * @see #getOperand()
+   * @generated
+   */
+  void setOperand(Operand value);
+
+  /**
+   * Returns the value of the '<em><b>Primary Expr Linha</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Primary Expr Linha</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Primary Expr Linha</em>' containment reference.
+   * @see #setPrimaryExprLinha(PrimaryExprLinha)
+   * @see com.ufcg.compiladores.go.GoPackage#getPrimaryExpr_PrimaryExprLinha()
+   * @model containment="true"
+   * @generated
+   */
+  PrimaryExprLinha getPrimaryExprLinha();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.PrimaryExpr#getPrimaryExprLinha <em>Primary Expr Linha</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Primary Expr Linha</em>' containment reference.
+   * @see #getPrimaryExprLinha()
+   * @generated
+   */
+  void setPrimaryExprLinha(PrimaryExprLinha value);
+
+  /**
+   * Returns the value of the '<em><b>Conversion</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Conversion</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Conversion</em>' containment reference.
+   * @see #setConversion(Conversion)
+   * @see com.ufcg.compiladores.go.GoPackage#getPrimaryExpr_Conversion()
+   * @model containment="true"
+   * @generated
+   */
+  Conversion getConversion();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.PrimaryExpr#getConversion <em>Conversion</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Conversion</em>' containment reference.
+   * @see #getConversion()
+   * @generated
+   */
+  void setConversion(Conversion value);
+
+  /**
+   * Returns the value of the '<em><b>Method Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Method Expr</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Method Expr</em>' containment reference.
+   * @see #setMethodExpr(MethodExpr)
+   * @see com.ufcg.compiladores.go.GoPackage#getPrimaryExpr_MethodExpr()
+   * @model containment="true"
+   * @generated
+   */
+  MethodExpr getMethodExpr();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.PrimaryExpr#getMethodExpr <em>Method Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Method Expr</em>' containment reference.
+   * @see #getMethodExpr()
+   * @generated
+   */
+  void setMethodExpr(MethodExpr value);
+
 } // PrimaryExpr

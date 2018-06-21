@@ -3,7 +3,7 @@
  */
 package com.ufcg.compiladores.go;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.ForClause#getInitStmt <em>Init Stmt</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.ForClause#getCondition <em>Condition</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.ForClause#getPostStmt <em>Post Stmt</em>}</li>
  * </ul>
@@ -22,38 +23,84 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface ForClause extends ForStmt
+public interface ForClause extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Condition</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.Condition}.
+   * Returns the value of the '<em><b>Init Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Condition</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Init Stmt</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Condition</em>' containment reference list.
+   * @return the value of the '<em>Init Stmt</em>' containment reference.
+   * @see #setInitStmt(InitStmt)
+   * @see com.ufcg.compiladores.go.GoPackage#getForClause_InitStmt()
+   * @model containment="true"
+   * @generated
+   */
+  InitStmt getInitStmt();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.ForClause#getInitStmt <em>Init Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Init Stmt</em>' containment reference.
+   * @see #getInitStmt()
+   * @generated
+   */
+  void setInitStmt(InitStmt value);
+
+  /**
+   * Returns the value of the '<em><b>Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Condition</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Condition</em>' containment reference.
+   * @see #setCondition(Condition)
    * @see com.ufcg.compiladores.go.GoPackage#getForClause_Condition()
    * @model containment="true"
    * @generated
    */
-  EList<Condition> getCondition();
+  Condition getCondition();
 
   /**
-   * Returns the value of the '<em><b>Post Stmt</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.PostStmt}.
+   * Sets the value of the '{@link com.ufcg.compiladores.go.ForClause#getCondition <em>Condition</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Condition</em>' containment reference.
+   * @see #getCondition()
+   * @generated
+   */
+  void setCondition(Condition value);
+
+  /**
+   * Returns the value of the '<em><b>Post Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Post Stmt</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Post Stmt</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Post Stmt</em>' containment reference list.
+   * @return the value of the '<em>Post Stmt</em>' containment reference.
+   * @see #setPostStmt(PostStmt)
    * @see com.ufcg.compiladores.go.GoPackage#getForClause_PostStmt()
    * @model containment="true"
    * @generated
    */
-  EList<PostStmt> getPostStmt();
+  PostStmt getPostStmt();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.ForClause#getPostStmt <em>Post Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Post Stmt</em>' containment reference.
+   * @see #getPostStmt()
+   * @generated
+   */
+  void setPostStmt(PostStmt value);
 
 } // ForClause

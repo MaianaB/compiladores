@@ -3,17 +3,104 @@
  */
 package com.ufcg.compiladores.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Var Spec</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.VarSpec#getIdentifierList <em>Identifier List</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.VarSpec#getType <em>Type</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.VarSpec#getExpressionList <em>Expression List</em>}</li>
+ * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getVarSpec()
  * @model
  * @generated
  */
-public interface VarSpec extends VarDecl
+public interface VarSpec extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Identifier List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Identifier List</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Identifier List</em>' containment reference.
+   * @see #setIdentifierList(IdentifierList)
+   * @see com.ufcg.compiladores.go.GoPackage#getVarSpec_IdentifierList()
+   * @model containment="true"
+   * @generated
+   */
+  IdentifierList getIdentifierList();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.VarSpec#getIdentifierList <em>Identifier List</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Identifier List</em>' containment reference.
+   * @see #getIdentifierList()
+   * @generated
+   */
+  void setIdentifierList(IdentifierList value);
+
+  /**
+   * Returns the value of the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type</em>' containment reference.
+   * @see #setType(Type)
+   * @see com.ufcg.compiladores.go.GoPackage#getVarSpec_Type()
+   * @model containment="true"
+   * @generated
+   */
+  Type getType();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.VarSpec#getType <em>Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type</em>' containment reference.
+   * @see #getType()
+   * @generated
+   */
+  void setType(Type value);
+
+  /**
+   * Returns the value of the '<em><b>Expression List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expression List</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expression List</em>' containment reference.
+   * @see #setExpressionList(ExpressionList)
+   * @see com.ufcg.compiladores.go.GoPackage#getVarSpec_ExpressionList()
+   * @model containment="true"
+   * @generated
+   */
+  ExpressionList getExpressionList();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.VarSpec#getExpressionList <em>Expression List</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expression List</em>' containment reference.
+   * @see #getExpressionList()
+   * @generated
+   */
+  void setExpressionList(ExpressionList value);
+
 } // VarSpec

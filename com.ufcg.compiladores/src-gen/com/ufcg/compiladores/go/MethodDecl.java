@@ -10,6 +10,15 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Method Decl</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.MethodDecl#getReceiver <em>Receiver</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.MethodDecl#getMethodName <em>Method Name</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.MethodDecl#getSignature <em>Signature</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.MethodDecl#getFunctionBody <em>Function Body</em>}</li>
+ * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getMethodDecl()
  * @model
@@ -17,4 +26,108 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface MethodDecl extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Receiver</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Receiver</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Receiver</em>' containment reference.
+   * @see #setReceiver(Receiver)
+   * @see com.ufcg.compiladores.go.GoPackage#getMethodDecl_Receiver()
+   * @model containment="true"
+   * @generated
+   */
+  Receiver getReceiver();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.MethodDecl#getReceiver <em>Receiver</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Receiver</em>' containment reference.
+   * @see #getReceiver()
+   * @generated
+   */
+  void setReceiver(Receiver value);
+
+  /**
+   * Returns the value of the '<em><b>Method Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Method Name</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Method Name</em>' containment reference.
+   * @see #setMethodName(MethodName)
+   * @see com.ufcg.compiladores.go.GoPackage#getMethodDecl_MethodName()
+   * @model containment="true"
+   * @generated
+   */
+  MethodName getMethodName();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.MethodDecl#getMethodName <em>Method Name</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Method Name</em>' containment reference.
+   * @see #getMethodName()
+   * @generated
+   */
+  void setMethodName(MethodName value);
+
+  /**
+   * Returns the value of the '<em><b>Signature</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Signature</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Signature</em>' containment reference.
+   * @see #setSignature(Signature)
+   * @see com.ufcg.compiladores.go.GoPackage#getMethodDecl_Signature()
+   * @model containment="true"
+   * @generated
+   */
+  Signature getSignature();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.MethodDecl#getSignature <em>Signature</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Signature</em>' containment reference.
+   * @see #getSignature()
+   * @generated
+   */
+  void setSignature(Signature value);
+
+  /**
+   * Returns the value of the '<em><b>Function Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Function Body</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Function Body</em>' containment reference.
+   * @see #setFunctionBody(FunctionBody)
+   * @see com.ufcg.compiladores.go.GoPackage#getMethodDecl_FunctionBody()
+   * @model containment="true"
+   * @generated
+   */
+  FunctionBody getFunctionBody();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.MethodDecl#getFunctionBody <em>Function Body</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Function Body</em>' containment reference.
+   * @see #getFunctionBody()
+   * @generated
+   */
+  void setFunctionBody(FunctionBody value);
+
 } // MethodDecl

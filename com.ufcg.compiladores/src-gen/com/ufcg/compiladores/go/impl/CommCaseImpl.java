@@ -5,18 +5,54 @@ package com.ufcg.compiladores.go.impl;
 
 import com.ufcg.compiladores.go.CommCase;
 import com.ufcg.compiladores.go.GoPackage;
+import com.ufcg.compiladores.go.RecvStmt;
+import com.ufcg.compiladores.go.SendStmt;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Comm Case</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.impl.CommCaseImpl#getSendStmt <em>Send Stmt</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.CommCaseImpl#getRecvStmt <em>Recv Stmt</em>}</li>
+ * </ul>
  *
  * @generated
  */
-public class CommCaseImpl extends CommClauseImpl implements CommCase
+public class CommCaseImpl extends MinimalEObjectImpl.Container implements CommCase
 {
+  /**
+   * The cached value of the '{@link #getSendStmt() <em>Send Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSendStmt()
+   * @generated
+   * @ordered
+   */
+  protected SendStmt sendStmt;
+
+  /**
+   * The cached value of the '{@link #getRecvStmt() <em>Recv Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRecvStmt()
+   * @generated
+   * @ordered
+   */
+  protected RecvStmt recvStmt;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +72,196 @@ public class CommCaseImpl extends CommClauseImpl implements CommCase
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.COMM_CASE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SendStmt getSendStmt()
+  {
+    return sendStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSendStmt(SendStmt newSendStmt, NotificationChain msgs)
+  {
+    SendStmt oldSendStmt = sendStmt;
+    sendStmt = newSendStmt;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.COMM_CASE__SEND_STMT, oldSendStmt, newSendStmt);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSendStmt(SendStmt newSendStmt)
+  {
+    if (newSendStmt != sendStmt)
+    {
+      NotificationChain msgs = null;
+      if (sendStmt != null)
+        msgs = ((InternalEObject)sendStmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.COMM_CASE__SEND_STMT, null, msgs);
+      if (newSendStmt != null)
+        msgs = ((InternalEObject)newSendStmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.COMM_CASE__SEND_STMT, null, msgs);
+      msgs = basicSetSendStmt(newSendStmt, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.COMM_CASE__SEND_STMT, newSendStmt, newSendStmt));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RecvStmt getRecvStmt()
+  {
+    return recvStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetRecvStmt(RecvStmt newRecvStmt, NotificationChain msgs)
+  {
+    RecvStmt oldRecvStmt = recvStmt;
+    recvStmt = newRecvStmt;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.COMM_CASE__RECV_STMT, oldRecvStmt, newRecvStmt);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRecvStmt(RecvStmt newRecvStmt)
+  {
+    if (newRecvStmt != recvStmt)
+    {
+      NotificationChain msgs = null;
+      if (recvStmt != null)
+        msgs = ((InternalEObject)recvStmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.COMM_CASE__RECV_STMT, null, msgs);
+      if (newRecvStmt != null)
+        msgs = ((InternalEObject)newRecvStmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.COMM_CASE__RECV_STMT, null, msgs);
+      msgs = basicSetRecvStmt(newRecvStmt, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.COMM_CASE__RECV_STMT, newRecvStmt, newRecvStmt));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.COMM_CASE__SEND_STMT:
+        return basicSetSendStmt(null, msgs);
+      case GoPackage.COMM_CASE__RECV_STMT:
+        return basicSetRecvStmt(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.COMM_CASE__SEND_STMT:
+        return getSendStmt();
+      case GoPackage.COMM_CASE__RECV_STMT:
+        return getRecvStmt();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.COMM_CASE__SEND_STMT:
+        setSendStmt((SendStmt)newValue);
+        return;
+      case GoPackage.COMM_CASE__RECV_STMT:
+        setRecvStmt((RecvStmt)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.COMM_CASE__SEND_STMT:
+        setSendStmt((SendStmt)null);
+        return;
+      case GoPackage.COMM_CASE__RECV_STMT:
+        setRecvStmt((RecvStmt)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.COMM_CASE__SEND_STMT:
+        return sendStmt != null;
+      case GoPackage.COMM_CASE__RECV_STMT:
+        return recvStmt != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //CommCaseImpl

@@ -3,21 +3,22 @@
  */
 package com.ufcg.compiladores.go.impl;
 
+import com.ufcg.compiladores.go.ElementType;
 import com.ufcg.compiladores.go.GoPackage;
 import com.ufcg.compiladores.go.LiteralType;
-import com.ufcg.compiladores.go.LiteralValue;
+import com.ufcg.compiladores.go.LiteralTypeLinha;
+import com.ufcg.compiladores.go.MapType;
+import com.ufcg.compiladores.go.StructType;
+import com.ufcg.compiladores.go.TypeName;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,22 +28,66 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.ufcg.compiladores.go.impl.LiteralTypeImpl#getLiteralValue <em>Literal Value</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.LiteralTypeImpl#getStructType <em>Struct Type</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.LiteralTypeImpl#getLiteralTypeLinha <em>Literal Type Linha</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.LiteralTypeImpl#getElementType <em>Element Type</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.LiteralTypeImpl#getMapType <em>Map Type</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.LiteralTypeImpl#getTypeName <em>Type Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class LiteralTypeImpl extends CompositeLitImpl implements LiteralType
+public class LiteralTypeImpl extends MinimalEObjectImpl.Container implements LiteralType
 {
   /**
-   * The cached value of the '{@link #getLiteralValue() <em>Literal Value</em>}' containment reference list.
+   * The cached value of the '{@link #getStructType() <em>Struct Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLiteralValue()
+   * @see #getStructType()
    * @generated
    * @ordered
    */
-  protected EList<LiteralValue> literalValue;
+  protected StructType structType;
+
+  /**
+   * The cached value of the '{@link #getLiteralTypeLinha() <em>Literal Type Linha</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLiteralTypeLinha()
+   * @generated
+   * @ordered
+   */
+  protected LiteralTypeLinha literalTypeLinha;
+
+  /**
+   * The cached value of the '{@link #getElementType() <em>Element Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getElementType()
+   * @generated
+   * @ordered
+   */
+  protected ElementType elementType;
+
+  /**
+   * The cached value of the '{@link #getMapType() <em>Map Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMapType()
+   * @generated
+   * @ordered
+   */
+  protected MapType mapType;
+
+  /**
+   * The cached value of the '{@link #getTypeName() <em>Type Name</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTypeName()
+   * @generated
+   * @ordered
+   */
+  protected TypeName typeName;
 
   /**
    * <!-- begin-user-doc -->
@@ -70,13 +115,239 @@ public class LiteralTypeImpl extends CompositeLitImpl implements LiteralType
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<LiteralValue> getLiteralValue()
+  public StructType getStructType()
   {
-    if (literalValue == null)
+    return structType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetStructType(StructType newStructType, NotificationChain msgs)
+  {
+    StructType oldStructType = structType;
+    structType = newStructType;
+    if (eNotificationRequired())
     {
-      literalValue = new EObjectContainmentEList<LiteralValue>(LiteralValue.class, this, GoPackage.LITERAL_TYPE__LITERAL_VALUE);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL_TYPE__STRUCT_TYPE, oldStructType, newStructType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return literalValue;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setStructType(StructType newStructType)
+  {
+    if (newStructType != structType)
+    {
+      NotificationChain msgs = null;
+      if (structType != null)
+        msgs = ((InternalEObject)structType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.LITERAL_TYPE__STRUCT_TYPE, null, msgs);
+      if (newStructType != null)
+        msgs = ((InternalEObject)newStructType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.LITERAL_TYPE__STRUCT_TYPE, null, msgs);
+      msgs = basicSetStructType(newStructType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL_TYPE__STRUCT_TYPE, newStructType, newStructType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LiteralTypeLinha getLiteralTypeLinha()
+  {
+    return literalTypeLinha;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetLiteralTypeLinha(LiteralTypeLinha newLiteralTypeLinha, NotificationChain msgs)
+  {
+    LiteralTypeLinha oldLiteralTypeLinha = literalTypeLinha;
+    literalTypeLinha = newLiteralTypeLinha;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL_TYPE__LITERAL_TYPE_LINHA, oldLiteralTypeLinha, newLiteralTypeLinha);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLiteralTypeLinha(LiteralTypeLinha newLiteralTypeLinha)
+  {
+    if (newLiteralTypeLinha != literalTypeLinha)
+    {
+      NotificationChain msgs = null;
+      if (literalTypeLinha != null)
+        msgs = ((InternalEObject)literalTypeLinha).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.LITERAL_TYPE__LITERAL_TYPE_LINHA, null, msgs);
+      if (newLiteralTypeLinha != null)
+        msgs = ((InternalEObject)newLiteralTypeLinha).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.LITERAL_TYPE__LITERAL_TYPE_LINHA, null, msgs);
+      msgs = basicSetLiteralTypeLinha(newLiteralTypeLinha, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL_TYPE__LITERAL_TYPE_LINHA, newLiteralTypeLinha, newLiteralTypeLinha));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ElementType getElementType()
+  {
+    return elementType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetElementType(ElementType newElementType, NotificationChain msgs)
+  {
+    ElementType oldElementType = elementType;
+    elementType = newElementType;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL_TYPE__ELEMENT_TYPE, oldElementType, newElementType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setElementType(ElementType newElementType)
+  {
+    if (newElementType != elementType)
+    {
+      NotificationChain msgs = null;
+      if (elementType != null)
+        msgs = ((InternalEObject)elementType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.LITERAL_TYPE__ELEMENT_TYPE, null, msgs);
+      if (newElementType != null)
+        msgs = ((InternalEObject)newElementType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.LITERAL_TYPE__ELEMENT_TYPE, null, msgs);
+      msgs = basicSetElementType(newElementType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL_TYPE__ELEMENT_TYPE, newElementType, newElementType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MapType getMapType()
+  {
+    return mapType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetMapType(MapType newMapType, NotificationChain msgs)
+  {
+    MapType oldMapType = mapType;
+    mapType = newMapType;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL_TYPE__MAP_TYPE, oldMapType, newMapType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMapType(MapType newMapType)
+  {
+    if (newMapType != mapType)
+    {
+      NotificationChain msgs = null;
+      if (mapType != null)
+        msgs = ((InternalEObject)mapType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.LITERAL_TYPE__MAP_TYPE, null, msgs);
+      if (newMapType != null)
+        msgs = ((InternalEObject)newMapType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.LITERAL_TYPE__MAP_TYPE, null, msgs);
+      msgs = basicSetMapType(newMapType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL_TYPE__MAP_TYPE, newMapType, newMapType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TypeName getTypeName()
+  {
+    return typeName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTypeName(TypeName newTypeName, NotificationChain msgs)
+  {
+    TypeName oldTypeName = typeName;
+    typeName = newTypeName;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL_TYPE__TYPE_NAME, oldTypeName, newTypeName);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTypeName(TypeName newTypeName)
+  {
+    if (newTypeName != typeName)
+    {
+      NotificationChain msgs = null;
+      if (typeName != null)
+        msgs = ((InternalEObject)typeName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.LITERAL_TYPE__TYPE_NAME, null, msgs);
+      if (newTypeName != null)
+        msgs = ((InternalEObject)newTypeName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.LITERAL_TYPE__TYPE_NAME, null, msgs);
+      msgs = basicSetTypeName(newTypeName, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL_TYPE__TYPE_NAME, newTypeName, newTypeName));
   }
 
   /**
@@ -89,8 +360,16 @@ public class LiteralTypeImpl extends CompositeLitImpl implements LiteralType
   {
     switch (featureID)
     {
-      case GoPackage.LITERAL_TYPE__LITERAL_VALUE:
-        return ((InternalEList<?>)getLiteralValue()).basicRemove(otherEnd, msgs);
+      case GoPackage.LITERAL_TYPE__STRUCT_TYPE:
+        return basicSetStructType(null, msgs);
+      case GoPackage.LITERAL_TYPE__LITERAL_TYPE_LINHA:
+        return basicSetLiteralTypeLinha(null, msgs);
+      case GoPackage.LITERAL_TYPE__ELEMENT_TYPE:
+        return basicSetElementType(null, msgs);
+      case GoPackage.LITERAL_TYPE__MAP_TYPE:
+        return basicSetMapType(null, msgs);
+      case GoPackage.LITERAL_TYPE__TYPE_NAME:
+        return basicSetTypeName(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -105,8 +384,16 @@ public class LiteralTypeImpl extends CompositeLitImpl implements LiteralType
   {
     switch (featureID)
     {
-      case GoPackage.LITERAL_TYPE__LITERAL_VALUE:
-        return getLiteralValue();
+      case GoPackage.LITERAL_TYPE__STRUCT_TYPE:
+        return getStructType();
+      case GoPackage.LITERAL_TYPE__LITERAL_TYPE_LINHA:
+        return getLiteralTypeLinha();
+      case GoPackage.LITERAL_TYPE__ELEMENT_TYPE:
+        return getElementType();
+      case GoPackage.LITERAL_TYPE__MAP_TYPE:
+        return getMapType();
+      case GoPackage.LITERAL_TYPE__TYPE_NAME:
+        return getTypeName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -116,15 +403,25 @@ public class LiteralTypeImpl extends CompositeLitImpl implements LiteralType
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case GoPackage.LITERAL_TYPE__LITERAL_VALUE:
-        getLiteralValue().clear();
-        getLiteralValue().addAll((Collection<? extends LiteralValue>)newValue);
+      case GoPackage.LITERAL_TYPE__STRUCT_TYPE:
+        setStructType((StructType)newValue);
+        return;
+      case GoPackage.LITERAL_TYPE__LITERAL_TYPE_LINHA:
+        setLiteralTypeLinha((LiteralTypeLinha)newValue);
+        return;
+      case GoPackage.LITERAL_TYPE__ELEMENT_TYPE:
+        setElementType((ElementType)newValue);
+        return;
+      case GoPackage.LITERAL_TYPE__MAP_TYPE:
+        setMapType((MapType)newValue);
+        return;
+      case GoPackage.LITERAL_TYPE__TYPE_NAME:
+        setTypeName((TypeName)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,8 +437,20 @@ public class LiteralTypeImpl extends CompositeLitImpl implements LiteralType
   {
     switch (featureID)
     {
-      case GoPackage.LITERAL_TYPE__LITERAL_VALUE:
-        getLiteralValue().clear();
+      case GoPackage.LITERAL_TYPE__STRUCT_TYPE:
+        setStructType((StructType)null);
+        return;
+      case GoPackage.LITERAL_TYPE__LITERAL_TYPE_LINHA:
+        setLiteralTypeLinha((LiteralTypeLinha)null);
+        return;
+      case GoPackage.LITERAL_TYPE__ELEMENT_TYPE:
+        setElementType((ElementType)null);
+        return;
+      case GoPackage.LITERAL_TYPE__MAP_TYPE:
+        setMapType((MapType)null);
+        return;
+      case GoPackage.LITERAL_TYPE__TYPE_NAME:
+        setTypeName((TypeName)null);
         return;
     }
     super.eUnset(featureID);
@@ -157,8 +466,16 @@ public class LiteralTypeImpl extends CompositeLitImpl implements LiteralType
   {
     switch (featureID)
     {
-      case GoPackage.LITERAL_TYPE__LITERAL_VALUE:
-        return literalValue != null && !literalValue.isEmpty();
+      case GoPackage.LITERAL_TYPE__STRUCT_TYPE:
+        return structType != null;
+      case GoPackage.LITERAL_TYPE__LITERAL_TYPE_LINHA:
+        return literalTypeLinha != null;
+      case GoPackage.LITERAL_TYPE__ELEMENT_TYPE:
+        return elementType != null;
+      case GoPackage.LITERAL_TYPE__MAP_TYPE:
+        return mapType != null;
+      case GoPackage.LITERAL_TYPE__TYPE_NAME:
+        return typeName != null;
     }
     return super.eIsSet(featureID);
   }

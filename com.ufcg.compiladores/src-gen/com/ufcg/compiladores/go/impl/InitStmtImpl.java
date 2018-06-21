@@ -5,18 +5,42 @@ package com.ufcg.compiladores.go.impl;
 
 import com.ufcg.compiladores.go.GoPackage;
 import com.ufcg.compiladores.go.InitStmt;
+import com.ufcg.compiladores.go.SimpleStmt;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Init Stmt</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.impl.InitStmtImpl#getSimpleStmt <em>Simple Stmt</em>}</li>
+ * </ul>
  *
  * @generated
  */
-public class InitStmtImpl extends ForClauseImpl implements InitStmt
+public class InitStmtImpl extends MinimalEObjectImpl.Container implements InitStmt
 {
+  /**
+   * The cached value of the '{@link #getSimpleStmt() <em>Simple Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSimpleStmt()
+   * @generated
+   * @ordered
+   */
+  protected SimpleStmt simpleStmt;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +60,136 @@ public class InitStmtImpl extends ForClauseImpl implements InitStmt
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.INIT_STMT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SimpleStmt getSimpleStmt()
+  {
+    return simpleStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSimpleStmt(SimpleStmt newSimpleStmt, NotificationChain msgs)
+  {
+    SimpleStmt oldSimpleStmt = simpleStmt;
+    simpleStmt = newSimpleStmt;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.INIT_STMT__SIMPLE_STMT, oldSimpleStmt, newSimpleStmt);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSimpleStmt(SimpleStmt newSimpleStmt)
+  {
+    if (newSimpleStmt != simpleStmt)
+    {
+      NotificationChain msgs = null;
+      if (simpleStmt != null)
+        msgs = ((InternalEObject)simpleStmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.INIT_STMT__SIMPLE_STMT, null, msgs);
+      if (newSimpleStmt != null)
+        msgs = ((InternalEObject)newSimpleStmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.INIT_STMT__SIMPLE_STMT, null, msgs);
+      msgs = basicSetSimpleStmt(newSimpleStmt, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.INIT_STMT__SIMPLE_STMT, newSimpleStmt, newSimpleStmt));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.INIT_STMT__SIMPLE_STMT:
+        return basicSetSimpleStmt(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.INIT_STMT__SIMPLE_STMT:
+        return getSimpleStmt();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.INIT_STMT__SIMPLE_STMT:
+        setSimpleStmt((SimpleStmt)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.INIT_STMT__SIMPLE_STMT:
+        setSimpleStmt((SimpleStmt)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.INIT_STMT__SIMPLE_STMT:
+        return simpleStmt != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //InitStmtImpl

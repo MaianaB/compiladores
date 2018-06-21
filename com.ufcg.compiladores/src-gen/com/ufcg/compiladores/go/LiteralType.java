@@ -3,7 +3,7 @@
  */
 package com.ufcg.compiladores.go;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,29 +14,147 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.ufcg.compiladores.go.LiteralType#getLiteralValue <em>Literal Value</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.LiteralType#getStructType <em>Struct Type</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.LiteralType#getLiteralTypeLinha <em>Literal Type Linha</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.LiteralType#getElementType <em>Element Type</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.LiteralType#getMapType <em>Map Type</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.LiteralType#getTypeName <em>Type Name</em>}</li>
  * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getLiteralType()
  * @model
  * @generated
  */
-public interface LiteralType extends CompositeLit
+public interface LiteralType extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Literal Value</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.LiteralValue}.
+   * Returns the value of the '<em><b>Struct Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Literal Value</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Struct Type</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Literal Value</em>' containment reference list.
-   * @see com.ufcg.compiladores.go.GoPackage#getLiteralType_LiteralValue()
+   * @return the value of the '<em>Struct Type</em>' containment reference.
+   * @see #setStructType(StructType)
+   * @see com.ufcg.compiladores.go.GoPackage#getLiteralType_StructType()
    * @model containment="true"
    * @generated
    */
-  EList<LiteralValue> getLiteralValue();
+  StructType getStructType();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.LiteralType#getStructType <em>Struct Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Struct Type</em>' containment reference.
+   * @see #getStructType()
+   * @generated
+   */
+  void setStructType(StructType value);
+
+  /**
+   * Returns the value of the '<em><b>Literal Type Linha</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Literal Type Linha</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Literal Type Linha</em>' containment reference.
+   * @see #setLiteralTypeLinha(LiteralTypeLinha)
+   * @see com.ufcg.compiladores.go.GoPackage#getLiteralType_LiteralTypeLinha()
+   * @model containment="true"
+   * @generated
+   */
+  LiteralTypeLinha getLiteralTypeLinha();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.LiteralType#getLiteralTypeLinha <em>Literal Type Linha</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Literal Type Linha</em>' containment reference.
+   * @see #getLiteralTypeLinha()
+   * @generated
+   */
+  void setLiteralTypeLinha(LiteralTypeLinha value);
+
+  /**
+   * Returns the value of the '<em><b>Element Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Element Type</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Element Type</em>' containment reference.
+   * @see #setElementType(ElementType)
+   * @see com.ufcg.compiladores.go.GoPackage#getLiteralType_ElementType()
+   * @model containment="true"
+   * @generated
+   */
+  ElementType getElementType();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.LiteralType#getElementType <em>Element Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Element Type</em>' containment reference.
+   * @see #getElementType()
+   * @generated
+   */
+  void setElementType(ElementType value);
+
+  /**
+   * Returns the value of the '<em><b>Map Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Map Type</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Map Type</em>' containment reference.
+   * @see #setMapType(MapType)
+   * @see com.ufcg.compiladores.go.GoPackage#getLiteralType_MapType()
+   * @model containment="true"
+   * @generated
+   */
+  MapType getMapType();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.LiteralType#getMapType <em>Map Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Map Type</em>' containment reference.
+   * @see #getMapType()
+   * @generated
+   */
+  void setMapType(MapType value);
+
+  /**
+   * Returns the value of the '<em><b>Type Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type Name</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type Name</em>' containment reference.
+   * @see #setTypeName(TypeName)
+   * @see com.ufcg.compiladores.go.GoPackage#getLiteralType_TypeName()
+   * @model containment="true"
+   * @generated
+   */
+  TypeName getTypeName();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.LiteralType#getTypeName <em>Type Name</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type Name</em>' containment reference.
+   * @see #getTypeName()
+   * @generated
+   */
+  void setTypeName(TypeName value);
 
 } // LiteralType

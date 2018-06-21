@@ -10,6 +10,15 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Field Decl</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.FieldDecl#getIdentifierList <em>Identifier List</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.FieldDecl#getType <em>Type</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.FieldDecl#getEmbeddedField <em>Embedded Field</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.FieldDecl#getTag <em>Tag</em>}</li>
+ * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getFieldDecl()
  * @model
@@ -17,4 +26,108 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface FieldDecl extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Identifier List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Identifier List</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Identifier List</em>' containment reference.
+   * @see #setIdentifierList(IdentifierList)
+   * @see com.ufcg.compiladores.go.GoPackage#getFieldDecl_IdentifierList()
+   * @model containment="true"
+   * @generated
+   */
+  IdentifierList getIdentifierList();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.FieldDecl#getIdentifierList <em>Identifier List</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Identifier List</em>' containment reference.
+   * @see #getIdentifierList()
+   * @generated
+   */
+  void setIdentifierList(IdentifierList value);
+
+  /**
+   * Returns the value of the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type</em>' containment reference.
+   * @see #setType(Type)
+   * @see com.ufcg.compiladores.go.GoPackage#getFieldDecl_Type()
+   * @model containment="true"
+   * @generated
+   */
+  Type getType();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.FieldDecl#getType <em>Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type</em>' containment reference.
+   * @see #getType()
+   * @generated
+   */
+  void setType(Type value);
+
+  /**
+   * Returns the value of the '<em><b>Embedded Field</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Embedded Field</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Embedded Field</em>' containment reference.
+   * @see #setEmbeddedField(EmbeddedField)
+   * @see com.ufcg.compiladores.go.GoPackage#getFieldDecl_EmbeddedField()
+   * @model containment="true"
+   * @generated
+   */
+  EmbeddedField getEmbeddedField();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.FieldDecl#getEmbeddedField <em>Embedded Field</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Embedded Field</em>' containment reference.
+   * @see #getEmbeddedField()
+   * @generated
+   */
+  void setEmbeddedField(EmbeddedField value);
+
+  /**
+   * Returns the value of the '<em><b>Tag</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Tag</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Tag</em>' containment reference.
+   * @see #setTag(Tag)
+   * @see com.ufcg.compiladores.go.GoPackage#getFieldDecl_Tag()
+   * @model containment="true"
+   * @generated
+   */
+  Tag getTag();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.FieldDecl#getTag <em>Tag</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Tag</em>' containment reference.
+   * @see #getTag()
+   * @generated
+   */
+  void setTag(Tag value);
+
 } // FieldDecl

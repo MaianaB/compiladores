@@ -12,6 +12,7 @@ import com.ufcg.compiladores.go.switch_stmt_linha;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -19,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -34,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.ufcg.compiladores.go.impl.switch_stmt_linhaImpl#getTypeSwitchGuard <em>Type Switch Guard</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.impl.switch_stmt_linhaImpl#getTypeCaseClause <em>Type Case Clause</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.switch_stmt_linhaImpl#getSwitch_stmt_linha <em>Switch stmt linha</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.impl.switch_stmt_linhaImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.impl.switch_stmt_linhaImpl#getExprCaseClause <em>Expr Case Clause</em>}</li>
  * </ul>
@@ -43,14 +46,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class switch_stmt_linhaImpl extends MinimalEObjectImpl.Container implements switch_stmt_linha
 {
   /**
-   * The cached value of the '{@link #getTypeSwitchGuard() <em>Type Switch Guard</em>}' containment reference list.
+   * The cached value of the '{@link #getTypeSwitchGuard() <em>Type Switch Guard</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getTypeSwitchGuard()
    * @generated
    * @ordered
    */
-  protected EList<TypeSwitchGuard> typeSwitchGuard;
+  protected TypeSwitchGuard typeSwitchGuard;
 
   /**
    * The cached value of the '{@link #getTypeCaseClause() <em>Type Case Clause</em>}' containment reference list.
@@ -63,14 +66,24 @@ public class switch_stmt_linhaImpl extends MinimalEObjectImpl.Container implemen
   protected EList<TypeCaseClause> typeCaseClause;
 
   /**
-   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference list.
+   * The cached value of the '{@link #getSwitch_stmt_linha() <em>Switch stmt linha</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSwitch_stmt_linha()
+   * @generated
+   * @ordered
+   */
+  protected switch_stmt_linha switch_stmt_linha;
+
+  /**
+   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getExpression()
    * @generated
    * @ordered
    */
-  protected EList<Expression> expression;
+  protected Expression expression;
 
   /**
    * The cached value of the '{@link #getExprCaseClause() <em>Expr Case Clause</em>}' containment reference list.
@@ -108,13 +121,47 @@ public class switch_stmt_linhaImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<TypeSwitchGuard> getTypeSwitchGuard()
+  public TypeSwitchGuard getTypeSwitchGuard()
   {
-    if (typeSwitchGuard == null)
-    {
-      typeSwitchGuard = new EObjectContainmentEList<TypeSwitchGuard>(TypeSwitchGuard.class, this, GoPackage.SWITCH_STMT_LINHA__TYPE_SWITCH_GUARD);
-    }
     return typeSwitchGuard;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTypeSwitchGuard(TypeSwitchGuard newTypeSwitchGuard, NotificationChain msgs)
+  {
+    TypeSwitchGuard oldTypeSwitchGuard = typeSwitchGuard;
+    typeSwitchGuard = newTypeSwitchGuard;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SWITCH_STMT_LINHA__TYPE_SWITCH_GUARD, oldTypeSwitchGuard, newTypeSwitchGuard);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTypeSwitchGuard(TypeSwitchGuard newTypeSwitchGuard)
+  {
+    if (newTypeSwitchGuard != typeSwitchGuard)
+    {
+      NotificationChain msgs = null;
+      if (typeSwitchGuard != null)
+        msgs = ((InternalEObject)typeSwitchGuard).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SWITCH_STMT_LINHA__TYPE_SWITCH_GUARD, null, msgs);
+      if (newTypeSwitchGuard != null)
+        msgs = ((InternalEObject)newTypeSwitchGuard).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SWITCH_STMT_LINHA__TYPE_SWITCH_GUARD, null, msgs);
+      msgs = basicSetTypeSwitchGuard(newTypeSwitchGuard, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SWITCH_STMT_LINHA__TYPE_SWITCH_GUARD, newTypeSwitchGuard, newTypeSwitchGuard));
   }
 
   /**
@@ -136,13 +183,95 @@ public class switch_stmt_linhaImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Expression> getExpression()
+  public switch_stmt_linha getSwitch_stmt_linha()
   {
-    if (expression == null)
+    return switch_stmt_linha;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSwitch_stmt_linha(switch_stmt_linha newSwitch_stmt_linha, NotificationChain msgs)
+  {
+    switch_stmt_linha oldSwitch_stmt_linha = switch_stmt_linha;
+    switch_stmt_linha = newSwitch_stmt_linha;
+    if (eNotificationRequired())
     {
-      expression = new EObjectContainmentEList<Expression>(Expression.class, this, GoPackage.SWITCH_STMT_LINHA__EXPRESSION);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SWITCH_STMT_LINHA__SWITCH_STMT_LINHA, oldSwitch_stmt_linha, newSwitch_stmt_linha);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSwitch_stmt_linha(switch_stmt_linha newSwitch_stmt_linha)
+  {
+    if (newSwitch_stmt_linha != switch_stmt_linha)
+    {
+      NotificationChain msgs = null;
+      if (switch_stmt_linha != null)
+        msgs = ((InternalEObject)switch_stmt_linha).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SWITCH_STMT_LINHA__SWITCH_STMT_LINHA, null, msgs);
+      if (newSwitch_stmt_linha != null)
+        msgs = ((InternalEObject)newSwitch_stmt_linha).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SWITCH_STMT_LINHA__SWITCH_STMT_LINHA, null, msgs);
+      msgs = basicSetSwitch_stmt_linha(newSwitch_stmt_linha, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SWITCH_STMT_LINHA__SWITCH_STMT_LINHA, newSwitch_stmt_linha, newSwitch_stmt_linha));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression getExpression()
+  {
     return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
+  {
+    Expression oldExpression = expression;
+    expression = newExpression;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SWITCH_STMT_LINHA__EXPRESSION, oldExpression, newExpression);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExpression(Expression newExpression)
+  {
+    if (newExpression != expression)
+    {
+      NotificationChain msgs = null;
+      if (expression != null)
+        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SWITCH_STMT_LINHA__EXPRESSION, null, msgs);
+      if (newExpression != null)
+        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SWITCH_STMT_LINHA__EXPRESSION, null, msgs);
+      msgs = basicSetExpression(newExpression, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SWITCH_STMT_LINHA__EXPRESSION, newExpression, newExpression));
   }
 
   /**
@@ -170,11 +299,13 @@ public class switch_stmt_linhaImpl extends MinimalEObjectImpl.Container implemen
     switch (featureID)
     {
       case GoPackage.SWITCH_STMT_LINHA__TYPE_SWITCH_GUARD:
-        return ((InternalEList<?>)getTypeSwitchGuard()).basicRemove(otherEnd, msgs);
+        return basicSetTypeSwitchGuard(null, msgs);
       case GoPackage.SWITCH_STMT_LINHA__TYPE_CASE_CLAUSE:
         return ((InternalEList<?>)getTypeCaseClause()).basicRemove(otherEnd, msgs);
+      case GoPackage.SWITCH_STMT_LINHA__SWITCH_STMT_LINHA:
+        return basicSetSwitch_stmt_linha(null, msgs);
       case GoPackage.SWITCH_STMT_LINHA__EXPRESSION:
-        return ((InternalEList<?>)getExpression()).basicRemove(otherEnd, msgs);
+        return basicSetExpression(null, msgs);
       case GoPackage.SWITCH_STMT_LINHA__EXPR_CASE_CLAUSE:
         return ((InternalEList<?>)getExprCaseClause()).basicRemove(otherEnd, msgs);
     }
@@ -195,6 +326,8 @@ public class switch_stmt_linhaImpl extends MinimalEObjectImpl.Container implemen
         return getTypeSwitchGuard();
       case GoPackage.SWITCH_STMT_LINHA__TYPE_CASE_CLAUSE:
         return getTypeCaseClause();
+      case GoPackage.SWITCH_STMT_LINHA__SWITCH_STMT_LINHA:
+        return getSwitch_stmt_linha();
       case GoPackage.SWITCH_STMT_LINHA__EXPRESSION:
         return getExpression();
       case GoPackage.SWITCH_STMT_LINHA__EXPR_CASE_CLAUSE:
@@ -215,16 +348,17 @@ public class switch_stmt_linhaImpl extends MinimalEObjectImpl.Container implemen
     switch (featureID)
     {
       case GoPackage.SWITCH_STMT_LINHA__TYPE_SWITCH_GUARD:
-        getTypeSwitchGuard().clear();
-        getTypeSwitchGuard().addAll((Collection<? extends TypeSwitchGuard>)newValue);
+        setTypeSwitchGuard((TypeSwitchGuard)newValue);
         return;
       case GoPackage.SWITCH_STMT_LINHA__TYPE_CASE_CLAUSE:
         getTypeCaseClause().clear();
         getTypeCaseClause().addAll((Collection<? extends TypeCaseClause>)newValue);
         return;
+      case GoPackage.SWITCH_STMT_LINHA__SWITCH_STMT_LINHA:
+        setSwitch_stmt_linha((switch_stmt_linha)newValue);
+        return;
       case GoPackage.SWITCH_STMT_LINHA__EXPRESSION:
-        getExpression().clear();
-        getExpression().addAll((Collection<? extends Expression>)newValue);
+        setExpression((Expression)newValue);
         return;
       case GoPackage.SWITCH_STMT_LINHA__EXPR_CASE_CLAUSE:
         getExprCaseClause().clear();
@@ -245,13 +379,16 @@ public class switch_stmt_linhaImpl extends MinimalEObjectImpl.Container implemen
     switch (featureID)
     {
       case GoPackage.SWITCH_STMT_LINHA__TYPE_SWITCH_GUARD:
-        getTypeSwitchGuard().clear();
+        setTypeSwitchGuard((TypeSwitchGuard)null);
         return;
       case GoPackage.SWITCH_STMT_LINHA__TYPE_CASE_CLAUSE:
         getTypeCaseClause().clear();
         return;
+      case GoPackage.SWITCH_STMT_LINHA__SWITCH_STMT_LINHA:
+        setSwitch_stmt_linha((switch_stmt_linha)null);
+        return;
       case GoPackage.SWITCH_STMT_LINHA__EXPRESSION:
-        getExpression().clear();
+        setExpression((Expression)null);
         return;
       case GoPackage.SWITCH_STMT_LINHA__EXPR_CASE_CLAUSE:
         getExprCaseClause().clear();
@@ -271,11 +408,13 @@ public class switch_stmt_linhaImpl extends MinimalEObjectImpl.Container implemen
     switch (featureID)
     {
       case GoPackage.SWITCH_STMT_LINHA__TYPE_SWITCH_GUARD:
-        return typeSwitchGuard != null && !typeSwitchGuard.isEmpty();
+        return typeSwitchGuard != null;
       case GoPackage.SWITCH_STMT_LINHA__TYPE_CASE_CLAUSE:
         return typeCaseClause != null && !typeCaseClause.isEmpty();
+      case GoPackage.SWITCH_STMT_LINHA__SWITCH_STMT_LINHA:
+        return switch_stmt_linha != null;
       case GoPackage.SWITCH_STMT_LINHA__EXPRESSION:
-        return expression != null && !expression.isEmpty();
+        return expression != null;
       case GoPackage.SWITCH_STMT_LINHA__EXPR_CASE_CLAUSE:
         return exprCaseClause != null && !exprCaseClause.isEmpty();
     }

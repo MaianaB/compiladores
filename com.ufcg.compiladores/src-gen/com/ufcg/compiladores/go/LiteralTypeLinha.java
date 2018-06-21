@@ -3,17 +3,77 @@
  */
 package com.ufcg.compiladores.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Literal Type Linha</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.LiteralTypeLinha#getArrayLength <em>Array Length</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.LiteralTypeLinha#getElementType <em>Element Type</em>}</li>
+ * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getLiteralTypeLinha()
  * @model
  * @generated
  */
-public interface LiteralTypeLinha extends LiteralType
+public interface LiteralTypeLinha extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Array Length</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Array Length</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Array Length</em>' containment reference.
+   * @see #setArrayLength(ArrayLength)
+   * @see com.ufcg.compiladores.go.GoPackage#getLiteralTypeLinha_ArrayLength()
+   * @model containment="true"
+   * @generated
+   */
+  ArrayLength getArrayLength();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.LiteralTypeLinha#getArrayLength <em>Array Length</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Array Length</em>' containment reference.
+   * @see #getArrayLength()
+   * @generated
+   */
+  void setArrayLength(ArrayLength value);
+
+  /**
+   * Returns the value of the '<em><b>Element Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Element Type</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Element Type</em>' containment reference.
+   * @see #setElementType(ElementType)
+   * @see com.ufcg.compiladores.go.GoPackage#getLiteralTypeLinha_ElementType()
+   * @model containment="true"
+   * @generated
+   */
+  ElementType getElementType();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.LiteralTypeLinha#getElementType <em>Element Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Element Type</em>' containment reference.
+   * @see #getElementType()
+   * @generated
+   */
+  void setElementType(ElementType value);
+
 } // LiteralTypeLinha

@@ -10,6 +10,14 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Type Lit Linha</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.TypeLitLinha#getArrayLength <em>Array Length</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.TypeLitLinha#getElementType <em>Element Type</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.TypeLitLinha#getTypeLitLinha <em>Type Lit Linha</em>}</li>
+ * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getTypeLitLinha()
  * @model
@@ -17,4 +25,82 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface TypeLitLinha extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Array Length</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Array Length</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Array Length</em>' containment reference.
+   * @see #setArrayLength(ArrayLength)
+   * @see com.ufcg.compiladores.go.GoPackage#getTypeLitLinha_ArrayLength()
+   * @model containment="true"
+   * @generated
+   */
+  ArrayLength getArrayLength();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.TypeLitLinha#getArrayLength <em>Array Length</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Array Length</em>' containment reference.
+   * @see #getArrayLength()
+   * @generated
+   */
+  void setArrayLength(ArrayLength value);
+
+  /**
+   * Returns the value of the '<em><b>Element Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Element Type</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Element Type</em>' containment reference.
+   * @see #setElementType(ElementType)
+   * @see com.ufcg.compiladores.go.GoPackage#getTypeLitLinha_ElementType()
+   * @model containment="true"
+   * @generated
+   */
+  ElementType getElementType();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.TypeLitLinha#getElementType <em>Element Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Element Type</em>' containment reference.
+   * @see #getElementType()
+   * @generated
+   */
+  void setElementType(ElementType value);
+
+  /**
+   * Returns the value of the '<em><b>Type Lit Linha</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type Lit Linha</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type Lit Linha</em>' containment reference.
+   * @see #setTypeLitLinha(TypeLitLinha)
+   * @see com.ufcg.compiladores.go.GoPackage#getTypeLitLinha_TypeLitLinha()
+   * @model containment="true"
+   * @generated
+   */
+  TypeLitLinha getTypeLitLinha();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.TypeLitLinha#getTypeLitLinha <em>Type Lit Linha</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type Lit Linha</em>' containment reference.
+   * @see #getTypeLitLinha()
+   * @generated
+   */
+  void setTypeLitLinha(TypeLitLinha value);
+
 } // TypeLitLinha

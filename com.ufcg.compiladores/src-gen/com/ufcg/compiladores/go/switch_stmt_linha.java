@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.ufcg.compiladores.go.switch_stmt_linha#getTypeSwitchGuard <em>Type Switch Guard</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.switch_stmt_linha#getTypeCaseClause <em>Type Case Clause</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.switch_stmt_linha#getSwitch_stmt_linha <em>Switch stmt linha</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.switch_stmt_linha#getExpression <em>Expression</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.switch_stmt_linha#getExprCaseClause <em>Expr Case Clause</em>}</li>
  * </ul>
@@ -29,20 +30,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface switch_stmt_linha extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Type Switch Guard</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.TypeSwitchGuard}.
+   * Returns the value of the '<em><b>Type Switch Guard</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type Switch Guard</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Type Switch Guard</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type Switch Guard</em>' containment reference list.
+   * @return the value of the '<em>Type Switch Guard</em>' containment reference.
+   * @see #setTypeSwitchGuard(TypeSwitchGuard)
    * @see com.ufcg.compiladores.go.GoPackage#getswitch_stmt_linha_TypeSwitchGuard()
    * @model containment="true"
    * @generated
    */
-  EList<TypeSwitchGuard> getTypeSwitchGuard();
+  TypeSwitchGuard getTypeSwitchGuard();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.switch_stmt_linha#getTypeSwitchGuard <em>Type Switch Guard</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type Switch Guard</em>' containment reference.
+   * @see #getTypeSwitchGuard()
+   * @generated
+   */
+  void setTypeSwitchGuard(TypeSwitchGuard value);
 
   /**
    * Returns the value of the '<em><b>Type Case Clause</b></em>' containment reference list.
@@ -61,20 +72,56 @@ public interface switch_stmt_linha extends EObject
   EList<TypeCaseClause> getTypeCaseClause();
 
   /**
-   * Returns the value of the '<em><b>Expression</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.Expression}.
+   * Returns the value of the '<em><b>Switch stmt linha</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Expression</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Switch stmt linha</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expression</em>' containment reference list.
+   * @return the value of the '<em>Switch stmt linha</em>' containment reference.
+   * @see #setSwitch_stmt_linha(switch_stmt_linha)
+   * @see com.ufcg.compiladores.go.GoPackage#getswitch_stmt_linha_Switch_stmt_linha()
+   * @model containment="true"
+   * @generated
+   */
+  switch_stmt_linha getSwitch_stmt_linha();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.switch_stmt_linha#getSwitch_stmt_linha <em>Switch stmt linha</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Switch stmt linha</em>' containment reference.
+   * @see #getSwitch_stmt_linha()
+   * @generated
+   */
+  void setSwitch_stmt_linha(switch_stmt_linha value);
+
+  /**
+   * Returns the value of the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expression</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expression</em>' containment reference.
+   * @see #setExpression(Expression)
    * @see com.ufcg.compiladores.go.GoPackage#getswitch_stmt_linha_Expression()
    * @model containment="true"
    * @generated
    */
-  EList<Expression> getExpression();
+  Expression getExpression();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.switch_stmt_linha#getExpression <em>Expression</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expression</em>' containment reference.
+   * @see #getExpression()
+   * @generated
+   */
+  void setExpression(Expression value);
 
   /**
    * Returns the value of the '<em><b>Expr Case Clause</b></em>' containment reference list.

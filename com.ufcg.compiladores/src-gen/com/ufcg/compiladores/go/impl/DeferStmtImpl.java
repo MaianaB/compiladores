@@ -7,19 +7,14 @@ import com.ufcg.compiladores.go.DeferStmt;
 import com.ufcg.compiladores.go.Expression;
 import com.ufcg.compiladores.go.GoPackage;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,14 +32,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class DeferStmtImpl extends MinimalEObjectImpl.Container implements DeferStmt
 {
   /**
-   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference list.
+   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getExpression()
    * @generated
    * @ordered
    */
-  protected EList<Expression> expression;
+  protected Expression expression;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,13 +67,47 @@ public class DeferStmtImpl extends MinimalEObjectImpl.Container implements Defer
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Expression> getExpression()
+  public Expression getExpression()
   {
-    if (expression == null)
-    {
-      expression = new EObjectContainmentEList<Expression>(Expression.class, this, GoPackage.DEFER_STMT__EXPRESSION);
-    }
     return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
+  {
+    Expression oldExpression = expression;
+    expression = newExpression;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.DEFER_STMT__EXPRESSION, oldExpression, newExpression);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExpression(Expression newExpression)
+  {
+    if (newExpression != expression)
+    {
+      NotificationChain msgs = null;
+      if (expression != null)
+        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.DEFER_STMT__EXPRESSION, null, msgs);
+      if (newExpression != null)
+        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.DEFER_STMT__EXPRESSION, null, msgs);
+      msgs = basicSetExpression(newExpression, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.DEFER_STMT__EXPRESSION, newExpression, newExpression));
   }
 
   /**
@@ -92,7 +121,7 @@ public class DeferStmtImpl extends MinimalEObjectImpl.Container implements Defer
     switch (featureID)
     {
       case GoPackage.DEFER_STMT__EXPRESSION:
-        return ((InternalEList<?>)getExpression()).basicRemove(otherEnd, msgs);
+        return basicSetExpression(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -118,15 +147,13 @@ public class DeferStmtImpl extends MinimalEObjectImpl.Container implements Defer
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
       case GoPackage.DEFER_STMT__EXPRESSION:
-        getExpression().clear();
-        getExpression().addAll((Collection<? extends Expression>)newValue);
+        setExpression((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -143,7 +170,7 @@ public class DeferStmtImpl extends MinimalEObjectImpl.Container implements Defer
     switch (featureID)
     {
       case GoPackage.DEFER_STMT__EXPRESSION:
-        getExpression().clear();
+        setExpression((Expression)null);
         return;
     }
     super.eUnset(featureID);
@@ -160,7 +187,7 @@ public class DeferStmtImpl extends MinimalEObjectImpl.Container implements Defer
     switch (featureID)
     {
       case GoPackage.DEFER_STMT__EXPRESSION:
-        return expression != null && !expression.isEmpty();
+        return expression != null;
     }
     return super.eIsSet(featureID);
   }

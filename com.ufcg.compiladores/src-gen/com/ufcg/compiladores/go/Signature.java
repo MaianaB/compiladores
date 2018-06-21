@@ -3,17 +3,77 @@
  */
 package com.ufcg.compiladores.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Signature</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.Signature#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.Signature#getResult <em>Result</em>}</li>
+ * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getSignature()
  * @model
  * @generated
  */
-public interface Signature extends FunctionType, MethodSpec, topLevelDeclLinha, FunctionDecl, FunctionLit
+public interface Signature extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Parameters</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parameters</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parameters</em>' containment reference.
+   * @see #setParameters(Parameters)
+   * @see com.ufcg.compiladores.go.GoPackage#getSignature_Parameters()
+   * @model containment="true"
+   * @generated
+   */
+  Parameters getParameters();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Signature#getParameters <em>Parameters</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parameters</em>' containment reference.
+   * @see #getParameters()
+   * @generated
+   */
+  void setParameters(Parameters value);
+
+  /**
+   * Returns the value of the '<em><b>Result</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Result</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Result</em>' containment reference.
+   * @see #setResult(Result)
+   * @see com.ufcg.compiladores.go.GoPackage#getSignature_Result()
+   * @model containment="true"
+   * @generated
+   */
+  Result getResult();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Signature#getResult <em>Result</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Result</em>' containment reference.
+   * @see #getResult()
+   * @generated
+   */
+  void setResult(Result value);
+
 } // Signature

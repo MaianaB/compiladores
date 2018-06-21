@@ -5,6 +5,8 @@ package com.ufcg.compiladores.go;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Expression List</b></em>'.
@@ -14,29 +16,29 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.ufcg.compiladores.go.ExpressionList#getExpressionList <em>Expression List</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.ExpressionList#getExpression <em>Expression</em>}</li>
  * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getExpressionList()
  * @model
  * @generated
  */
-public interface ExpressionList extends VarSpec, ShortVarDecl, Arguments, Assignment, ExprSwitchCase, RangeClause, RecvStmt
+public interface ExpressionList extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Expression List</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.ExpressionList}.
+   * Returns the value of the '<em><b>Expression</b></em>' containment reference list.
+   * The list contents are of type {@link com.ufcg.compiladores.go.Expression}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Expression List</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Expression</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expression List</em>' containment reference list.
-   * @see com.ufcg.compiladores.go.GoPackage#getExpressionList_ExpressionList()
+   * @return the value of the '<em>Expression</em>' containment reference list.
+   * @see com.ufcg.compiladores.go.GoPackage#getExpressionList_Expression()
    * @model containment="true"
    * @generated
    */
-  EList<ExpressionList> getExpressionList();
+  EList<Expression> getExpression();
 
 } // ExpressionList

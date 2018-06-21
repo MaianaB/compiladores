@@ -4,20 +4,21 @@
 package com.ufcg.compiladores.go.impl;
 
 import com.ufcg.compiladores.go.FunctionBody;
+import com.ufcg.compiladores.go.FunctionName;
 import com.ufcg.compiladores.go.GoPackage;
+import com.ufcg.compiladores.go.MethodName;
+import com.ufcg.compiladores.go.Receiver;
+import com.ufcg.compiladores.go.Signature;
 import com.ufcg.compiladores.go.topLevelDeclLinha;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,22 +28,66 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.impl.topLevelDeclLinhaImpl#getFunctionName <em>Function Name</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.topLevelDeclLinhaImpl#getSignature <em>Signature</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.impl.topLevelDeclLinhaImpl#getFunctionBody <em>Function Body</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.topLevelDeclLinhaImpl#getReceiver <em>Receiver</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.topLevelDeclLinhaImpl#getMethodName <em>Method Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class topLevelDeclLinhaImpl extends TopLevelDeclImpl implements topLevelDeclLinha
+public class topLevelDeclLinhaImpl extends MinimalEObjectImpl.Container implements topLevelDeclLinha
 {
   /**
-   * The cached value of the '{@link #getFunctionBody() <em>Function Body</em>}' containment reference list.
+   * The cached value of the '{@link #getFunctionName() <em>Function Name</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFunctionName()
+   * @generated
+   * @ordered
+   */
+  protected FunctionName functionName;
+
+  /**
+   * The cached value of the '{@link #getSignature() <em>Signature</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSignature()
+   * @generated
+   * @ordered
+   */
+  protected Signature signature;
+
+  /**
+   * The cached value of the '{@link #getFunctionBody() <em>Function Body</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getFunctionBody()
    * @generated
    * @ordered
    */
-  protected EList<FunctionBody> functionBody;
+  protected FunctionBody functionBody;
+
+  /**
+   * The cached value of the '{@link #getReceiver() <em>Receiver</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getReceiver()
+   * @generated
+   * @ordered
+   */
+  protected Receiver receiver;
+
+  /**
+   * The cached value of the '{@link #getMethodName() <em>Method Name</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMethodName()
+   * @generated
+   * @ordered
+   */
+  protected MethodName methodName;
 
   /**
    * <!-- begin-user-doc -->
@@ -70,13 +115,239 @@ public class topLevelDeclLinhaImpl extends TopLevelDeclImpl implements topLevelD
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<FunctionBody> getFunctionBody()
+  public FunctionName getFunctionName()
   {
-    if (functionBody == null)
+    return functionName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFunctionName(FunctionName newFunctionName, NotificationChain msgs)
+  {
+    FunctionName oldFunctionName = functionName;
+    functionName = newFunctionName;
+    if (eNotificationRequired())
     {
-      functionBody = new EObjectContainmentEList<FunctionBody>(FunctionBody.class, this, GoPackage.TOP_LEVEL_DECL_LINHA__FUNCTION_BODY);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TOP_LEVEL_DECL_LINHA__FUNCTION_NAME, oldFunctionName, newFunctionName);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFunctionName(FunctionName newFunctionName)
+  {
+    if (newFunctionName != functionName)
+    {
+      NotificationChain msgs = null;
+      if (functionName != null)
+        msgs = ((InternalEObject)functionName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TOP_LEVEL_DECL_LINHA__FUNCTION_NAME, null, msgs);
+      if (newFunctionName != null)
+        msgs = ((InternalEObject)newFunctionName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TOP_LEVEL_DECL_LINHA__FUNCTION_NAME, null, msgs);
+      msgs = basicSetFunctionName(newFunctionName, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TOP_LEVEL_DECL_LINHA__FUNCTION_NAME, newFunctionName, newFunctionName));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Signature getSignature()
+  {
+    return signature;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSignature(Signature newSignature, NotificationChain msgs)
+  {
+    Signature oldSignature = signature;
+    signature = newSignature;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TOP_LEVEL_DECL_LINHA__SIGNATURE, oldSignature, newSignature);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSignature(Signature newSignature)
+  {
+    if (newSignature != signature)
+    {
+      NotificationChain msgs = null;
+      if (signature != null)
+        msgs = ((InternalEObject)signature).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TOP_LEVEL_DECL_LINHA__SIGNATURE, null, msgs);
+      if (newSignature != null)
+        msgs = ((InternalEObject)newSignature).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TOP_LEVEL_DECL_LINHA__SIGNATURE, null, msgs);
+      msgs = basicSetSignature(newSignature, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TOP_LEVEL_DECL_LINHA__SIGNATURE, newSignature, newSignature));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FunctionBody getFunctionBody()
+  {
     return functionBody;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFunctionBody(FunctionBody newFunctionBody, NotificationChain msgs)
+  {
+    FunctionBody oldFunctionBody = functionBody;
+    functionBody = newFunctionBody;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TOP_LEVEL_DECL_LINHA__FUNCTION_BODY, oldFunctionBody, newFunctionBody);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFunctionBody(FunctionBody newFunctionBody)
+  {
+    if (newFunctionBody != functionBody)
+    {
+      NotificationChain msgs = null;
+      if (functionBody != null)
+        msgs = ((InternalEObject)functionBody).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TOP_LEVEL_DECL_LINHA__FUNCTION_BODY, null, msgs);
+      if (newFunctionBody != null)
+        msgs = ((InternalEObject)newFunctionBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TOP_LEVEL_DECL_LINHA__FUNCTION_BODY, null, msgs);
+      msgs = basicSetFunctionBody(newFunctionBody, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TOP_LEVEL_DECL_LINHA__FUNCTION_BODY, newFunctionBody, newFunctionBody));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Receiver getReceiver()
+  {
+    return receiver;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetReceiver(Receiver newReceiver, NotificationChain msgs)
+  {
+    Receiver oldReceiver = receiver;
+    receiver = newReceiver;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TOP_LEVEL_DECL_LINHA__RECEIVER, oldReceiver, newReceiver);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setReceiver(Receiver newReceiver)
+  {
+    if (newReceiver != receiver)
+    {
+      NotificationChain msgs = null;
+      if (receiver != null)
+        msgs = ((InternalEObject)receiver).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TOP_LEVEL_DECL_LINHA__RECEIVER, null, msgs);
+      if (newReceiver != null)
+        msgs = ((InternalEObject)newReceiver).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TOP_LEVEL_DECL_LINHA__RECEIVER, null, msgs);
+      msgs = basicSetReceiver(newReceiver, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TOP_LEVEL_DECL_LINHA__RECEIVER, newReceiver, newReceiver));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MethodName getMethodName()
+  {
+    return methodName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetMethodName(MethodName newMethodName, NotificationChain msgs)
+  {
+    MethodName oldMethodName = methodName;
+    methodName = newMethodName;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TOP_LEVEL_DECL_LINHA__METHOD_NAME, oldMethodName, newMethodName);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMethodName(MethodName newMethodName)
+  {
+    if (newMethodName != methodName)
+    {
+      NotificationChain msgs = null;
+      if (methodName != null)
+        msgs = ((InternalEObject)methodName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TOP_LEVEL_DECL_LINHA__METHOD_NAME, null, msgs);
+      if (newMethodName != null)
+        msgs = ((InternalEObject)newMethodName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TOP_LEVEL_DECL_LINHA__METHOD_NAME, null, msgs);
+      msgs = basicSetMethodName(newMethodName, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TOP_LEVEL_DECL_LINHA__METHOD_NAME, newMethodName, newMethodName));
   }
 
   /**
@@ -89,8 +360,16 @@ public class topLevelDeclLinhaImpl extends TopLevelDeclImpl implements topLevelD
   {
     switch (featureID)
     {
+      case GoPackage.TOP_LEVEL_DECL_LINHA__FUNCTION_NAME:
+        return basicSetFunctionName(null, msgs);
+      case GoPackage.TOP_LEVEL_DECL_LINHA__SIGNATURE:
+        return basicSetSignature(null, msgs);
       case GoPackage.TOP_LEVEL_DECL_LINHA__FUNCTION_BODY:
-        return ((InternalEList<?>)getFunctionBody()).basicRemove(otherEnd, msgs);
+        return basicSetFunctionBody(null, msgs);
+      case GoPackage.TOP_LEVEL_DECL_LINHA__RECEIVER:
+        return basicSetReceiver(null, msgs);
+      case GoPackage.TOP_LEVEL_DECL_LINHA__METHOD_NAME:
+        return basicSetMethodName(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -105,8 +384,16 @@ public class topLevelDeclLinhaImpl extends TopLevelDeclImpl implements topLevelD
   {
     switch (featureID)
     {
+      case GoPackage.TOP_LEVEL_DECL_LINHA__FUNCTION_NAME:
+        return getFunctionName();
+      case GoPackage.TOP_LEVEL_DECL_LINHA__SIGNATURE:
+        return getSignature();
       case GoPackage.TOP_LEVEL_DECL_LINHA__FUNCTION_BODY:
         return getFunctionBody();
+      case GoPackage.TOP_LEVEL_DECL_LINHA__RECEIVER:
+        return getReceiver();
+      case GoPackage.TOP_LEVEL_DECL_LINHA__METHOD_NAME:
+        return getMethodName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -116,15 +403,25 @@ public class topLevelDeclLinhaImpl extends TopLevelDeclImpl implements topLevelD
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
+      case GoPackage.TOP_LEVEL_DECL_LINHA__FUNCTION_NAME:
+        setFunctionName((FunctionName)newValue);
+        return;
+      case GoPackage.TOP_LEVEL_DECL_LINHA__SIGNATURE:
+        setSignature((Signature)newValue);
+        return;
       case GoPackage.TOP_LEVEL_DECL_LINHA__FUNCTION_BODY:
-        getFunctionBody().clear();
-        getFunctionBody().addAll((Collection<? extends FunctionBody>)newValue);
+        setFunctionBody((FunctionBody)newValue);
+        return;
+      case GoPackage.TOP_LEVEL_DECL_LINHA__RECEIVER:
+        setReceiver((Receiver)newValue);
+        return;
+      case GoPackage.TOP_LEVEL_DECL_LINHA__METHOD_NAME:
+        setMethodName((MethodName)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,8 +437,20 @@ public class topLevelDeclLinhaImpl extends TopLevelDeclImpl implements topLevelD
   {
     switch (featureID)
     {
+      case GoPackage.TOP_LEVEL_DECL_LINHA__FUNCTION_NAME:
+        setFunctionName((FunctionName)null);
+        return;
+      case GoPackage.TOP_LEVEL_DECL_LINHA__SIGNATURE:
+        setSignature((Signature)null);
+        return;
       case GoPackage.TOP_LEVEL_DECL_LINHA__FUNCTION_BODY:
-        getFunctionBody().clear();
+        setFunctionBody((FunctionBody)null);
+        return;
+      case GoPackage.TOP_LEVEL_DECL_LINHA__RECEIVER:
+        setReceiver((Receiver)null);
+        return;
+      case GoPackage.TOP_LEVEL_DECL_LINHA__METHOD_NAME:
+        setMethodName((MethodName)null);
         return;
     }
     super.eUnset(featureID);
@@ -157,8 +466,16 @@ public class topLevelDeclLinhaImpl extends TopLevelDeclImpl implements topLevelD
   {
     switch (featureID)
     {
+      case GoPackage.TOP_LEVEL_DECL_LINHA__FUNCTION_NAME:
+        return functionName != null;
+      case GoPackage.TOP_LEVEL_DECL_LINHA__SIGNATURE:
+        return signature != null;
       case GoPackage.TOP_LEVEL_DECL_LINHA__FUNCTION_BODY:
-        return functionBody != null && !functionBody.isEmpty();
+        return functionBody != null;
+      case GoPackage.TOP_LEVEL_DECL_LINHA__RECEIVER:
+        return receiver != null;
+      case GoPackage.TOP_LEVEL_DECL_LINHA__METHOD_NAME:
+        return methodName != null;
     }
     return super.eIsSet(featureID);
   }

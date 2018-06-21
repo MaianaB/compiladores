@@ -4,20 +4,17 @@
 package com.ufcg.compiladores.go.impl;
 
 import com.ufcg.compiladores.go.ExprSwitchCase;
+import com.ufcg.compiladores.go.ExpressionList;
 import com.ufcg.compiladores.go.GoPackage;
-import com.ufcg.compiladores.go.StatementList;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,22 +24,22 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.ufcg.compiladores.go.impl.ExprSwitchCaseImpl#getStatementList <em>Statement List</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.ExprSwitchCaseImpl#getExpressionList <em>Expression List</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ExprSwitchCaseImpl extends ExprCaseClauseImpl implements ExprSwitchCase
+public class ExprSwitchCaseImpl extends MinimalEObjectImpl.Container implements ExprSwitchCase
 {
   /**
-   * The cached value of the '{@link #getStatementList() <em>Statement List</em>}' containment reference list.
+   * The cached value of the '{@link #getExpressionList() <em>Expression List</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStatementList()
+   * @see #getExpressionList()
    * @generated
    * @ordered
    */
-  protected EList<StatementList> statementList;
+  protected ExpressionList expressionList;
 
   /**
    * <!-- begin-user-doc -->
@@ -70,13 +67,47 @@ public class ExprSwitchCaseImpl extends ExprCaseClauseImpl implements ExprSwitch
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<StatementList> getStatementList()
+  public ExpressionList getExpressionList()
   {
-    if (statementList == null)
+    return expressionList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExpressionList(ExpressionList newExpressionList, NotificationChain msgs)
+  {
+    ExpressionList oldExpressionList = expressionList;
+    expressionList = newExpressionList;
+    if (eNotificationRequired())
     {
-      statementList = new EObjectContainmentEList<StatementList>(StatementList.class, this, GoPackage.EXPR_SWITCH_CASE__STATEMENT_LIST);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.EXPR_SWITCH_CASE__EXPRESSION_LIST, oldExpressionList, newExpressionList);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return statementList;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExpressionList(ExpressionList newExpressionList)
+  {
+    if (newExpressionList != expressionList)
+    {
+      NotificationChain msgs = null;
+      if (expressionList != null)
+        msgs = ((InternalEObject)expressionList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPR_SWITCH_CASE__EXPRESSION_LIST, null, msgs);
+      if (newExpressionList != null)
+        msgs = ((InternalEObject)newExpressionList).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPR_SWITCH_CASE__EXPRESSION_LIST, null, msgs);
+      msgs = basicSetExpressionList(newExpressionList, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.EXPR_SWITCH_CASE__EXPRESSION_LIST, newExpressionList, newExpressionList));
   }
 
   /**
@@ -89,8 +120,8 @@ public class ExprSwitchCaseImpl extends ExprCaseClauseImpl implements ExprSwitch
   {
     switch (featureID)
     {
-      case GoPackage.EXPR_SWITCH_CASE__STATEMENT_LIST:
-        return ((InternalEList<?>)getStatementList()).basicRemove(otherEnd, msgs);
+      case GoPackage.EXPR_SWITCH_CASE__EXPRESSION_LIST:
+        return basicSetExpressionList(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -105,8 +136,8 @@ public class ExprSwitchCaseImpl extends ExprCaseClauseImpl implements ExprSwitch
   {
     switch (featureID)
     {
-      case GoPackage.EXPR_SWITCH_CASE__STATEMENT_LIST:
-        return getStatementList();
+      case GoPackage.EXPR_SWITCH_CASE__EXPRESSION_LIST:
+        return getExpressionList();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -116,15 +147,13 @@ public class ExprSwitchCaseImpl extends ExprCaseClauseImpl implements ExprSwitch
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case GoPackage.EXPR_SWITCH_CASE__STATEMENT_LIST:
-        getStatementList().clear();
-        getStatementList().addAll((Collection<? extends StatementList>)newValue);
+      case GoPackage.EXPR_SWITCH_CASE__EXPRESSION_LIST:
+        setExpressionList((ExpressionList)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,8 +169,8 @@ public class ExprSwitchCaseImpl extends ExprCaseClauseImpl implements ExprSwitch
   {
     switch (featureID)
     {
-      case GoPackage.EXPR_SWITCH_CASE__STATEMENT_LIST:
-        getStatementList().clear();
+      case GoPackage.EXPR_SWITCH_CASE__EXPRESSION_LIST:
+        setExpressionList((ExpressionList)null);
         return;
     }
     super.eUnset(featureID);
@@ -157,8 +186,8 @@ public class ExprSwitchCaseImpl extends ExprCaseClauseImpl implements ExprSwitch
   {
     switch (featureID)
     {
-      case GoPackage.EXPR_SWITCH_CASE__STATEMENT_LIST:
-        return statementList != null && !statementList.isEmpty();
+      case GoPackage.EXPR_SWITCH_CASE__EXPRESSION_LIST:
+        return expressionList != null;
     }
     return super.eIsSet(featureID);
   }

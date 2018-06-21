@@ -5,19 +5,17 @@ package com.ufcg.compiladores.go.impl;
 
 import com.ufcg.compiladores.go.Element;
 import com.ufcg.compiladores.go.GoPackage;
+import com.ufcg.compiladores.go.Key;
 import com.ufcg.compiladores.go.KeyedElement;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,33 +25,33 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.ufcg.compiladores.go.impl.KeyedElementImpl#getKeyedElement <em>Keyed Element</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.KeyedElementImpl#getKey <em>Key</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.impl.KeyedElementImpl#getElement <em>Element</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class KeyedElementImpl extends ElementListImpl implements KeyedElement
+public class KeyedElementImpl extends MinimalEObjectImpl.Container implements KeyedElement
 {
   /**
-   * The cached value of the '{@link #getKeyedElement() <em>Keyed Element</em>}' containment reference list.
+   * The cached value of the '{@link #getKey() <em>Key</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getKeyedElement()
+   * @see #getKey()
    * @generated
    * @ordered
    */
-  protected EList<KeyedElement> keyedElement;
+  protected Key key;
 
   /**
-   * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference list.
+   * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getElement()
    * @generated
    * @ordered
    */
-  protected EList<Element> element;
+  protected Element element;
 
   /**
    * <!-- begin-user-doc -->
@@ -81,13 +79,9 @@ public class KeyedElementImpl extends ElementListImpl implements KeyedElement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<KeyedElement> getKeyedElement()
+  public Key getKey()
   {
-    if (keyedElement == null)
-    {
-      keyedElement = new EObjectContainmentEList<KeyedElement>(KeyedElement.class, this, GoPackage.KEYED_ELEMENT__KEYED_ELEMENT);
-    }
-    return keyedElement;
+    return key;
   }
 
   /**
@@ -95,13 +89,85 @@ public class KeyedElementImpl extends ElementListImpl implements KeyedElement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Element> getElement()
+  public NotificationChain basicSetKey(Key newKey, NotificationChain msgs)
   {
-    if (element == null)
+    Key oldKey = key;
+    key = newKey;
+    if (eNotificationRequired())
     {
-      element = new EObjectContainmentEList<Element>(Element.class, this, GoPackage.KEYED_ELEMENT__ELEMENT);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.KEYED_ELEMENT__KEY, oldKey, newKey);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setKey(Key newKey)
+  {
+    if (newKey != key)
+    {
+      NotificationChain msgs = null;
+      if (key != null)
+        msgs = ((InternalEObject)key).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.KEYED_ELEMENT__KEY, null, msgs);
+      if (newKey != null)
+        msgs = ((InternalEObject)newKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.KEYED_ELEMENT__KEY, null, msgs);
+      msgs = basicSetKey(newKey, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.KEYED_ELEMENT__KEY, newKey, newKey));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Element getElement()
+  {
     return element;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetElement(Element newElement, NotificationChain msgs)
+  {
+    Element oldElement = element;
+    element = newElement;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.KEYED_ELEMENT__ELEMENT, oldElement, newElement);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setElement(Element newElement)
+  {
+    if (newElement != element)
+    {
+      NotificationChain msgs = null;
+      if (element != null)
+        msgs = ((InternalEObject)element).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.KEYED_ELEMENT__ELEMENT, null, msgs);
+      if (newElement != null)
+        msgs = ((InternalEObject)newElement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.KEYED_ELEMENT__ELEMENT, null, msgs);
+      msgs = basicSetElement(newElement, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.KEYED_ELEMENT__ELEMENT, newElement, newElement));
   }
 
   /**
@@ -114,10 +180,10 @@ public class KeyedElementImpl extends ElementListImpl implements KeyedElement
   {
     switch (featureID)
     {
-      case GoPackage.KEYED_ELEMENT__KEYED_ELEMENT:
-        return ((InternalEList<?>)getKeyedElement()).basicRemove(otherEnd, msgs);
+      case GoPackage.KEYED_ELEMENT__KEY:
+        return basicSetKey(null, msgs);
       case GoPackage.KEYED_ELEMENT__ELEMENT:
-        return ((InternalEList<?>)getElement()).basicRemove(otherEnd, msgs);
+        return basicSetElement(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -132,8 +198,8 @@ public class KeyedElementImpl extends ElementListImpl implements KeyedElement
   {
     switch (featureID)
     {
-      case GoPackage.KEYED_ELEMENT__KEYED_ELEMENT:
-        return getKeyedElement();
+      case GoPackage.KEYED_ELEMENT__KEY:
+        return getKey();
       case GoPackage.KEYED_ELEMENT__ELEMENT:
         return getElement();
     }
@@ -145,19 +211,16 @@ public class KeyedElementImpl extends ElementListImpl implements KeyedElement
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case GoPackage.KEYED_ELEMENT__KEYED_ELEMENT:
-        getKeyedElement().clear();
-        getKeyedElement().addAll((Collection<? extends KeyedElement>)newValue);
+      case GoPackage.KEYED_ELEMENT__KEY:
+        setKey((Key)newValue);
         return;
       case GoPackage.KEYED_ELEMENT__ELEMENT:
-        getElement().clear();
-        getElement().addAll((Collection<? extends Element>)newValue);
+        setElement((Element)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -173,11 +236,11 @@ public class KeyedElementImpl extends ElementListImpl implements KeyedElement
   {
     switch (featureID)
     {
-      case GoPackage.KEYED_ELEMENT__KEYED_ELEMENT:
-        getKeyedElement().clear();
+      case GoPackage.KEYED_ELEMENT__KEY:
+        setKey((Key)null);
         return;
       case GoPackage.KEYED_ELEMENT__ELEMENT:
-        getElement().clear();
+        setElement((Element)null);
         return;
     }
     super.eUnset(featureID);
@@ -193,10 +256,10 @@ public class KeyedElementImpl extends ElementListImpl implements KeyedElement
   {
     switch (featureID)
     {
-      case GoPackage.KEYED_ELEMENT__KEYED_ELEMENT:
-        return keyedElement != null && !keyedElement.isEmpty();
+      case GoPackage.KEYED_ELEMENT__KEY:
+        return key != null;
       case GoPackage.KEYED_ELEMENT__ELEMENT:
-        return element != null && !element.isEmpty();
+        return element != null;
     }
     return super.eIsSet(featureID);
   }

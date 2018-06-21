@@ -4,19 +4,43 @@
 package com.ufcg.compiladores.go.impl;
 
 import com.ufcg.compiladores.go.ConstDecl;
+import com.ufcg.compiladores.go.ConstSpec;
 import com.ufcg.compiladores.go.GoPackage;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Const Decl</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.impl.ConstDeclImpl#getConstSpec <em>Const Spec</em>}</li>
+ * </ul>
  *
  * @generated
  */
-public class ConstDeclImpl extends DeclarationImpl implements ConstDecl
+public class ConstDeclImpl extends MinimalEObjectImpl.Container implements ConstDecl
 {
+  /**
+   * The cached value of the '{@link #getConstSpec() <em>Const Spec</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConstSpec()
+   * @generated
+   * @ordered
+   */
+  protected ConstSpec constSpec;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +60,136 @@ public class ConstDeclImpl extends DeclarationImpl implements ConstDecl
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.CONST_DECL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ConstSpec getConstSpec()
+  {
+    return constSpec;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetConstSpec(ConstSpec newConstSpec, NotificationChain msgs)
+  {
+    ConstSpec oldConstSpec = constSpec;
+    constSpec = newConstSpec;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.CONST_DECL__CONST_SPEC, oldConstSpec, newConstSpec);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setConstSpec(ConstSpec newConstSpec)
+  {
+    if (newConstSpec != constSpec)
+    {
+      NotificationChain msgs = null;
+      if (constSpec != null)
+        msgs = ((InternalEObject)constSpec).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.CONST_DECL__CONST_SPEC, null, msgs);
+      if (newConstSpec != null)
+        msgs = ((InternalEObject)newConstSpec).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.CONST_DECL__CONST_SPEC, null, msgs);
+      msgs = basicSetConstSpec(newConstSpec, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.CONST_DECL__CONST_SPEC, newConstSpec, newConstSpec));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.CONST_DECL__CONST_SPEC:
+        return basicSetConstSpec(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.CONST_DECL__CONST_SPEC:
+        return getConstSpec();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.CONST_DECL__CONST_SPEC:
+        setConstSpec((ConstSpec)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.CONST_DECL__CONST_SPEC:
+        setConstSpec((ConstSpec)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.CONST_DECL__CONST_SPEC:
+        return constSpec != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //ConstDeclImpl

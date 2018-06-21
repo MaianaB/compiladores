@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.IfStmt#getSimpleStmt <em>Simple Stmt</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.IfStmt#getExpression <em>Expression</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.IfStmt#getBlock <em>Block</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.IfStmt#getIfStmt <em>If Stmt</em>}</li>
@@ -28,20 +29,56 @@ import org.eclipse.emf.ecore.EObject;
 public interface IfStmt extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Expression</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.Expression}.
+   * Returns the value of the '<em><b>Simple Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Expression</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Simple Stmt</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expression</em>' containment reference list.
+   * @return the value of the '<em>Simple Stmt</em>' containment reference.
+   * @see #setSimpleStmt(SimpleStmt)
+   * @see com.ufcg.compiladores.go.GoPackage#getIfStmt_SimpleStmt()
+   * @model containment="true"
+   * @generated
+   */
+  SimpleStmt getSimpleStmt();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.IfStmt#getSimpleStmt <em>Simple Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Simple Stmt</em>' containment reference.
+   * @see #getSimpleStmt()
+   * @generated
+   */
+  void setSimpleStmt(SimpleStmt value);
+
+  /**
+   * Returns the value of the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expression</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expression</em>' containment reference.
+   * @see #setExpression(Expression)
    * @see com.ufcg.compiladores.go.GoPackage#getIfStmt_Expression()
    * @model containment="true"
    * @generated
    */
-  EList<Expression> getExpression();
+  Expression getExpression();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.IfStmt#getExpression <em>Expression</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expression</em>' containment reference.
+   * @see #getExpression()
+   * @generated
+   */
+  void setExpression(Expression value);
 
   /**
    * Returns the value of the '<em><b>Block</b></em>' containment reference list.
@@ -60,19 +97,29 @@ public interface IfStmt extends EObject
   EList<Block> getBlock();
 
   /**
-   * Returns the value of the '<em><b>If Stmt</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.IfStmt}.
+   * Returns the value of the '<em><b>If Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>If Stmt</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>If Stmt</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>If Stmt</em>' containment reference list.
+   * @return the value of the '<em>If Stmt</em>' containment reference.
+   * @see #setIfStmt(IfStmt)
    * @see com.ufcg.compiladores.go.GoPackage#getIfStmt_IfStmt()
    * @model containment="true"
    * @generated
    */
-  EList<IfStmt> getIfStmt();
+  IfStmt getIfStmt();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.IfStmt#getIfStmt <em>If Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>If Stmt</em>' containment reference.
+   * @see #getIfStmt()
+   * @generated
+   */
+  void setIfStmt(IfStmt value);
 
 } // IfStmt

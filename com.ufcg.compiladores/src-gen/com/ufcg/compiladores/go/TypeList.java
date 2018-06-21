@@ -3,17 +3,42 @@
  */
 package com.ufcg.compiladores.go;
 
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Type List</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.TypeList#getType <em>Type</em>}</li>
+ * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getTypeList()
  * @model
  * @generated
  */
-public interface TypeList extends TypeSwitchCase
+public interface TypeList extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Type</b></em>' containment reference list.
+   * The list contents are of type {@link com.ufcg.compiladores.go.Type}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type</em>' containment reference list.
+   * @see com.ufcg.compiladores.go.GoPackage#getTypeList_Type()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Type> getType();
+
 } // TypeList

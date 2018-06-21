@@ -3,8 +3,6 @@
  */
 package com.ufcg.compiladores.go;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -26,19 +24,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface SwitchStmt extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Switch stmt linha</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.switch_stmt_linha}.
+   * Returns the value of the '<em><b>Switch stmt linha</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Switch stmt linha</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Switch stmt linha</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Switch stmt linha</em>' containment reference list.
+   * @return the value of the '<em>Switch stmt linha</em>' containment reference.
+   * @see #setSwitch_stmt_linha(switch_stmt_linha)
    * @see com.ufcg.compiladores.go.GoPackage#getSwitchStmt_Switch_stmt_linha()
    * @model containment="true"
    * @generated
    */
-  EList<switch_stmt_linha> getSwitch_stmt_linha();
+  switch_stmt_linha getSwitch_stmt_linha();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.SwitchStmt#getSwitch_stmt_linha <em>Switch stmt linha</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Switch stmt linha</em>' containment reference.
+   * @see #getSwitch_stmt_linha()
+   * @generated
+   */
+  void setSwitch_stmt_linha(switch_stmt_linha value);
 
 } // SwitchStmt

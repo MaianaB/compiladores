@@ -3,7 +3,7 @@
  */
 package com.ufcg.compiladores.go;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,118 +27,188 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface TypeLit extends Type
+public interface TypeLit extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Type Lit Linha</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.TypeLitLinha}.
+   * Returns the value of the '<em><b>Type Lit Linha</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type Lit Linha</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Type Lit Linha</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type Lit Linha</em>' containment reference list.
+   * @return the value of the '<em>Type Lit Linha</em>' containment reference.
+   * @see #setTypeLitLinha(TypeLitLinha)
    * @see com.ufcg.compiladores.go.GoPackage#getTypeLit_TypeLitLinha()
    * @model containment="true"
    * @generated
    */
-  EList<TypeLitLinha> getTypeLitLinha();
+  TypeLitLinha getTypeLitLinha();
 
   /**
-   * Returns the value of the '<em><b>Struct Type</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.StructType}.
+   * Sets the value of the '{@link com.ufcg.compiladores.go.TypeLit#getTypeLitLinha <em>Type Lit Linha</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type Lit Linha</em>' containment reference.
+   * @see #getTypeLitLinha()
+   * @generated
+   */
+  void setTypeLitLinha(TypeLitLinha value);
+
+  /**
+   * Returns the value of the '<em><b>Struct Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Struct Type</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Struct Type</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Struct Type</em>' containment reference list.
+   * @return the value of the '<em>Struct Type</em>' containment reference.
+   * @see #setStructType(StructType)
    * @see com.ufcg.compiladores.go.GoPackage#getTypeLit_StructType()
    * @model containment="true"
    * @generated
    */
-  EList<StructType> getStructType();
+  StructType getStructType();
 
   /**
-   * Returns the value of the '<em><b>Pointer Type</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.PointerType}.
+   * Sets the value of the '{@link com.ufcg.compiladores.go.TypeLit#getStructType <em>Struct Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Struct Type</em>' containment reference.
+   * @see #getStructType()
+   * @generated
+   */
+  void setStructType(StructType value);
+
+  /**
+   * Returns the value of the '<em><b>Pointer Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Pointer Type</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Pointer Type</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Pointer Type</em>' containment reference list.
+   * @return the value of the '<em>Pointer Type</em>' containment reference.
+   * @see #setPointerType(PointerType)
    * @see com.ufcg.compiladores.go.GoPackage#getTypeLit_PointerType()
    * @model containment="true"
    * @generated
    */
-  EList<PointerType> getPointerType();
+  PointerType getPointerType();
 
   /**
-   * Returns the value of the '<em><b>Function Type</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.FunctionType}.
+   * Sets the value of the '{@link com.ufcg.compiladores.go.TypeLit#getPointerType <em>Pointer Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Pointer Type</em>' containment reference.
+   * @see #getPointerType()
+   * @generated
+   */
+  void setPointerType(PointerType value);
+
+  /**
+   * Returns the value of the '<em><b>Function Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Function Type</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Function Type</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Function Type</em>' containment reference list.
+   * @return the value of the '<em>Function Type</em>' containment reference.
+   * @see #setFunctionType(FunctionType)
    * @see com.ufcg.compiladores.go.GoPackage#getTypeLit_FunctionType()
    * @model containment="true"
    * @generated
    */
-  EList<FunctionType> getFunctionType();
+  FunctionType getFunctionType();
 
   /**
-   * Returns the value of the '<em><b>Interface Type</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.InterfaceType}.
+   * Sets the value of the '{@link com.ufcg.compiladores.go.TypeLit#getFunctionType <em>Function Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Function Type</em>' containment reference.
+   * @see #getFunctionType()
+   * @generated
+   */
+  void setFunctionType(FunctionType value);
+
+  /**
+   * Returns the value of the '<em><b>Interface Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Interface Type</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Interface Type</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Interface Type</em>' containment reference list.
+   * @return the value of the '<em>Interface Type</em>' containment reference.
+   * @see #setInterfaceType(InterfaceType)
    * @see com.ufcg.compiladores.go.GoPackage#getTypeLit_InterfaceType()
    * @model containment="true"
    * @generated
    */
-  EList<InterfaceType> getInterfaceType();
+  InterfaceType getInterfaceType();
 
   /**
-   * Returns the value of the '<em><b>Map Type</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.MapType}.
+   * Sets the value of the '{@link com.ufcg.compiladores.go.TypeLit#getInterfaceType <em>Interface Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Interface Type</em>' containment reference.
+   * @see #getInterfaceType()
+   * @generated
+   */
+  void setInterfaceType(InterfaceType value);
+
+  /**
+   * Returns the value of the '<em><b>Map Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Map Type</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Map Type</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Map Type</em>' containment reference list.
+   * @return the value of the '<em>Map Type</em>' containment reference.
+   * @see #setMapType(MapType)
    * @see com.ufcg.compiladores.go.GoPackage#getTypeLit_MapType()
    * @model containment="true"
    * @generated
    */
-  EList<MapType> getMapType();
+  MapType getMapType();
 
   /**
-   * Returns the value of the '<em><b>Channel Type</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.ChannelType}.
+   * Sets the value of the '{@link com.ufcg.compiladores.go.TypeLit#getMapType <em>Map Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Map Type</em>' containment reference.
+   * @see #getMapType()
+   * @generated
+   */
+  void setMapType(MapType value);
+
+  /**
+   * Returns the value of the '<em><b>Channel Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Channel Type</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Channel Type</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Channel Type</em>' containment reference list.
+   * @return the value of the '<em>Channel Type</em>' containment reference.
+   * @see #setChannelType(ChannelType)
    * @see com.ufcg.compiladores.go.GoPackage#getTypeLit_ChannelType()
    * @model containment="true"
    * @generated
    */
-  EList<ChannelType> getChannelType();
+  ChannelType getChannelType();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.TypeLit#getChannelType <em>Channel Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Channel Type</em>' containment reference.
+   * @see #getChannelType()
+   * @generated
+   */
+  void setChannelType(ChannelType value);
 
 } // TypeLit

@@ -3,7 +3,7 @@
  */
 package com.ufcg.compiladores.go;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,29 +14,39 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.ufcg.compiladores.go.TypeSwitchCase#getStatementList <em>Statement List</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.TypeSwitchCase#getTypeList <em>Type List</em>}</li>
  * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getTypeSwitchCase()
  * @model
  * @generated
  */
-public interface TypeSwitchCase extends TypeCaseClause
+public interface TypeSwitchCase extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Statement List</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.StatementList}.
+   * Returns the value of the '<em><b>Type List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Statement List</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Type List</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Statement List</em>' containment reference list.
-   * @see com.ufcg.compiladores.go.GoPackage#getTypeSwitchCase_StatementList()
+   * @return the value of the '<em>Type List</em>' containment reference.
+   * @see #setTypeList(TypeList)
+   * @see com.ufcg.compiladores.go.GoPackage#getTypeSwitchCase_TypeList()
    * @model containment="true"
    * @generated
    */
-  EList<StatementList> getStatementList();
+  TypeList getTypeList();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.TypeSwitchCase#getTypeList <em>Type List</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type List</em>' containment reference.
+   * @see #getTypeList()
+   * @generated
+   */
+  void setTypeList(TypeList value);
 
 } // TypeSwitchCase

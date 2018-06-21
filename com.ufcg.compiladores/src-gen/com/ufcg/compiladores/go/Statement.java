@@ -3,7 +3,7 @@
  */
 package com.ufcg.compiladores.go;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,246 +35,396 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Statement extends StatementList, LabeledStmt
+public interface Statement extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Declaration</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.Declaration}.
+   * Returns the value of the '<em><b>Declaration</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Declaration</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Declaration</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Declaration</em>' containment reference list.
+   * @return the value of the '<em>Declaration</em>' containment reference.
+   * @see #setDeclaration(Declaration)
    * @see com.ufcg.compiladores.go.GoPackage#getStatement_Declaration()
    * @model containment="true"
    * @generated
    */
-  EList<Declaration> getDeclaration();
+  Declaration getDeclaration();
 
   /**
-   * Returns the value of the '<em><b>Labeled Stmt</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.LabeledStmt}.
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Statement#getDeclaration <em>Declaration</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Declaration</em>' containment reference.
+   * @see #getDeclaration()
+   * @generated
+   */
+  void setDeclaration(Declaration value);
+
+  /**
+   * Returns the value of the '<em><b>Labeled Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Labeled Stmt</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Labeled Stmt</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Labeled Stmt</em>' containment reference list.
+   * @return the value of the '<em>Labeled Stmt</em>' containment reference.
+   * @see #setLabeledStmt(LabeledStmt)
    * @see com.ufcg.compiladores.go.GoPackage#getStatement_LabeledStmt()
    * @model containment="true"
    * @generated
    */
-  EList<LabeledStmt> getLabeledStmt();
+  LabeledStmt getLabeledStmt();
 
   /**
-   * Returns the value of the '<em><b>Simple Stmt</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.SimpleStmt}.
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Statement#getLabeledStmt <em>Labeled Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Labeled Stmt</em>' containment reference.
+   * @see #getLabeledStmt()
+   * @generated
+   */
+  void setLabeledStmt(LabeledStmt value);
+
+  /**
+   * Returns the value of the '<em><b>Simple Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Simple Stmt</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Simple Stmt</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Simple Stmt</em>' containment reference list.
+   * @return the value of the '<em>Simple Stmt</em>' containment reference.
+   * @see #setSimpleStmt(SimpleStmt)
    * @see com.ufcg.compiladores.go.GoPackage#getStatement_SimpleStmt()
    * @model containment="true"
    * @generated
    */
-  EList<SimpleStmt> getSimpleStmt();
+  SimpleStmt getSimpleStmt();
 
   /**
-   * Returns the value of the '<em><b>Go Stmt</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.GoStmt}.
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Statement#getSimpleStmt <em>Simple Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Simple Stmt</em>' containment reference.
+   * @see #getSimpleStmt()
+   * @generated
+   */
+  void setSimpleStmt(SimpleStmt value);
+
+  /**
+   * Returns the value of the '<em><b>Go Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Go Stmt</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Go Stmt</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Go Stmt</em>' containment reference list.
+   * @return the value of the '<em>Go Stmt</em>' containment reference.
+   * @see #setGoStmt(GoStmt)
    * @see com.ufcg.compiladores.go.GoPackage#getStatement_GoStmt()
    * @model containment="true"
    * @generated
    */
-  EList<GoStmt> getGoStmt();
+  GoStmt getGoStmt();
 
   /**
-   * Returns the value of the '<em><b>Return Stmt</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.ReturnStmt}.
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Statement#getGoStmt <em>Go Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Go Stmt</em>' containment reference.
+   * @see #getGoStmt()
+   * @generated
+   */
+  void setGoStmt(GoStmt value);
+
+  /**
+   * Returns the value of the '<em><b>Return Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Return Stmt</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Return Stmt</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Return Stmt</em>' containment reference list.
+   * @return the value of the '<em>Return Stmt</em>' containment reference.
+   * @see #setReturnStmt(ReturnStmt)
    * @see com.ufcg.compiladores.go.GoPackage#getStatement_ReturnStmt()
    * @model containment="true"
    * @generated
    */
-  EList<ReturnStmt> getReturnStmt();
+  ReturnStmt getReturnStmt();
 
   /**
-   * Returns the value of the '<em><b>Break Stmt</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Statement#getReturnStmt <em>Return Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Return Stmt</em>' containment reference.
+   * @see #getReturnStmt()
+   * @generated
+   */
+  void setReturnStmt(ReturnStmt value);
+
+  /**
+   * Returns the value of the '<em><b>Break Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Break Stmt</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Break Stmt</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Break Stmt</em>' attribute list.
+   * @return the value of the '<em>Break Stmt</em>' containment reference.
+   * @see #setBreakStmt(BreakStmt)
    * @see com.ufcg.compiladores.go.GoPackage#getStatement_BreakStmt()
-   * @model unique="false"
+   * @model containment="true"
    * @generated
    */
-  EList<String> getBreakStmt();
+  BreakStmt getBreakStmt();
 
   /**
-   * Returns the value of the '<em><b>Continue Stmt</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Statement#getBreakStmt <em>Break Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Break Stmt</em>' containment reference.
+   * @see #getBreakStmt()
+   * @generated
+   */
+  void setBreakStmt(BreakStmt value);
+
+  /**
+   * Returns the value of the '<em><b>Continue Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Continue Stmt</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Continue Stmt</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Continue Stmt</em>' attribute list.
+   * @return the value of the '<em>Continue Stmt</em>' containment reference.
+   * @see #setContinueStmt(ContinueStmt)
    * @see com.ufcg.compiladores.go.GoPackage#getStatement_ContinueStmt()
-   * @model unique="false"
+   * @model containment="true"
    * @generated
    */
-  EList<String> getContinueStmt();
+  ContinueStmt getContinueStmt();
 
   /**
-   * Returns the value of the '<em><b>Goto Stmt</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Statement#getContinueStmt <em>Continue Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Continue Stmt</em>' containment reference.
+   * @see #getContinueStmt()
+   * @generated
+   */
+  void setContinueStmt(ContinueStmt value);
+
+  /**
+   * Returns the value of the '<em><b>Goto Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Goto Stmt</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Goto Stmt</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Goto Stmt</em>' attribute list.
+   * @return the value of the '<em>Goto Stmt</em>' containment reference.
+   * @see #setGotoStmt(GotoStmt)
    * @see com.ufcg.compiladores.go.GoPackage#getStatement_GotoStmt()
-   * @model unique="false"
+   * @model containment="true"
    * @generated
    */
-  EList<String> getGotoStmt();
+  GotoStmt getGotoStmt();
 
   /**
-   * Returns the value of the '<em><b>Fallthrough Stmt</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Statement#getGotoStmt <em>Goto Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Goto Stmt</em>' containment reference.
+   * @see #getGotoStmt()
+   * @generated
+   */
+  void setGotoStmt(GotoStmt value);
+
+  /**
+   * Returns the value of the '<em><b>Fallthrough Stmt</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Fallthrough Stmt</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Fallthrough Stmt</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Fallthrough Stmt</em>' attribute list.
+   * @return the value of the '<em>Fallthrough Stmt</em>' attribute.
+   * @see #setFallthroughStmt(String)
    * @see com.ufcg.compiladores.go.GoPackage#getStatement_FallthroughStmt()
-   * @model unique="false"
+   * @model
    * @generated
    */
-  EList<String> getFallthroughStmt();
+  String getFallthroughStmt();
 
   /**
-   * Returns the value of the '<em><b>Block</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.Block}.
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Statement#getFallthroughStmt <em>Fallthrough Stmt</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Fallthrough Stmt</em>' attribute.
+   * @see #getFallthroughStmt()
+   * @generated
+   */
+  void setFallthroughStmt(String value);
+
+  /**
+   * Returns the value of the '<em><b>Block</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Block</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Block</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Block</em>' containment reference list.
+   * @return the value of the '<em>Block</em>' containment reference.
+   * @see #setBlock(Block)
    * @see com.ufcg.compiladores.go.GoPackage#getStatement_Block()
    * @model containment="true"
    * @generated
    */
-  EList<Block> getBlock();
+  Block getBlock();
 
   /**
-   * Returns the value of the '<em><b>If Stmt</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.IfStmt}.
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Statement#getBlock <em>Block</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Block</em>' containment reference.
+   * @see #getBlock()
+   * @generated
+   */
+  void setBlock(Block value);
+
+  /**
+   * Returns the value of the '<em><b>If Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>If Stmt</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>If Stmt</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>If Stmt</em>' containment reference list.
+   * @return the value of the '<em>If Stmt</em>' containment reference.
+   * @see #setIfStmt(IfStmt)
    * @see com.ufcg.compiladores.go.GoPackage#getStatement_IfStmt()
    * @model containment="true"
    * @generated
    */
-  EList<IfStmt> getIfStmt();
+  IfStmt getIfStmt();
 
   /**
-   * Returns the value of the '<em><b>Switch Stmt</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.SwitchStmt}.
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Statement#getIfStmt <em>If Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>If Stmt</em>' containment reference.
+   * @see #getIfStmt()
+   * @generated
+   */
+  void setIfStmt(IfStmt value);
+
+  /**
+   * Returns the value of the '<em><b>Switch Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Switch Stmt</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Switch Stmt</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Switch Stmt</em>' containment reference list.
+   * @return the value of the '<em>Switch Stmt</em>' containment reference.
+   * @see #setSwitchStmt(SwitchStmt)
    * @see com.ufcg.compiladores.go.GoPackage#getStatement_SwitchStmt()
    * @model containment="true"
    * @generated
    */
-  EList<SwitchStmt> getSwitchStmt();
+  SwitchStmt getSwitchStmt();
 
   /**
-   * Returns the value of the '<em><b>Select Stmt</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.SelectStmt}.
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Statement#getSwitchStmt <em>Switch Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Switch Stmt</em>' containment reference.
+   * @see #getSwitchStmt()
+   * @generated
+   */
+  void setSwitchStmt(SwitchStmt value);
+
+  /**
+   * Returns the value of the '<em><b>Select Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Select Stmt</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Select Stmt</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Select Stmt</em>' containment reference list.
+   * @return the value of the '<em>Select Stmt</em>' containment reference.
+   * @see #setSelectStmt(SelectStmt)
    * @see com.ufcg.compiladores.go.GoPackage#getStatement_SelectStmt()
    * @model containment="true"
    * @generated
    */
-  EList<SelectStmt> getSelectStmt();
+  SelectStmt getSelectStmt();
 
   /**
-   * Returns the value of the '<em><b>For Stmt</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.ForStmt}.
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Statement#getSelectStmt <em>Select Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Select Stmt</em>' containment reference.
+   * @see #getSelectStmt()
+   * @generated
+   */
+  void setSelectStmt(SelectStmt value);
+
+  /**
+   * Returns the value of the '<em><b>For Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>For Stmt</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>For Stmt</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>For Stmt</em>' containment reference list.
+   * @return the value of the '<em>For Stmt</em>' containment reference.
+   * @see #setForStmt(ForStmt)
    * @see com.ufcg.compiladores.go.GoPackage#getStatement_ForStmt()
    * @model containment="true"
    * @generated
    */
-  EList<ForStmt> getForStmt();
+  ForStmt getForStmt();
 
   /**
-   * Returns the value of the '<em><b>Defer Stmt</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.DeferStmt}.
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Statement#getForStmt <em>For Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>For Stmt</em>' containment reference.
+   * @see #getForStmt()
+   * @generated
+   */
+  void setForStmt(ForStmt value);
+
+  /**
+   * Returns the value of the '<em><b>Defer Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Defer Stmt</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Defer Stmt</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Defer Stmt</em>' containment reference list.
+   * @return the value of the '<em>Defer Stmt</em>' containment reference.
+   * @see #setDeferStmt(DeferStmt)
    * @see com.ufcg.compiladores.go.GoPackage#getStatement_DeferStmt()
    * @model containment="true"
    * @generated
    */
-  EList<DeferStmt> getDeferStmt();
+  DeferStmt getDeferStmt();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Statement#getDeferStmt <em>Defer Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Defer Stmt</em>' containment reference.
+   * @see #getDeferStmt()
+   * @generated
+   */
+  void setDeferStmt(DeferStmt value);
 
 } // Statement

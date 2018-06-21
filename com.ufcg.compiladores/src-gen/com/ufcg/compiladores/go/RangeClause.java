@@ -3,17 +3,104 @@
  */
 package com.ufcg.compiladores.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Range Clause</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.RangeClause#getExpressionList <em>Expression List</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.RangeClause#getIdentifierList <em>Identifier List</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.RangeClause#getExpression <em>Expression</em>}</li>
+ * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getRangeClause()
  * @model
  * @generated
  */
-public interface RangeClause extends ForStmt
+public interface RangeClause extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Expression List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expression List</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expression List</em>' containment reference.
+   * @see #setExpressionList(ExpressionList)
+   * @see com.ufcg.compiladores.go.GoPackage#getRangeClause_ExpressionList()
+   * @model containment="true"
+   * @generated
+   */
+  ExpressionList getExpressionList();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.RangeClause#getExpressionList <em>Expression List</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expression List</em>' containment reference.
+   * @see #getExpressionList()
+   * @generated
+   */
+  void setExpressionList(ExpressionList value);
+
+  /**
+   * Returns the value of the '<em><b>Identifier List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Identifier List</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Identifier List</em>' containment reference.
+   * @see #setIdentifierList(IdentifierList)
+   * @see com.ufcg.compiladores.go.GoPackage#getRangeClause_IdentifierList()
+   * @model containment="true"
+   * @generated
+   */
+  IdentifierList getIdentifierList();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.RangeClause#getIdentifierList <em>Identifier List</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Identifier List</em>' containment reference.
+   * @see #getIdentifierList()
+   * @generated
+   */
+  void setIdentifierList(IdentifierList value);
+
+  /**
+   * Returns the value of the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expression</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expression</em>' containment reference.
+   * @see #setExpression(Expression)
+   * @see com.ufcg.compiladores.go.GoPackage#getRangeClause_Expression()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getExpression();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.RangeClause#getExpression <em>Expression</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expression</em>' containment reference.
+   * @see #getExpression()
+   * @generated
+   */
+  void setExpression(Expression value);
+
 } // RangeClause

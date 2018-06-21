@@ -3,17 +3,50 @@
  */
 package com.ufcg.compiladores.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Type Decl</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.TypeDecl#getTypeSpec <em>Type Spec</em>}</li>
+ * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getTypeDecl()
  * @model
  * @generated
  */
-public interface TypeDecl extends Declaration
+public interface TypeDecl extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Type Spec</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type Spec</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type Spec</em>' containment reference.
+   * @see #setTypeSpec(TypeSpec)
+   * @see com.ufcg.compiladores.go.GoPackage#getTypeDecl_TypeSpec()
+   * @model containment="true"
+   * @generated
+   */
+  TypeSpec getTypeSpec();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.TypeDecl#getTypeSpec <em>Type Spec</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type Spec</em>' containment reference.
+   * @see #getTypeSpec()
+   * @generated
+   */
+  void setTypeSpec(TypeSpec value);
+
 } // TypeDecl

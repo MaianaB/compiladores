@@ -3,21 +3,20 @@
  */
 package com.ufcg.compiladores.go.impl;
 
+import com.ufcg.compiladores.go.ExpressionList;
 import com.ufcg.compiladores.go.GoPackage;
+import com.ufcg.compiladores.go.IdentifierList;
 import com.ufcg.compiladores.go.RecvExpr;
 import com.ufcg.compiladores.go.RecvStmt;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,22 +26,44 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.impl.RecvStmtImpl#getExpressionList <em>Expression List</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.RecvStmtImpl#getIdentifierList <em>Identifier List</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.impl.RecvStmtImpl#getRecvExpr <em>Recv Expr</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RecvStmtImpl extends CommCaseImpl implements RecvStmt
+public class RecvStmtImpl extends MinimalEObjectImpl.Container implements RecvStmt
 {
   /**
-   * The cached value of the '{@link #getRecvExpr() <em>Recv Expr</em>}' containment reference list.
+   * The cached value of the '{@link #getExpressionList() <em>Expression List</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpressionList()
+   * @generated
+   * @ordered
+   */
+  protected ExpressionList expressionList;
+
+  /**
+   * The cached value of the '{@link #getIdentifierList() <em>Identifier List</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIdentifierList()
+   * @generated
+   * @ordered
+   */
+  protected IdentifierList identifierList;
+
+  /**
+   * The cached value of the '{@link #getRecvExpr() <em>Recv Expr</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getRecvExpr()
    * @generated
    * @ordered
    */
-  protected EList<RecvExpr> recvExpr;
+  protected RecvExpr recvExpr;
 
   /**
    * <!-- begin-user-doc -->
@@ -70,13 +91,143 @@ public class RecvStmtImpl extends CommCaseImpl implements RecvStmt
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<RecvExpr> getRecvExpr()
+  public ExpressionList getExpressionList()
   {
-    if (recvExpr == null)
+    return expressionList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExpressionList(ExpressionList newExpressionList, NotificationChain msgs)
+  {
+    ExpressionList oldExpressionList = expressionList;
+    expressionList = newExpressionList;
+    if (eNotificationRequired())
     {
-      recvExpr = new EObjectContainmentEList<RecvExpr>(RecvExpr.class, this, GoPackage.RECV_STMT__RECV_EXPR);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.RECV_STMT__EXPRESSION_LIST, oldExpressionList, newExpressionList);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExpressionList(ExpressionList newExpressionList)
+  {
+    if (newExpressionList != expressionList)
+    {
+      NotificationChain msgs = null;
+      if (expressionList != null)
+        msgs = ((InternalEObject)expressionList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.RECV_STMT__EXPRESSION_LIST, null, msgs);
+      if (newExpressionList != null)
+        msgs = ((InternalEObject)newExpressionList).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.RECV_STMT__EXPRESSION_LIST, null, msgs);
+      msgs = basicSetExpressionList(newExpressionList, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.RECV_STMT__EXPRESSION_LIST, newExpressionList, newExpressionList));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IdentifierList getIdentifierList()
+  {
+    return identifierList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetIdentifierList(IdentifierList newIdentifierList, NotificationChain msgs)
+  {
+    IdentifierList oldIdentifierList = identifierList;
+    identifierList = newIdentifierList;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.RECV_STMT__IDENTIFIER_LIST, oldIdentifierList, newIdentifierList);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIdentifierList(IdentifierList newIdentifierList)
+  {
+    if (newIdentifierList != identifierList)
+    {
+      NotificationChain msgs = null;
+      if (identifierList != null)
+        msgs = ((InternalEObject)identifierList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.RECV_STMT__IDENTIFIER_LIST, null, msgs);
+      if (newIdentifierList != null)
+        msgs = ((InternalEObject)newIdentifierList).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.RECV_STMT__IDENTIFIER_LIST, null, msgs);
+      msgs = basicSetIdentifierList(newIdentifierList, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.RECV_STMT__IDENTIFIER_LIST, newIdentifierList, newIdentifierList));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RecvExpr getRecvExpr()
+  {
     return recvExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetRecvExpr(RecvExpr newRecvExpr, NotificationChain msgs)
+  {
+    RecvExpr oldRecvExpr = recvExpr;
+    recvExpr = newRecvExpr;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.RECV_STMT__RECV_EXPR, oldRecvExpr, newRecvExpr);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRecvExpr(RecvExpr newRecvExpr)
+  {
+    if (newRecvExpr != recvExpr)
+    {
+      NotificationChain msgs = null;
+      if (recvExpr != null)
+        msgs = ((InternalEObject)recvExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.RECV_STMT__RECV_EXPR, null, msgs);
+      if (newRecvExpr != null)
+        msgs = ((InternalEObject)newRecvExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.RECV_STMT__RECV_EXPR, null, msgs);
+      msgs = basicSetRecvExpr(newRecvExpr, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.RECV_STMT__RECV_EXPR, newRecvExpr, newRecvExpr));
   }
 
   /**
@@ -89,8 +240,12 @@ public class RecvStmtImpl extends CommCaseImpl implements RecvStmt
   {
     switch (featureID)
     {
+      case GoPackage.RECV_STMT__EXPRESSION_LIST:
+        return basicSetExpressionList(null, msgs);
+      case GoPackage.RECV_STMT__IDENTIFIER_LIST:
+        return basicSetIdentifierList(null, msgs);
       case GoPackage.RECV_STMT__RECV_EXPR:
-        return ((InternalEList<?>)getRecvExpr()).basicRemove(otherEnd, msgs);
+        return basicSetRecvExpr(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -105,6 +260,10 @@ public class RecvStmtImpl extends CommCaseImpl implements RecvStmt
   {
     switch (featureID)
     {
+      case GoPackage.RECV_STMT__EXPRESSION_LIST:
+        return getExpressionList();
+      case GoPackage.RECV_STMT__IDENTIFIER_LIST:
+        return getIdentifierList();
       case GoPackage.RECV_STMT__RECV_EXPR:
         return getRecvExpr();
     }
@@ -116,15 +275,19 @@ public class RecvStmtImpl extends CommCaseImpl implements RecvStmt
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
+      case GoPackage.RECV_STMT__EXPRESSION_LIST:
+        setExpressionList((ExpressionList)newValue);
+        return;
+      case GoPackage.RECV_STMT__IDENTIFIER_LIST:
+        setIdentifierList((IdentifierList)newValue);
+        return;
       case GoPackage.RECV_STMT__RECV_EXPR:
-        getRecvExpr().clear();
-        getRecvExpr().addAll((Collection<? extends RecvExpr>)newValue);
+        setRecvExpr((RecvExpr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,8 +303,14 @@ public class RecvStmtImpl extends CommCaseImpl implements RecvStmt
   {
     switch (featureID)
     {
+      case GoPackage.RECV_STMT__EXPRESSION_LIST:
+        setExpressionList((ExpressionList)null);
+        return;
+      case GoPackage.RECV_STMT__IDENTIFIER_LIST:
+        setIdentifierList((IdentifierList)null);
+        return;
       case GoPackage.RECV_STMT__RECV_EXPR:
-        getRecvExpr().clear();
+        setRecvExpr((RecvExpr)null);
         return;
     }
     super.eUnset(featureID);
@@ -157,8 +326,12 @@ public class RecvStmtImpl extends CommCaseImpl implements RecvStmt
   {
     switch (featureID)
     {
+      case GoPackage.RECV_STMT__EXPRESSION_LIST:
+        return expressionList != null;
+      case GoPackage.RECV_STMT__IDENTIFIER_LIST:
+        return identifierList != null;
       case GoPackage.RECV_STMT__RECV_EXPR:
-        return recvExpr != null && !recvExpr.isEmpty();
+        return recvExpr != null;
     }
     return super.eIsSet(featureID);
   }

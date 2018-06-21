@@ -3,20 +3,44 @@
  */
 package com.ufcg.compiladores.go.impl;
 
+import com.ufcg.compiladores.go.BasicLit;
 import com.ufcg.compiladores.go.GoPackage;
 import com.ufcg.compiladores.go.Literal;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Literal</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.impl.LiteralImpl#getBasicLit <em>Basic Lit</em>}</li>
+ * </ul>
  *
  * @generated
  */
-public class LiteralImpl extends OperandImpl implements Literal
+public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
 {
+  /**
+   * The cached value of the '{@link #getBasicLit() <em>Basic Lit</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBasicLit()
+   * @generated
+   * @ordered
+   */
+  protected BasicLit basicLit;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +60,136 @@ public class LiteralImpl extends OperandImpl implements Literal
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.LITERAL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BasicLit getBasicLit()
+  {
+    return basicLit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetBasicLit(BasicLit newBasicLit, NotificationChain msgs)
+  {
+    BasicLit oldBasicLit = basicLit;
+    basicLit = newBasicLit;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL__BASIC_LIT, oldBasicLit, newBasicLit);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBasicLit(BasicLit newBasicLit)
+  {
+    if (newBasicLit != basicLit)
+    {
+      NotificationChain msgs = null;
+      if (basicLit != null)
+        msgs = ((InternalEObject)basicLit).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.LITERAL__BASIC_LIT, null, msgs);
+      if (newBasicLit != null)
+        msgs = ((InternalEObject)newBasicLit).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.LITERAL__BASIC_LIT, null, msgs);
+      msgs = basicSetBasicLit(newBasicLit, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL__BASIC_LIT, newBasicLit, newBasicLit));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.LITERAL__BASIC_LIT:
+        return basicSetBasicLit(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.LITERAL__BASIC_LIT:
+        return getBasicLit();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.LITERAL__BASIC_LIT:
+        setBasicLit((BasicLit)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.LITERAL__BASIC_LIT:
+        setBasicLit((BasicLit)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.LITERAL__BASIC_LIT:
+        return basicLit != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //LiteralImpl

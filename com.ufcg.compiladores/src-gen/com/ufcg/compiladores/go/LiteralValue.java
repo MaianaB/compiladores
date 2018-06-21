@@ -3,7 +3,7 @@
  */
 package com.ufcg.compiladores.go;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,22 +21,32 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface LiteralValue extends Element, Key
+public interface LiteralValue extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Element List</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.ElementList}.
+   * Returns the value of the '<em><b>Element List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Element List</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Element List</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Element List</em>' containment reference list.
+   * @return the value of the '<em>Element List</em>' containment reference.
+   * @see #setElementList(ElementList)
    * @see com.ufcg.compiladores.go.GoPackage#getLiteralValue_ElementList()
    * @model containment="true"
    * @generated
    */
-  EList<ElementList> getElementList();
+  ElementList getElementList();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.LiteralValue#getElementList <em>Element List</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Element List</em>' containment reference.
+   * @see #getElementList()
+   * @generated
+   */
+  void setElementList(ElementList value);
 
 } // LiteralValue

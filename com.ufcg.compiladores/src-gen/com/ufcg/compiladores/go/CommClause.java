@@ -10,6 +10,13 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Comm Clause</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.CommClause#getCommCase <em>Comm Case</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.CommClause#getStatementList <em>Statement List</em>}</li>
+ * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getCommClause()
  * @model
@@ -17,4 +24,56 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface CommClause extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Comm Case</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Comm Case</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Comm Case</em>' containment reference.
+   * @see #setCommCase(CommCase)
+   * @see com.ufcg.compiladores.go.GoPackage#getCommClause_CommCase()
+   * @model containment="true"
+   * @generated
+   */
+  CommCase getCommCase();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.CommClause#getCommCase <em>Comm Case</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Comm Case</em>' containment reference.
+   * @see #getCommCase()
+   * @generated
+   */
+  void setCommCase(CommCase value);
+
+  /**
+   * Returns the value of the '<em><b>Statement List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Statement List</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Statement List</em>' containment reference.
+   * @see #setStatementList(StatementList)
+   * @see com.ufcg.compiladores.go.GoPackage#getCommClause_StatementList()
+   * @model containment="true"
+   * @generated
+   */
+  StatementList getStatementList();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.CommClause#getStatementList <em>Statement List</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Statement List</em>' containment reference.
+   * @see #getStatementList()
+   * @generated
+   */
+  void setStatementList(StatementList value);
+
 } // CommClause

@@ -3,8 +3,6 @@
  */
 package com.ufcg.compiladores.go;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -26,19 +24,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface ReturnStmt extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Expression List</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.ExpressionList}.
+   * Returns the value of the '<em><b>Expression List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Expression List</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Expression List</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expression List</em>' containment reference list.
+   * @return the value of the '<em>Expression List</em>' containment reference.
+   * @see #setExpressionList(ExpressionList)
    * @see com.ufcg.compiladores.go.GoPackage#getReturnStmt_ExpressionList()
    * @model containment="true"
    * @generated
    */
-  EList<ExpressionList> getExpressionList();
+  ExpressionList getExpressionList();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.ReturnStmt#getExpressionList <em>Expression List</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expression List</em>' containment reference.
+   * @see #getExpressionList()
+   * @generated
+   */
+  void setExpressionList(ExpressionList value);
 
 } // ReturnStmt

@@ -3,8 +3,6 @@
  */
 package com.ufcg.compiladores.go;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,8 +14,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.ufcg.compiladores.go.PrimaryExprLinha#getIndexLinha <em>Index Linha</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.PrimaryExprLinha#getArguments <em>Arguments</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.PrimaryExprLinha#getPrimaryExprLinha <em>Primary Expr Linha</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.PrimaryExprLinha#getPonto <em>Ponto</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.PrimaryExprLinha#getCochetes <em>Cochetes</em>}</li>
  * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getPrimaryExprLinha()
@@ -27,35 +27,107 @@ import org.eclipse.emf.ecore.EObject;
 public interface PrimaryExprLinha extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Index Linha</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Arguments</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Index Linha</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Arguments</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Index Linha</em>' attribute list.
-   * @see com.ufcg.compiladores.go.GoPackage#getPrimaryExprLinha_IndexLinha()
-   * @model unique="false"
+   * @return the value of the '<em>Arguments</em>' containment reference.
+   * @see #setArguments(Arguments)
+   * @see com.ufcg.compiladores.go.GoPackage#getPrimaryExprLinha_Arguments()
+   * @model containment="true"
    * @generated
    */
-  EList<String> getIndexLinha();
+  Arguments getArguments();
 
   /**
-   * Returns the value of the '<em><b>Primary Expr Linha</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.PrimaryExprLinha}.
+   * Sets the value of the '{@link com.ufcg.compiladores.go.PrimaryExprLinha#getArguments <em>Arguments</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Arguments</em>' containment reference.
+   * @see #getArguments()
+   * @generated
+   */
+  void setArguments(Arguments value);
+
+  /**
+   * Returns the value of the '<em><b>Primary Expr Linha</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Primary Expr Linha</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Primary Expr Linha</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Primary Expr Linha</em>' containment reference list.
+   * @return the value of the '<em>Primary Expr Linha</em>' containment reference.
+   * @see #setPrimaryExprLinha(PrimaryExprLinha)
    * @see com.ufcg.compiladores.go.GoPackage#getPrimaryExprLinha_PrimaryExprLinha()
    * @model containment="true"
    * @generated
    */
-  EList<PrimaryExprLinha> getPrimaryExprLinha();
+  PrimaryExprLinha getPrimaryExprLinha();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.PrimaryExprLinha#getPrimaryExprLinha <em>Primary Expr Linha</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Primary Expr Linha</em>' containment reference.
+   * @see #getPrimaryExprLinha()
+   * @generated
+   */
+  void setPrimaryExprLinha(PrimaryExprLinha value);
+
+  /**
+   * Returns the value of the '<em><b>Ponto</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Ponto</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ponto</em>' containment reference.
+   * @see #setPonto(ponto)
+   * @see com.ufcg.compiladores.go.GoPackage#getPrimaryExprLinha_Ponto()
+   * @model containment="true"
+   * @generated
+   */
+  ponto getPonto();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.PrimaryExprLinha#getPonto <em>Ponto</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ponto</em>' containment reference.
+   * @see #getPonto()
+   * @generated
+   */
+  void setPonto(ponto value);
+
+  /**
+   * Returns the value of the '<em><b>Cochetes</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Cochetes</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Cochetes</em>' containment reference.
+   * @see #setCochetes(cochetes)
+   * @see com.ufcg.compiladores.go.GoPackage#getPrimaryExprLinha_Cochetes()
+   * @model containment="true"
+   * @generated
+   */
+  cochetes getCochetes();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.PrimaryExprLinha#getCochetes <em>Cochetes</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Cochetes</em>' containment reference.
+   * @see #getCochetes()
+   * @generated
+   */
+  void setCochetes(cochetes value);
 
 } // PrimaryExprLinha

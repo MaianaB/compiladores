@@ -3,25 +3,18 @@
  */
 package com.ufcg.compiladores.go.impl;
 
-import com.ufcg.compiladores.go.Element;
 import com.ufcg.compiladores.go.ElementList;
-import com.ufcg.compiladores.go.Expression;
 import com.ufcg.compiladores.go.GoPackage;
-import com.ufcg.compiladores.go.Key;
-import com.ufcg.compiladores.go.KeyedElement;
 import com.ufcg.compiladores.go.LiteralValue;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,55 +24,22 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.ufcg.compiladores.go.impl.LiteralValueImpl#getKeyedElement <em>Keyed Element</em>}</li>
- *   <li>{@link com.ufcg.compiladores.go.impl.LiteralValueImpl#getElement <em>Element</em>}</li>
- *   <li>{@link com.ufcg.compiladores.go.impl.LiteralValueImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.impl.LiteralValueImpl#getElementList <em>Element List</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class LiteralValueImpl extends ElementImpl implements LiteralValue
+public class LiteralValueImpl extends MinimalEObjectImpl.Container implements LiteralValue
 {
   /**
-   * The cached value of the '{@link #getKeyedElement() <em>Keyed Element</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getKeyedElement()
-   * @generated
-   * @ordered
-   */
-  protected EList<KeyedElement> keyedElement;
-
-  /**
-   * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getElement()
-   * @generated
-   * @ordered
-   */
-  protected EList<Element> element;
-
-  /**
-   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExpression()
-   * @generated
-   * @ordered
-   */
-  protected EList<Expression> expression;
-
-  /**
-   * The cached value of the '{@link #getElementList() <em>Element List</em>}' containment reference list.
+   * The cached value of the '{@link #getElementList() <em>Element List</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getElementList()
    * @generated
    * @ordered
    */
-  protected EList<ElementList> elementList;
+  protected ElementList elementList;
 
   /**
    * <!-- begin-user-doc -->
@@ -107,55 +67,47 @@ public class LiteralValueImpl extends ElementImpl implements LiteralValue
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<KeyedElement> getKeyedElement()
+  public ElementList getElementList()
   {
-    if (keyedElement == null)
-    {
-      keyedElement = new EObjectContainmentEList<KeyedElement>(KeyedElement.class, this, GoPackage.LITERAL_VALUE__KEYED_ELEMENT);
-    }
-    return keyedElement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Element> getElement()
-  {
-    if (element == null)
-    {
-      element = new EObjectContainmentEList<Element>(Element.class, this, GoPackage.LITERAL_VALUE__ELEMENT);
-    }
-    return element;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Expression> getExpression()
-  {
-    if (expression == null)
-    {
-      expression = new EObjectContainmentEList<Expression>(Expression.class, this, GoPackage.LITERAL_VALUE__EXPRESSION);
-    }
-    return expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<ElementList> getElementList()
-  {
-    if (elementList == null)
-    {
-      elementList = new EObjectContainmentEList<ElementList>(ElementList.class, this, GoPackage.LITERAL_VALUE__ELEMENT_LIST);
-    }
     return elementList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetElementList(ElementList newElementList, NotificationChain msgs)
+  {
+    ElementList oldElementList = elementList;
+    elementList = newElementList;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL_VALUE__ELEMENT_LIST, oldElementList, newElementList);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setElementList(ElementList newElementList)
+  {
+    if (newElementList != elementList)
+    {
+      NotificationChain msgs = null;
+      if (elementList != null)
+        msgs = ((InternalEObject)elementList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.LITERAL_VALUE__ELEMENT_LIST, null, msgs);
+      if (newElementList != null)
+        msgs = ((InternalEObject)newElementList).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.LITERAL_VALUE__ELEMENT_LIST, null, msgs);
+      msgs = basicSetElementList(newElementList, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.LITERAL_VALUE__ELEMENT_LIST, newElementList, newElementList));
   }
 
   /**
@@ -168,14 +120,8 @@ public class LiteralValueImpl extends ElementImpl implements LiteralValue
   {
     switch (featureID)
     {
-      case GoPackage.LITERAL_VALUE__KEYED_ELEMENT:
-        return ((InternalEList<?>)getKeyedElement()).basicRemove(otherEnd, msgs);
-      case GoPackage.LITERAL_VALUE__ELEMENT:
-        return ((InternalEList<?>)getElement()).basicRemove(otherEnd, msgs);
-      case GoPackage.LITERAL_VALUE__EXPRESSION:
-        return ((InternalEList<?>)getExpression()).basicRemove(otherEnd, msgs);
       case GoPackage.LITERAL_VALUE__ELEMENT_LIST:
-        return ((InternalEList<?>)getElementList()).basicRemove(otherEnd, msgs);
+        return basicSetElementList(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -190,12 +136,6 @@ public class LiteralValueImpl extends ElementImpl implements LiteralValue
   {
     switch (featureID)
     {
-      case GoPackage.LITERAL_VALUE__KEYED_ELEMENT:
-        return getKeyedElement();
-      case GoPackage.LITERAL_VALUE__ELEMENT:
-        return getElement();
-      case GoPackage.LITERAL_VALUE__EXPRESSION:
-        return getExpression();
       case GoPackage.LITERAL_VALUE__ELEMENT_LIST:
         return getElementList();
     }
@@ -207,27 +147,13 @@ public class LiteralValueImpl extends ElementImpl implements LiteralValue
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case GoPackage.LITERAL_VALUE__KEYED_ELEMENT:
-        getKeyedElement().clear();
-        getKeyedElement().addAll((Collection<? extends KeyedElement>)newValue);
-        return;
-      case GoPackage.LITERAL_VALUE__ELEMENT:
-        getElement().clear();
-        getElement().addAll((Collection<? extends Element>)newValue);
-        return;
-      case GoPackage.LITERAL_VALUE__EXPRESSION:
-        getExpression().clear();
-        getExpression().addAll((Collection<? extends Expression>)newValue);
-        return;
       case GoPackage.LITERAL_VALUE__ELEMENT_LIST:
-        getElementList().clear();
-        getElementList().addAll((Collection<? extends ElementList>)newValue);
+        setElementList((ElementList)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -243,17 +169,8 @@ public class LiteralValueImpl extends ElementImpl implements LiteralValue
   {
     switch (featureID)
     {
-      case GoPackage.LITERAL_VALUE__KEYED_ELEMENT:
-        getKeyedElement().clear();
-        return;
-      case GoPackage.LITERAL_VALUE__ELEMENT:
-        getElement().clear();
-        return;
-      case GoPackage.LITERAL_VALUE__EXPRESSION:
-        getExpression().clear();
-        return;
       case GoPackage.LITERAL_VALUE__ELEMENT_LIST:
-        getElementList().clear();
+        setElementList((ElementList)null);
         return;
     }
     super.eUnset(featureID);
@@ -269,86 +186,10 @@ public class LiteralValueImpl extends ElementImpl implements LiteralValue
   {
     switch (featureID)
     {
-      case GoPackage.LITERAL_VALUE__KEYED_ELEMENT:
-        return keyedElement != null && !keyedElement.isEmpty();
-      case GoPackage.LITERAL_VALUE__ELEMENT:
-        return element != null && !element.isEmpty();
-      case GoPackage.LITERAL_VALUE__EXPRESSION:
-        return expression != null && !expression.isEmpty();
       case GoPackage.LITERAL_VALUE__ELEMENT_LIST:
-        return elementList != null && !elementList.isEmpty();
+        return elementList != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == ElementList.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == KeyedElement.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.LITERAL_VALUE__KEYED_ELEMENT: return GoPackage.KEYED_ELEMENT__KEYED_ELEMENT;
-        case GoPackage.LITERAL_VALUE__ELEMENT: return GoPackage.KEYED_ELEMENT__ELEMENT;
-        default: return -1;
-      }
-    }
-    if (baseClass == Key.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.LITERAL_VALUE__EXPRESSION: return GoPackage.KEY__EXPRESSION;
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == ElementList.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == KeyedElement.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.KEYED_ELEMENT__KEYED_ELEMENT: return GoPackage.LITERAL_VALUE__KEYED_ELEMENT;
-        case GoPackage.KEYED_ELEMENT__ELEMENT: return GoPackage.LITERAL_VALUE__ELEMENT;
-        default: return -1;
-      }
-    }
-    if (baseClass == Key.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.KEY__EXPRESSION: return GoPackage.LITERAL_VALUE__EXPRESSION;
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
 } //LiteralValueImpl

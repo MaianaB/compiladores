@@ -3,17 +3,50 @@
  */
 package com.ufcg.compiladores.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Literal</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.Literal#getBasicLit <em>Basic Lit</em>}</li>
+ * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getLiteral()
  * @model
  * @generated
  */
-public interface Literal extends Operand
+public interface Literal extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Basic Lit</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Basic Lit</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Basic Lit</em>' containment reference.
+   * @see #setBasicLit(BasicLit)
+   * @see com.ufcg.compiladores.go.GoPackage#getLiteral_BasicLit()
+   * @model containment="true"
+   * @generated
+   */
+  BasicLit getBasicLit();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Literal#getBasicLit <em>Basic Lit</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Basic Lit</em>' containment reference.
+   * @see #getBasicLit()
+   * @generated
+   */
+  void setBasicLit(BasicLit value);
+
 } // Literal

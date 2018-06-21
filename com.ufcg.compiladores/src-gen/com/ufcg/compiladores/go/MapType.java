@@ -3,17 +3,77 @@
  */
 package com.ufcg.compiladores.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Map Type</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.MapType#getKeyType <em>Key Type</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.MapType#getElementType <em>Element Type</em>}</li>
+ * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getMapType()
  * @model
  * @generated
  */
-public interface MapType extends LiteralType
+public interface MapType extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Key Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Key Type</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Key Type</em>' containment reference.
+   * @see #setKeyType(KeyType)
+   * @see com.ufcg.compiladores.go.GoPackage#getMapType_KeyType()
+   * @model containment="true"
+   * @generated
+   */
+  KeyType getKeyType();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.MapType#getKeyType <em>Key Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Key Type</em>' containment reference.
+   * @see #getKeyType()
+   * @generated
+   */
+  void setKeyType(KeyType value);
+
+  /**
+   * Returns the value of the '<em><b>Element Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Element Type</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Element Type</em>' containment reference.
+   * @see #setElementType(ElementType)
+   * @see com.ufcg.compiladores.go.GoPackage#getMapType_ElementType()
+   * @model containment="true"
+   * @generated
+   */
+  ElementType getElementType();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.MapType#getElementType <em>Element Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Element Type</em>' containment reference.
+   * @see #getElementType()
+   * @generated
+   */
+  void setElementType(ElementType value);
+
 } // MapType

@@ -3,7 +3,7 @@
  */
 package com.ufcg.compiladores.go;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,29 +14,147 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.topLevelDeclLinha#getFunctionName <em>Function Name</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.topLevelDeclLinha#getSignature <em>Signature</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.topLevelDeclLinha#getFunctionBody <em>Function Body</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.topLevelDeclLinha#getReceiver <em>Receiver</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.topLevelDeclLinha#getMethodName <em>Method Name</em>}</li>
  * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#gettopLevelDeclLinha()
  * @model
  * @generated
  */
-public interface topLevelDeclLinha extends TopLevelDecl
+public interface topLevelDeclLinha extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Function Body</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.FunctionBody}.
+   * Returns the value of the '<em><b>Function Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Function Body</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Function Name</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Function Body</em>' containment reference list.
+   * @return the value of the '<em>Function Name</em>' containment reference.
+   * @see #setFunctionName(FunctionName)
+   * @see com.ufcg.compiladores.go.GoPackage#gettopLevelDeclLinha_FunctionName()
+   * @model containment="true"
+   * @generated
+   */
+  FunctionName getFunctionName();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.topLevelDeclLinha#getFunctionName <em>Function Name</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Function Name</em>' containment reference.
+   * @see #getFunctionName()
+   * @generated
+   */
+  void setFunctionName(FunctionName value);
+
+  /**
+   * Returns the value of the '<em><b>Signature</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Signature</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Signature</em>' containment reference.
+   * @see #setSignature(Signature)
+   * @see com.ufcg.compiladores.go.GoPackage#gettopLevelDeclLinha_Signature()
+   * @model containment="true"
+   * @generated
+   */
+  Signature getSignature();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.topLevelDeclLinha#getSignature <em>Signature</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Signature</em>' containment reference.
+   * @see #getSignature()
+   * @generated
+   */
+  void setSignature(Signature value);
+
+  /**
+   * Returns the value of the '<em><b>Function Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Function Body</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Function Body</em>' containment reference.
+   * @see #setFunctionBody(FunctionBody)
    * @see com.ufcg.compiladores.go.GoPackage#gettopLevelDeclLinha_FunctionBody()
    * @model containment="true"
    * @generated
    */
-  EList<FunctionBody> getFunctionBody();
+  FunctionBody getFunctionBody();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.topLevelDeclLinha#getFunctionBody <em>Function Body</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Function Body</em>' containment reference.
+   * @see #getFunctionBody()
+   * @generated
+   */
+  void setFunctionBody(FunctionBody value);
+
+  /**
+   * Returns the value of the '<em><b>Receiver</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Receiver</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Receiver</em>' containment reference.
+   * @see #setReceiver(Receiver)
+   * @see com.ufcg.compiladores.go.GoPackage#gettopLevelDeclLinha_Receiver()
+   * @model containment="true"
+   * @generated
+   */
+  Receiver getReceiver();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.topLevelDeclLinha#getReceiver <em>Receiver</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Receiver</em>' containment reference.
+   * @see #getReceiver()
+   * @generated
+   */
+  void setReceiver(Receiver value);
+
+  /**
+   * Returns the value of the '<em><b>Method Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Method Name</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Method Name</em>' containment reference.
+   * @see #setMethodName(MethodName)
+   * @see com.ufcg.compiladores.go.GoPackage#gettopLevelDeclLinha_MethodName()
+   * @model containment="true"
+   * @generated
+   */
+  MethodName getMethodName();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.topLevelDeclLinha#getMethodName <em>Method Name</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Method Name</em>' containment reference.
+   * @see #getMethodName()
+   * @generated
+   */
+  void setMethodName(MethodName value);
 
 } // topLevelDeclLinha

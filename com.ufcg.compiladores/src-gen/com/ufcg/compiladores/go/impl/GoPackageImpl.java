@@ -7,7 +7,9 @@ import com.ufcg.compiladores.go.AliasDecl;
 import com.ufcg.compiladores.go.Arguments;
 import com.ufcg.compiladores.go.ArrayLength;
 import com.ufcg.compiladores.go.Assignment;
+import com.ufcg.compiladores.go.BasicLit;
 import com.ufcg.compiladores.go.Block;
+import com.ufcg.compiladores.go.BreakStmt;
 import com.ufcg.compiladores.go.Channel;
 import com.ufcg.compiladores.go.ChannelType;
 import com.ufcg.compiladores.go.CommCase;
@@ -16,12 +18,14 @@ import com.ufcg.compiladores.go.CompositeLit;
 import com.ufcg.compiladores.go.Condition;
 import com.ufcg.compiladores.go.ConstDecl;
 import com.ufcg.compiladores.go.ConstSpec;
+import com.ufcg.compiladores.go.ContinueStmt;
 import com.ufcg.compiladores.go.Conversion;
 import com.ufcg.compiladores.go.Declaration;
 import com.ufcg.compiladores.go.DeferStmt;
 import com.ufcg.compiladores.go.Element;
 import com.ufcg.compiladores.go.ElementList;
 import com.ufcg.compiladores.go.ElementType;
+import com.ufcg.compiladores.go.EmbeddedField;
 import com.ufcg.compiladores.go.ExprCaseClause;
 import com.ufcg.compiladores.go.ExprSwitchCase;
 import com.ufcg.compiladores.go.Expression;
@@ -29,22 +33,32 @@ import com.ufcg.compiladores.go.ExpressionLinha;
 import com.ufcg.compiladores.go.ExpressionList;
 import com.ufcg.compiladores.go.ExpressionStmt;
 import com.ufcg.compiladores.go.FieldDecl;
+import com.ufcg.compiladores.go.FieldName;
 import com.ufcg.compiladores.go.ForClause;
 import com.ufcg.compiladores.go.ForStmt;
 import com.ufcg.compiladores.go.FunctionBody;
 import com.ufcg.compiladores.go.FunctionDecl;
 import com.ufcg.compiladores.go.FunctionLit;
+import com.ufcg.compiladores.go.FunctionName;
 import com.ufcg.compiladores.go.FunctionType;
 import com.ufcg.compiladores.go.GoFactory;
 import com.ufcg.compiladores.go.GoPackage;
 import com.ufcg.compiladores.go.GoStmt;
+import com.ufcg.compiladores.go.GotoStmt;
+import com.ufcg.compiladores.go.IdentifierList;
 import com.ufcg.compiladores.go.IfStmt;
+import com.ufcg.compiladores.go.ImportDecl;
+import com.ufcg.compiladores.go.ImportPath;
+import com.ufcg.compiladores.go.ImportSpec;
 import com.ufcg.compiladores.go.IncDecStmt;
+import com.ufcg.compiladores.go.Index;
 import com.ufcg.compiladores.go.InitStmt;
 import com.ufcg.compiladores.go.InterfaceType;
+import com.ufcg.compiladores.go.InterfaceTypeName;
 import com.ufcg.compiladores.go.Key;
 import com.ufcg.compiladores.go.KeyType;
 import com.ufcg.compiladores.go.KeyedElement;
+import com.ufcg.compiladores.go.Label;
 import com.ufcg.compiladores.go.LabeledStmt;
 import com.ufcg.compiladores.go.Literal;
 import com.ufcg.compiladores.go.LiteralType;
@@ -53,8 +67,12 @@ import com.ufcg.compiladores.go.LiteralValue;
 import com.ufcg.compiladores.go.MapType;
 import com.ufcg.compiladores.go.MethodDecl;
 import com.ufcg.compiladores.go.MethodExpr;
+import com.ufcg.compiladores.go.MethodName;
 import com.ufcg.compiladores.go.MethodSpec;
 import com.ufcg.compiladores.go.Operand;
+import com.ufcg.compiladores.go.OperandName;
+import com.ufcg.compiladores.go.PackageClause;
+import com.ufcg.compiladores.go.PackageName;
 import com.ufcg.compiladores.go.ParameterDecl;
 import com.ufcg.compiladores.go.ParameterList;
 import com.ufcg.compiladores.go.Parameters;
@@ -62,6 +80,7 @@ import com.ufcg.compiladores.go.PointerType;
 import com.ufcg.compiladores.go.PostStmt;
 import com.ufcg.compiladores.go.PrimaryExpr;
 import com.ufcg.compiladores.go.PrimaryExprLinha;
+import com.ufcg.compiladores.go.QualifiedIdent;
 import com.ufcg.compiladores.go.RangeClause;
 import com.ufcg.compiladores.go.Receiver;
 import com.ufcg.compiladores.go.ReceiverType;
@@ -70,15 +89,18 @@ import com.ufcg.compiladores.go.RecvStmt;
 import com.ufcg.compiladores.go.Result;
 import com.ufcg.compiladores.go.ReturnStmt;
 import com.ufcg.compiladores.go.SelectStmt;
+import com.ufcg.compiladores.go.Selector;
 import com.ufcg.compiladores.go.SendStmt;
 import com.ufcg.compiladores.go.ShortVarDecl;
 import com.ufcg.compiladores.go.Signature;
 import com.ufcg.compiladores.go.SimpleStmt;
+import com.ufcg.compiladores.go.Slice;
 import com.ufcg.compiladores.go.SouceFile;
 import com.ufcg.compiladores.go.Statement;
 import com.ufcg.compiladores.go.StatementList;
 import com.ufcg.compiladores.go.StructType;
 import com.ufcg.compiladores.go.SwitchStmt;
+import com.ufcg.compiladores.go.Tag;
 import com.ufcg.compiladores.go.TopLevelDecl;
 import com.ufcg.compiladores.go.Type;
 import com.ufcg.compiladores.go.TypeAssertion;
@@ -88,11 +110,24 @@ import com.ufcg.compiladores.go.TypeDef;
 import com.ufcg.compiladores.go.TypeList;
 import com.ufcg.compiladores.go.TypeLit;
 import com.ufcg.compiladores.go.TypeLitLinha;
+import com.ufcg.compiladores.go.TypeName;
+import com.ufcg.compiladores.go.TypeNameLinha;
 import com.ufcg.compiladores.go.TypeSpec;
 import com.ufcg.compiladores.go.TypeSwitchCase;
 import com.ufcg.compiladores.go.TypeSwitchGuard;
+import com.ufcg.compiladores.go.UnaryExpr;
 import com.ufcg.compiladores.go.VarDecl;
 import com.ufcg.compiladores.go.VarSpec;
+import com.ufcg.compiladores.go.binary_op;
+import com.ufcg.compiladores.go.cochetes;
+import com.ufcg.compiladores.go.decimals;
+import com.ufcg.compiladores.go.exponent;
+import com.ufcg.compiladores.go.float_lit;
+import com.ufcg.compiladores.go.identifier;
+import com.ufcg.compiladores.go.imaginary_lit;
+import com.ufcg.compiladores.go.ponto;
+import com.ufcg.compiladores.go.rune_lit;
+import com.ufcg.compiladores.go.string_lit;
 import com.ufcg.compiladores.go.switch_stmt_linha;
 import com.ufcg.compiladores.go.topLevelDeclLinha;
 
@@ -124,6 +159,20 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * @generated
    */
   private EClass typeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass typeNameEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass typeNameLinhaEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -166,6 +215,20 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * @generated
    */
   private EClass fieldDeclEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass embeddedFieldEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass tagEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -229,6 +292,20 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * @generated
    */
   private EClass methodSpecEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass methodNameEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass interfaceTypeNameEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -305,6 +382,13 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass identifierListEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass expressionListEClass = null;
 
   /**
@@ -368,6 +452,13 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass functionNameEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass functionBodyEClass = null;
 
   /**
@@ -397,6 +488,27 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * @generated
    */
   private EClass literalEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass basicLitEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass operandNameEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass qualifiedIdentEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -459,6 +571,13 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass fieldNameEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass functionLitEClass = null;
 
   /**
@@ -474,6 +593,41 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * @generated
    */
   private EClass primaryExprLinhaEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pontoEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass cochetesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass selectorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass indexEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass sliceEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -522,6 +676,20 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass unaryExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass binary_opEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass conversionEClass = null;
 
   /**
@@ -544,6 +712,13 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * @generated
    */
   private EClass labeledStmtEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass labelEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -739,7 +914,112 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass breakStmtEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass continueStmtEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass gotoStmtEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass deferStmtEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass packageClauseEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass packageNameEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass importDeclEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass importSpecEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass importPathEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass identifierEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass float_litEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass string_litEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass decimalsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass exponentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass imaginary_litEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass rune_litEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -819,6 +1099,36 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getSouceFile_PackageClause()
+  {
+    return (EReference)souceFileEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSouceFile_ImportDecl()
+  {
+    return (EReference)souceFileEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSouceFile_TopLevelDecl()
+  {
+    return (EReference)souceFileEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getType()
   {
     return typeEClass;
@@ -829,7 +1139,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getType_Expression()
+  public EReference getType_TypeName()
   {
     return (EReference)typeEClass.getEStructuralFeatures().get(0);
   }
@@ -839,9 +1149,89 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getType_Type()
+  public EReference getType_TypeLit()
   {
     return (EReference)typeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getType_Type()
+  {
+    return (EReference)typeEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTypeName()
+  {
+    return typeNameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypeName_Identifier()
+  {
+    return (EReference)typeNameEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypeName_TypeNameLinha()
+  {
+    return (EReference)typeNameEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTypeNameLinha()
+  {
+    return typeNameLinhaEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypeNameLinha_Identifier()
+  {
+    return (EReference)typeNameLinhaEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypeNameLinha_TypeNameLinha()
+  {
+    return (EReference)typeNameLinhaEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypeNameLinha_QualifiedIdent()
+  {
+    return (EReference)typeNameLinhaEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -939,6 +1329,36 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getTypeLitLinha_ArrayLength()
+  {
+    return (EReference)typeLitLinhaEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypeLitLinha_ElementType()
+  {
+    return (EReference)typeLitLinhaEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypeLitLinha_TypeLitLinha()
+  {
+    return (EReference)typeLitLinhaEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getArrayLength()
   {
     return arrayLengthEClass;
@@ -949,7 +1369,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getArrayLength_ElementType()
+  public EReference getArrayLength_Expression()
   {
     return (EReference)arrayLengthEClass.getEStructuralFeatures().get(0);
   }
@@ -962,6 +1382,16 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
   public EClass getElementType()
   {
     return elementTypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getElementType_Type()
+  {
+    return (EReference)elementTypeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -999,9 +1429,99 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getFieldDecl_IdentifierList()
+  {
+    return (EReference)fieldDeclEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFieldDecl_Type()
+  {
+    return (EReference)fieldDeclEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFieldDecl_EmbeddedField()
+  {
+    return (EReference)fieldDeclEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFieldDecl_Tag()
+  {
+    return (EReference)fieldDeclEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getEmbeddedField()
+  {
+    return embeddedFieldEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEmbeddedField_TypeName()
+  {
+    return (EReference)embeddedFieldEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTag()
+  {
+    return tagEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTag_String_lit()
+  {
+    return (EReference)tagEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPointerType()
   {
     return pointerTypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPointerType_Type()
+  {
+    return (EReference)pointerTypeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1019,9 +1539,39 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getFunctionType_Signature()
+  {
+    return (EReference)functionTypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getSignature()
   {
     return signatureEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSignature_Parameters()
+  {
+    return (EReference)signatureEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSignature_Result()
+  {
+    return (EReference)signatureEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1039,6 +1589,26 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getResult_Parameters()
+  {
+    return (EReference)resultEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getResult_Type()
+  {
+    return (EReference)resultEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getParameters()
   {
     return parametersEClass;
@@ -1049,7 +1619,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getParameters_Result()
+  public EReference getParameters_ParameterList()
   {
     return (EReference)parametersEClass.getEStructuralFeatures().get(0);
   }
@@ -1069,6 +1639,16 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getParameterList_ParameterDecl()
+  {
+    return (EReference)parameterListEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getParameterDecl()
   {
     return parameterDeclEClass;
@@ -1079,9 +1659,19 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getParameterDecl_ParameterDecl()
+  public EReference getParameterDecl_IdentifierList()
   {
     return (EReference)parameterDeclEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getParameterDecl_Type()
+  {
+    return (EReference)parameterDeclEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1099,9 +1689,89 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getInterfaceType_MethodSpec()
+  {
+    return (EReference)interfaceTypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getMethodSpec()
   {
     return methodSpecEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMethodSpec_MethodName()
+  {
+    return (EReference)methodSpecEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMethodSpec_Signature()
+  {
+    return (EReference)methodSpecEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMethodSpec_InterfaceTypeName()
+  {
+    return (EReference)methodSpecEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMethodName()
+  {
+    return methodNameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMethodName_Identifier()
+  {
+    return (EReference)methodNameEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getInterfaceTypeName()
+  {
+    return interfaceTypeNameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getInterfaceTypeName_TypeName()
+  {
+    return (EReference)interfaceTypeNameEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1119,6 +1789,26 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getMapType_KeyType()
+  {
+    return (EReference)mapTypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMapType_ElementType()
+  {
+    return (EReference)mapTypeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getKeyType()
   {
     return keyTypeEClass;
@@ -1129,7 +1819,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getKeyType_ElementType()
+  public EReference getKeyType_Type()
   {
     return (EReference)keyTypeEClass.getEStructuralFeatures().get(0);
   }
@@ -1149,9 +1839,29 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getChannelType_ElementType()
+  {
+    return (EReference)channelTypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getBlock()
   {
     return blockEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBlock_StatementList()
+  {
+    return (EReference)blockEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1169,9 +1879,49 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getStatementList_Statement()
+  {
+    return (EReference)statementListEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDeclaration()
   {
     return declarationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeclaration_ConstDecl()
+  {
+    return (EReference)declarationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeclaration_TypeDecl()
+  {
+    return (EReference)declarationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeclaration_VarDecl()
+  {
+    return (EReference)declarationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1189,6 +1939,26 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getTopLevelDecl_Declaration()
+  {
+    return (EReference)topLevelDeclEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTopLevelDecl_TopLevelDeclLinha()
+  {
+    return (EReference)topLevelDeclEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass gettopLevelDeclLinha()
   {
     return topLevelDeclLinhaEClass;
@@ -1199,9 +1969,49 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference gettopLevelDeclLinha_FunctionBody()
+  public EReference gettopLevelDeclLinha_FunctionName()
   {
     return (EReference)topLevelDeclLinhaEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference gettopLevelDeclLinha_Signature()
+  {
+    return (EReference)topLevelDeclLinhaEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference gettopLevelDeclLinha_FunctionBody()
+  {
+    return (EReference)topLevelDeclLinhaEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference gettopLevelDeclLinha_Receiver()
+  {
+    return (EReference)topLevelDeclLinhaEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference gettopLevelDeclLinha_MethodName()
+  {
+    return (EReference)topLevelDeclLinhaEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1219,6 +2029,16 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getConstDecl_ConstSpec()
+  {
+    return (EReference)constDeclEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getConstSpec()
   {
     return constSpecEClass;
@@ -1229,9 +2049,49 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConstSpec_ExpressionList()
+  public EReference getConstSpec_IdentifierList()
   {
     return (EReference)constSpecEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getConstSpec_Type()
+  {
+    return (EReference)constSpecEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getConstSpec_ExpressionList()
+  {
+    return (EReference)constSpecEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getIdentifierList()
+  {
+    return identifierListEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIdentifierList_Identifier()
+  {
+    return (EReference)identifierListEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1249,7 +2109,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExpressionList_ExpressionList()
+  public EReference getExpressionList_Expression()
   {
     return (EReference)expressionListEClass.getEStructuralFeatures().get(0);
   }
@@ -1269,9 +2129,39 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getTypeDecl_TypeSpec()
+  {
+    return (EReference)typeDeclEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getTypeSpec()
   {
     return typeSpecEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypeSpec_Identifier()
+  {
+    return (EReference)typeSpecEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypeSpec_Type()
+  {
+    return (EReference)typeSpecEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1309,9 +2199,49 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getVarDecl_VarSpec()
+  {
+    return (EReference)varDeclEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getVarSpec()
   {
     return varSpecEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getVarSpec_IdentifierList()
+  {
+    return (EReference)varSpecEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getVarSpec_Type()
+  {
+    return (EReference)varSpecEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getVarSpec_ExpressionList()
+  {
+    return (EReference)varSpecEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1329,9 +2259,79 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getShortVarDecl_IdentifierList()
+  {
+    return (EReference)shortVarDeclEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getShortVarDecl_ExpressionList()
+  {
+    return (EReference)shortVarDeclEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getFunctionDecl()
   {
     return functionDeclEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFunctionDecl_FunctionName()
+  {
+    return (EReference)functionDeclEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFunctionDecl_Signature()
+  {
+    return (EReference)functionDeclEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFunctionDecl_FunctionBody()
+  {
+    return (EReference)functionDeclEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFunctionName()
+  {
+    return functionNameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFunctionName_Identifier()
+  {
+    return (EReference)functionNameEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1349,9 +2349,59 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getFunctionBody_Block()
+  {
+    return (EReference)functionBodyEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getMethodDecl()
   {
     return methodDeclEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMethodDecl_Receiver()
+  {
+    return (EReference)methodDeclEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMethodDecl_MethodName()
+  {
+    return (EReference)methodDeclEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMethodDecl_Signature()
+  {
+    return (EReference)methodDeclEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMethodDecl_FunctionBody()
+  {
+    return (EReference)methodDeclEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1369,9 +2419,9 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getReceiver_Signature()
+  public EClass getOperand()
   {
-    return (EReference)receiverEClass.getEStructuralFeatures().get(0);
+    return operandEClass;
   }
 
   /**
@@ -1379,9 +2429,29 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getOperand()
+  public EReference getOperand_Literal()
   {
-    return operandEClass;
+    return (EReference)operandEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOperand_OperandName()
+  {
+    return (EReference)operandEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOperand_Expression()
+  {
+    return (EReference)operandEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1399,9 +2469,129 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getLiteral_BasicLit()
+  {
+    return (EReference)literalEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getBasicLit()
+  {
+    return basicLitEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBasicLit_Int_lit()
+  {
+    return (EAttribute)basicLitEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBasicLit_Float_lit()
+  {
+    return (EReference)basicLitEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBasicLit_Rune_lit()
+  {
+    return (EReference)basicLitEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBasicLit_String_lit()
+  {
+    return (EReference)basicLitEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getOperandName()
+  {
+    return operandNameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getQualifiedIdent()
+  {
+    return qualifiedIdentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getQualifiedIdent_PackageName()
+  {
+    return (EReference)qualifiedIdentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getQualifiedIdent_Identifier()
+  {
+    return (EReference)qualifiedIdentEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getCompositeLit()
   {
     return compositeLitEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCompositeLit_LiteralType()
+  {
+    return (EReference)compositeLitEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCompositeLit_LiteralValue()
+  {
+    return (EReference)compositeLitEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1419,9 +2609,49 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLiteralType_LiteralValue()
+  public EReference getLiteralType_StructType()
   {
     return (EReference)literalTypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLiteralType_LiteralTypeLinha()
+  {
+    return (EReference)literalTypeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLiteralType_ElementType()
+  {
+    return (EReference)literalTypeEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLiteralType_MapType()
+  {
+    return (EReference)literalTypeEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLiteralType_TypeName()
+  {
+    return (EReference)literalTypeEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1432,6 +2662,26 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
   public EClass getLiteralTypeLinha()
   {
     return literalTypeLinhaEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLiteralTypeLinha_ArrayLength()
+  {
+    return (EReference)literalTypeLinhaEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLiteralTypeLinha_ElementType()
+  {
+    return (EReference)literalTypeLinhaEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1469,9 +2719,39 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getElementList_KeyedElement()
+  {
+    return (EReference)elementListEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getElement()
   {
     return elementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getElement_Expression()
+  {
+    return (EReference)elementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getElement_LiteralValue()
+  {
+    return (EReference)elementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1489,7 +2769,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getKeyedElement_KeyedElement()
+  public EReference getKeyedElement_Key()
   {
     return (EReference)keyedElementEClass.getEStructuralFeatures().get(0);
   }
@@ -1519,9 +2799,49 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getKey_Expression()
+  public EReference getKey_FieldName()
   {
     return (EReference)keyEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getKey_Expression()
+  {
+    return (EReference)keyEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getKey_LiteralValue()
+  {
+    return (EReference)keyEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFieldName()
+  {
+    return fieldNameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFieldName_Identifier()
+  {
+    return (EReference)fieldNameEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1539,9 +2859,69 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getFunctionLit_Signature()
+  {
+    return (EReference)functionLitEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFunctionLit_FunctionBody()
+  {
+    return (EReference)functionLitEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPrimaryExpr()
   {
     return primaryExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPrimaryExpr_Operand()
+  {
+    return (EReference)primaryExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPrimaryExpr_PrimaryExprLinha()
+  {
+    return (EReference)primaryExprEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPrimaryExpr_Conversion()
+  {
+    return (EReference)primaryExprEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPrimaryExpr_MethodExpr()
+  {
+    return (EReference)primaryExprEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1559,9 +2939,9 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPrimaryExprLinha_IndexLinha()
+  public EReference getPrimaryExprLinha_Arguments()
   {
-    return (EAttribute)primaryExprLinhaEClass.getEStructuralFeatures().get(0);
+    return (EReference)primaryExprLinhaEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1579,9 +2959,179 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getPrimaryExprLinha_Ponto()
+  {
+    return (EReference)primaryExprLinhaEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPrimaryExprLinha_Cochetes()
+  {
+    return (EReference)primaryExprLinhaEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getponto()
+  {
+    return pontoEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getponto_Selector()
+  {
+    return (EReference)pontoEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getponto_PrimaryExprLinha()
+  {
+    return (EReference)pontoEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getponto_TypeAssertion()
+  {
+    return (EReference)pontoEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getcochetes()
+  {
+    return cochetesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getcochetes_Index()
+  {
+    return (EReference)cochetesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getcochetes_PrimaryExprLinha()
+  {
+    return (EReference)cochetesEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getcochetes_Slice()
+  {
+    return (EReference)cochetesEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSelector()
+  {
+    return selectorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSelector_Identifier()
+  {
+    return (EReference)selectorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getIndex()
+  {
+    return indexEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIndex_Slice()
+  {
+    return (EReference)indexEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSlice()
+  {
+    return sliceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSlice_Decimals()
+  {
+    return (EReference)sliceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getTypeAssertion()
   {
     return typeAssertionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypeAssertion_Type()
+  {
+    return (EReference)typeAssertionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1599,9 +3149,49 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getArguments_ExpressionList()
+  {
+    return (EReference)argumentsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getArguments_Type()
+  {
+    return (EReference)argumentsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getMethodExpr()
   {
     return methodExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMethodExpr_ReceiverType()
+  {
+    return (EReference)methodExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMethodExpr_MethodName()
+  {
+    return (EReference)methodExprEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1619,6 +3209,16 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getReceiverType_Type()
+  {
+    return (EReference)receiverTypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getExpression()
   {
     return expressionEClass;
@@ -1629,9 +3229,19 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExpression_ExpressionLinha()
+  public EReference getExpression_UnaryExpr()
   {
     return (EReference)expressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExpression_ExpressionLinha()
+  {
+    return (EReference)expressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1649,9 +3259,139 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getExpressionLinha_Binary_op()
+  {
+    return (EReference)expressionLinhaEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExpressionLinha_Expression()
+  {
+    return (EReference)expressionLinhaEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExpressionLinha_ExpressionLinha()
+  {
+    return (EReference)expressionLinhaEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getUnaryExpr()
+  {
+    return unaryExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUnaryExpr_PrimaryExpr()
+  {
+    return (EReference)unaryExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUnaryExpr_Unary_op()
+  {
+    return (EAttribute)unaryExprEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUnaryExpr_UnaryExpr()
+  {
+    return (EReference)unaryExprEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getbinary_op()
+  {
+    return binary_opEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getbinary_op_Rel_op()
+  {
+    return (EAttribute)binary_opEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getbinary_op_Add_op()
+  {
+    return (EAttribute)binary_opEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getbinary_op_Mul_op()
+  {
+    return (EAttribute)binary_opEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getConversion()
   {
     return conversionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getConversion_Type()
+  {
+    return (EReference)conversionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getConversion_Expression()
+  {
+    return (EReference)conversionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1719,9 +3459,9 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getStatement_BreakStmt()
+  public EReference getStatement_BreakStmt()
   {
-    return (EAttribute)statementEClass.getEStructuralFeatures().get(5);
+    return (EReference)statementEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -1729,9 +3469,9 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getStatement_ContinueStmt()
+  public EReference getStatement_ContinueStmt()
   {
-    return (EAttribute)statementEClass.getEStructuralFeatures().get(6);
+    return (EReference)statementEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -1739,9 +3479,9 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getStatement_GotoStmt()
+  public EReference getStatement_GotoStmt()
   {
-    return (EAttribute)statementEClass.getEStructuralFeatures().get(7);
+    return (EReference)statementEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -1829,9 +3569,109 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getSimpleStmt_EmptyStmt()
+  {
+    return (EAttribute)simpleStmtEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSimpleStmt_ExpressionStmt()
+  {
+    return (EReference)simpleStmtEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSimpleStmt_SendStmt()
+  {
+    return (EReference)simpleStmtEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSimpleStmt_IncDecStmt()
+  {
+    return (EReference)simpleStmtEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSimpleStmt_Assignment()
+  {
+    return (EReference)simpleStmtEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSimpleStmt_ShortVarDecl()
+  {
+    return (EReference)simpleStmtEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getLabeledStmt()
   {
     return labeledStmtEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLabeledStmt_Label()
+  {
+    return (EReference)labeledStmtEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLabeledStmt_Statement()
+  {
+    return (EReference)labeledStmtEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLabel()
+  {
+    return labelEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLabel_Identifier()
+  {
+    return (EReference)labelEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1849,9 +3689,39 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getExpressionStmt_Expression()
+  {
+    return (EReference)expressionStmtEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getSendStmt()
   {
     return sendStmtEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSendStmt_Channel()
+  {
+    return (EReference)sendStmtEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSendStmt_Expression()
+  {
+    return (EReference)sendStmtEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1869,9 +3739,29 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getChannel_Expression()
+  {
+    return (EReference)channelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getIncDecStmt()
   {
     return incDecStmtEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIncDecStmt_Expression()
+  {
+    return (EReference)incDecStmtEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1889,6 +3779,26 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getAssignment_ExpressionList()
+  {
+    return (EReference)assignmentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAssignment_Assign_op()
+  {
+    return (EAttribute)assignmentEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getIfStmt()
   {
     return ifStmtEClass;
@@ -1899,7 +3809,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIfStmt_Expression()
+  public EReference getIfStmt_SimpleStmt()
   {
     return (EReference)ifStmtEClass.getEStructuralFeatures().get(0);
   }
@@ -1909,7 +3819,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIfStmt_Block()
+  public EReference getIfStmt_Expression()
   {
     return (EReference)ifStmtEClass.getEStructuralFeatures().get(1);
   }
@@ -1919,9 +3829,19 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIfStmt_IfStmt()
+  public EReference getIfStmt_Block()
   {
     return (EReference)ifStmtEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIfStmt_IfStmt()
+  {
+    return (EReference)ifStmtEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1959,6 +3879,26 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getExprCaseClause_ExprSwitchCase()
+  {
+    return (EReference)exprCaseClauseEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExprCaseClause_StatementList()
+  {
+    return (EReference)exprCaseClauseEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getExprSwitchCase()
   {
     return exprSwitchCaseEClass;
@@ -1969,7 +3909,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExprSwitchCase_StatementList()
+  public EReference getExprSwitchCase_ExpressionList()
   {
     return (EReference)exprSwitchCaseEClass.getEStructuralFeatures().get(0);
   }
@@ -2009,7 +3949,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getswitch_stmt_linha_Expression()
+  public EReference getswitch_stmt_linha_Switch_stmt_linha()
   {
     return (EReference)switch_stmt_linhaEClass.getEStructuralFeatures().get(2);
   }
@@ -2019,9 +3959,19 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getswitch_stmt_linha_ExprCaseClause()
+  public EReference getswitch_stmt_linha_Expression()
   {
     return (EReference)switch_stmt_linhaEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getswitch_stmt_linha_ExprCaseClause()
+  {
+    return (EReference)switch_stmt_linhaEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -2039,9 +3989,49 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getTypeSwitchGuard_Identifier()
+  {
+    return (EReference)typeSwitchGuardEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypeSwitchGuard_PrimaryExpr()
+  {
+    return (EReference)typeSwitchGuardEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getTypeCaseClause()
   {
     return typeCaseClauseEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypeCaseClause_TypeSwitchCase()
+  {
+    return (EReference)typeCaseClauseEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypeCaseClause_StatementList()
+  {
+    return (EReference)typeCaseClauseEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2059,7 +4049,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTypeSwitchCase_StatementList()
+  public EReference getTypeSwitchCase_TypeList()
   {
     return (EReference)typeSwitchCaseEClass.getEStructuralFeatures().get(0);
   }
@@ -2079,9 +4069,59 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getTypeList_Type()
+  {
+    return (EReference)typeListEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getForStmt()
   {
     return forStmtEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getForStmt_Condition()
+  {
+    return (EReference)forStmtEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getForStmt_ForClause()
+  {
+    return (EReference)forStmtEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getForStmt_RangeClause()
+  {
+    return (EReference)forStmtEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getForStmt_Block()
+  {
+    return (EReference)forStmtEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2099,6 +4139,16 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getCondition_Expression()
+  {
+    return (EReference)conditionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getForClause()
   {
     return forClauseEClass;
@@ -2109,7 +4159,7 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getForClause_Condition()
+  public EReference getForClause_InitStmt()
   {
     return (EReference)forClauseEClass.getEStructuralFeatures().get(0);
   }
@@ -2119,9 +4169,19 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getForClause_PostStmt()
+  public EReference getForClause_Condition()
   {
     return (EReference)forClauseEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getForClause_PostStmt()
+  {
+    return (EReference)forClauseEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2139,9 +4199,29 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getInitStmt_SimpleStmt()
+  {
+    return (EReference)initStmtEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPostStmt()
   {
     return postStmtEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPostStmt_SimpleStmt()
+  {
+    return (EReference)postStmtEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2159,9 +4239,49 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getRangeClause_ExpressionList()
+  {
+    return (EReference)rangeClauseEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRangeClause_IdentifierList()
+  {
+    return (EReference)rangeClauseEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRangeClause_Expression()
+  {
+    return (EReference)rangeClauseEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getGoStmt()
   {
     return goStmtEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getGoStmt_Expression()
+  {
+    return (EReference)goStmtEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2199,9 +4319,49 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getCommClause_CommCase()
+  {
+    return (EReference)commClauseEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCommClause_StatementList()
+  {
+    return (EReference)commClauseEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getCommCase()
   {
     return commCaseEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCommCase_SendStmt()
+  {
+    return (EReference)commCaseEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCommCase_RecvStmt()
+  {
+    return (EReference)commCaseEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2219,9 +4379,29 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRecvStmt_RecvExpr()
+  public EReference getRecvStmt_ExpressionList()
   {
     return (EReference)recvStmtEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRecvStmt_IdentifierList()
+  {
+    return (EReference)recvStmtEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRecvStmt_RecvExpr()
+  {
+    return (EReference)recvStmtEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2232,6 +4412,16 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
   public EClass getRecvExpr()
   {
     return recvExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRecvExpr_Expression()
+  {
+    return (EReference)recvExprEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2259,6 +4449,66 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getBreakStmt()
+  {
+    return breakStmtEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBreakStmt_Label()
+  {
+    return (EReference)breakStmtEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getContinueStmt()
+  {
+    return continueStmtEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getContinueStmt_Label()
+  {
+    return (EReference)continueStmtEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getGotoStmt()
+  {
+    return gotoStmtEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getGotoStmt_Label()
+  {
+    return (EReference)gotoStmtEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDeferStmt()
   {
     return deferStmtEClass;
@@ -2272,6 +4522,316 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
   public EReference getDeferStmt_Expression()
   {
     return (EReference)deferStmtEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPackageClause()
+  {
+    return packageClauseEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPackageClause_PackageName()
+  {
+    return (EReference)packageClauseEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPackageName()
+  {
+    return packageNameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPackageName_Identifier()
+  {
+    return (EReference)packageNameEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getImportDecl()
+  {
+    return importDeclEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getImportDecl_ImportSpec()
+  {
+    return (EReference)importDeclEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getImportSpec()
+  {
+    return importSpecEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getImportSpec_PackageName()
+  {
+    return (EReference)importSpecEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getImportSpec_ImportPath()
+  {
+    return (EReference)importSpecEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getImportPath()
+  {
+    return importPathEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getImportPath_String_lit()
+  {
+    return (EReference)importPathEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getidentifier()
+  {
+    return identifierEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getidentifier_LETTER()
+  {
+    return (EAttribute)identifierEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getidentifier_DECIMAL_DIGIT()
+  {
+    return (EAttribute)identifierEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getfloat_lit()
+  {
+    return float_litEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getstring_lit()
+  {
+    return string_litEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getstring_lit_Raw_string_lit()
+  {
+    return (EAttribute)string_litEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getstring_lit_Interpreted_string_lit()
+  {
+    return (EAttribute)string_litEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getdecimals()
+  {
+    return decimalsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getdecimals_Decimals()
+  {
+    return (EReference)decimalsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getdecimals_Exponent()
+  {
+    return (EReference)decimalsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getdecimals_Exponen()
+  {
+    return (EReference)decimalsEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getdecimals_DECIMAL_DIGIT()
+  {
+    return (EAttribute)decimalsEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getexponent()
+  {
+    return exponentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getexponent_Decimals()
+  {
+    return (EReference)exponentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getimaginary_lit()
+  {
+    return imaginary_litEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getimaginary_lit_Decimals()
+  {
+    return (EReference)imaginary_litEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getimaginary_lit_Float_lit()
+  {
+    return (EReference)imaginary_litEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getrune_lit()
+  {
+    return rune_litEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getrune_lit_Unicode_value()
+  {
+    return (EAttribute)rune_litEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getrune_lit_Byte_value()
+  {
+    return (EAttribute)rune_litEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2305,10 +4865,23 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
 
     // Create classes and their features
     souceFileEClass = createEClass(SOUCE_FILE);
+    createEReference(souceFileEClass, SOUCE_FILE__PACKAGE_CLAUSE);
+    createEReference(souceFileEClass, SOUCE_FILE__IMPORT_DECL);
+    createEReference(souceFileEClass, SOUCE_FILE__TOP_LEVEL_DECL);
 
     typeEClass = createEClass(TYPE);
-    createEReference(typeEClass, TYPE__EXPRESSION);
+    createEReference(typeEClass, TYPE__TYPE_NAME);
+    createEReference(typeEClass, TYPE__TYPE_LIT);
     createEReference(typeEClass, TYPE__TYPE);
+
+    typeNameEClass = createEClass(TYPE_NAME);
+    createEReference(typeNameEClass, TYPE_NAME__IDENTIFIER);
+    createEReference(typeNameEClass, TYPE_NAME__TYPE_NAME_LINHA);
+
+    typeNameLinhaEClass = createEClass(TYPE_NAME_LINHA);
+    createEReference(typeNameLinhaEClass, TYPE_NAME_LINHA__IDENTIFIER);
+    createEReference(typeNameLinhaEClass, TYPE_NAME_LINHA__TYPE_NAME_LINHA);
+    createEReference(typeNameLinhaEClass, TYPE_NAME_LINHA__QUALIFIED_IDENT);
 
     typeLitEClass = createEClass(TYPE_LIT);
     createEReference(typeLitEClass, TYPE_LIT__TYPE_LIT_LINHA);
@@ -2320,133 +4893,285 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEReference(typeLitEClass, TYPE_LIT__CHANNEL_TYPE);
 
     typeLitLinhaEClass = createEClass(TYPE_LIT_LINHA);
+    createEReference(typeLitLinhaEClass, TYPE_LIT_LINHA__ARRAY_LENGTH);
+    createEReference(typeLitLinhaEClass, TYPE_LIT_LINHA__ELEMENT_TYPE);
+    createEReference(typeLitLinhaEClass, TYPE_LIT_LINHA__TYPE_LIT_LINHA);
 
     arrayLengthEClass = createEClass(ARRAY_LENGTH);
-    createEReference(arrayLengthEClass, ARRAY_LENGTH__ELEMENT_TYPE);
+    createEReference(arrayLengthEClass, ARRAY_LENGTH__EXPRESSION);
 
     elementTypeEClass = createEClass(ELEMENT_TYPE);
+    createEReference(elementTypeEClass, ELEMENT_TYPE__TYPE);
 
     structTypeEClass = createEClass(STRUCT_TYPE);
     createEReference(structTypeEClass, STRUCT_TYPE__FIELD_DECL);
 
     fieldDeclEClass = createEClass(FIELD_DECL);
+    createEReference(fieldDeclEClass, FIELD_DECL__IDENTIFIER_LIST);
+    createEReference(fieldDeclEClass, FIELD_DECL__TYPE);
+    createEReference(fieldDeclEClass, FIELD_DECL__EMBEDDED_FIELD);
+    createEReference(fieldDeclEClass, FIELD_DECL__TAG);
+
+    embeddedFieldEClass = createEClass(EMBEDDED_FIELD);
+    createEReference(embeddedFieldEClass, EMBEDDED_FIELD__TYPE_NAME);
+
+    tagEClass = createEClass(TAG);
+    createEReference(tagEClass, TAG__STRING_LIT);
 
     pointerTypeEClass = createEClass(POINTER_TYPE);
+    createEReference(pointerTypeEClass, POINTER_TYPE__TYPE);
 
     functionTypeEClass = createEClass(FUNCTION_TYPE);
+    createEReference(functionTypeEClass, FUNCTION_TYPE__SIGNATURE);
 
     signatureEClass = createEClass(SIGNATURE);
+    createEReference(signatureEClass, SIGNATURE__PARAMETERS);
+    createEReference(signatureEClass, SIGNATURE__RESULT);
 
     resultEClass = createEClass(RESULT);
+    createEReference(resultEClass, RESULT__PARAMETERS);
+    createEReference(resultEClass, RESULT__TYPE);
 
     parametersEClass = createEClass(PARAMETERS);
-    createEReference(parametersEClass, PARAMETERS__RESULT);
+    createEReference(parametersEClass, PARAMETERS__PARAMETER_LIST);
 
     parameterListEClass = createEClass(PARAMETER_LIST);
+    createEReference(parameterListEClass, PARAMETER_LIST__PARAMETER_DECL);
 
     parameterDeclEClass = createEClass(PARAMETER_DECL);
-    createEReference(parameterDeclEClass, PARAMETER_DECL__PARAMETER_DECL);
+    createEReference(parameterDeclEClass, PARAMETER_DECL__IDENTIFIER_LIST);
+    createEReference(parameterDeclEClass, PARAMETER_DECL__TYPE);
 
     interfaceTypeEClass = createEClass(INTERFACE_TYPE);
+    createEReference(interfaceTypeEClass, INTERFACE_TYPE__METHOD_SPEC);
 
     methodSpecEClass = createEClass(METHOD_SPEC);
+    createEReference(methodSpecEClass, METHOD_SPEC__METHOD_NAME);
+    createEReference(methodSpecEClass, METHOD_SPEC__SIGNATURE);
+    createEReference(methodSpecEClass, METHOD_SPEC__INTERFACE_TYPE_NAME);
+
+    methodNameEClass = createEClass(METHOD_NAME);
+    createEReference(methodNameEClass, METHOD_NAME__IDENTIFIER);
+
+    interfaceTypeNameEClass = createEClass(INTERFACE_TYPE_NAME);
+    createEReference(interfaceTypeNameEClass, INTERFACE_TYPE_NAME__TYPE_NAME);
 
     mapTypeEClass = createEClass(MAP_TYPE);
+    createEReference(mapTypeEClass, MAP_TYPE__KEY_TYPE);
+    createEReference(mapTypeEClass, MAP_TYPE__ELEMENT_TYPE);
 
     keyTypeEClass = createEClass(KEY_TYPE);
-    createEReference(keyTypeEClass, KEY_TYPE__ELEMENT_TYPE);
+    createEReference(keyTypeEClass, KEY_TYPE__TYPE);
 
     channelTypeEClass = createEClass(CHANNEL_TYPE);
+    createEReference(channelTypeEClass, CHANNEL_TYPE__ELEMENT_TYPE);
 
     blockEClass = createEClass(BLOCK);
+    createEReference(blockEClass, BLOCK__STATEMENT_LIST);
 
     statementListEClass = createEClass(STATEMENT_LIST);
+    createEReference(statementListEClass, STATEMENT_LIST__STATEMENT);
 
     declarationEClass = createEClass(DECLARATION);
+    createEReference(declarationEClass, DECLARATION__CONST_DECL);
+    createEReference(declarationEClass, DECLARATION__TYPE_DECL);
+    createEReference(declarationEClass, DECLARATION__VAR_DECL);
 
     topLevelDeclEClass = createEClass(TOP_LEVEL_DECL);
+    createEReference(topLevelDeclEClass, TOP_LEVEL_DECL__DECLARATION);
+    createEReference(topLevelDeclEClass, TOP_LEVEL_DECL__TOP_LEVEL_DECL_LINHA);
 
     topLevelDeclLinhaEClass = createEClass(TOP_LEVEL_DECL_LINHA);
+    createEReference(topLevelDeclLinhaEClass, TOP_LEVEL_DECL_LINHA__FUNCTION_NAME);
+    createEReference(topLevelDeclLinhaEClass, TOP_LEVEL_DECL_LINHA__SIGNATURE);
     createEReference(topLevelDeclLinhaEClass, TOP_LEVEL_DECL_LINHA__FUNCTION_BODY);
+    createEReference(topLevelDeclLinhaEClass, TOP_LEVEL_DECL_LINHA__RECEIVER);
+    createEReference(topLevelDeclLinhaEClass, TOP_LEVEL_DECL_LINHA__METHOD_NAME);
 
     constDeclEClass = createEClass(CONST_DECL);
+    createEReference(constDeclEClass, CONST_DECL__CONST_SPEC);
 
     constSpecEClass = createEClass(CONST_SPEC);
+    createEReference(constSpecEClass, CONST_SPEC__IDENTIFIER_LIST);
+    createEReference(constSpecEClass, CONST_SPEC__TYPE);
     createEReference(constSpecEClass, CONST_SPEC__EXPRESSION_LIST);
 
+    identifierListEClass = createEClass(IDENTIFIER_LIST);
+    createEReference(identifierListEClass, IDENTIFIER_LIST__IDENTIFIER);
+
     expressionListEClass = createEClass(EXPRESSION_LIST);
-    createEReference(expressionListEClass, EXPRESSION_LIST__EXPRESSION_LIST);
+    createEReference(expressionListEClass, EXPRESSION_LIST__EXPRESSION);
 
     typeDeclEClass = createEClass(TYPE_DECL);
+    createEReference(typeDeclEClass, TYPE_DECL__TYPE_SPEC);
 
     typeSpecEClass = createEClass(TYPE_SPEC);
+    createEReference(typeSpecEClass, TYPE_SPEC__IDENTIFIER);
+    createEReference(typeSpecEClass, TYPE_SPEC__TYPE);
 
     aliasDeclEClass = createEClass(ALIAS_DECL);
 
     typeDefEClass = createEClass(TYPE_DEF);
 
     varDeclEClass = createEClass(VAR_DECL);
+    createEReference(varDeclEClass, VAR_DECL__VAR_SPEC);
 
     varSpecEClass = createEClass(VAR_SPEC);
+    createEReference(varSpecEClass, VAR_SPEC__IDENTIFIER_LIST);
+    createEReference(varSpecEClass, VAR_SPEC__TYPE);
+    createEReference(varSpecEClass, VAR_SPEC__EXPRESSION_LIST);
 
     shortVarDeclEClass = createEClass(SHORT_VAR_DECL);
+    createEReference(shortVarDeclEClass, SHORT_VAR_DECL__IDENTIFIER_LIST);
+    createEReference(shortVarDeclEClass, SHORT_VAR_DECL__EXPRESSION_LIST);
 
     functionDeclEClass = createEClass(FUNCTION_DECL);
+    createEReference(functionDeclEClass, FUNCTION_DECL__FUNCTION_NAME);
+    createEReference(functionDeclEClass, FUNCTION_DECL__SIGNATURE);
+    createEReference(functionDeclEClass, FUNCTION_DECL__FUNCTION_BODY);
+
+    functionNameEClass = createEClass(FUNCTION_NAME);
+    createEReference(functionNameEClass, FUNCTION_NAME__IDENTIFIER);
 
     functionBodyEClass = createEClass(FUNCTION_BODY);
+    createEReference(functionBodyEClass, FUNCTION_BODY__BLOCK);
 
     methodDeclEClass = createEClass(METHOD_DECL);
+    createEReference(methodDeclEClass, METHOD_DECL__RECEIVER);
+    createEReference(methodDeclEClass, METHOD_DECL__METHOD_NAME);
+    createEReference(methodDeclEClass, METHOD_DECL__SIGNATURE);
+    createEReference(methodDeclEClass, METHOD_DECL__FUNCTION_BODY);
 
     receiverEClass = createEClass(RECEIVER);
-    createEReference(receiverEClass, RECEIVER__SIGNATURE);
 
     operandEClass = createEClass(OPERAND);
+    createEReference(operandEClass, OPERAND__LITERAL);
+    createEReference(operandEClass, OPERAND__OPERAND_NAME);
+    createEReference(operandEClass, OPERAND__EXPRESSION);
 
     literalEClass = createEClass(LITERAL);
+    createEReference(literalEClass, LITERAL__BASIC_LIT);
+
+    basicLitEClass = createEClass(BASIC_LIT);
+    createEAttribute(basicLitEClass, BASIC_LIT__INT_LIT);
+    createEReference(basicLitEClass, BASIC_LIT__FLOAT_LIT);
+    createEReference(basicLitEClass, BASIC_LIT__RUNE_LIT);
+    createEReference(basicLitEClass, BASIC_LIT__STRING_LIT);
+
+    operandNameEClass = createEClass(OPERAND_NAME);
+
+    qualifiedIdentEClass = createEClass(QUALIFIED_IDENT);
+    createEReference(qualifiedIdentEClass, QUALIFIED_IDENT__PACKAGE_NAME);
+    createEReference(qualifiedIdentEClass, QUALIFIED_IDENT__IDENTIFIER);
 
     compositeLitEClass = createEClass(COMPOSITE_LIT);
+    createEReference(compositeLitEClass, COMPOSITE_LIT__LITERAL_TYPE);
+    createEReference(compositeLitEClass, COMPOSITE_LIT__LITERAL_VALUE);
 
     literalTypeEClass = createEClass(LITERAL_TYPE);
-    createEReference(literalTypeEClass, LITERAL_TYPE__LITERAL_VALUE);
+    createEReference(literalTypeEClass, LITERAL_TYPE__STRUCT_TYPE);
+    createEReference(literalTypeEClass, LITERAL_TYPE__LITERAL_TYPE_LINHA);
+    createEReference(literalTypeEClass, LITERAL_TYPE__ELEMENT_TYPE);
+    createEReference(literalTypeEClass, LITERAL_TYPE__MAP_TYPE);
+    createEReference(literalTypeEClass, LITERAL_TYPE__TYPE_NAME);
 
     literalTypeLinhaEClass = createEClass(LITERAL_TYPE_LINHA);
+    createEReference(literalTypeLinhaEClass, LITERAL_TYPE_LINHA__ARRAY_LENGTH);
+    createEReference(literalTypeLinhaEClass, LITERAL_TYPE_LINHA__ELEMENT_TYPE);
 
     literalValueEClass = createEClass(LITERAL_VALUE);
     createEReference(literalValueEClass, LITERAL_VALUE__ELEMENT_LIST);
 
     elementListEClass = createEClass(ELEMENT_LIST);
+    createEReference(elementListEClass, ELEMENT_LIST__KEYED_ELEMENT);
 
     elementEClass = createEClass(ELEMENT);
+    createEReference(elementEClass, ELEMENT__EXPRESSION);
+    createEReference(elementEClass, ELEMENT__LITERAL_VALUE);
 
     keyedElementEClass = createEClass(KEYED_ELEMENT);
-    createEReference(keyedElementEClass, KEYED_ELEMENT__KEYED_ELEMENT);
+    createEReference(keyedElementEClass, KEYED_ELEMENT__KEY);
     createEReference(keyedElementEClass, KEYED_ELEMENT__ELEMENT);
 
     keyEClass = createEClass(KEY);
+    createEReference(keyEClass, KEY__FIELD_NAME);
     createEReference(keyEClass, KEY__EXPRESSION);
+    createEReference(keyEClass, KEY__LITERAL_VALUE);
+
+    fieldNameEClass = createEClass(FIELD_NAME);
+    createEReference(fieldNameEClass, FIELD_NAME__IDENTIFIER);
 
     functionLitEClass = createEClass(FUNCTION_LIT);
+    createEReference(functionLitEClass, FUNCTION_LIT__SIGNATURE);
+    createEReference(functionLitEClass, FUNCTION_LIT__FUNCTION_BODY);
 
     primaryExprEClass = createEClass(PRIMARY_EXPR);
+    createEReference(primaryExprEClass, PRIMARY_EXPR__OPERAND);
+    createEReference(primaryExprEClass, PRIMARY_EXPR__PRIMARY_EXPR_LINHA);
+    createEReference(primaryExprEClass, PRIMARY_EXPR__CONVERSION);
+    createEReference(primaryExprEClass, PRIMARY_EXPR__METHOD_EXPR);
 
     primaryExprLinhaEClass = createEClass(PRIMARY_EXPR_LINHA);
-    createEAttribute(primaryExprLinhaEClass, PRIMARY_EXPR_LINHA__INDEX_LINHA);
+    createEReference(primaryExprLinhaEClass, PRIMARY_EXPR_LINHA__ARGUMENTS);
     createEReference(primaryExprLinhaEClass, PRIMARY_EXPR_LINHA__PRIMARY_EXPR_LINHA);
+    createEReference(primaryExprLinhaEClass, PRIMARY_EXPR_LINHA__PONTO);
+    createEReference(primaryExprLinhaEClass, PRIMARY_EXPR_LINHA__COCHETES);
+
+    pontoEClass = createEClass(PONTO);
+    createEReference(pontoEClass, PONTO__SELECTOR);
+    createEReference(pontoEClass, PONTO__PRIMARY_EXPR_LINHA);
+    createEReference(pontoEClass, PONTO__TYPE_ASSERTION);
+
+    cochetesEClass = createEClass(COCHETES);
+    createEReference(cochetesEClass, COCHETES__INDEX);
+    createEReference(cochetesEClass, COCHETES__PRIMARY_EXPR_LINHA);
+    createEReference(cochetesEClass, COCHETES__SLICE);
+
+    selectorEClass = createEClass(SELECTOR);
+    createEReference(selectorEClass, SELECTOR__IDENTIFIER);
+
+    indexEClass = createEClass(INDEX);
+    createEReference(indexEClass, INDEX__SLICE);
+
+    sliceEClass = createEClass(SLICE);
+    createEReference(sliceEClass, SLICE__DECIMALS);
 
     typeAssertionEClass = createEClass(TYPE_ASSERTION);
+    createEReference(typeAssertionEClass, TYPE_ASSERTION__TYPE);
 
     argumentsEClass = createEClass(ARGUMENTS);
+    createEReference(argumentsEClass, ARGUMENTS__EXPRESSION_LIST);
+    createEReference(argumentsEClass, ARGUMENTS__TYPE);
 
     methodExprEClass = createEClass(METHOD_EXPR);
+    createEReference(methodExprEClass, METHOD_EXPR__RECEIVER_TYPE);
+    createEReference(methodExprEClass, METHOD_EXPR__METHOD_NAME);
 
     receiverTypeEClass = createEClass(RECEIVER_TYPE);
+    createEReference(receiverTypeEClass, RECEIVER_TYPE__TYPE);
 
     expressionEClass = createEClass(EXPRESSION);
+    createEReference(expressionEClass, EXPRESSION__UNARY_EXPR);
     createEReference(expressionEClass, EXPRESSION__EXPRESSION_LINHA);
 
     expressionLinhaEClass = createEClass(EXPRESSION_LINHA);
+    createEReference(expressionLinhaEClass, EXPRESSION_LINHA__BINARY_OP);
+    createEReference(expressionLinhaEClass, EXPRESSION_LINHA__EXPRESSION);
+    createEReference(expressionLinhaEClass, EXPRESSION_LINHA__EXPRESSION_LINHA);
+
+    unaryExprEClass = createEClass(UNARY_EXPR);
+    createEReference(unaryExprEClass, UNARY_EXPR__PRIMARY_EXPR);
+    createEAttribute(unaryExprEClass, UNARY_EXPR__UNARY_OP);
+    createEReference(unaryExprEClass, UNARY_EXPR__UNARY_EXPR);
+
+    binary_opEClass = createEClass(BINARY_OP);
+    createEAttribute(binary_opEClass, BINARY_OP__REL_OP);
+    createEAttribute(binary_opEClass, BINARY_OP__ADD_OP);
+    createEAttribute(binary_opEClass, BINARY_OP__MUL_OP);
 
     conversionEClass = createEClass(CONVERSION);
+    createEReference(conversionEClass, CONVERSION__TYPE);
+    createEReference(conversionEClass, CONVERSION__EXPRESSION);
 
     statementEClass = createEClass(STATEMENT);
     createEReference(statementEClass, STATEMENT__DECLARATION);
@@ -2454,9 +5179,9 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEReference(statementEClass, STATEMENT__SIMPLE_STMT);
     createEReference(statementEClass, STATEMENT__GO_STMT);
     createEReference(statementEClass, STATEMENT__RETURN_STMT);
-    createEAttribute(statementEClass, STATEMENT__BREAK_STMT);
-    createEAttribute(statementEClass, STATEMENT__CONTINUE_STMT);
-    createEAttribute(statementEClass, STATEMENT__GOTO_STMT);
+    createEReference(statementEClass, STATEMENT__BREAK_STMT);
+    createEReference(statementEClass, STATEMENT__CONTINUE_STMT);
+    createEReference(statementEClass, STATEMENT__GOTO_STMT);
     createEAttribute(statementEClass, STATEMENT__FALLTHROUGH_STMT);
     createEReference(statementEClass, STATEMENT__BLOCK);
     createEReference(statementEClass, STATEMENT__IF_STMT);
@@ -2466,20 +5191,39 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEReference(statementEClass, STATEMENT__DEFER_STMT);
 
     simpleStmtEClass = createEClass(SIMPLE_STMT);
+    createEAttribute(simpleStmtEClass, SIMPLE_STMT__EMPTY_STMT);
+    createEReference(simpleStmtEClass, SIMPLE_STMT__EXPRESSION_STMT);
+    createEReference(simpleStmtEClass, SIMPLE_STMT__SEND_STMT);
+    createEReference(simpleStmtEClass, SIMPLE_STMT__INC_DEC_STMT);
+    createEReference(simpleStmtEClass, SIMPLE_STMT__ASSIGNMENT);
+    createEReference(simpleStmtEClass, SIMPLE_STMT__SHORT_VAR_DECL);
 
     labeledStmtEClass = createEClass(LABELED_STMT);
+    createEReference(labeledStmtEClass, LABELED_STMT__LABEL);
+    createEReference(labeledStmtEClass, LABELED_STMT__STATEMENT);
+
+    labelEClass = createEClass(LABEL);
+    createEReference(labelEClass, LABEL__IDENTIFIER);
 
     expressionStmtEClass = createEClass(EXPRESSION_STMT);
+    createEReference(expressionStmtEClass, EXPRESSION_STMT__EXPRESSION);
 
     sendStmtEClass = createEClass(SEND_STMT);
+    createEReference(sendStmtEClass, SEND_STMT__CHANNEL);
+    createEReference(sendStmtEClass, SEND_STMT__EXPRESSION);
 
     channelEClass = createEClass(CHANNEL);
+    createEReference(channelEClass, CHANNEL__EXPRESSION);
 
     incDecStmtEClass = createEClass(INC_DEC_STMT);
+    createEReference(incDecStmtEClass, INC_DEC_STMT__EXPRESSION);
 
     assignmentEClass = createEClass(ASSIGNMENT);
+    createEReference(assignmentEClass, ASSIGNMENT__EXPRESSION_LIST);
+    createEAttribute(assignmentEClass, ASSIGNMENT__ASSIGN_OP);
 
     ifStmtEClass = createEClass(IF_STMT);
+    createEReference(ifStmtEClass, IF_STMT__SIMPLE_STMT);
     createEReference(ifStmtEClass, IF_STMT__EXPRESSION);
     createEReference(ifStmtEClass, IF_STMT__BLOCK);
     createEReference(ifStmtEClass, IF_STMT__IF_STMT);
@@ -2488,58 +5232,137 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     createEReference(switchStmtEClass, SWITCH_STMT__SWITCH_STMT_LINHA);
 
     exprCaseClauseEClass = createEClass(EXPR_CASE_CLAUSE);
+    createEReference(exprCaseClauseEClass, EXPR_CASE_CLAUSE__EXPR_SWITCH_CASE);
+    createEReference(exprCaseClauseEClass, EXPR_CASE_CLAUSE__STATEMENT_LIST);
 
     exprSwitchCaseEClass = createEClass(EXPR_SWITCH_CASE);
-    createEReference(exprSwitchCaseEClass, EXPR_SWITCH_CASE__STATEMENT_LIST);
+    createEReference(exprSwitchCaseEClass, EXPR_SWITCH_CASE__EXPRESSION_LIST);
 
     switch_stmt_linhaEClass = createEClass(SWITCH_STMT_LINHA);
     createEReference(switch_stmt_linhaEClass, SWITCH_STMT_LINHA__TYPE_SWITCH_GUARD);
     createEReference(switch_stmt_linhaEClass, SWITCH_STMT_LINHA__TYPE_CASE_CLAUSE);
+    createEReference(switch_stmt_linhaEClass, SWITCH_STMT_LINHA__SWITCH_STMT_LINHA);
     createEReference(switch_stmt_linhaEClass, SWITCH_STMT_LINHA__EXPRESSION);
     createEReference(switch_stmt_linhaEClass, SWITCH_STMT_LINHA__EXPR_CASE_CLAUSE);
 
     typeSwitchGuardEClass = createEClass(TYPE_SWITCH_GUARD);
+    createEReference(typeSwitchGuardEClass, TYPE_SWITCH_GUARD__IDENTIFIER);
+    createEReference(typeSwitchGuardEClass, TYPE_SWITCH_GUARD__PRIMARY_EXPR);
 
     typeCaseClauseEClass = createEClass(TYPE_CASE_CLAUSE);
+    createEReference(typeCaseClauseEClass, TYPE_CASE_CLAUSE__TYPE_SWITCH_CASE);
+    createEReference(typeCaseClauseEClass, TYPE_CASE_CLAUSE__STATEMENT_LIST);
 
     typeSwitchCaseEClass = createEClass(TYPE_SWITCH_CASE);
-    createEReference(typeSwitchCaseEClass, TYPE_SWITCH_CASE__STATEMENT_LIST);
+    createEReference(typeSwitchCaseEClass, TYPE_SWITCH_CASE__TYPE_LIST);
 
     typeListEClass = createEClass(TYPE_LIST);
+    createEReference(typeListEClass, TYPE_LIST__TYPE);
 
     forStmtEClass = createEClass(FOR_STMT);
+    createEReference(forStmtEClass, FOR_STMT__CONDITION);
+    createEReference(forStmtEClass, FOR_STMT__FOR_CLAUSE);
+    createEReference(forStmtEClass, FOR_STMT__RANGE_CLAUSE);
+    createEReference(forStmtEClass, FOR_STMT__BLOCK);
 
     conditionEClass = createEClass(CONDITION);
+    createEReference(conditionEClass, CONDITION__EXPRESSION);
 
     forClauseEClass = createEClass(FOR_CLAUSE);
+    createEReference(forClauseEClass, FOR_CLAUSE__INIT_STMT);
     createEReference(forClauseEClass, FOR_CLAUSE__CONDITION);
     createEReference(forClauseEClass, FOR_CLAUSE__POST_STMT);
 
     initStmtEClass = createEClass(INIT_STMT);
+    createEReference(initStmtEClass, INIT_STMT__SIMPLE_STMT);
 
     postStmtEClass = createEClass(POST_STMT);
+    createEReference(postStmtEClass, POST_STMT__SIMPLE_STMT);
 
     rangeClauseEClass = createEClass(RANGE_CLAUSE);
+    createEReference(rangeClauseEClass, RANGE_CLAUSE__EXPRESSION_LIST);
+    createEReference(rangeClauseEClass, RANGE_CLAUSE__IDENTIFIER_LIST);
+    createEReference(rangeClauseEClass, RANGE_CLAUSE__EXPRESSION);
 
     goStmtEClass = createEClass(GO_STMT);
+    createEReference(goStmtEClass, GO_STMT__EXPRESSION);
 
     selectStmtEClass = createEClass(SELECT_STMT);
     createEReference(selectStmtEClass, SELECT_STMT__COMM_CLAUSE);
 
     commClauseEClass = createEClass(COMM_CLAUSE);
+    createEReference(commClauseEClass, COMM_CLAUSE__COMM_CASE);
+    createEReference(commClauseEClass, COMM_CLAUSE__STATEMENT_LIST);
 
     commCaseEClass = createEClass(COMM_CASE);
+    createEReference(commCaseEClass, COMM_CASE__SEND_STMT);
+    createEReference(commCaseEClass, COMM_CASE__RECV_STMT);
 
     recvStmtEClass = createEClass(RECV_STMT);
+    createEReference(recvStmtEClass, RECV_STMT__EXPRESSION_LIST);
+    createEReference(recvStmtEClass, RECV_STMT__IDENTIFIER_LIST);
     createEReference(recvStmtEClass, RECV_STMT__RECV_EXPR);
 
     recvExprEClass = createEClass(RECV_EXPR);
+    createEReference(recvExprEClass, RECV_EXPR__EXPRESSION);
 
     returnStmtEClass = createEClass(RETURN_STMT);
     createEReference(returnStmtEClass, RETURN_STMT__EXPRESSION_LIST);
 
+    breakStmtEClass = createEClass(BREAK_STMT);
+    createEReference(breakStmtEClass, BREAK_STMT__LABEL);
+
+    continueStmtEClass = createEClass(CONTINUE_STMT);
+    createEReference(continueStmtEClass, CONTINUE_STMT__LABEL);
+
+    gotoStmtEClass = createEClass(GOTO_STMT);
+    createEReference(gotoStmtEClass, GOTO_STMT__LABEL);
+
     deferStmtEClass = createEClass(DEFER_STMT);
     createEReference(deferStmtEClass, DEFER_STMT__EXPRESSION);
+
+    packageClauseEClass = createEClass(PACKAGE_CLAUSE);
+    createEReference(packageClauseEClass, PACKAGE_CLAUSE__PACKAGE_NAME);
+
+    packageNameEClass = createEClass(PACKAGE_NAME);
+    createEReference(packageNameEClass, PACKAGE_NAME__IDENTIFIER);
+
+    importDeclEClass = createEClass(IMPORT_DECL);
+    createEReference(importDeclEClass, IMPORT_DECL__IMPORT_SPEC);
+
+    importSpecEClass = createEClass(IMPORT_SPEC);
+    createEReference(importSpecEClass, IMPORT_SPEC__PACKAGE_NAME);
+    createEReference(importSpecEClass, IMPORT_SPEC__IMPORT_PATH);
+
+    importPathEClass = createEClass(IMPORT_PATH);
+    createEReference(importPathEClass, IMPORT_PATH__STRING_LIT);
+
+    identifierEClass = createEClass(IDENTIFIER);
+    createEAttribute(identifierEClass, IDENTIFIER__LETTER);
+    createEAttribute(identifierEClass, IDENTIFIER__DECIMAL_DIGIT);
+
+    float_litEClass = createEClass(FLOAT_LIT);
+
+    string_litEClass = createEClass(STRING_LIT);
+    createEAttribute(string_litEClass, STRING_LIT__RAW_STRING_LIT);
+    createEAttribute(string_litEClass, STRING_LIT__INTERPRETED_STRING_LIT);
+
+    decimalsEClass = createEClass(DECIMALS);
+    createEReference(decimalsEClass, DECIMALS__DECIMALS);
+    createEReference(decimalsEClass, DECIMALS__EXPONENT);
+    createEReference(decimalsEClass, DECIMALS__EXPONEN);
+    createEAttribute(decimalsEClass, DECIMALS__DECIMAL_DIGIT);
+
+    exponentEClass = createEClass(EXPONENT);
+    createEReference(exponentEClass, EXPONENT__DECIMALS);
+
+    imaginary_litEClass = createEClass(IMAGINARY_LIT);
+    createEReference(imaginary_litEClass, IMAGINARY_LIT__DECIMALS);
+    createEReference(imaginary_litEClass, IMAGINARY_LIT__FLOAT_LIT);
+
+    rune_litEClass = createEClass(RUNE_LIT);
+    createEAttribute(rune_litEClass, RUNE_LIT__UNICODE_VALUE);
+    createEAttribute(rune_litEClass, RUNE_LIT__BYTE_VALUE);
   }
 
   /**
@@ -2571,352 +5394,516 @@ public class GoPackageImpl extends EPackageImpl implements GoPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    typeEClass.getESuperTypes().add(this.getElementType());
-    typeEClass.getESuperTypes().add(this.getFieldDecl());
-    typeEClass.getESuperTypes().add(this.getPointerType());
-    typeEClass.getESuperTypes().add(this.getResult());
-    typeEClass.getESuperTypes().add(this.getParameterDecl());
-    typeEClass.getESuperTypes().add(this.getKeyType());
-    typeEClass.getESuperTypes().add(this.getConstSpec());
-    typeEClass.getESuperTypes().add(this.getAliasDecl());
-    typeEClass.getESuperTypes().add(this.getTypeDef());
-    typeEClass.getESuperTypes().add(this.getVarSpec());
-    typeEClass.getESuperTypes().add(this.getTypeAssertion());
-    typeEClass.getESuperTypes().add(this.getArguments());
-    typeEClass.getESuperTypes().add(this.getReceiverType());
-    typeEClass.getESuperTypes().add(this.getConversion());
-    typeEClass.getESuperTypes().add(this.getTypeList());
-    typeLitEClass.getESuperTypes().add(this.getType());
-    arrayLengthEClass.getESuperTypes().add(this.getTypeLitLinha());
-    arrayLengthEClass.getESuperTypes().add(this.getLiteralTypeLinha());
-    elementTypeEClass.getESuperTypes().add(this.getTypeLitLinha());
-    elementTypeEClass.getESuperTypes().add(this.getChannelType());
-    elementTypeEClass.getESuperTypes().add(this.getLiteralType());
-    elementTypeEClass.getESuperTypes().add(this.getLiteralTypeLinha());
-    structTypeEClass.getESuperTypes().add(this.getLiteralType());
-    signatureEClass.getESuperTypes().add(this.getFunctionType());
-    signatureEClass.getESuperTypes().add(this.getMethodSpec());
-    signatureEClass.getESuperTypes().add(this.gettopLevelDeclLinha());
-    signatureEClass.getESuperTypes().add(this.getFunctionDecl());
-    signatureEClass.getESuperTypes().add(this.getFunctionLit());
-    parametersEClass.getESuperTypes().add(this.getSignature());
-    parametersEClass.getESuperTypes().add(this.getResult());
     parametersEClass.getESuperTypes().add(this.getReceiver());
-    parameterListEClass.getESuperTypes().add(this.getParameters());
-    parameterDeclEClass.getESuperTypes().add(this.getParameterList());
-    methodSpecEClass.getESuperTypes().add(this.getInterfaceType());
-    mapTypeEClass.getESuperTypes().add(this.getLiteralType());
-    keyTypeEClass.getESuperTypes().add(this.getMapType());
-    blockEClass.getESuperTypes().add(this.getFunctionBody());
-    statementListEClass.getESuperTypes().add(this.getBlock());
-    declarationEClass.getESuperTypes().add(this.getTopLevelDecl());
-    topLevelDeclEClass.getESuperTypes().add(this.getSouceFile());
-    topLevelDeclLinhaEClass.getESuperTypes().add(this.getTopLevelDecl());
-    constDeclEClass.getESuperTypes().add(this.getDeclaration());
-    constSpecEClass.getESuperTypes().add(this.getConstDecl());
-    expressionListEClass.getESuperTypes().add(this.getVarSpec());
-    expressionListEClass.getESuperTypes().add(this.getShortVarDecl());
-    expressionListEClass.getESuperTypes().add(this.getArguments());
-    expressionListEClass.getESuperTypes().add(this.getAssignment());
-    expressionListEClass.getESuperTypes().add(this.getExprSwitchCase());
-    expressionListEClass.getESuperTypes().add(this.getRangeClause());
-    expressionListEClass.getESuperTypes().add(this.getRecvStmt());
-    typeDeclEClass.getESuperTypes().add(this.getDeclaration());
-    typeSpecEClass.getESuperTypes().add(this.getTypeDecl());
     aliasDeclEClass.getESuperTypes().add(this.getTypeSpec());
     typeDefEClass.getESuperTypes().add(this.getTypeSpec());
-    varDeclEClass.getESuperTypes().add(this.getDeclaration());
-    varSpecEClass.getESuperTypes().add(this.getVarDecl());
-    shortVarDeclEClass.getESuperTypes().add(this.getSimpleStmt());
-    receiverEClass.getESuperTypes().add(this.gettopLevelDeclLinha());
-    receiverEClass.getESuperTypes().add(this.getMethodDecl());
-    operandEClass.getESuperTypes().add(this.getPrimaryExpr());
-    literalEClass.getESuperTypes().add(this.getOperand());
+    qualifiedIdentEClass.getESuperTypes().add(this.getOperandName());
     compositeLitEClass.getESuperTypes().add(this.getLiteral());
-    literalTypeEClass.getESuperTypes().add(this.getCompositeLit());
-    literalTypeLinhaEClass.getESuperTypes().add(this.getLiteralType());
-    literalValueEClass.getESuperTypes().add(this.getElement());
-    literalValueEClass.getESuperTypes().add(this.getKey());
-    keyedElementEClass.getESuperTypes().add(this.getElementList());
-    keyEClass.getESuperTypes().add(this.getKeyedElement());
     functionLitEClass.getESuperTypes().add(this.getLiteral());
-    primaryExprEClass.getESuperTypes().add(this.getPrimaryExprLinha());
-    primaryExprEClass.getESuperTypes().add(this.getTypeSwitchGuard());
-    typeAssertionEClass.getESuperTypes().add(this.getPrimaryExprLinha());
-    argumentsEClass.getESuperTypes().add(this.getPrimaryExprLinha());
-    methodExprEClass.getESuperTypes().add(this.getPrimaryExpr());
-    receiverTypeEClass.getESuperTypes().add(this.getMethodExpr());
-    expressionEClass.getESuperTypes().add(this.getArrayLength());
-    expressionEClass.getESuperTypes().add(this.getExpressionList());
-    expressionEClass.getESuperTypes().add(this.getOperand());
-    expressionEClass.getESuperTypes().add(this.getElement());
-    expressionEClass.getESuperTypes().add(this.getExpressionLinha());
-    expressionEClass.getESuperTypes().add(this.getExpressionStmt());
-    expressionEClass.getESuperTypes().add(this.getChannel());
-    expressionEClass.getESuperTypes().add(this.getIncDecStmt());
-    expressionEClass.getESuperTypes().add(this.getCondition());
-    expressionEClass.getESuperTypes().add(this.getGoStmt());
-    expressionEClass.getESuperTypes().add(this.getRecvExpr());
-    conversionEClass.getESuperTypes().add(this.getPrimaryExpr());
-    statementEClass.getESuperTypes().add(this.getStatementList());
-    statementEClass.getESuperTypes().add(this.getLabeledStmt());
-    simpleStmtEClass.getESuperTypes().add(this.getIfStmt());
     simpleStmtEClass.getESuperTypes().add(this.getSwitchStmt());
-    simpleStmtEClass.getESuperTypes().add(this.getInitStmt());
-    simpleStmtEClass.getESuperTypes().add(this.getPostStmt());
-    expressionStmtEClass.getESuperTypes().add(this.getSimpleStmt());
-    sendStmtEClass.getESuperTypes().add(this.getSimpleStmt());
-    sendStmtEClass.getESuperTypes().add(this.getCommCase());
-    channelEClass.getESuperTypes().add(this.getSendStmt());
-    incDecStmtEClass.getESuperTypes().add(this.getSimpleStmt());
-    assignmentEClass.getESuperTypes().add(this.getSimpleStmt());
-    exprSwitchCaseEClass.getESuperTypes().add(this.getExprCaseClause());
-    typeSwitchCaseEClass.getESuperTypes().add(this.getTypeCaseClause());
-    typeListEClass.getESuperTypes().add(this.getTypeSwitchCase());
-    conditionEClass.getESuperTypes().add(this.getForStmt());
-    forClauseEClass.getESuperTypes().add(this.getForStmt());
-    initStmtEClass.getESuperTypes().add(this.getForClause());
-    rangeClauseEClass.getESuperTypes().add(this.getForStmt());
-    commCaseEClass.getESuperTypes().add(this.getCommClause());
-    recvStmtEClass.getESuperTypes().add(this.getCommCase());
+    identifierEClass.getESuperTypes().add(this.getOperandName());
+    decimalsEClass.getESuperTypes().add(this.getfloat_lit());
 
     // Initialize classes and features; add operations and parameters
     initEClass(souceFileEClass, SouceFile.class, "SouceFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSouceFile_PackageClause(), this.getPackageClause(), null, "PackageClause", null, 0, 1, SouceFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSouceFile_ImportDecl(), this.getImportDecl(), null, "ImportDecl", null, 0, -1, SouceFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSouceFile_TopLevelDecl(), this.getTopLevelDecl(), null, "TopLevelDecl", null, 0, 1, SouceFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getType_Expression(), this.getExpression(), null, "Expression", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getType_Type(), this.getType(), null, "Type", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getType_TypeName(), this.getTypeName(), null, "TypeName", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getType_TypeLit(), this.getTypeLit(), null, "TypeLit", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getType_Type(), this.getType(), null, "Type", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(typeNameEClass, TypeName.class, "TypeName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTypeName_Identifier(), this.getidentifier(), null, "identifier", null, 0, 1, TypeName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeName_TypeNameLinha(), this.getTypeNameLinha(), null, "TypeNameLinha", null, 0, 1, TypeName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(typeNameLinhaEClass, TypeNameLinha.class, "TypeNameLinha", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTypeNameLinha_Identifier(), this.getidentifier(), null, "identifier", null, 0, 1, TypeNameLinha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeNameLinha_TypeNameLinha(), this.getTypeNameLinha(), null, "TypeNameLinha", null, 0, 1, TypeNameLinha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeNameLinha_QualifiedIdent(), this.getQualifiedIdent(), null, "QualifiedIdent", null, 0, 1, TypeNameLinha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeLitEClass, TypeLit.class, "TypeLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTypeLit_TypeLitLinha(), this.getTypeLitLinha(), null, "TypeLitLinha", null, 0, -1, TypeLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTypeLit_StructType(), this.getStructType(), null, "StructType", null, 0, -1, TypeLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTypeLit_PointerType(), this.getPointerType(), null, "PointerType", null, 0, -1, TypeLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTypeLit_FunctionType(), this.getFunctionType(), null, "FunctionType", null, 0, -1, TypeLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTypeLit_InterfaceType(), this.getInterfaceType(), null, "InterfaceType", null, 0, -1, TypeLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTypeLit_MapType(), this.getMapType(), null, "MapType", null, 0, -1, TypeLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTypeLit_ChannelType(), this.getChannelType(), null, "ChannelType", null, 0, -1, TypeLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeLit_TypeLitLinha(), this.getTypeLitLinha(), null, "TypeLitLinha", null, 0, 1, TypeLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeLit_StructType(), this.getStructType(), null, "StructType", null, 0, 1, TypeLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeLit_PointerType(), this.getPointerType(), null, "PointerType", null, 0, 1, TypeLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeLit_FunctionType(), this.getFunctionType(), null, "FunctionType", null, 0, 1, TypeLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeLit_InterfaceType(), this.getInterfaceType(), null, "InterfaceType", null, 0, 1, TypeLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeLit_MapType(), this.getMapType(), null, "MapType", null, 0, 1, TypeLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeLit_ChannelType(), this.getChannelType(), null, "ChannelType", null, 0, 1, TypeLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeLitLinhaEClass, TypeLitLinha.class, "TypeLitLinha", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTypeLitLinha_ArrayLength(), this.getArrayLength(), null, "ArrayLength", null, 0, 1, TypeLitLinha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeLitLinha_ElementType(), this.getElementType(), null, "ElementType", null, 0, 1, TypeLitLinha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeLitLinha_TypeLitLinha(), this.getTypeLitLinha(), null, "TypeLitLinha", null, 0, 1, TypeLitLinha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(arrayLengthEClass, ArrayLength.class, "ArrayLength", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getArrayLength_ElementType(), this.getElementType(), null, "ElementType", null, 0, -1, ArrayLength.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArrayLength_Expression(), this.getExpression(), null, "Expression", null, 0, 1, ArrayLength.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementTypeEClass, ElementType.class, "ElementType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getElementType_Type(), this.getType(), null, "Type", null, 0, 1, ElementType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(structTypeEClass, StructType.class, "StructType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getStructType_FieldDecl(), this.getFieldDecl(), null, "FieldDecl", null, 0, -1, StructType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fieldDeclEClass, FieldDecl.class, "FieldDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFieldDecl_IdentifierList(), this.getIdentifierList(), null, "IdentifierList", null, 0, 1, FieldDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFieldDecl_Type(), this.getType(), null, "Type", null, 0, 1, FieldDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFieldDecl_EmbeddedField(), this.getEmbeddedField(), null, "EmbeddedField", null, 0, 1, FieldDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFieldDecl_Tag(), this.getTag(), null, "Tag", null, 0, 1, FieldDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(embeddedFieldEClass, EmbeddedField.class, "EmbeddedField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEmbeddedField_TypeName(), this.getTypeName(), null, "TypeName", null, 0, 1, EmbeddedField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(tagEClass, Tag.class, "Tag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTag_String_lit(), this.getstring_lit(), null, "string_lit", null, 0, 1, Tag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pointerTypeEClass, PointerType.class, "PointerType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPointerType_Type(), this.getType(), null, "Type", null, 0, 1, PointerType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(functionTypeEClass, FunctionType.class, "FunctionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFunctionType_Signature(), this.getSignature(), null, "Signature", null, 0, 1, FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(signatureEClass, Signature.class, "Signature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSignature_Parameters(), this.getParameters(), null, "Parameters", null, 0, 1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSignature_Result(), this.getResult(), null, "Result", null, 0, 1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(resultEClass, Result.class, "Result", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getResult_Parameters(), this.getParameters(), null, "Parameters", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getResult_Type(), this.getType(), null, "Type", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(parametersEClass, Parameters.class, "Parameters", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getParameters_Result(), this.getResult(), null, "Result", null, 0, -1, Parameters.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getParameters_ParameterList(), this.getParameterList(), null, "ParameterList", null, 0, 1, Parameters.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(parameterListEClass, ParameterList.class, "ParameterList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getParameterList_ParameterDecl(), this.getParameterDecl(), null, "ParameterDecl", null, 0, -1, ParameterList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(parameterDeclEClass, ParameterDecl.class, "ParameterDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getParameterDecl_ParameterDecl(), this.getParameterDecl(), null, "ParameterDecl", null, 0, -1, ParameterDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getParameterDecl_IdentifierList(), this.getIdentifierList(), null, "IdentifierList", null, 0, 1, ParameterDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getParameterDecl_Type(), this.getType(), null, "Type", null, 0, 1, ParameterDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(interfaceTypeEClass, InterfaceType.class, "InterfaceType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getInterfaceType_MethodSpec(), this.getMethodSpec(), null, "MethodSpec", null, 0, 1, InterfaceType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(methodSpecEClass, MethodSpec.class, "MethodSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMethodSpec_MethodName(), this.getMethodName(), null, "MethodName", null, 0, 1, MethodSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMethodSpec_Signature(), this.getSignature(), null, "Signature", null, 0, 1, MethodSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMethodSpec_InterfaceTypeName(), this.getInterfaceTypeName(), null, "InterfaceTypeName", null, 0, 1, MethodSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(methodNameEClass, MethodName.class, "MethodName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMethodName_Identifier(), this.getidentifier(), null, "identifier", null, 0, 1, MethodName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(interfaceTypeNameEClass, InterfaceTypeName.class, "InterfaceTypeName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getInterfaceTypeName_TypeName(), this.getTypeName(), null, "TypeName", null, 0, 1, InterfaceTypeName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mapTypeEClass, MapType.class, "MapType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMapType_KeyType(), this.getKeyType(), null, "KeyType", null, 0, 1, MapType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMapType_ElementType(), this.getElementType(), null, "ElementType", null, 0, 1, MapType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(keyTypeEClass, KeyType.class, "KeyType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getKeyType_ElementType(), this.getElementType(), null, "ElementType", null, 0, -1, KeyType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getKeyType_Type(), this.getType(), null, "Type", null, 0, 1, KeyType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(channelTypeEClass, ChannelType.class, "ChannelType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getChannelType_ElementType(), this.getElementType(), null, "ElementType", null, 0, 1, ChannelType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(blockEClass, Block.class, "Block", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBlock_StatementList(), this.getStatementList(), null, "StatementList", null, 0, 1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statementListEClass, StatementList.class, "StatementList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getStatementList_Statement(), this.getStatement(), null, "Statement", null, 0, -1, StatementList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(declarationEClass, Declaration.class, "Declaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDeclaration_ConstDecl(), this.getConstDecl(), null, "ConstDecl", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeclaration_TypeDecl(), this.getTypeDecl(), null, "TypeDecl", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeclaration_VarDecl(), this.getVarDecl(), null, "VarDecl", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(topLevelDeclEClass, TopLevelDecl.class, "TopLevelDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTopLevelDecl_Declaration(), this.getDeclaration(), null, "Declaration", null, 0, 1, TopLevelDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTopLevelDecl_TopLevelDeclLinha(), this.gettopLevelDeclLinha(), null, "topLevelDeclLinha", null, 0, 1, TopLevelDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(topLevelDeclLinhaEClass, topLevelDeclLinha.class, "topLevelDeclLinha", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(gettopLevelDeclLinha_FunctionBody(), this.getFunctionBody(), null, "FunctionBody", null, 0, -1, topLevelDeclLinha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(gettopLevelDeclLinha_FunctionName(), this.getFunctionName(), null, "FunctionName", null, 0, 1, topLevelDeclLinha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(gettopLevelDeclLinha_Signature(), this.getSignature(), null, "Signature", null, 0, 1, topLevelDeclLinha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(gettopLevelDeclLinha_FunctionBody(), this.getFunctionBody(), null, "FunctionBody", null, 0, 1, topLevelDeclLinha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(gettopLevelDeclLinha_Receiver(), this.getReceiver(), null, "Receiver", null, 0, 1, topLevelDeclLinha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(gettopLevelDeclLinha_MethodName(), this.getMethodName(), null, "MethodName", null, 0, 1, topLevelDeclLinha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constDeclEClass, ConstDecl.class, "ConstDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getConstDecl_ConstSpec(), this.getConstSpec(), null, "ConstSpec", null, 0, 1, ConstDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constSpecEClass, ConstSpec.class, "ConstSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getConstSpec_ExpressionList(), this.getExpressionList(), null, "ExpressionList", null, 0, -1, ConstSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConstSpec_IdentifierList(), this.getIdentifierList(), null, "IdentifierList", null, 0, 1, ConstSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConstSpec_Type(), this.getType(), null, "Type", null, 0, 1, ConstSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConstSpec_ExpressionList(), this.getExpressionList(), null, "ExpressionList", null, 0, 1, ConstSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(identifierListEClass, IdentifierList.class, "IdentifierList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIdentifierList_Identifier(), this.getidentifier(), null, "identifier", null, 0, -1, IdentifierList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionListEClass, ExpressionList.class, "ExpressionList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExpressionList_ExpressionList(), this.getExpressionList(), null, "ExpressionList", null, 0, -1, ExpressionList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpressionList_Expression(), this.getExpression(), null, "Expression", null, 0, -1, ExpressionList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeDeclEClass, TypeDecl.class, "TypeDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTypeDecl_TypeSpec(), this.getTypeSpec(), null, "TypeSpec", null, 0, 1, TypeDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeSpecEClass, TypeSpec.class, "TypeSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTypeSpec_Identifier(), this.getidentifier(), null, "identifier", null, 0, 1, TypeSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeSpec_Type(), this.getType(), null, "Type", null, 0, 1, TypeSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(aliasDeclEClass, AliasDecl.class, "AliasDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(typeDefEClass, TypeDef.class, "TypeDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(varDeclEClass, VarDecl.class, "VarDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getVarDecl_VarSpec(), this.getVarSpec(), null, "VarSpec", null, 0, 1, VarDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(varSpecEClass, VarSpec.class, "VarSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getVarSpec_IdentifierList(), this.getIdentifierList(), null, "IdentifierList", null, 0, 1, VarSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVarSpec_Type(), this.getType(), null, "Type", null, 0, 1, VarSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVarSpec_ExpressionList(), this.getExpressionList(), null, "ExpressionList", null, 0, 1, VarSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(shortVarDeclEClass, ShortVarDecl.class, "ShortVarDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getShortVarDecl_IdentifierList(), this.getIdentifierList(), null, "IdentifierList", null, 0, 1, ShortVarDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getShortVarDecl_ExpressionList(), this.getExpressionList(), null, "ExpressionList", null, 0, 1, ShortVarDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(functionDeclEClass, FunctionDecl.class, "FunctionDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFunctionDecl_FunctionName(), this.getFunctionName(), null, "FunctionName", null, 0, 1, FunctionDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionDecl_Signature(), this.getSignature(), null, "Signature", null, 0, 1, FunctionDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionDecl_FunctionBody(), this.getFunctionBody(), null, "FunctionBody", null, 0, 1, FunctionDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionNameEClass, FunctionName.class, "FunctionName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFunctionName_Identifier(), this.getidentifier(), null, "identifier", null, 0, 1, FunctionName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(functionBodyEClass, FunctionBody.class, "FunctionBody", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFunctionBody_Block(), this.getBlock(), null, "Block", null, 0, 1, FunctionBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(methodDeclEClass, MethodDecl.class, "MethodDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMethodDecl_Receiver(), this.getReceiver(), null, "Receiver", null, 0, 1, MethodDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMethodDecl_MethodName(), this.getMethodName(), null, "MethodName", null, 0, 1, MethodDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMethodDecl_Signature(), this.getSignature(), null, "Signature", null, 0, 1, MethodDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMethodDecl_FunctionBody(), this.getFunctionBody(), null, "FunctionBody", null, 0, 1, MethodDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(receiverEClass, Receiver.class, "Receiver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getReceiver_Signature(), this.getSignature(), null, "Signature", null, 0, -1, Receiver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(operandEClass, Operand.class, "Operand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getOperand_Literal(), this.getLiteral(), null, "Literal", null, 0, 1, Operand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOperand_OperandName(), this.getOperandName(), null, "OperandName", null, 0, 1, Operand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOperand_Expression(), this.getExpression(), null, "Expression", null, 0, 1, Operand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(literalEClass, Literal.class, "Literal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLiteral_BasicLit(), this.getBasicLit(), null, "BasicLit", null, 0, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(basicLitEClass, BasicLit.class, "BasicLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBasicLit_Int_lit(), ecorePackage.getEString(), "int_lit", null, 0, 1, BasicLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBasicLit_Float_lit(), this.getfloat_lit(), null, "float_lit", null, 0, 1, BasicLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBasicLit_Rune_lit(), this.getrune_lit(), null, "rune_lit", null, 0, 1, BasicLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBasicLit_String_lit(), this.getstring_lit(), null, "string_lit", null, 0, 1, BasicLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(operandNameEClass, OperandName.class, "OperandName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(qualifiedIdentEClass, QualifiedIdent.class, "QualifiedIdent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getQualifiedIdent_PackageName(), this.getPackageName(), null, "PackageName", null, 0, 1, QualifiedIdent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getQualifiedIdent_Identifier(), this.getidentifier(), null, "identifier", null, 0, 1, QualifiedIdent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(compositeLitEClass, CompositeLit.class, "CompositeLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCompositeLit_LiteralType(), this.getLiteralType(), null, "LiteralType", null, 0, 1, CompositeLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompositeLit_LiteralValue(), this.getLiteralValue(), null, "LiteralValue", null, 0, 1, CompositeLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(literalTypeEClass, LiteralType.class, "LiteralType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLiteralType_LiteralValue(), this.getLiteralValue(), null, "LiteralValue", null, 0, -1, LiteralType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLiteralType_StructType(), this.getStructType(), null, "StructType", null, 0, 1, LiteralType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLiteralType_LiteralTypeLinha(), this.getLiteralTypeLinha(), null, "LiteralTypeLinha", null, 0, 1, LiteralType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLiteralType_ElementType(), this.getElementType(), null, "ElementType", null, 0, 1, LiteralType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLiteralType_MapType(), this.getMapType(), null, "MapType", null, 0, 1, LiteralType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLiteralType_TypeName(), this.getTypeName(), null, "TypeName", null, 0, 1, LiteralType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(literalTypeLinhaEClass, LiteralTypeLinha.class, "LiteralTypeLinha", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLiteralTypeLinha_ArrayLength(), this.getArrayLength(), null, "ArrayLength", null, 0, 1, LiteralTypeLinha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLiteralTypeLinha_ElementType(), this.getElementType(), null, "ElementType", null, 0, 1, LiteralTypeLinha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(literalValueEClass, LiteralValue.class, "LiteralValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLiteralValue_ElementList(), this.getElementList(), null, "ElementList", null, 0, -1, LiteralValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLiteralValue_ElementList(), this.getElementList(), null, "ElementList", null, 0, 1, LiteralValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementListEClass, ElementList.class, "ElementList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getElementList_KeyedElement(), this.getKeyedElement(), null, "KeyedElement", null, 0, -1, ElementList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getElement_Expression(), this.getExpression(), null, "Expression", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getElement_LiteralValue(), this.getLiteralValue(), null, "LiteralValue", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(keyedElementEClass, KeyedElement.class, "KeyedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getKeyedElement_KeyedElement(), this.getKeyedElement(), null, "KeyedElement", null, 0, -1, KeyedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getKeyedElement_Element(), this.getElement(), null, "Element", null, 0, -1, KeyedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getKeyedElement_Key(), this.getKey(), null, "Key", null, 0, 1, KeyedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getKeyedElement_Element(), this.getElement(), null, "Element", null, 0, 1, KeyedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(keyEClass, Key.class, "Key", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getKey_Expression(), this.getExpression(), null, "Expression", null, 0, -1, Key.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getKey_FieldName(), this.getFieldName(), null, "FieldName", null, 0, 1, Key.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getKey_Expression(), this.getExpression(), null, "Expression", null, 0, 1, Key.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getKey_LiteralValue(), this.getLiteralValue(), null, "LiteralValue", null, 0, 1, Key.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(fieldNameEClass, FieldName.class, "FieldName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFieldName_Identifier(), this.getidentifier(), null, "identifier", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(functionLitEClass, FunctionLit.class, "FunctionLit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFunctionLit_Signature(), this.getSignature(), null, "Signature", null, 0, 1, FunctionLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionLit_FunctionBody(), this.getFunctionBody(), null, "FunctionBody", null, 0, 1, FunctionLit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(primaryExprEClass, PrimaryExpr.class, "PrimaryExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPrimaryExpr_Operand(), this.getOperand(), null, "Operand", null, 0, 1, PrimaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPrimaryExpr_PrimaryExprLinha(), this.getPrimaryExprLinha(), null, "PrimaryExprLinha", null, 0, 1, PrimaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPrimaryExpr_Conversion(), this.getConversion(), null, "Conversion", null, 0, 1, PrimaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPrimaryExpr_MethodExpr(), this.getMethodExpr(), null, "MethodExpr", null, 0, 1, PrimaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(primaryExprLinhaEClass, PrimaryExprLinha.class, "PrimaryExprLinha", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getPrimaryExprLinha_IndexLinha(), ecorePackage.getEString(), "IndexLinha", null, 0, -1, PrimaryExprLinha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPrimaryExprLinha_PrimaryExprLinha(), this.getPrimaryExprLinha(), null, "PrimaryExprLinha", null, 0, -1, PrimaryExprLinha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPrimaryExprLinha_Arguments(), this.getArguments(), null, "Arguments", null, 0, 1, PrimaryExprLinha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPrimaryExprLinha_PrimaryExprLinha(), this.getPrimaryExprLinha(), null, "PrimaryExprLinha", null, 0, 1, PrimaryExprLinha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPrimaryExprLinha_Ponto(), this.getponto(), null, "ponto", null, 0, 1, PrimaryExprLinha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPrimaryExprLinha_Cochetes(), this.getcochetes(), null, "cochetes", null, 0, 1, PrimaryExprLinha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pontoEClass, ponto.class, "ponto", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getponto_Selector(), this.getSelector(), null, "Selector", null, 0, 1, ponto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getponto_PrimaryExprLinha(), this.getPrimaryExprLinha(), null, "PrimaryExprLinha", null, 0, 1, ponto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getponto_TypeAssertion(), this.getTypeAssertion(), null, "TypeAssertion", null, 0, 1, ponto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(cochetesEClass, cochetes.class, "cochetes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getcochetes_Index(), this.getIndex(), null, "Index", null, 0, 1, cochetes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getcochetes_PrimaryExprLinha(), this.getPrimaryExprLinha(), null, "PrimaryExprLinha", null, 0, 1, cochetes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getcochetes_Slice(), this.getSlice(), null, "Slice", null, 0, 1, cochetes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(selectorEClass, Selector.class, "Selector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSelector_Identifier(), this.getidentifier(), null, "identifier", null, 0, 1, Selector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(indexEClass, Index.class, "Index", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIndex_Slice(), this.getSlice(), null, "Slice", null, 0, 1, Index.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(sliceEClass, Slice.class, "Slice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSlice_Decimals(), this.getdecimals(), null, "decimals", null, 0, -1, Slice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeAssertionEClass, TypeAssertion.class, "TypeAssertion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTypeAssertion_Type(), this.getType(), null, "Type", null, 0, 1, TypeAssertion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(argumentsEClass, Arguments.class, "Arguments", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getArguments_ExpressionList(), this.getExpressionList(), null, "ExpressionList", null, 0, 1, Arguments.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArguments_Type(), this.getType(), null, "Type", null, 0, 1, Arguments.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(methodExprEClass, MethodExpr.class, "MethodExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMethodExpr_ReceiverType(), this.getReceiverType(), null, "ReceiverType", null, 0, 1, MethodExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMethodExpr_MethodName(), this.getMethodName(), null, "MethodName", null, 0, 1, MethodExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(receiverTypeEClass, ReceiverType.class, "ReceiverType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getReceiverType_Type(), this.getType(), null, "Type", null, 0, 1, ReceiverType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExpression_ExpressionLinha(), this.getExpressionLinha(), null, "ExpressionLinha", null, 0, -1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpression_UnaryExpr(), this.getUnaryExpr(), null, "UnaryExpr", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpression_ExpressionLinha(), this.getExpressionLinha(), null, "ExpressionLinha", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionLinhaEClass, ExpressionLinha.class, "ExpressionLinha", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExpressionLinha_Binary_op(), this.getbinary_op(), null, "binary_op", null, 0, 1, ExpressionLinha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpressionLinha_Expression(), this.getExpression(), null, "Expression", null, 0, 1, ExpressionLinha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpressionLinha_ExpressionLinha(), this.getExpressionLinha(), null, "ExpressionLinha", null, 0, 1, ExpressionLinha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(unaryExprEClass, UnaryExpr.class, "UnaryExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUnaryExpr_PrimaryExpr(), this.getPrimaryExpr(), null, "PrimaryExpr", null, 0, 1, UnaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUnaryExpr_Unary_op(), ecorePackage.getEString(), "unary_op", null, 0, 1, UnaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUnaryExpr_UnaryExpr(), this.getUnaryExpr(), null, "UnaryExpr", null, 0, 1, UnaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(binary_opEClass, binary_op.class, "binary_op", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getbinary_op_Rel_op(), ecorePackage.getEString(), "rel_op", null, 0, 1, binary_op.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getbinary_op_Add_op(), ecorePackage.getEString(), "add_op", null, 0, 1, binary_op.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getbinary_op_Mul_op(), ecorePackage.getEString(), "mul_op", null, 0, 1, binary_op.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(conversionEClass, Conversion.class, "Conversion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getConversion_Type(), this.getType(), null, "Type", null, 0, 1, Conversion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConversion_Expression(), this.getExpression(), null, "Expression", null, 0, 1, Conversion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getStatement_Declaration(), this.getDeclaration(), null, "Declaration", null, 0, -1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStatement_LabeledStmt(), this.getLabeledStmt(), null, "LabeledStmt", null, 0, -1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStatement_SimpleStmt(), this.getSimpleStmt(), null, "SimpleStmt", null, 0, -1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStatement_GoStmt(), this.getGoStmt(), null, "GoStmt", null, 0, -1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStatement_ReturnStmt(), this.getReturnStmt(), null, "ReturnStmt", null, 0, -1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getStatement_BreakStmt(), ecorePackage.getEString(), "BreakStmt", null, 0, -1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getStatement_ContinueStmt(), ecorePackage.getEString(), "ContinueStmt", null, 0, -1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getStatement_GotoStmt(), ecorePackage.getEString(), "GotoStmt", null, 0, -1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getStatement_FallthroughStmt(), ecorePackage.getEString(), "FallthroughStmt", null, 0, -1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStatement_Block(), this.getBlock(), null, "Block", null, 0, -1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStatement_IfStmt(), this.getIfStmt(), null, "IfStmt", null, 0, -1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStatement_SwitchStmt(), this.getSwitchStmt(), null, "SwitchStmt", null, 0, -1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStatement_SelectStmt(), this.getSelectStmt(), null, "SelectStmt", null, 0, -1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStatement_ForStmt(), this.getForStmt(), null, "ForStmt", null, 0, -1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStatement_DeferStmt(), this.getDeferStmt(), null, "DeferStmt", null, 0, -1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_Declaration(), this.getDeclaration(), null, "Declaration", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_LabeledStmt(), this.getLabeledStmt(), null, "LabeledStmt", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_SimpleStmt(), this.getSimpleStmt(), null, "SimpleStmt", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_GoStmt(), this.getGoStmt(), null, "GoStmt", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_ReturnStmt(), this.getReturnStmt(), null, "ReturnStmt", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_BreakStmt(), this.getBreakStmt(), null, "BreakStmt", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_ContinueStmt(), this.getContinueStmt(), null, "ContinueStmt", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_GotoStmt(), this.getGotoStmt(), null, "GotoStmt", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStatement_FallthroughStmt(), ecorePackage.getEString(), "FallthroughStmt", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_Block(), this.getBlock(), null, "Block", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_IfStmt(), this.getIfStmt(), null, "IfStmt", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_SwitchStmt(), this.getSwitchStmt(), null, "SwitchStmt", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_SelectStmt(), this.getSelectStmt(), null, "SelectStmt", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_ForStmt(), this.getForStmt(), null, "ForStmt", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_DeferStmt(), this.getDeferStmt(), null, "DeferStmt", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(simpleStmtEClass, SimpleStmt.class, "SimpleStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSimpleStmt_EmptyStmt(), ecorePackage.getEString(), "EmptyStmt", null, 0, 1, SimpleStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSimpleStmt_ExpressionStmt(), this.getExpressionStmt(), null, "ExpressionStmt", null, 0, 1, SimpleStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSimpleStmt_SendStmt(), this.getSendStmt(), null, "SendStmt", null, 0, 1, SimpleStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSimpleStmt_IncDecStmt(), this.getIncDecStmt(), null, "IncDecStmt", null, 0, 1, SimpleStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSimpleStmt_Assignment(), this.getAssignment(), null, "Assignment", null, 0, 1, SimpleStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSimpleStmt_ShortVarDecl(), this.getShortVarDecl(), null, "ShortVarDecl", null, 0, 1, SimpleStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(labeledStmtEClass, LabeledStmt.class, "LabeledStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLabeledStmt_Label(), this.getLabel(), null, "Label", null, 0, 1, LabeledStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLabeledStmt_Statement(), this.getStatement(), null, "Statement", null, 0, 1, LabeledStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(labelEClass, Label.class, "Label", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLabel_Identifier(), this.getidentifier(), null, "identifier", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionStmtEClass, ExpressionStmt.class, "ExpressionStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExpressionStmt_Expression(), this.getExpression(), null, "Expression", null, 0, 1, ExpressionStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sendStmtEClass, SendStmt.class, "SendStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSendStmt_Channel(), this.getChannel(), null, "Channel", null, 0, 1, SendStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSendStmt_Expression(), this.getExpression(), null, "Expression", null, 0, 1, SendStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(channelEClass, Channel.class, "Channel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getChannel_Expression(), this.getExpression(), null, "Expression", null, 0, 1, Channel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(incDecStmtEClass, IncDecStmt.class, "IncDecStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIncDecStmt_Expression(), this.getExpression(), null, "Expression", null, 0, 1, IncDecStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(assignmentEClass, Assignment.class, "Assignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAssignment_ExpressionList(), this.getExpressionList(), null, "ExpressionList", null, 0, -1, Assignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAssignment_Assign_op(), ecorePackage.getEString(), "assign_op", null, 0, 1, Assignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ifStmtEClass, IfStmt.class, "IfStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getIfStmt_Expression(), this.getExpression(), null, "Expression", null, 0, -1, IfStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfStmt_SimpleStmt(), this.getSimpleStmt(), null, "SimpleStmt", null, 0, 1, IfStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfStmt_Expression(), this.getExpression(), null, "Expression", null, 0, 1, IfStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIfStmt_Block(), this.getBlock(), null, "Block", null, 0, -1, IfStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIfStmt_IfStmt(), this.getIfStmt(), null, "IfStmt", null, 0, -1, IfStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfStmt_IfStmt(), this.getIfStmt(), null, "IfStmt", null, 0, 1, IfStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(switchStmtEClass, SwitchStmt.class, "SwitchStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSwitchStmt_Switch_stmt_linha(), this.getswitch_stmt_linha(), null, "switch_stmt_linha", null, 0, -1, SwitchStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSwitchStmt_Switch_stmt_linha(), this.getswitch_stmt_linha(), null, "switch_stmt_linha", null, 0, 1, SwitchStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exprCaseClauseEClass, ExprCaseClause.class, "ExprCaseClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExprCaseClause_ExprSwitchCase(), this.getExprSwitchCase(), null, "ExprSwitchCase", null, 0, 1, ExprCaseClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExprCaseClause_StatementList(), this.getStatementList(), null, "StatementList", null, 0, 1, ExprCaseClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exprSwitchCaseEClass, ExprSwitchCase.class, "ExprSwitchCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExprSwitchCase_StatementList(), this.getStatementList(), null, "StatementList", null, 0, -1, ExprSwitchCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExprSwitchCase_ExpressionList(), this.getExpressionList(), null, "ExpressionList", null, 0, 1, ExprSwitchCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(switch_stmt_linhaEClass, switch_stmt_linha.class, "switch_stmt_linha", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getswitch_stmt_linha_TypeSwitchGuard(), this.getTypeSwitchGuard(), null, "TypeSwitchGuard", null, 0, -1, switch_stmt_linha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getswitch_stmt_linha_TypeSwitchGuard(), this.getTypeSwitchGuard(), null, "TypeSwitchGuard", null, 0, 1, switch_stmt_linha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getswitch_stmt_linha_TypeCaseClause(), this.getTypeCaseClause(), null, "TypeCaseClause", null, 0, -1, switch_stmt_linha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getswitch_stmt_linha_Expression(), this.getExpression(), null, "Expression", null, 0, -1, switch_stmt_linha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getswitch_stmt_linha_Switch_stmt_linha(), this.getswitch_stmt_linha(), null, "switch_stmt_linha", null, 0, 1, switch_stmt_linha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getswitch_stmt_linha_Expression(), this.getExpression(), null, "Expression", null, 0, 1, switch_stmt_linha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getswitch_stmt_linha_ExprCaseClause(), this.getExprCaseClause(), null, "ExprCaseClause", null, 0, -1, switch_stmt_linha.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeSwitchGuardEClass, TypeSwitchGuard.class, "TypeSwitchGuard", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTypeSwitchGuard_Identifier(), this.getidentifier(), null, "identifier", null, 0, 1, TypeSwitchGuard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeSwitchGuard_PrimaryExpr(), this.getPrimaryExpr(), null, "PrimaryExpr", null, 0, 1, TypeSwitchGuard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeCaseClauseEClass, TypeCaseClause.class, "TypeCaseClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTypeCaseClause_TypeSwitchCase(), this.getTypeSwitchCase(), null, "TypeSwitchCase", null, 0, 1, TypeCaseClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeCaseClause_StatementList(), this.getStatementList(), null, "StatementList", null, 0, 1, TypeCaseClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeSwitchCaseEClass, TypeSwitchCase.class, "TypeSwitchCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTypeSwitchCase_StatementList(), this.getStatementList(), null, "StatementList", null, 0, -1, TypeSwitchCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeSwitchCase_TypeList(), this.getTypeList(), null, "TypeList", null, 0, 1, TypeSwitchCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeListEClass, TypeList.class, "TypeList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTypeList_Type(), this.getType(), null, "Type", null, 0, -1, TypeList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(forStmtEClass, ForStmt.class, "ForStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getForStmt_Condition(), this.getCondition(), null, "Condition", null, 0, 1, ForStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForStmt_ForClause(), this.getForClause(), null, "ForClause", null, 0, 1, ForStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForStmt_RangeClause(), this.getRangeClause(), null, "RangeClause", null, 0, 1, ForStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForStmt_Block(), this.getBlock(), null, "Block", null, 0, 1, ForStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCondition_Expression(), this.getExpression(), null, "Expression", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(forClauseEClass, ForClause.class, "ForClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getForClause_Condition(), this.getCondition(), null, "Condition", null, 0, -1, ForClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getForClause_PostStmt(), this.getPostStmt(), null, "PostStmt", null, 0, -1, ForClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForClause_InitStmt(), this.getInitStmt(), null, "InitStmt", null, 0, 1, ForClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForClause_Condition(), this.getCondition(), null, "Condition", null, 0, 1, ForClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForClause_PostStmt(), this.getPostStmt(), null, "PostStmt", null, 0, 1, ForClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(initStmtEClass, InitStmt.class, "InitStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getInitStmt_SimpleStmt(), this.getSimpleStmt(), null, "SimpleStmt", null, 0, 1, InitStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(postStmtEClass, PostStmt.class, "PostStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPostStmt_SimpleStmt(), this.getSimpleStmt(), null, "SimpleStmt", null, 0, 1, PostStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(rangeClauseEClass, RangeClause.class, "RangeClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRangeClause_ExpressionList(), this.getExpressionList(), null, "ExpressionList", null, 0, 1, RangeClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRangeClause_IdentifierList(), this.getIdentifierList(), null, "IdentifierList", null, 0, 1, RangeClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRangeClause_Expression(), this.getExpression(), null, "Expression", null, 0, 1, RangeClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(goStmtEClass, GoStmt.class, "GoStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getGoStmt_Expression(), this.getExpression(), null, "Expression", null, 0, 1, GoStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(selectStmtEClass, SelectStmt.class, "SelectStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSelectStmt_CommClause(), this.getCommClause(), null, "CommClause", null, 0, -1, SelectStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(commClauseEClass, CommClause.class, "CommClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCommClause_CommCase(), this.getCommCase(), null, "CommCase", null, 0, 1, CommClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCommClause_StatementList(), this.getStatementList(), null, "StatementList", null, 0, 1, CommClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(commCaseEClass, CommCase.class, "CommCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCommCase_SendStmt(), this.getSendStmt(), null, "SendStmt", null, 0, 1, CommCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCommCase_RecvStmt(), this.getRecvStmt(), null, "RecvStmt", null, 0, 1, CommCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(recvStmtEClass, RecvStmt.class, "RecvStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRecvStmt_RecvExpr(), this.getRecvExpr(), null, "RecvExpr", null, 0, -1, RecvStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRecvStmt_ExpressionList(), this.getExpressionList(), null, "ExpressionList", null, 0, 1, RecvStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRecvStmt_IdentifierList(), this.getIdentifierList(), null, "IdentifierList", null, 0, 1, RecvStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRecvStmt_RecvExpr(), this.getRecvExpr(), null, "RecvExpr", null, 0, 1, RecvStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(recvExprEClass, RecvExpr.class, "RecvExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRecvExpr_Expression(), this.getExpression(), null, "Expression", null, 0, 1, RecvExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(returnStmtEClass, ReturnStmt.class, "ReturnStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getReturnStmt_ExpressionList(), this.getExpressionList(), null, "ExpressionList", null, 0, -1, ReturnStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getReturnStmt_ExpressionList(), this.getExpressionList(), null, "ExpressionList", null, 0, 1, ReturnStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(breakStmtEClass, BreakStmt.class, "BreakStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBreakStmt_Label(), this.getLabel(), null, "Label", null, 0, 1, BreakStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(continueStmtEClass, ContinueStmt.class, "ContinueStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getContinueStmt_Label(), this.getLabel(), null, "Label", null, 0, 1, ContinueStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(gotoStmtEClass, GotoStmt.class, "GotoStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getGotoStmt_Label(), this.getLabel(), null, "Label", null, 0, 1, GotoStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(deferStmtEClass, DeferStmt.class, "DeferStmt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDeferStmt_Expression(), this.getExpression(), null, "Expression", null, 0, -1, DeferStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeferStmt_Expression(), this.getExpression(), null, "Expression", null, 0, 1, DeferStmt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(packageClauseEClass, PackageClause.class, "PackageClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPackageClause_PackageName(), this.getPackageName(), null, "PackageName", null, 0, 1, PackageClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(packageNameEClass, PackageName.class, "PackageName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPackageName_Identifier(), this.getidentifier(), null, "identifier", null, 0, 1, PackageName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(importDeclEClass, ImportDecl.class, "ImportDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getImportDecl_ImportSpec(), this.getImportSpec(), null, "ImportSpec", null, 0, -1, ImportDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(importSpecEClass, ImportSpec.class, "ImportSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getImportSpec_PackageName(), this.getPackageName(), null, "PackageName", null, 0, 1, ImportSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getImportSpec_ImportPath(), this.getImportPath(), null, "ImportPath", null, 0, 1, ImportSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(importPathEClass, ImportPath.class, "ImportPath", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getImportPath_String_lit(), this.getstring_lit(), null, "string_lit", null, 0, 1, ImportPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(identifierEClass, identifier.class, "identifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getidentifier_LETTER(), ecorePackage.getEString(), "LETTER", null, 0, -1, identifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getidentifier_DECIMAL_DIGIT(), ecorePackage.getEString(), "DECIMAL_DIGIT", null, 0, -1, identifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(float_litEClass, float_lit.class, "float_lit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(string_litEClass, string_lit.class, "string_lit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getstring_lit_Raw_string_lit(), ecorePackage.getEString(), "raw_string_lit", null, 0, 1, string_lit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getstring_lit_Interpreted_string_lit(), ecorePackage.getEString(), "interpreted_string_lit", null, 0, 1, string_lit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(decimalsEClass, decimals.class, "decimals", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getdecimals_Decimals(), this.getdecimals(), null, "decimals", null, 0, 1, decimals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getdecimals_Exponent(), this.getexponent(), null, "exponent", null, 0, 1, decimals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getdecimals_Exponen(), this.getexponent(), null, "exponen", null, 0, 1, decimals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getdecimals_DECIMAL_DIGIT(), ecorePackage.getEString(), "DECIMAL_DIGIT", null, 0, -1, decimals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(exponentEClass, exponent.class, "exponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getexponent_Decimals(), this.getdecimals(), null, "decimals", null, 0, 1, exponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(imaginary_litEClass, imaginary_lit.class, "imaginary_lit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getimaginary_lit_Decimals(), this.getdecimals(), null, "decimals", null, 0, 1, imaginary_lit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getimaginary_lit_Float_lit(), this.getfloat_lit(), null, "float_lit", null, 0, 1, imaginary_lit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(rune_litEClass, rune_lit.class, "rune_lit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getrune_lit_Unicode_value(), ecorePackage.getEString(), "unicode_value", null, 0, 1, rune_lit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getrune_lit_Byte_value(), ecorePackage.getEString(), "byte_value", null, 0, 1, rune_lit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

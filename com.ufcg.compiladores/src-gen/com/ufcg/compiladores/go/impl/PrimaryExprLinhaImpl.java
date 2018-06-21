@@ -3,23 +3,20 @@
  */
 package com.ufcg.compiladores.go.impl;
 
+import com.ufcg.compiladores.go.Arguments;
 import com.ufcg.compiladores.go.GoPackage;
 import com.ufcg.compiladores.go.PrimaryExprLinha;
+import com.ufcg.compiladores.go.cochetes;
+import com.ufcg.compiladores.go.ponto;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,8 +26,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.ufcg.compiladores.go.impl.PrimaryExprLinhaImpl#getIndexLinha <em>Index Linha</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.PrimaryExprLinhaImpl#getArguments <em>Arguments</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.impl.PrimaryExprLinhaImpl#getPrimaryExprLinha <em>Primary Expr Linha</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.PrimaryExprLinhaImpl#getPonto <em>Ponto</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.PrimaryExprLinhaImpl#getCochetes <em>Cochetes</em>}</li>
  * </ul>
  *
  * @generated
@@ -38,24 +37,44 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class PrimaryExprLinhaImpl extends MinimalEObjectImpl.Container implements PrimaryExprLinha
 {
   /**
-   * The cached value of the '{@link #getIndexLinha() <em>Index Linha</em>}' attribute list.
+   * The cached value of the '{@link #getArguments() <em>Arguments</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getIndexLinha()
+   * @see #getArguments()
    * @generated
    * @ordered
    */
-  protected EList<String> indexLinha;
+  protected Arguments arguments;
 
   /**
-   * The cached value of the '{@link #getPrimaryExprLinha() <em>Primary Expr Linha</em>}' containment reference list.
+   * The cached value of the '{@link #getPrimaryExprLinha() <em>Primary Expr Linha</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getPrimaryExprLinha()
    * @generated
    * @ordered
    */
-  protected EList<PrimaryExprLinha> primaryExprLinha;
+  protected PrimaryExprLinha primaryExprLinha;
+
+  /**
+   * The cached value of the '{@link #getPonto() <em>Ponto</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPonto()
+   * @generated
+   * @ordered
+   */
+  protected ponto ponto;
+
+  /**
+   * The cached value of the '{@link #getCochetes() <em>Cochetes</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCochetes()
+   * @generated
+   * @ordered
+   */
+  protected cochetes cochetes;
 
   /**
    * <!-- begin-user-doc -->
@@ -83,13 +102,9 @@ public class PrimaryExprLinhaImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getIndexLinha()
+  public Arguments getArguments()
   {
-    if (indexLinha == null)
-    {
-      indexLinha = new EDataTypeEList<String>(String.class, this, GoPackage.PRIMARY_EXPR_LINHA__INDEX_LINHA);
-    }
-    return indexLinha;
+    return arguments;
   }
 
   /**
@@ -97,13 +112,181 @@ public class PrimaryExprLinhaImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<PrimaryExprLinha> getPrimaryExprLinha()
+  public NotificationChain basicSetArguments(Arguments newArguments, NotificationChain msgs)
   {
-    if (primaryExprLinha == null)
+    Arguments oldArguments = arguments;
+    arguments = newArguments;
+    if (eNotificationRequired())
     {
-      primaryExprLinha = new EObjectContainmentEList<PrimaryExprLinha>(PrimaryExprLinha.class, this, GoPackage.PRIMARY_EXPR_LINHA__PRIMARY_EXPR_LINHA);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.PRIMARY_EXPR_LINHA__ARGUMENTS, oldArguments, newArguments);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setArguments(Arguments newArguments)
+  {
+    if (newArguments != arguments)
+    {
+      NotificationChain msgs = null;
+      if (arguments != null)
+        msgs = ((InternalEObject)arguments).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.PRIMARY_EXPR_LINHA__ARGUMENTS, null, msgs);
+      if (newArguments != null)
+        msgs = ((InternalEObject)newArguments).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.PRIMARY_EXPR_LINHA__ARGUMENTS, null, msgs);
+      msgs = basicSetArguments(newArguments, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.PRIMARY_EXPR_LINHA__ARGUMENTS, newArguments, newArguments));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PrimaryExprLinha getPrimaryExprLinha()
+  {
     return primaryExprLinha;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPrimaryExprLinha(PrimaryExprLinha newPrimaryExprLinha, NotificationChain msgs)
+  {
+    PrimaryExprLinha oldPrimaryExprLinha = primaryExprLinha;
+    primaryExprLinha = newPrimaryExprLinha;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.PRIMARY_EXPR_LINHA__PRIMARY_EXPR_LINHA, oldPrimaryExprLinha, newPrimaryExprLinha);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPrimaryExprLinha(PrimaryExprLinha newPrimaryExprLinha)
+  {
+    if (newPrimaryExprLinha != primaryExprLinha)
+    {
+      NotificationChain msgs = null;
+      if (primaryExprLinha != null)
+        msgs = ((InternalEObject)primaryExprLinha).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.PRIMARY_EXPR_LINHA__PRIMARY_EXPR_LINHA, null, msgs);
+      if (newPrimaryExprLinha != null)
+        msgs = ((InternalEObject)newPrimaryExprLinha).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.PRIMARY_EXPR_LINHA__PRIMARY_EXPR_LINHA, null, msgs);
+      msgs = basicSetPrimaryExprLinha(newPrimaryExprLinha, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.PRIMARY_EXPR_LINHA__PRIMARY_EXPR_LINHA, newPrimaryExprLinha, newPrimaryExprLinha));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ponto getPonto()
+  {
+    return ponto;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPonto(ponto newPonto, NotificationChain msgs)
+  {
+    ponto oldPonto = ponto;
+    ponto = newPonto;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.PRIMARY_EXPR_LINHA__PONTO, oldPonto, newPonto);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPonto(ponto newPonto)
+  {
+    if (newPonto != ponto)
+    {
+      NotificationChain msgs = null;
+      if (ponto != null)
+        msgs = ((InternalEObject)ponto).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.PRIMARY_EXPR_LINHA__PONTO, null, msgs);
+      if (newPonto != null)
+        msgs = ((InternalEObject)newPonto).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.PRIMARY_EXPR_LINHA__PONTO, null, msgs);
+      msgs = basicSetPonto(newPonto, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.PRIMARY_EXPR_LINHA__PONTO, newPonto, newPonto));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public cochetes getCochetes()
+  {
+    return cochetes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetCochetes(cochetes newCochetes, NotificationChain msgs)
+  {
+    cochetes oldCochetes = cochetes;
+    cochetes = newCochetes;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.PRIMARY_EXPR_LINHA__COCHETES, oldCochetes, newCochetes);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCochetes(cochetes newCochetes)
+  {
+    if (newCochetes != cochetes)
+    {
+      NotificationChain msgs = null;
+      if (cochetes != null)
+        msgs = ((InternalEObject)cochetes).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.PRIMARY_EXPR_LINHA__COCHETES, null, msgs);
+      if (newCochetes != null)
+        msgs = ((InternalEObject)newCochetes).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.PRIMARY_EXPR_LINHA__COCHETES, null, msgs);
+      msgs = basicSetCochetes(newCochetes, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.PRIMARY_EXPR_LINHA__COCHETES, newCochetes, newCochetes));
   }
 
   /**
@@ -116,8 +299,14 @@ public class PrimaryExprLinhaImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
+      case GoPackage.PRIMARY_EXPR_LINHA__ARGUMENTS:
+        return basicSetArguments(null, msgs);
       case GoPackage.PRIMARY_EXPR_LINHA__PRIMARY_EXPR_LINHA:
-        return ((InternalEList<?>)getPrimaryExprLinha()).basicRemove(otherEnd, msgs);
+        return basicSetPrimaryExprLinha(null, msgs);
+      case GoPackage.PRIMARY_EXPR_LINHA__PONTO:
+        return basicSetPonto(null, msgs);
+      case GoPackage.PRIMARY_EXPR_LINHA__COCHETES:
+        return basicSetCochetes(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -132,10 +321,14 @@ public class PrimaryExprLinhaImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case GoPackage.PRIMARY_EXPR_LINHA__INDEX_LINHA:
-        return getIndexLinha();
+      case GoPackage.PRIMARY_EXPR_LINHA__ARGUMENTS:
+        return getArguments();
       case GoPackage.PRIMARY_EXPR_LINHA__PRIMARY_EXPR_LINHA:
         return getPrimaryExprLinha();
+      case GoPackage.PRIMARY_EXPR_LINHA__PONTO:
+        return getPonto();
+      case GoPackage.PRIMARY_EXPR_LINHA__COCHETES:
+        return getCochetes();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -145,19 +338,22 @@ public class PrimaryExprLinhaImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case GoPackage.PRIMARY_EXPR_LINHA__INDEX_LINHA:
-        getIndexLinha().clear();
-        getIndexLinha().addAll((Collection<? extends String>)newValue);
+      case GoPackage.PRIMARY_EXPR_LINHA__ARGUMENTS:
+        setArguments((Arguments)newValue);
         return;
       case GoPackage.PRIMARY_EXPR_LINHA__PRIMARY_EXPR_LINHA:
-        getPrimaryExprLinha().clear();
-        getPrimaryExprLinha().addAll((Collection<? extends PrimaryExprLinha>)newValue);
+        setPrimaryExprLinha((PrimaryExprLinha)newValue);
+        return;
+      case GoPackage.PRIMARY_EXPR_LINHA__PONTO:
+        setPonto((ponto)newValue);
+        return;
+      case GoPackage.PRIMARY_EXPR_LINHA__COCHETES:
+        setCochetes((cochetes)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -173,11 +369,17 @@ public class PrimaryExprLinhaImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case GoPackage.PRIMARY_EXPR_LINHA__INDEX_LINHA:
-        getIndexLinha().clear();
+      case GoPackage.PRIMARY_EXPR_LINHA__ARGUMENTS:
+        setArguments((Arguments)null);
         return;
       case GoPackage.PRIMARY_EXPR_LINHA__PRIMARY_EXPR_LINHA:
-        getPrimaryExprLinha().clear();
+        setPrimaryExprLinha((PrimaryExprLinha)null);
+        return;
+      case GoPackage.PRIMARY_EXPR_LINHA__PONTO:
+        setPonto((ponto)null);
+        return;
+      case GoPackage.PRIMARY_EXPR_LINHA__COCHETES:
+        setCochetes((cochetes)null);
         return;
     }
     super.eUnset(featureID);
@@ -193,29 +395,16 @@ public class PrimaryExprLinhaImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case GoPackage.PRIMARY_EXPR_LINHA__INDEX_LINHA:
-        return indexLinha != null && !indexLinha.isEmpty();
+      case GoPackage.PRIMARY_EXPR_LINHA__ARGUMENTS:
+        return arguments != null;
       case GoPackage.PRIMARY_EXPR_LINHA__PRIMARY_EXPR_LINHA:
-        return primaryExprLinha != null && !primaryExprLinha.isEmpty();
+        return primaryExprLinha != null;
+      case GoPackage.PRIMARY_EXPR_LINHA__PONTO:
+        return ponto != null;
+      case GoPackage.PRIMARY_EXPR_LINHA__COCHETES:
+        return cochetes != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (IndexLinha: ");
-    result.append(indexLinha);
-    result.append(')');
-    return result.toString();
   }
 
 } //PrimaryExprLinhaImpl

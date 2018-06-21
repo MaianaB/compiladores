@@ -6,19 +6,17 @@ package com.ufcg.compiladores.go.impl;
 import com.ufcg.compiladores.go.Condition;
 import com.ufcg.compiladores.go.ForClause;
 import com.ufcg.compiladores.go.GoPackage;
+import com.ufcg.compiladores.go.InitStmt;
 import com.ufcg.compiladores.go.PostStmt;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,33 +26,44 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.impl.ForClauseImpl#getInitStmt <em>Init Stmt</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.impl.ForClauseImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.impl.ForClauseImpl#getPostStmt <em>Post Stmt</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ForClauseImpl extends ForStmtImpl implements ForClause
+public class ForClauseImpl extends MinimalEObjectImpl.Container implements ForClause
 {
   /**
-   * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference list.
+   * The cached value of the '{@link #getInitStmt() <em>Init Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInitStmt()
+   * @generated
+   * @ordered
+   */
+  protected InitStmt initStmt;
+
+  /**
+   * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getCondition()
    * @generated
    * @ordered
    */
-  protected EList<Condition> condition;
+  protected Condition condition;
 
   /**
-   * The cached value of the '{@link #getPostStmt() <em>Post Stmt</em>}' containment reference list.
+   * The cached value of the '{@link #getPostStmt() <em>Post Stmt</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getPostStmt()
    * @generated
    * @ordered
    */
-  protected EList<PostStmt> postStmt;
+  protected PostStmt postStmt;
 
   /**
    * <!-- begin-user-doc -->
@@ -82,12 +91,56 @@ public class ForClauseImpl extends ForStmtImpl implements ForClause
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Condition> getCondition()
+  public InitStmt getInitStmt()
   {
-    if (condition == null)
+    return initStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetInitStmt(InitStmt newInitStmt, NotificationChain msgs)
+  {
+    InitStmt oldInitStmt = initStmt;
+    initStmt = newInitStmt;
+    if (eNotificationRequired())
     {
-      condition = new EObjectContainmentEList<Condition>(Condition.class, this, GoPackage.FOR_CLAUSE__CONDITION);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.FOR_CLAUSE__INIT_STMT, oldInitStmt, newInitStmt);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setInitStmt(InitStmt newInitStmt)
+  {
+    if (newInitStmt != initStmt)
+    {
+      NotificationChain msgs = null;
+      if (initStmt != null)
+        msgs = ((InternalEObject)initStmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.FOR_CLAUSE__INIT_STMT, null, msgs);
+      if (newInitStmt != null)
+        msgs = ((InternalEObject)newInitStmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.FOR_CLAUSE__INIT_STMT, null, msgs);
+      msgs = basicSetInitStmt(newInitStmt, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.FOR_CLAUSE__INIT_STMT, newInitStmt, newInitStmt));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Condition getCondition()
+  {
     return condition;
   }
 
@@ -96,13 +149,85 @@ public class ForClauseImpl extends ForStmtImpl implements ForClause
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<PostStmt> getPostStmt()
+  public NotificationChain basicSetCondition(Condition newCondition, NotificationChain msgs)
   {
-    if (postStmt == null)
+    Condition oldCondition = condition;
+    condition = newCondition;
+    if (eNotificationRequired())
     {
-      postStmt = new EObjectContainmentEList<PostStmt>(PostStmt.class, this, GoPackage.FOR_CLAUSE__POST_STMT);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.FOR_CLAUSE__CONDITION, oldCondition, newCondition);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCondition(Condition newCondition)
+  {
+    if (newCondition != condition)
+    {
+      NotificationChain msgs = null;
+      if (condition != null)
+        msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.FOR_CLAUSE__CONDITION, null, msgs);
+      if (newCondition != null)
+        msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.FOR_CLAUSE__CONDITION, null, msgs);
+      msgs = basicSetCondition(newCondition, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.FOR_CLAUSE__CONDITION, newCondition, newCondition));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PostStmt getPostStmt()
+  {
     return postStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPostStmt(PostStmt newPostStmt, NotificationChain msgs)
+  {
+    PostStmt oldPostStmt = postStmt;
+    postStmt = newPostStmt;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.FOR_CLAUSE__POST_STMT, oldPostStmt, newPostStmt);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPostStmt(PostStmt newPostStmt)
+  {
+    if (newPostStmt != postStmt)
+    {
+      NotificationChain msgs = null;
+      if (postStmt != null)
+        msgs = ((InternalEObject)postStmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.FOR_CLAUSE__POST_STMT, null, msgs);
+      if (newPostStmt != null)
+        msgs = ((InternalEObject)newPostStmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.FOR_CLAUSE__POST_STMT, null, msgs);
+      msgs = basicSetPostStmt(newPostStmt, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.FOR_CLAUSE__POST_STMT, newPostStmt, newPostStmt));
   }
 
   /**
@@ -115,10 +240,12 @@ public class ForClauseImpl extends ForStmtImpl implements ForClause
   {
     switch (featureID)
     {
+      case GoPackage.FOR_CLAUSE__INIT_STMT:
+        return basicSetInitStmt(null, msgs);
       case GoPackage.FOR_CLAUSE__CONDITION:
-        return ((InternalEList<?>)getCondition()).basicRemove(otherEnd, msgs);
+        return basicSetCondition(null, msgs);
       case GoPackage.FOR_CLAUSE__POST_STMT:
-        return ((InternalEList<?>)getPostStmt()).basicRemove(otherEnd, msgs);
+        return basicSetPostStmt(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -133,6 +260,8 @@ public class ForClauseImpl extends ForStmtImpl implements ForClause
   {
     switch (featureID)
     {
+      case GoPackage.FOR_CLAUSE__INIT_STMT:
+        return getInitStmt();
       case GoPackage.FOR_CLAUSE__CONDITION:
         return getCondition();
       case GoPackage.FOR_CLAUSE__POST_STMT:
@@ -146,19 +275,19 @@ public class ForClauseImpl extends ForStmtImpl implements ForClause
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
+      case GoPackage.FOR_CLAUSE__INIT_STMT:
+        setInitStmt((InitStmt)newValue);
+        return;
       case GoPackage.FOR_CLAUSE__CONDITION:
-        getCondition().clear();
-        getCondition().addAll((Collection<? extends Condition>)newValue);
+        setCondition((Condition)newValue);
         return;
       case GoPackage.FOR_CLAUSE__POST_STMT:
-        getPostStmt().clear();
-        getPostStmt().addAll((Collection<? extends PostStmt>)newValue);
+        setPostStmt((PostStmt)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -174,11 +303,14 @@ public class ForClauseImpl extends ForStmtImpl implements ForClause
   {
     switch (featureID)
     {
+      case GoPackage.FOR_CLAUSE__INIT_STMT:
+        setInitStmt((InitStmt)null);
+        return;
       case GoPackage.FOR_CLAUSE__CONDITION:
-        getCondition().clear();
+        setCondition((Condition)null);
         return;
       case GoPackage.FOR_CLAUSE__POST_STMT:
-        getPostStmt().clear();
+        setPostStmt((PostStmt)null);
         return;
     }
     super.eUnset(featureID);
@@ -194,10 +326,12 @@ public class ForClauseImpl extends ForStmtImpl implements ForClause
   {
     switch (featureID)
     {
+      case GoPackage.FOR_CLAUSE__INIT_STMT:
+        return initStmt != null;
       case GoPackage.FOR_CLAUSE__CONDITION:
-        return condition != null && !condition.isEmpty();
+        return condition != null;
       case GoPackage.FOR_CLAUSE__POST_STMT:
-        return postStmt != null && !postStmt.isEmpty();
+        return postStmt != null;
     }
     return super.eIsSet(featureID);
   }

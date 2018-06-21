@@ -3,7 +3,6 @@
  */
 package com.ufcg.compiladores.go;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,29 +13,39 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.ufcg.compiladores.go.Parameters#getResult <em>Result</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.Parameters#getParameterList <em>Parameter List</em>}</li>
  * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getParameters()
  * @model
  * @generated
  */
-public interface Parameters extends Signature, Result, Receiver
+public interface Parameters extends Receiver
 {
   /**
-   * Returns the value of the '<em><b>Result</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.Result}.
+   * Returns the value of the '<em><b>Parameter List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Result</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Parameter List</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Result</em>' containment reference list.
-   * @see com.ufcg.compiladores.go.GoPackage#getParameters_Result()
+   * @return the value of the '<em>Parameter List</em>' containment reference.
+   * @see #setParameterList(ParameterList)
+   * @see com.ufcg.compiladores.go.GoPackage#getParameters_ParameterList()
    * @model containment="true"
    * @generated
    */
-  EList<Result> getResult();
+  ParameterList getParameterList();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Parameters#getParameterList <em>Parameter List</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parameter List</em>' containment reference.
+   * @see #getParameterList()
+   * @generated
+   */
+  void setParameterList(ParameterList value);
 
 } // Parameters

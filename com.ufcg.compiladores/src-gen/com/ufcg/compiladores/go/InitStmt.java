@@ -3,17 +3,50 @@
  */
 package com.ufcg.compiladores.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Init Stmt</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.InitStmt#getSimpleStmt <em>Simple Stmt</em>}</li>
+ * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getInitStmt()
  * @model
  * @generated
  */
-public interface InitStmt extends ForClause
+public interface InitStmt extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Simple Stmt</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Simple Stmt</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Simple Stmt</em>' containment reference.
+   * @see #setSimpleStmt(SimpleStmt)
+   * @see com.ufcg.compiladores.go.GoPackage#getInitStmt_SimpleStmt()
+   * @model containment="true"
+   * @generated
+   */
+  SimpleStmt getSimpleStmt();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.InitStmt#getSimpleStmt <em>Simple Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Simple Stmt</em>' containment reference.
+   * @see #getSimpleStmt()
+   * @generated
+   */
+  void setSimpleStmt(SimpleStmt value);
+
 } // InitStmt

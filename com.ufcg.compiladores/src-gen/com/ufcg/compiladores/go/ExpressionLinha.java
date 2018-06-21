@@ -10,6 +10,14 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Expression Linha</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.ExpressionLinha#getBinary_op <em>Binary op</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.ExpressionLinha#getExpression <em>Expression</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.ExpressionLinha#getExpressionLinha <em>Expression Linha</em>}</li>
+ * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getExpressionLinha()
  * @model
@@ -17,4 +25,82 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ExpressionLinha extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Binary op</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Binary op</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Binary op</em>' containment reference.
+   * @see #setBinary_op(binary_op)
+   * @see com.ufcg.compiladores.go.GoPackage#getExpressionLinha_Binary_op()
+   * @model containment="true"
+   * @generated
+   */
+  binary_op getBinary_op();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.ExpressionLinha#getBinary_op <em>Binary op</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Binary op</em>' containment reference.
+   * @see #getBinary_op()
+   * @generated
+   */
+  void setBinary_op(binary_op value);
+
+  /**
+   * Returns the value of the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expression</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expression</em>' containment reference.
+   * @see #setExpression(Expression)
+   * @see com.ufcg.compiladores.go.GoPackage#getExpressionLinha_Expression()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getExpression();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.ExpressionLinha#getExpression <em>Expression</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expression</em>' containment reference.
+   * @see #getExpression()
+   * @generated
+   */
+  void setExpression(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Expression Linha</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expression Linha</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expression Linha</em>' containment reference.
+   * @see #setExpressionLinha(ExpressionLinha)
+   * @see com.ufcg.compiladores.go.GoPackage#getExpressionLinha_ExpressionLinha()
+   * @model containment="true"
+   * @generated
+   */
+  ExpressionLinha getExpressionLinha();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.ExpressionLinha#getExpressionLinha <em>Expression Linha</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expression Linha</em>' containment reference.
+   * @see #getExpressionLinha()
+   * @generated
+   */
+  void setExpressionLinha(ExpressionLinha value);
+
 } // ExpressionLinha

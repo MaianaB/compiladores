@@ -3,40 +3,18 @@
  */
 package com.ufcg.compiladores.go;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Receiver</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link com.ufcg.compiladores.go.Receiver#getSignature <em>Signature</em>}</li>
- * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getReceiver()
  * @model
  * @generated
  */
-public interface Receiver extends topLevelDeclLinha, MethodDecl
+public interface Receiver extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Signature</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.Signature}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Signature</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Signature</em>' containment reference list.
-   * @see com.ufcg.compiladores.go.GoPackage#getReceiver_Signature()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Signature> getSignature();
-
 } // Receiver

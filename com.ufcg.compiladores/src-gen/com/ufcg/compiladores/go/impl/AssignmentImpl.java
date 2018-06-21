@@ -4,19 +4,71 @@
 package com.ufcg.compiladores.go.impl;
 
 import com.ufcg.compiladores.go.Assignment;
+import com.ufcg.compiladores.go.ExpressionList;
 import com.ufcg.compiladores.go.GoPackage;
 
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Assignment</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.impl.AssignmentImpl#getExpressionList <em>Expression List</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.AssignmentImpl#getAssign_op <em>Assign op</em>}</li>
+ * </ul>
  *
  * @generated
  */
-public class AssignmentImpl extends SimpleStmtImpl implements Assignment
+public class AssignmentImpl extends MinimalEObjectImpl.Container implements Assignment
 {
+  /**
+   * The cached value of the '{@link #getExpressionList() <em>Expression List</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpressionList()
+   * @generated
+   * @ordered
+   */
+  protected EList<ExpressionList> expressionList;
+
+  /**
+   * The default value of the '{@link #getAssign_op() <em>Assign op</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAssign_op()
+   * @generated
+   * @ordered
+   */
+  protected static final String ASSIGN_OP_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getAssign_op() <em>Assign op</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAssign_op()
+   * @generated
+   * @ordered
+   */
+  protected String assign_op = ASSIGN_OP_EDEFAULT;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +88,154 @@ public class AssignmentImpl extends SimpleStmtImpl implements Assignment
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.ASSIGNMENT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<ExpressionList> getExpressionList()
+  {
+    if (expressionList == null)
+    {
+      expressionList = new EObjectContainmentEList<ExpressionList>(ExpressionList.class, this, GoPackage.ASSIGNMENT__EXPRESSION_LIST);
+    }
+    return expressionList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getAssign_op()
+  {
+    return assign_op;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAssign_op(String newAssign_op)
+  {
+    String oldAssign_op = assign_op;
+    assign_op = newAssign_op;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.ASSIGNMENT__ASSIGN_OP, oldAssign_op, assign_op));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.ASSIGNMENT__EXPRESSION_LIST:
+        return ((InternalEList<?>)getExpressionList()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.ASSIGNMENT__EXPRESSION_LIST:
+        return getExpressionList();
+      case GoPackage.ASSIGNMENT__ASSIGN_OP:
+        return getAssign_op();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.ASSIGNMENT__EXPRESSION_LIST:
+        getExpressionList().clear();
+        getExpressionList().addAll((Collection<? extends ExpressionList>)newValue);
+        return;
+      case GoPackage.ASSIGNMENT__ASSIGN_OP:
+        setAssign_op((String)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.ASSIGNMENT__EXPRESSION_LIST:
+        getExpressionList().clear();
+        return;
+      case GoPackage.ASSIGNMENT__ASSIGN_OP:
+        setAssign_op(ASSIGN_OP_EDEFAULT);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.ASSIGNMENT__EXPRESSION_LIST:
+        return expressionList != null && !expressionList.isEmpty();
+      case GoPackage.ASSIGNMENT__ASSIGN_OP:
+        return ASSIGN_OP_EDEFAULT == null ? assign_op != null : !ASSIGN_OP_EDEFAULT.equals(assign_op);
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (assign_op: ");
+    result.append(assign_op);
+    result.append(')');
+    return result.toString();
   }
 
 } //AssignmentImpl

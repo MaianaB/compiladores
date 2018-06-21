@@ -3,22 +3,67 @@
  */
 package com.ufcg.compiladores.go.impl;
 
+import com.ufcg.compiladores.go.Expression;
 import com.ufcg.compiladores.go.ExpressionLinha;
 import com.ufcg.compiladores.go.GoPackage;
+import com.ufcg.compiladores.go.binary_op;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Expression Linha</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.impl.ExpressionLinhaImpl#getBinary_op <em>Binary op</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.ExpressionLinhaImpl#getExpression <em>Expression</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.ExpressionLinhaImpl#getExpressionLinha <em>Expression Linha</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class ExpressionLinhaImpl extends MinimalEObjectImpl.Container implements ExpressionLinha
 {
+  /**
+   * The cached value of the '{@link #getBinary_op() <em>Binary op</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBinary_op()
+   * @generated
+   * @ordered
+   */
+  protected binary_op binary_op;
+
+  /**
+   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpression()
+   * @generated
+   * @ordered
+   */
+  protected Expression expression;
+
+  /**
+   * The cached value of the '{@link #getExpressionLinha() <em>Expression Linha</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpressionLinha()
+   * @generated
+   * @ordered
+   */
+  protected ExpressionLinha expressionLinha;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -38,6 +83,256 @@ public class ExpressionLinhaImpl extends MinimalEObjectImpl.Container implements
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.EXPRESSION_LINHA;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public binary_op getBinary_op()
+  {
+    return binary_op;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetBinary_op(binary_op newBinary_op, NotificationChain msgs)
+  {
+    binary_op oldBinary_op = binary_op;
+    binary_op = newBinary_op;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION_LINHA__BINARY_OP, oldBinary_op, newBinary_op);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBinary_op(binary_op newBinary_op)
+  {
+    if (newBinary_op != binary_op)
+    {
+      NotificationChain msgs = null;
+      if (binary_op != null)
+        msgs = ((InternalEObject)binary_op).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPRESSION_LINHA__BINARY_OP, null, msgs);
+      if (newBinary_op != null)
+        msgs = ((InternalEObject)newBinary_op).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPRESSION_LINHA__BINARY_OP, null, msgs);
+      msgs = basicSetBinary_op(newBinary_op, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION_LINHA__BINARY_OP, newBinary_op, newBinary_op));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression getExpression()
+  {
+    return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
+  {
+    Expression oldExpression = expression;
+    expression = newExpression;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION_LINHA__EXPRESSION, oldExpression, newExpression);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExpression(Expression newExpression)
+  {
+    if (newExpression != expression)
+    {
+      NotificationChain msgs = null;
+      if (expression != null)
+        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPRESSION_LINHA__EXPRESSION, null, msgs);
+      if (newExpression != null)
+        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPRESSION_LINHA__EXPRESSION, null, msgs);
+      msgs = basicSetExpression(newExpression, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION_LINHA__EXPRESSION, newExpression, newExpression));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExpressionLinha getExpressionLinha()
+  {
+    return expressionLinha;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExpressionLinha(ExpressionLinha newExpressionLinha, NotificationChain msgs)
+  {
+    ExpressionLinha oldExpressionLinha = expressionLinha;
+    expressionLinha = newExpressionLinha;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION_LINHA__EXPRESSION_LINHA, oldExpressionLinha, newExpressionLinha);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExpressionLinha(ExpressionLinha newExpressionLinha)
+  {
+    if (newExpressionLinha != expressionLinha)
+    {
+      NotificationChain msgs = null;
+      if (expressionLinha != null)
+        msgs = ((InternalEObject)expressionLinha).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPRESSION_LINHA__EXPRESSION_LINHA, null, msgs);
+      if (newExpressionLinha != null)
+        msgs = ((InternalEObject)newExpressionLinha).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPRESSION_LINHA__EXPRESSION_LINHA, null, msgs);
+      msgs = basicSetExpressionLinha(newExpressionLinha, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.EXPRESSION_LINHA__EXPRESSION_LINHA, newExpressionLinha, newExpressionLinha));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.EXPRESSION_LINHA__BINARY_OP:
+        return basicSetBinary_op(null, msgs);
+      case GoPackage.EXPRESSION_LINHA__EXPRESSION:
+        return basicSetExpression(null, msgs);
+      case GoPackage.EXPRESSION_LINHA__EXPRESSION_LINHA:
+        return basicSetExpressionLinha(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.EXPRESSION_LINHA__BINARY_OP:
+        return getBinary_op();
+      case GoPackage.EXPRESSION_LINHA__EXPRESSION:
+        return getExpression();
+      case GoPackage.EXPRESSION_LINHA__EXPRESSION_LINHA:
+        return getExpressionLinha();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.EXPRESSION_LINHA__BINARY_OP:
+        setBinary_op((binary_op)newValue);
+        return;
+      case GoPackage.EXPRESSION_LINHA__EXPRESSION:
+        setExpression((Expression)newValue);
+        return;
+      case GoPackage.EXPRESSION_LINHA__EXPRESSION_LINHA:
+        setExpressionLinha((ExpressionLinha)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.EXPRESSION_LINHA__BINARY_OP:
+        setBinary_op((binary_op)null);
+        return;
+      case GoPackage.EXPRESSION_LINHA__EXPRESSION:
+        setExpression((Expression)null);
+        return;
+      case GoPackage.EXPRESSION_LINHA__EXPRESSION_LINHA:
+        setExpressionLinha((ExpressionLinha)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.EXPRESSION_LINHA__BINARY_OP:
+        return binary_op != null;
+      case GoPackage.EXPRESSION_LINHA__EXPRESSION:
+        return expression != null;
+      case GoPackage.EXPRESSION_LINHA__EXPRESSION_LINHA:
+        return expressionLinha != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //ExpressionLinhaImpl

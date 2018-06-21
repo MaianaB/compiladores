@@ -1,0 +1,633 @@
+grammar com.ufcg.compiladores.Go with org.eclipse.xtext.common.Terminals
+
+generate go "http://www.ufcg.com/compiladores/Go"
+
+SouceFile:
+	PackageClause=PackageClause ";" (ImportDecl+=ImportDecl ";")* (TopLevelDecl=TopLevelDecl ";")?
+ ;
+
+Type:
+	 TypeName=TypeName | TypeLit=TypeLit | "(" Type=Type ")"
+;
+
+TypeName:
+	identifier=identifier TypeNameLinha=TypeNameLinha
+;
+
+TypeNameLinha:
+	"." identifier=identifier TypeNameLinha=TypeNameLinha | QualifiedIdent=QualifiedIdent TypeNameLinha=TypeNameLinha | {TypeNameLinha} ANY_OTHER
+;
+
+TypeLit:
+	"[" TypeLitLinha=TypeLitLinha | StructType=StructType | PointerType=PointerType | FunctionType=FunctionType | InterfaceType=InterfaceType | MapType=MapType | ChannelType=ChannelType
+;
+
+TypeLitLinha:
+	ArrayLength=ArrayLength "]" ElementType=ElementType TypeLitLinha=TypeLitLinha |
+	"]" ElementType=ElementType TypeLitLinha=TypeLitLinha | {TypeLitLinha} ANY_OTHER
+;
+
+ArrayLength:
+	Expression=Expression
+;
+
+ElementType:
+	Type=Type
+;
+
+StructType:
+	{StructType} "struct" "{" (FieldDecl+=FieldDecl ";")* ";"
+;
+
+FieldDecl:
+	(IdentifierList=IdentifierList Type=Type | EmbeddedField=EmbeddedField) (Tag=Tag)?
+;
+
+EmbeddedField:
+	("*")? TypeName=TypeName
+;
+
+Tag:
+	string_lit=string_lit
+;
+
+PointerType:
+	"*" Type=Type
+;
+
+FunctionType:
+	"func" Signature=Signature
+;
+
+Signature:
+	Parameters=Parameters (Result=Result)?
+;
+
+Result:
+	Parameters=Parameters | Type=Type
+;
+
+Parameters:
+	{Parameters} "(" (ParameterList=ParameterList (",")?)? ")"
+;
+
+ParameterList:
+	ParameterDecl+=ParameterDecl ("," ParameterDecl+=ParameterDecl)?
+;
+
+ParameterDecl:
+	(IdentifierList=IdentifierList)? ("...")? Type=Type
+;
+
+InterfaceType:
+	{InterfaceType} "interface" "{" (MethodSpec=MethodSpec ";")? "}"
+;
+
+MethodSpec:
+	MethodName=MethodName Signature=Signature | InterfaceTypeName=InterfaceTypeName
+;
+
+MethodName:
+	identifier=identifier
+;
+
+InterfaceTypeName:
+	TypeName=TypeName
+;
+
+MapType:
+	"map" "[" KeyType=KeyType "]" ElementType=ElementType
+;
+
+KeyType:
+	Type=Type
+;
+
+ChannelType:
+	("chan" | "chan" "<-" | "<-" "chan") ElementType=ElementType
+;
+
+Block:
+	"{" StatementList=StatementList "}"
+;
+
+StatementList:
+	{StatementList} (Statement+=Statement ";")*
+;
+
+Declaration:
+	ConstDecl=ConstDecl | TypeDecl=TypeDecl | VarDecl=VarDecl
+;
+
+TopLevelDecl:
+	Declaration=Declaration | "func" topLevelDeclLinha=topLevelDeclLinha
+;
+
+topLevelDeclLinha:
+	FunctionName=FunctionName Signature=Signature (FunctionBody=FunctionBody)? | Receiver=Receiver MethodName=MethodName Signature=Signature (FunctionBody=FunctionBody)?
+;
+
+ConstDecl:
+	{ConstDecl} "const" (ConstSpec=ConstSpec | "(" (ConstSpec=ConstSpec ";")? ")")
+;
+
+ConstSpec:
+	IdentifierList=IdentifierList ((Type=Type)? "=" ExpressionList=ExpressionList)?
+;
+
+IdentifierList:
+	identifier+=identifier ("," identifier+=identifier)?
+;
+
+ExpressionList:
+	Expression+=Expression ("," Expression+=Expression)?
+;
+
+TypeDecl:
+	{TypeDecl} "type" (TypeSpec=TypeSpec | "(" (TypeSpec=TypeSpec ";")? ")")
+;
+
+TypeSpec:
+	AliasDecl | TypeDef
+;
+
+AliasDecl:
+	identifier=identifier "=" Type=Type
+;
+
+TypeDef:
+	identifier=identifier Type=Type
+;
+
+VarDecl:
+	{VarDecl} "var" (VarSpec=VarSpec | "(" (VarSpec=VarSpec ";")? ")")
+;
+
+VarSpec:
+	IdentifierList=IdentifierList (Type=Type ("=" ExpressionList=ExpressionList)? | "=" ExpressionList=ExpressionList)
+;
+
+ShortVarDecl:
+	IdentifierList=IdentifierList ":=" ExpressionList=ExpressionList
+;
+
+FunctionDecl:
+	"func" FunctionName=FunctionName Signature=Signature (FunctionBody=FunctionBody)?
+;
+
+FunctionName:
+	identifier=identifier
+;
+
+FunctionBody:
+	Block=Block
+;
+
+MethodDecl:
+	"func" Receiver=Receiver MethodName=MethodName Signature=Signature (FunctionBody=FunctionBody)?
+;
+
+Receiver:
+	Parameters
+;
+
+
+Operand:
+	Literal=Literal | OperandName=OperandName | "(" Expression=Expression ")"
+;
+
+Literal:
+	BasicLit=BasicLit | CompositeLit | FunctionLit
+;
+
+BasicLit:
+	{BasicLit} int_lit=int_lit | float_lit=float_lit | rune_lit=rune_lit | string_lit=string_lit
+;
+
+OperandName:
+	identifier | QualifiedIdent
+;
+
+QualifiedIdent:
+	PackageName=PackageName "." identifier=identifier
+;
+
+CompositeLit:
+	LiteralType=LiteralType LiteralValue=LiteralValue
+;
+
+LiteralType:
+	StructType=StructType | "[" LiteralTypeLinha=LiteralTypeLinha | ElementType=ElementType | MapType=MapType | TypeName=TypeName
+;
+
+LiteralTypeLinha:
+	ArrayLength=ArrayLength "]" ElementType=ElementType |
+	"]" ElementType=ElementType |
+	{LiteralTypeLinha} "..." "]"
+;
+
+LiteralValue:
+	{LiteralValue} "{" (ElementList=ElementList (",")?)? "}"
+;
+
+ElementList:
+	KeyedElement+=KeyedElement ("," KeyedElement+=KeyedElement)?
+;
+
+Element:
+	Expression=Expression | LiteralValue=LiteralValue
+;
+
+KeyedElement:
+	(Key=Key ":")? Element=Element
+;
+
+Key:
+	FieldName=FieldName | Expression=Expression | LiteralValue
+;
+
+FieldName:
+	identifier=identifier
+;
+
+FunctionLit:
+	"func" Signature=Signature FunctionBody=FunctionBody
+;
+
+PrimaryExpr:
+	Operand=Operand PrimaryExprLinha=PrimaryExprLinha | Conversion=Conversion PrimaryExprLinha=PrimaryExprLinha | 
+	MethodExpr=MethodExpr PrimaryExprLinha=PrimaryExprLinha
+;
+
+PrimaryExprLinha:
+	Arguments=Arguments PrimaryExprLinha=PrimaryExprLinha |
+	"." ponto |
+	"[" cochetes | {PrimaryExprLinha} ANY_OTHER
+;
+
+ponto:
+	Selector=Selector PrimaryExprLinha=PrimaryExprLinha | 
+	TypeAssertion=TypeAssertion PrimaryExprLinha=PrimaryExprLinha
+;
+
+cochetes:
+	Index=Index PrimaryExprLinha=PrimaryExprLinha | Slice=Slice PrimaryExprLinha=PrimaryExprLinha
+;
+
+Selector:
+	identifier=identifier
+;
+
+Index:
+	{Index} "]" | Slice
+;
+
+Slice:
+	":" (decimals+=decimals)? ":" decimals+=decimals "]" 
+;
+
+TypeAssertion:
+	"(" Type=Type ")"
+;
+
+Arguments:
+	{Arguments} "(" ( (ExpressionList=ExpressionList | Type=Type ("," ExpressionList=ExpressionList)?) ("...")? (",")?)? ")"
+;
+
+MethodExpr:
+	ReceiverType "." MethodName=MethodName
+;
+
+ReceiverType:
+	Type
+;
+
+Expression:
+	UnaryExpr=UnaryExpr ExpressionLinha=ExpressionLinha
+;
+
+ExpressionLinha:
+	binary_op=binary_op Expression=Expression ExpressionLinha=ExpressionLinha | {ExpressionLinha} ANY_OTHER
+;
+
+UnaryExpr:
+	PrimaryExpr=PrimaryExpr | unary_op=unary_op UnaryExpr=UnaryExpr
+;
+
+binary_op:
+	"||" | "&&" | rel_op | add_op | mul_op
+;
+
+rel_op:
+	"==" | "!=" | "<" | "<=" | ">" | ">="
+;
+
+add_op:
+	"+" | "-" | "|" | "ˆ"
+;
+
+mul_op:
+	"*" | "/" | "%" | "<<" | ">>" | "&" | "&^"
+;
+
+unary_op:
+	"+" | "-" | "!" | "^" | "*" | "&" | "<-"
+;
+
+Conversion:
+	Type=Type "(" Expression=Expression (",")? ")"
+;
+
+Statement:
+	Declaration=Declaration | LabeledStmt=LabeledStmt | SimpleStmt=SimpleStmt |
+	GoStmt=GoStmt | ReturnStmt=ReturnStmt | BreakStmt=BreakStmt | ContinueStmt=ContinueStmt | GotoStmt=GotoStmt |
+	FallthroughStmt=FallthroughStmt | Block=Block | IfStmt=IfStmt | SwitchStmt=SwitchStmt | SelectStmt=SelectStmt | ForStmt=ForStmt |
+	DeferStmt=DeferStmt
+;
+
+SimpleStmt:
+	EmptyStmt=EmptyStmt | ExpressionStmt=ExpressionStmt | SendStmt=SendStmt | IncDecStmt=IncDecStmt | Assignment=Assignment | ShortVarDecl=ShortVarDecl
+;
+
+EmptyStmt:
+	ANY_OTHER
+;
+
+LabeledStmt:
+	Label=Label ":" Statement=Statement
+;
+
+Label:
+	identifier=identifier
+;
+
+ExpressionStmt:
+	Expression=Expression
+;
+
+SendStmt:
+	Channel=Channel "<-" Expression=Expression
+;
+
+Channel:
+	Expression=Expression
+;
+
+IncDecStmt:
+	Expression=Expression ("++" | "--")
+;
+
+Assignment:
+	ExpressionList+=ExpressionList assign_op=assign_op ExpressionList+=ExpressionList
+;
+
+assign_op:
+	(add_op | mul_op)? "="
+;
+
+IfStmt:
+	"if" (SimpleStmt=SimpleStmt ";")? Expression=Expression Block+=Block ("else" (IfStmt=IfStmt | Block+=Block))?
+;
+
+SwitchStmt:
+	"switch" (SimpleStmt ";")? switch_stmt_linha=switch_stmt_linha
+;
+
+ExprCaseClause:
+	ExprSwitchCase=ExprSwitchCase ":" StatementList=StatementList
+;
+
+ExprSwitchCase:
+	"case" ExpressionList=ExpressionList | {ExprSwitchCase} "default"
+;
+
+switch_stmt_linha:
+	TypeSwitchGuard=TypeSwitchGuard "{" (TypeCaseClause+=TypeCaseClause)* "}" |
+	{switch_stmt_linha} (Expression=Expression)? "{" (ExprCaseClause+=ExprCaseClause)* "}"
+;
+
+TypeSwitchGuard:
+	(identifier=identifier ":=")? PrimaryExpr=PrimaryExpr "." "(" "type" ")"
+;
+
+TypeCaseClause:
+	TypeSwitchCase=TypeSwitchCase ":" StatementList=StatementList
+;
+
+TypeSwitchCase:
+	"case" TypeList=TypeList | {TypeSwitchCase} "default"
+;
+
+TypeList:
+	Type+=Type ("," Type+=Type)*
+;
+
+ForStmt:
+	"for" (Condition=Condition | ForClause=ForClause | RangeClause=RangeClause)? Block=Block
+;
+
+Condition:
+	Expression=Expression
+;
+
+ForClause:
+	{ForClause} (InitStmt=InitStmt)? ";" (Condition=Condition)? ";" (PostStmt=PostStmt)?
+;
+
+InitStmt:
+	SimpleStmt=SimpleStmt
+;
+
+PostStmt:
+	SimpleStmt=SimpleStmt
+;
+
+RangeClause:
+	(ExpressionList=ExpressionList "=" | IdentifierList=IdentifierList ":=")? "range" Expression=Expression
+;
+
+GoStmt:
+	"go" Expression=Expression
+;
+
+SelectStmt:
+	{SelectStmt} "select" "{" (CommClause+=CommClause)* "}"
+;
+ 
+CommClause:
+ 	CommCase=CommCase ":" StatementList=StatementList
+;
+ 
+CommCase:
+ 	"case" (SendStmt=SendStmt | RecvStmt=RecvStmt) | {CommCase} "default"
+;
+ 
+RecvStmt:
+ 	(ExpressionList=ExpressionList "=" | IdentifierList=IdentifierList ":=")? RecvExpr=RecvExpr
+;
+ 
+ RecvExpr:
+ 	Expression=Expression
+ ;
+ 
+ ReturnStmt:
+ 	{ReturnStmt} "return" (ExpressionList=ExpressionList)?
+ ;
+ 
+ BreakStmt:
+ 	{BreakStmt} "break" (Label=Label)?
+ ;
+ 
+ ContinueStmt:
+ 	{ContinueStmt} "continue" (Label=Label)?
+ 	
+ ;
+ 
+ GotoStmt:
+ 	"goto" Label=Label
+ ;
+ 
+ FallthroughStmt:
+ 	"fallthrough"
+ ;
+ 
+ DeferStmt:
+ 	"defer" Expression=Expression
+ ;
+ 
+ PackageClause:
+ 	"package" PackageName=PackageName
+ ;
+ 
+ PackageName:
+ 	identifier=identifier
+ ;
+ 
+ ImportDecl:
+	{ImportDecl} "import" (ImportSpec+=ImportSpec | "(" (ImportSpec+=ImportSpec ";")* ")")
+ ;
+ 
+ ImportSpec:
+ 	("." | PackageName=PackageName)? ImportPath=ImportPath
+ ;
+ 
+ ImportPath:
+ 	string_lit=string_lit
+ ;
+
+comments:
+	LETTER*"//"LETTER* | LETTER*"/*"LETTER*"*/";
+	
+identifier:
+	LETTER+=LETTER (LETTER+=LETTER | DECIMAL_DIGIT+=DECIMAL_DIGIT)*;
+	
+int_lit:
+	decimal_lit | octal_lit | hex_lit
+;
+
+decimal_lit:
+	DECIMAL_DIGIT (DECIMAL_DIGIT)*
+;
+
+octal_lit:
+	"0" OCTAL_DIGIT*
+;
+
+hex_lit:
+	"0" ( "x" | "X" ) HEX_DIGIT HEX_DIGIT*
+;
+
+float_lit:
+	decimals "." (decimals=decimals)? (exponent=exponent)? | decimals exponent=exponent | "." decimals (exponen=exponent)?
+;
+
+string_lit:
+	raw_string_lit=raw_string_lit | interpreted_string_lit=interpreted_string_lit
+;
+
+raw_string_lit:
+	"'" (unicode_char | newline)? "'"
+;
+
+interpreted_string_lit:
+	'"' (unicode_value | byte_value)? '"'
+;
+
+unicode_char:
+	"?" | "." | "," | "!"
+;
+
+newline:
+	"U+000A"
+;
+
+decimals: 
+	DECIMAL_DIGIT+=DECIMAL_DIGIT (DECIMAL_DIGIT+=DECIMAL_DIGIT)*
+;
+
+exponent:
+	("e" | "E") ("+" | "-")? decimals=decimals
+;
+
+imaginary_lit:
+	(decimals=decimals | float_lit=float_lit) "i"
+;
+
+rune_lit:
+	"'" (unicode_value=unicode_value | byte_value=byte_value) "'"
+;
+
+unicode_value:
+	LETTER | little_u_value | big_u_value | escaped_char 
+;
+
+byte_value:
+	octal_byte_value | hex_byte_value
+;
+
+octal_byte_value:
+	CHAR OCTAL_DIGIT OCTAL_DIGIT OCTAL_DIGIT	
+;
+
+hex_byte_value:
+	CHAR "x" HEX_DIGIT HEX_DIGIT
+;
+
+little_u_value:
+	CHAR "u" HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+;
+
+big_u_value:
+	CHAR "U" HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+;
+
+escaped_char:
+	CHAR ("a" | "b" | "f" | "n" | "r" | "t" | "v" | CHAR | "'" | '"')
+;
+
+CHAR: "\'";
+	
+terminal OCTAL_DIGIT:
+	"0" | "1" | "2" | "3" | "4" | "5" | "6"
+;
+	
+terminal DECIMAL_DIGIT:
+	OCTAL_DIGIT | SEVEN_TO_NINE;
+
+terminal HEX_DIGIT:
+	(DECIMAL_DIGIT | A_TO_F);
+	
+terminal SEVEN_TO_NINE:
+	"7" | "8" | "9"
+;
+
+terminal A_TO_F:
+	'A' | "B" | "C" | "D" | "E" | "F" | "a" | "b" | "c" | "d" | "e" | "f"
+;
+
+terminal LETTER:
+	A_TO_F | "g" | "h" | "i" | "j" | "k" | "l" | "m" | "n" | "o" | "p" | "q" |
+	"r" | "s" | "t" | "u" | "v" | "x" | "y" | "z" | "_" |
+	"G" | "H" | "I" | "J" | "K" | "L" | "M" | "N" | "O" | "P" | "Q" |
+	"R" | "S"| "T" | "U" | "V" | "W" | "X" | "Y" | "Z"
+;

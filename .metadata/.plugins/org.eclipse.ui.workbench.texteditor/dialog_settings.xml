@@ -2,36 +2,37 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Statement" key="selection"/>
+		<item value="For" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="statement"/>
-			<item value="block:"/>
-			<item value="FunctionName Signature (FunctionBody+=FunctionBody)?"/>
-			<item value="FunctionName Signature (FunctionBody+=FunctionBody)? | Receiver MethodName Signature+=Signature (FunctionBody)?"/>
-			<item value="linha"/>
+			<item value="for"/>
+			<item value="MethodDecl"/>
 			<item value="FunctionDecl"/>
-			<item value="functiondecl"/>
-			<item value="functi"/>
-			<item value="method"/>
-			<item value="function"/>
-			<item value="declaration"/>
 			<item value="VarDecl"/>
-			<item value="vardecl"/>
-			<item value="typedecl"/>
-			<item value="statementlist:"/>
+			<item value="var"/>
+			<item value="Type:"/>
+			<item value="Type"/>
+			<item value="Parameters"/>
+			<item value="Signature"/>
+			<item value="functiond"/>
+			<item value="func"/>
+			<item value="fuc"/>
+			<item value="fuct"/>
+			<item value="fuction"/>
+			<item value="import"/>
 		</list>
 		<list key="replacehistory">
+			<item value="="/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="290" key="DIALOG_WIDTH"/>
 		<item value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont" key="DIALOG_FONT_NAME"/>
 		<item value="409" key="DIALOG_HEIGHT"/>
-		<item value="840" key="DIALOG_X_ORIGIN"/>
+		<item value="428" key="DIALOG_X_ORIGIN"/>
 		<item value="86" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

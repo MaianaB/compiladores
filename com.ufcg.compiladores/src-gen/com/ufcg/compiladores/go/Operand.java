@@ -3,17 +3,104 @@
  */
 package com.ufcg.compiladores.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Operand</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.Operand#getLiteral <em>Literal</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.Operand#getOperandName <em>Operand Name</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.Operand#getExpression <em>Expression</em>}</li>
+ * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getOperand()
  * @model
  * @generated
  */
-public interface Operand extends PrimaryExpr
+public interface Operand extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Literal</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Literal</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Literal</em>' containment reference.
+   * @see #setLiteral(Literal)
+   * @see com.ufcg.compiladores.go.GoPackage#getOperand_Literal()
+   * @model containment="true"
+   * @generated
+   */
+  Literal getLiteral();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Operand#getLiteral <em>Literal</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Literal</em>' containment reference.
+   * @see #getLiteral()
+   * @generated
+   */
+  void setLiteral(Literal value);
+
+  /**
+   * Returns the value of the '<em><b>Operand Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Operand Name</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Operand Name</em>' containment reference.
+   * @see #setOperandName(OperandName)
+   * @see com.ufcg.compiladores.go.GoPackage#getOperand_OperandName()
+   * @model containment="true"
+   * @generated
+   */
+  OperandName getOperandName();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Operand#getOperandName <em>Operand Name</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Operand Name</em>' containment reference.
+   * @see #getOperandName()
+   * @generated
+   */
+  void setOperandName(OperandName value);
+
+  /**
+   * Returns the value of the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expression</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expression</em>' containment reference.
+   * @see #setExpression(Expression)
+   * @see com.ufcg.compiladores.go.GoPackage#getOperand_Expression()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getExpression();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Operand#getExpression <em>Expression</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expression</em>' containment reference.
+   * @see #getExpression()
+   * @generated
+   */
+  void setExpression(Expression value);
+
 } // Operand

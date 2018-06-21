@@ -10,6 +10,13 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Result</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.Result#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.Result#getType <em>Type</em>}</li>
+ * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getResult()
  * @model
@@ -17,4 +24,56 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Result extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Parameters</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parameters</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parameters</em>' containment reference.
+   * @see #setParameters(Parameters)
+   * @see com.ufcg.compiladores.go.GoPackage#getResult_Parameters()
+   * @model containment="true"
+   * @generated
+   */
+  Parameters getParameters();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Result#getParameters <em>Parameters</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parameters</em>' containment reference.
+   * @see #getParameters()
+   * @generated
+   */
+  void setParameters(Parameters value);
+
+  /**
+   * Returns the value of the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type</em>' containment reference.
+   * @see #setType(Type)
+   * @see com.ufcg.compiladores.go.GoPackage#getResult_Type()
+   * @model containment="true"
+   * @generated
+   */
+  Type getType();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Result#getType <em>Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type</em>' containment reference.
+   * @see #getType()
+   * @generated
+   */
+  void setType(Type value);
+
 } // Result

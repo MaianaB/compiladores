@@ -4,19 +4,48 @@
 package com.ufcg.compiladores.go.impl;
 
 import com.ufcg.compiladores.go.GoPackage;
+import com.ufcg.compiladores.go.ParameterDecl;
 import com.ufcg.compiladores.go.ParameterList;
 
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Parameter List</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.impl.ParameterListImpl#getParameterDecl <em>Parameter Decl</em>}</li>
+ * </ul>
  *
  * @generated
  */
-public class ParameterListImpl extends ParametersImpl implements ParameterList
+public class ParameterListImpl extends MinimalEObjectImpl.Container implements ParameterList
 {
+  /**
+   * The cached value of the '{@link #getParameterDecl() <em>Parameter Decl</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParameterDecl()
+   * @generated
+   * @ordered
+   */
+  protected EList<ParameterDecl> parameterDecl;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +65,104 @@ public class ParameterListImpl extends ParametersImpl implements ParameterList
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.PARAMETER_LIST;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<ParameterDecl> getParameterDecl()
+  {
+    if (parameterDecl == null)
+    {
+      parameterDecl = new EObjectContainmentEList<ParameterDecl>(ParameterDecl.class, this, GoPackage.PARAMETER_LIST__PARAMETER_DECL);
+    }
+    return parameterDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.PARAMETER_LIST__PARAMETER_DECL:
+        return ((InternalEList<?>)getParameterDecl()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.PARAMETER_LIST__PARAMETER_DECL:
+        return getParameterDecl();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.PARAMETER_LIST__PARAMETER_DECL:
+        getParameterDecl().clear();
+        getParameterDecl().addAll((Collection<? extends ParameterDecl>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.PARAMETER_LIST__PARAMETER_DECL:
+        getParameterDecl().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.PARAMETER_LIST__PARAMETER_DECL:
+        return parameterDecl != null && !parameterDecl.isEmpty();
+    }
+    return super.eIsSet(featureID);
   }
 
 } //ParameterListImpl

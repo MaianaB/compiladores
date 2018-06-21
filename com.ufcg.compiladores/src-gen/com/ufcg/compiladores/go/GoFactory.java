@@ -42,6 +42,24 @@ public interface GoFactory extends EFactory
   Type createType();
 
   /**
+   * Returns a new object of class '<em>Type Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Name</em>'.
+   * @generated
+   */
+  TypeName createTypeName();
+
+  /**
+   * Returns a new object of class '<em>Type Name Linha</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Name Linha</em>'.
+   * @generated
+   */
+  TypeNameLinha createTypeNameLinha();
+
+  /**
    * Returns a new object of class '<em>Type Lit</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -94,6 +112,24 @@ public interface GoFactory extends EFactory
    * @generated
    */
   FieldDecl createFieldDecl();
+
+  /**
+   * Returns a new object of class '<em>Embedded Field</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Embedded Field</em>'.
+   * @generated
+   */
+  EmbeddedField createEmbeddedField();
+
+  /**
+   * Returns a new object of class '<em>Tag</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Tag</em>'.
+   * @generated
+   */
+  Tag createTag();
 
   /**
    * Returns a new object of class '<em>Pointer Type</em>'.
@@ -175,6 +211,24 @@ public interface GoFactory extends EFactory
    * @generated
    */
   MethodSpec createMethodSpec();
+
+  /**
+   * Returns a new object of class '<em>Method Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Method Name</em>'.
+   * @generated
+   */
+  MethodName createMethodName();
+
+  /**
+   * Returns a new object of class '<em>Interface Type Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Interface Type Name</em>'.
+   * @generated
+   */
+  InterfaceTypeName createInterfaceTypeName();
 
   /**
    * Returns a new object of class '<em>Map Type</em>'.
@@ -267,6 +321,15 @@ public interface GoFactory extends EFactory
   ConstSpec createConstSpec();
 
   /**
+   * Returns a new object of class '<em>Identifier List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Identifier List</em>'.
+   * @generated
+   */
+  IdentifierList createIdentifierList();
+
+  /**
    * Returns a new object of class '<em>Expression List</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -348,6 +411,15 @@ public interface GoFactory extends EFactory
   FunctionDecl createFunctionDecl();
 
   /**
+   * Returns a new object of class '<em>Function Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Function Name</em>'.
+   * @generated
+   */
+  FunctionName createFunctionName();
+
+  /**
    * Returns a new object of class '<em>Function Body</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -391,6 +463,33 @@ public interface GoFactory extends EFactory
    * @generated
    */
   Literal createLiteral();
+
+  /**
+   * Returns a new object of class '<em>Basic Lit</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Basic Lit</em>'.
+   * @generated
+   */
+  BasicLit createBasicLit();
+
+  /**
+   * Returns a new object of class '<em>Operand Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Operand Name</em>'.
+   * @generated
+   */
+  OperandName createOperandName();
+
+  /**
+   * Returns a new object of class '<em>Qualified Ident</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Qualified Ident</em>'.
+   * @generated
+   */
+  QualifiedIdent createQualifiedIdent();
 
   /**
    * Returns a new object of class '<em>Composite Lit</em>'.
@@ -465,6 +564,15 @@ public interface GoFactory extends EFactory
   Key createKey();
 
   /**
+   * Returns a new object of class '<em>Field Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Field Name</em>'.
+   * @generated
+   */
+  FieldName createFieldName();
+
+  /**
    * Returns a new object of class '<em>Function Lit</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -490,6 +598,51 @@ public interface GoFactory extends EFactory
    * @generated
    */
   PrimaryExprLinha createPrimaryExprLinha();
+
+  /**
+   * Returns a new object of class '<em>ponto</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>ponto</em>'.
+   * @generated
+   */
+  ponto createponto();
+
+  /**
+   * Returns a new object of class '<em>cochetes</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>cochetes</em>'.
+   * @generated
+   */
+  cochetes createcochetes();
+
+  /**
+   * Returns a new object of class '<em>Selector</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Selector</em>'.
+   * @generated
+   */
+  Selector createSelector();
+
+  /**
+   * Returns a new object of class '<em>Index</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Index</em>'.
+   * @generated
+   */
+  Index createIndex();
+
+  /**
+   * Returns a new object of class '<em>Slice</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Slice</em>'.
+   * @generated
+   */
+  Slice createSlice();
 
   /**
    * Returns a new object of class '<em>Type Assertion</em>'.
@@ -546,6 +699,24 @@ public interface GoFactory extends EFactory
   ExpressionLinha createExpressionLinha();
 
   /**
+   * Returns a new object of class '<em>Unary Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Unary Expr</em>'.
+   * @generated
+   */
+  UnaryExpr createUnaryExpr();
+
+  /**
+   * Returns a new object of class '<em>binary op</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>binary op</em>'.
+   * @generated
+   */
+  binary_op createbinary_op();
+
+  /**
    * Returns a new object of class '<em>Conversion</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -580,6 +751,15 @@ public interface GoFactory extends EFactory
    * @generated
    */
   LabeledStmt createLabeledStmt();
+
+  /**
+   * Returns a new object of class '<em>Label</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Label</em>'.
+   * @generated
+   */
+  Label createLabel();
 
   /**
    * Returns a new object of class '<em>Expression Stmt</em>'.
@@ -825,6 +1005,33 @@ public interface GoFactory extends EFactory
   ReturnStmt createReturnStmt();
 
   /**
+   * Returns a new object of class '<em>Break Stmt</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Break Stmt</em>'.
+   * @generated
+   */
+  BreakStmt createBreakStmt();
+
+  /**
+   * Returns a new object of class '<em>Continue Stmt</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Continue Stmt</em>'.
+   * @generated
+   */
+  ContinueStmt createContinueStmt();
+
+  /**
+   * Returns a new object of class '<em>Goto Stmt</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Goto Stmt</em>'.
+   * @generated
+   */
+  GotoStmt createGotoStmt();
+
+  /**
    * Returns a new object of class '<em>Defer Stmt</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -832,6 +1039,114 @@ public interface GoFactory extends EFactory
    * @generated
    */
   DeferStmt createDeferStmt();
+
+  /**
+   * Returns a new object of class '<em>Package Clause</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Package Clause</em>'.
+   * @generated
+   */
+  PackageClause createPackageClause();
+
+  /**
+   * Returns a new object of class '<em>Package Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Package Name</em>'.
+   * @generated
+   */
+  PackageName createPackageName();
+
+  /**
+   * Returns a new object of class '<em>Import Decl</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Import Decl</em>'.
+   * @generated
+   */
+  ImportDecl createImportDecl();
+
+  /**
+   * Returns a new object of class '<em>Import Spec</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Import Spec</em>'.
+   * @generated
+   */
+  ImportSpec createImportSpec();
+
+  /**
+   * Returns a new object of class '<em>Import Path</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Import Path</em>'.
+   * @generated
+   */
+  ImportPath createImportPath();
+
+  /**
+   * Returns a new object of class '<em>identifier</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>identifier</em>'.
+   * @generated
+   */
+  identifier createidentifier();
+
+  /**
+   * Returns a new object of class '<em>float lit</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>float lit</em>'.
+   * @generated
+   */
+  float_lit createfloat_lit();
+
+  /**
+   * Returns a new object of class '<em>string lit</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>string lit</em>'.
+   * @generated
+   */
+  string_lit createstring_lit();
+
+  /**
+   * Returns a new object of class '<em>decimals</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>decimals</em>'.
+   * @generated
+   */
+  decimals createdecimals();
+
+  /**
+   * Returns a new object of class '<em>exponent</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>exponent</em>'.
+   * @generated
+   */
+  exponent createexponent();
+
+  /**
+   * Returns a new object of class '<em>imaginary lit</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>imaginary lit</em>'.
+   * @generated
+   */
+  imaginary_lit createimaginary_lit();
+
+  /**
+   * Returns a new object of class '<em>rune lit</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>rune lit</em>'.
+   * @generated
+   */
+  rune_lit createrune_lit();
 
   /**
    * Returns the package supported by this factory.

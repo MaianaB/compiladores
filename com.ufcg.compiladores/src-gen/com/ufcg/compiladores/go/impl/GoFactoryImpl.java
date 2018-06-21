@@ -67,12 +67,16 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
     {
       case GoPackage.SOUCE_FILE: return createSouceFile();
       case GoPackage.TYPE: return createType();
+      case GoPackage.TYPE_NAME: return createTypeName();
+      case GoPackage.TYPE_NAME_LINHA: return createTypeNameLinha();
       case GoPackage.TYPE_LIT: return createTypeLit();
       case GoPackage.TYPE_LIT_LINHA: return createTypeLitLinha();
       case GoPackage.ARRAY_LENGTH: return createArrayLength();
       case GoPackage.ELEMENT_TYPE: return createElementType();
       case GoPackage.STRUCT_TYPE: return createStructType();
       case GoPackage.FIELD_DECL: return createFieldDecl();
+      case GoPackage.EMBEDDED_FIELD: return createEmbeddedField();
+      case GoPackage.TAG: return createTag();
       case GoPackage.POINTER_TYPE: return createPointerType();
       case GoPackage.FUNCTION_TYPE: return createFunctionType();
       case GoPackage.SIGNATURE: return createSignature();
@@ -82,6 +86,8 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
       case GoPackage.PARAMETER_DECL: return createParameterDecl();
       case GoPackage.INTERFACE_TYPE: return createInterfaceType();
       case GoPackage.METHOD_SPEC: return createMethodSpec();
+      case GoPackage.METHOD_NAME: return createMethodName();
+      case GoPackage.INTERFACE_TYPE_NAME: return createInterfaceTypeName();
       case GoPackage.MAP_TYPE: return createMapType();
       case GoPackage.KEY_TYPE: return createKeyType();
       case GoPackage.CHANNEL_TYPE: return createChannelType();
@@ -92,6 +98,7 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
       case GoPackage.TOP_LEVEL_DECL_LINHA: return createtopLevelDeclLinha();
       case GoPackage.CONST_DECL: return createConstDecl();
       case GoPackage.CONST_SPEC: return createConstSpec();
+      case GoPackage.IDENTIFIER_LIST: return createIdentifierList();
       case GoPackage.EXPRESSION_LIST: return createExpressionList();
       case GoPackage.TYPE_DECL: return createTypeDecl();
       case GoPackage.TYPE_SPEC: return createTypeSpec();
@@ -101,11 +108,15 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
       case GoPackage.VAR_SPEC: return createVarSpec();
       case GoPackage.SHORT_VAR_DECL: return createShortVarDecl();
       case GoPackage.FUNCTION_DECL: return createFunctionDecl();
+      case GoPackage.FUNCTION_NAME: return createFunctionName();
       case GoPackage.FUNCTION_BODY: return createFunctionBody();
       case GoPackage.METHOD_DECL: return createMethodDecl();
       case GoPackage.RECEIVER: return createReceiver();
       case GoPackage.OPERAND: return createOperand();
       case GoPackage.LITERAL: return createLiteral();
+      case GoPackage.BASIC_LIT: return createBasicLit();
+      case GoPackage.OPERAND_NAME: return createOperandName();
+      case GoPackage.QUALIFIED_IDENT: return createQualifiedIdent();
       case GoPackage.COMPOSITE_LIT: return createCompositeLit();
       case GoPackage.LITERAL_TYPE: return createLiteralType();
       case GoPackage.LITERAL_TYPE_LINHA: return createLiteralTypeLinha();
@@ -114,19 +125,28 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
       case GoPackage.ELEMENT: return createElement();
       case GoPackage.KEYED_ELEMENT: return createKeyedElement();
       case GoPackage.KEY: return createKey();
+      case GoPackage.FIELD_NAME: return createFieldName();
       case GoPackage.FUNCTION_LIT: return createFunctionLit();
       case GoPackage.PRIMARY_EXPR: return createPrimaryExpr();
       case GoPackage.PRIMARY_EXPR_LINHA: return createPrimaryExprLinha();
+      case GoPackage.PONTO: return createponto();
+      case GoPackage.COCHETES: return createcochetes();
+      case GoPackage.SELECTOR: return createSelector();
+      case GoPackage.INDEX: return createIndex();
+      case GoPackage.SLICE: return createSlice();
       case GoPackage.TYPE_ASSERTION: return createTypeAssertion();
       case GoPackage.ARGUMENTS: return createArguments();
       case GoPackage.METHOD_EXPR: return createMethodExpr();
       case GoPackage.RECEIVER_TYPE: return createReceiverType();
       case GoPackage.EXPRESSION: return createExpression();
       case GoPackage.EXPRESSION_LINHA: return createExpressionLinha();
+      case GoPackage.UNARY_EXPR: return createUnaryExpr();
+      case GoPackage.BINARY_OP: return createbinary_op();
       case GoPackage.CONVERSION: return createConversion();
       case GoPackage.STATEMENT: return createStatement();
       case GoPackage.SIMPLE_STMT: return createSimpleStmt();
       case GoPackage.LABELED_STMT: return createLabeledStmt();
+      case GoPackage.LABEL: return createLabel();
       case GoPackage.EXPRESSION_STMT: return createExpressionStmt();
       case GoPackage.SEND_STMT: return createSendStmt();
       case GoPackage.CHANNEL: return createChannel();
@@ -154,7 +174,22 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
       case GoPackage.RECV_STMT: return createRecvStmt();
       case GoPackage.RECV_EXPR: return createRecvExpr();
       case GoPackage.RETURN_STMT: return createReturnStmt();
+      case GoPackage.BREAK_STMT: return createBreakStmt();
+      case GoPackage.CONTINUE_STMT: return createContinueStmt();
+      case GoPackage.GOTO_STMT: return createGotoStmt();
       case GoPackage.DEFER_STMT: return createDeferStmt();
+      case GoPackage.PACKAGE_CLAUSE: return createPackageClause();
+      case GoPackage.PACKAGE_NAME: return createPackageName();
+      case GoPackage.IMPORT_DECL: return createImportDecl();
+      case GoPackage.IMPORT_SPEC: return createImportSpec();
+      case GoPackage.IMPORT_PATH: return createImportPath();
+      case GoPackage.IDENTIFIER: return createidentifier();
+      case GoPackage.FLOAT_LIT: return createfloat_lit();
+      case GoPackage.STRING_LIT: return createstring_lit();
+      case GoPackage.DECIMALS: return createdecimals();
+      case GoPackage.EXPONENT: return createexponent();
+      case GoPackage.IMAGINARY_LIT: return createimaginary_lit();
+      case GoPackage.RUNE_LIT: return createrune_lit();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -180,6 +215,28 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
   {
     TypeImpl type = new TypeImpl();
     return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TypeName createTypeName()
+  {
+    TypeNameImpl typeName = new TypeNameImpl();
+    return typeName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TypeNameLinha createTypeNameLinha()
+  {
+    TypeNameLinhaImpl typeNameLinha = new TypeNameLinhaImpl();
+    return typeNameLinha;
   }
 
   /**
@@ -246,6 +303,28 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
   {
     FieldDeclImpl fieldDecl = new FieldDeclImpl();
     return fieldDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EmbeddedField createEmbeddedField()
+  {
+    EmbeddedFieldImpl embeddedField = new EmbeddedFieldImpl();
+    return embeddedField;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Tag createTag()
+  {
+    TagImpl tag = new TagImpl();
+    return tag;
   }
 
   /**
@@ -345,6 +424,28 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
   {
     MethodSpecImpl methodSpec = new MethodSpecImpl();
     return methodSpec;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MethodName createMethodName()
+  {
+    MethodNameImpl methodName = new MethodNameImpl();
+    return methodName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InterfaceTypeName createInterfaceTypeName()
+  {
+    InterfaceTypeNameImpl interfaceTypeName = new InterfaceTypeNameImpl();
+    return interfaceTypeName;
   }
 
   /**
@@ -462,6 +563,17 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public IdentifierList createIdentifierList()
+  {
+    IdentifierListImpl identifierList = new IdentifierListImpl();
+    return identifierList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ExpressionList createExpressionList()
   {
     ExpressionListImpl expressionList = new ExpressionListImpl();
@@ -561,6 +673,17 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public FunctionName createFunctionName()
+  {
+    FunctionNameImpl functionName = new FunctionNameImpl();
+    return functionName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public FunctionBody createFunctionBody()
   {
     FunctionBodyImpl functionBody = new FunctionBodyImpl();
@@ -609,6 +732,39 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
   {
     LiteralImpl literal = new LiteralImpl();
     return literal;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BasicLit createBasicLit()
+  {
+    BasicLitImpl basicLit = new BasicLitImpl();
+    return basicLit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OperandName createOperandName()
+  {
+    OperandNameImpl operandName = new OperandNameImpl();
+    return operandName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public QualifiedIdent createQualifiedIdent()
+  {
+    QualifiedIdentImpl qualifiedIdent = new QualifiedIdentImpl();
+    return qualifiedIdent;
   }
 
   /**
@@ -704,6 +860,17 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public FieldName createFieldName()
+  {
+    FieldNameImpl fieldName = new FieldNameImpl();
+    return fieldName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public FunctionLit createFunctionLit()
   {
     FunctionLitImpl functionLit = new FunctionLitImpl();
@@ -730,6 +897,61 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
   {
     PrimaryExprLinhaImpl primaryExprLinha = new PrimaryExprLinhaImpl();
     return primaryExprLinha;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ponto createponto()
+  {
+    pontoImpl ponto = new pontoImpl();
+    return ponto;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public cochetes createcochetes()
+  {
+    cochetesImpl cochetes = new cochetesImpl();
+    return cochetes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Selector createSelector()
+  {
+    SelectorImpl selector = new SelectorImpl();
+    return selector;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Index createIndex()
+  {
+    IndexImpl index = new IndexImpl();
+    return index;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Slice createSlice()
+  {
+    SliceImpl slice = new SliceImpl();
+    return slice;
   }
 
   /**
@@ -803,6 +1025,28 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public UnaryExpr createUnaryExpr()
+  {
+    UnaryExprImpl unaryExpr = new UnaryExprImpl();
+    return unaryExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public binary_op createbinary_op()
+  {
+    binary_opImpl binary_op = new binary_opImpl();
+    return binary_op;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Conversion createConversion()
   {
     ConversionImpl conversion = new ConversionImpl();
@@ -840,6 +1084,17 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
   {
     LabeledStmtImpl labeledStmt = new LabeledStmtImpl();
     return labeledStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Label createLabel()
+  {
+    LabelImpl label = new LabelImpl();
+    return label;
   }
 
   /**
@@ -1144,10 +1399,175 @@ public class GoFactoryImpl extends EFactoryImpl implements GoFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public BreakStmt createBreakStmt()
+  {
+    BreakStmtImpl breakStmt = new BreakStmtImpl();
+    return breakStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ContinueStmt createContinueStmt()
+  {
+    ContinueStmtImpl continueStmt = new ContinueStmtImpl();
+    return continueStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GotoStmt createGotoStmt()
+  {
+    GotoStmtImpl gotoStmt = new GotoStmtImpl();
+    return gotoStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public DeferStmt createDeferStmt()
   {
     DeferStmtImpl deferStmt = new DeferStmtImpl();
     return deferStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PackageClause createPackageClause()
+  {
+    PackageClauseImpl packageClause = new PackageClauseImpl();
+    return packageClause;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PackageName createPackageName()
+  {
+    PackageNameImpl packageName = new PackageNameImpl();
+    return packageName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ImportDecl createImportDecl()
+  {
+    ImportDeclImpl importDecl = new ImportDeclImpl();
+    return importDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ImportSpec createImportSpec()
+  {
+    ImportSpecImpl importSpec = new ImportSpecImpl();
+    return importSpec;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ImportPath createImportPath()
+  {
+    ImportPathImpl importPath = new ImportPathImpl();
+    return importPath;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public identifier createidentifier()
+  {
+    identifierImpl identifier = new identifierImpl();
+    return identifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public float_lit createfloat_lit()
+  {
+    float_litImpl float_lit = new float_litImpl();
+    return float_lit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public string_lit createstring_lit()
+  {
+    string_litImpl string_lit = new string_litImpl();
+    return string_lit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public decimals createdecimals()
+  {
+    decimalsImpl decimals = new decimalsImpl();
+    return decimals;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public exponent createexponent()
+  {
+    exponentImpl exponent = new exponentImpl();
+    return exponent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public imaginary_lit createimaginary_lit()
+  {
+    imaginary_litImpl imaginary_lit = new imaginary_litImpl();
+    return imaginary_lit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public rune_lit createrune_lit()
+  {
+    rune_litImpl rune_lit = new rune_litImpl();
+    return rune_lit;
   }
 
   /**

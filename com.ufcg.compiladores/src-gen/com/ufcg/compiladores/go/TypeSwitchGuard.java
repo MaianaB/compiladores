@@ -10,6 +10,13 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Type Switch Guard</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.TypeSwitchGuard#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.TypeSwitchGuard#getPrimaryExpr <em>Primary Expr</em>}</li>
+ * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getTypeSwitchGuard()
  * @model
@@ -17,4 +24,56 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface TypeSwitchGuard extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Identifier</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Identifier</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Identifier</em>' containment reference.
+   * @see #setIdentifier(identifier)
+   * @see com.ufcg.compiladores.go.GoPackage#getTypeSwitchGuard_Identifier()
+   * @model containment="true"
+   * @generated
+   */
+  identifier getIdentifier();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.TypeSwitchGuard#getIdentifier <em>Identifier</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Identifier</em>' containment reference.
+   * @see #getIdentifier()
+   * @generated
+   */
+  void setIdentifier(identifier value);
+
+  /**
+   * Returns the value of the '<em><b>Primary Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Primary Expr</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Primary Expr</em>' containment reference.
+   * @see #setPrimaryExpr(PrimaryExpr)
+   * @see com.ufcg.compiladores.go.GoPackage#getTypeSwitchGuard_PrimaryExpr()
+   * @model containment="true"
+   * @generated
+   */
+  PrimaryExpr getPrimaryExpr();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.TypeSwitchGuard#getPrimaryExpr <em>Primary Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Primary Expr</em>' containment reference.
+   * @see #getPrimaryExpr()
+   * @generated
+   */
+  void setPrimaryExpr(PrimaryExpr value);
+
 } // TypeSwitchGuard

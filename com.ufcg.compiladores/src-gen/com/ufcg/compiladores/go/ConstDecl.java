@@ -3,17 +3,50 @@
  */
 package com.ufcg.compiladores.go;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Const Decl</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.ConstDecl#getConstSpec <em>Const Spec</em>}</li>
+ * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getConstDecl()
  * @model
  * @generated
  */
-public interface ConstDecl extends Declaration
+public interface ConstDecl extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Const Spec</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Const Spec</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Const Spec</em>' containment reference.
+   * @see #setConstSpec(ConstSpec)
+   * @see com.ufcg.compiladores.go.GoPackage#getConstDecl_ConstSpec()
+   * @model containment="true"
+   * @generated
+   */
+  ConstSpec getConstSpec();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.ConstDecl#getConstSpec <em>Const Spec</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Const Spec</em>' containment reference.
+   * @see #getConstSpec()
+   * @generated
+   */
+  void setConstSpec(ConstSpec value);
+
 } // ConstDecl

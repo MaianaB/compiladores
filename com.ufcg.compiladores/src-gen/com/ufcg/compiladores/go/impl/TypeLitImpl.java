@@ -13,17 +13,14 @@ import com.ufcg.compiladores.go.StructType;
 import com.ufcg.compiladores.go.TypeLit;
 import com.ufcg.compiladores.go.TypeLitLinha;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,77 +41,77 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class TypeLitImpl extends TypeImpl implements TypeLit
+public class TypeLitImpl extends MinimalEObjectImpl.Container implements TypeLit
 {
   /**
-   * The cached value of the '{@link #getTypeLitLinha() <em>Type Lit Linha</em>}' containment reference list.
+   * The cached value of the '{@link #getTypeLitLinha() <em>Type Lit Linha</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getTypeLitLinha()
    * @generated
    * @ordered
    */
-  protected EList<TypeLitLinha> typeLitLinha;
+  protected TypeLitLinha typeLitLinha;
 
   /**
-   * The cached value of the '{@link #getStructType() <em>Struct Type</em>}' containment reference list.
+   * The cached value of the '{@link #getStructType() <em>Struct Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getStructType()
    * @generated
    * @ordered
    */
-  protected EList<StructType> structType;
+  protected StructType structType;
 
   /**
-   * The cached value of the '{@link #getPointerType() <em>Pointer Type</em>}' containment reference list.
+   * The cached value of the '{@link #getPointerType() <em>Pointer Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getPointerType()
    * @generated
    * @ordered
    */
-  protected EList<PointerType> pointerType;
+  protected PointerType pointerType;
 
   /**
-   * The cached value of the '{@link #getFunctionType() <em>Function Type</em>}' containment reference list.
+   * The cached value of the '{@link #getFunctionType() <em>Function Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getFunctionType()
    * @generated
    * @ordered
    */
-  protected EList<FunctionType> functionType;
+  protected FunctionType functionType;
 
   /**
-   * The cached value of the '{@link #getInterfaceType() <em>Interface Type</em>}' containment reference list.
+   * The cached value of the '{@link #getInterfaceType() <em>Interface Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getInterfaceType()
    * @generated
    * @ordered
    */
-  protected EList<InterfaceType> interfaceType;
+  protected InterfaceType interfaceType;
 
   /**
-   * The cached value of the '{@link #getMapType() <em>Map Type</em>}' containment reference list.
+   * The cached value of the '{@link #getMapType() <em>Map Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getMapType()
    * @generated
    * @ordered
    */
-  protected EList<MapType> mapType;
+  protected MapType mapType;
 
   /**
-   * The cached value of the '{@link #getChannelType() <em>Channel Type</em>}' containment reference list.
+   * The cached value of the '{@link #getChannelType() <em>Channel Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getChannelType()
    * @generated
    * @ordered
    */
-  protected EList<ChannelType> channelType;
+  protected ChannelType channelType;
 
   /**
    * <!-- begin-user-doc -->
@@ -142,12 +139,8 @@ public class TypeLitImpl extends TypeImpl implements TypeLit
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<TypeLitLinha> getTypeLitLinha()
+  public TypeLitLinha getTypeLitLinha()
   {
-    if (typeLitLinha == null)
-    {
-      typeLitLinha = new EObjectContainmentEList<TypeLitLinha>(TypeLitLinha.class, this, GoPackage.TYPE_LIT__TYPE_LIT_LINHA);
-    }
     return typeLitLinha;
   }
 
@@ -156,12 +149,46 @@ public class TypeLitImpl extends TypeImpl implements TypeLit
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<StructType> getStructType()
+  public NotificationChain basicSetTypeLitLinha(TypeLitLinha newTypeLitLinha, NotificationChain msgs)
   {
-    if (structType == null)
+    TypeLitLinha oldTypeLitLinha = typeLitLinha;
+    typeLitLinha = newTypeLitLinha;
+    if (eNotificationRequired())
     {
-      structType = new EObjectContainmentEList<StructType>(StructType.class, this, GoPackage.TYPE_LIT__STRUCT_TYPE);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__TYPE_LIT_LINHA, oldTypeLitLinha, newTypeLitLinha);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTypeLitLinha(TypeLitLinha newTypeLitLinha)
+  {
+    if (newTypeLitLinha != typeLitLinha)
+    {
+      NotificationChain msgs = null;
+      if (typeLitLinha != null)
+        msgs = ((InternalEObject)typeLitLinha).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__TYPE_LIT_LINHA, null, msgs);
+      if (newTypeLitLinha != null)
+        msgs = ((InternalEObject)newTypeLitLinha).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__TYPE_LIT_LINHA, null, msgs);
+      msgs = basicSetTypeLitLinha(newTypeLitLinha, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__TYPE_LIT_LINHA, newTypeLitLinha, newTypeLitLinha));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StructType getStructType()
+  {
     return structType;
   }
 
@@ -170,12 +197,46 @@ public class TypeLitImpl extends TypeImpl implements TypeLit
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<PointerType> getPointerType()
+  public NotificationChain basicSetStructType(StructType newStructType, NotificationChain msgs)
   {
-    if (pointerType == null)
+    StructType oldStructType = structType;
+    structType = newStructType;
+    if (eNotificationRequired())
     {
-      pointerType = new EObjectContainmentEList<PointerType>(PointerType.class, this, GoPackage.TYPE_LIT__POINTER_TYPE);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__STRUCT_TYPE, oldStructType, newStructType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setStructType(StructType newStructType)
+  {
+    if (newStructType != structType)
+    {
+      NotificationChain msgs = null;
+      if (structType != null)
+        msgs = ((InternalEObject)structType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__STRUCT_TYPE, null, msgs);
+      if (newStructType != null)
+        msgs = ((InternalEObject)newStructType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__STRUCT_TYPE, null, msgs);
+      msgs = basicSetStructType(newStructType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__STRUCT_TYPE, newStructType, newStructType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PointerType getPointerType()
+  {
     return pointerType;
   }
 
@@ -184,12 +245,46 @@ public class TypeLitImpl extends TypeImpl implements TypeLit
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<FunctionType> getFunctionType()
+  public NotificationChain basicSetPointerType(PointerType newPointerType, NotificationChain msgs)
   {
-    if (functionType == null)
+    PointerType oldPointerType = pointerType;
+    pointerType = newPointerType;
+    if (eNotificationRequired())
     {
-      functionType = new EObjectContainmentEList<FunctionType>(FunctionType.class, this, GoPackage.TYPE_LIT__FUNCTION_TYPE);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__POINTER_TYPE, oldPointerType, newPointerType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPointerType(PointerType newPointerType)
+  {
+    if (newPointerType != pointerType)
+    {
+      NotificationChain msgs = null;
+      if (pointerType != null)
+        msgs = ((InternalEObject)pointerType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__POINTER_TYPE, null, msgs);
+      if (newPointerType != null)
+        msgs = ((InternalEObject)newPointerType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__POINTER_TYPE, null, msgs);
+      msgs = basicSetPointerType(newPointerType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__POINTER_TYPE, newPointerType, newPointerType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FunctionType getFunctionType()
+  {
     return functionType;
   }
 
@@ -198,12 +293,46 @@ public class TypeLitImpl extends TypeImpl implements TypeLit
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<InterfaceType> getInterfaceType()
+  public NotificationChain basicSetFunctionType(FunctionType newFunctionType, NotificationChain msgs)
   {
-    if (interfaceType == null)
+    FunctionType oldFunctionType = functionType;
+    functionType = newFunctionType;
+    if (eNotificationRequired())
     {
-      interfaceType = new EObjectContainmentEList<InterfaceType>(InterfaceType.class, this, GoPackage.TYPE_LIT__INTERFACE_TYPE);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__FUNCTION_TYPE, oldFunctionType, newFunctionType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFunctionType(FunctionType newFunctionType)
+  {
+    if (newFunctionType != functionType)
+    {
+      NotificationChain msgs = null;
+      if (functionType != null)
+        msgs = ((InternalEObject)functionType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__FUNCTION_TYPE, null, msgs);
+      if (newFunctionType != null)
+        msgs = ((InternalEObject)newFunctionType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__FUNCTION_TYPE, null, msgs);
+      msgs = basicSetFunctionType(newFunctionType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__FUNCTION_TYPE, newFunctionType, newFunctionType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InterfaceType getInterfaceType()
+  {
     return interfaceType;
   }
 
@@ -212,12 +341,46 @@ public class TypeLitImpl extends TypeImpl implements TypeLit
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<MapType> getMapType()
+  public NotificationChain basicSetInterfaceType(InterfaceType newInterfaceType, NotificationChain msgs)
   {
-    if (mapType == null)
+    InterfaceType oldInterfaceType = interfaceType;
+    interfaceType = newInterfaceType;
+    if (eNotificationRequired())
     {
-      mapType = new EObjectContainmentEList<MapType>(MapType.class, this, GoPackage.TYPE_LIT__MAP_TYPE);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__INTERFACE_TYPE, oldInterfaceType, newInterfaceType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setInterfaceType(InterfaceType newInterfaceType)
+  {
+    if (newInterfaceType != interfaceType)
+    {
+      NotificationChain msgs = null;
+      if (interfaceType != null)
+        msgs = ((InternalEObject)interfaceType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__INTERFACE_TYPE, null, msgs);
+      if (newInterfaceType != null)
+        msgs = ((InternalEObject)newInterfaceType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__INTERFACE_TYPE, null, msgs);
+      msgs = basicSetInterfaceType(newInterfaceType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__INTERFACE_TYPE, newInterfaceType, newInterfaceType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MapType getMapType()
+  {
     return mapType;
   }
 
@@ -226,13 +389,85 @@ public class TypeLitImpl extends TypeImpl implements TypeLit
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ChannelType> getChannelType()
+  public NotificationChain basicSetMapType(MapType newMapType, NotificationChain msgs)
   {
-    if (channelType == null)
+    MapType oldMapType = mapType;
+    mapType = newMapType;
+    if (eNotificationRequired())
     {
-      channelType = new EObjectContainmentEList<ChannelType>(ChannelType.class, this, GoPackage.TYPE_LIT__CHANNEL_TYPE);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__MAP_TYPE, oldMapType, newMapType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMapType(MapType newMapType)
+  {
+    if (newMapType != mapType)
+    {
+      NotificationChain msgs = null;
+      if (mapType != null)
+        msgs = ((InternalEObject)mapType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__MAP_TYPE, null, msgs);
+      if (newMapType != null)
+        msgs = ((InternalEObject)newMapType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__MAP_TYPE, null, msgs);
+      msgs = basicSetMapType(newMapType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__MAP_TYPE, newMapType, newMapType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ChannelType getChannelType()
+  {
     return channelType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetChannelType(ChannelType newChannelType, NotificationChain msgs)
+  {
+    ChannelType oldChannelType = channelType;
+    channelType = newChannelType;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__CHANNEL_TYPE, oldChannelType, newChannelType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setChannelType(ChannelType newChannelType)
+  {
+    if (newChannelType != channelType)
+    {
+      NotificationChain msgs = null;
+      if (channelType != null)
+        msgs = ((InternalEObject)channelType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__CHANNEL_TYPE, null, msgs);
+      if (newChannelType != null)
+        msgs = ((InternalEObject)newChannelType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_LIT__CHANNEL_TYPE, null, msgs);
+      msgs = basicSetChannelType(newChannelType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_LIT__CHANNEL_TYPE, newChannelType, newChannelType));
   }
 
   /**
@@ -246,19 +481,19 @@ public class TypeLitImpl extends TypeImpl implements TypeLit
     switch (featureID)
     {
       case GoPackage.TYPE_LIT__TYPE_LIT_LINHA:
-        return ((InternalEList<?>)getTypeLitLinha()).basicRemove(otherEnd, msgs);
+        return basicSetTypeLitLinha(null, msgs);
       case GoPackage.TYPE_LIT__STRUCT_TYPE:
-        return ((InternalEList<?>)getStructType()).basicRemove(otherEnd, msgs);
+        return basicSetStructType(null, msgs);
       case GoPackage.TYPE_LIT__POINTER_TYPE:
-        return ((InternalEList<?>)getPointerType()).basicRemove(otherEnd, msgs);
+        return basicSetPointerType(null, msgs);
       case GoPackage.TYPE_LIT__FUNCTION_TYPE:
-        return ((InternalEList<?>)getFunctionType()).basicRemove(otherEnd, msgs);
+        return basicSetFunctionType(null, msgs);
       case GoPackage.TYPE_LIT__INTERFACE_TYPE:
-        return ((InternalEList<?>)getInterfaceType()).basicRemove(otherEnd, msgs);
+        return basicSetInterfaceType(null, msgs);
       case GoPackage.TYPE_LIT__MAP_TYPE:
-        return ((InternalEList<?>)getMapType()).basicRemove(otherEnd, msgs);
+        return basicSetMapType(null, msgs);
       case GoPackage.TYPE_LIT__CHANNEL_TYPE:
-        return ((InternalEList<?>)getChannelType()).basicRemove(otherEnd, msgs);
+        return basicSetChannelType(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -296,39 +531,31 @@ public class TypeLitImpl extends TypeImpl implements TypeLit
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
       case GoPackage.TYPE_LIT__TYPE_LIT_LINHA:
-        getTypeLitLinha().clear();
-        getTypeLitLinha().addAll((Collection<? extends TypeLitLinha>)newValue);
+        setTypeLitLinha((TypeLitLinha)newValue);
         return;
       case GoPackage.TYPE_LIT__STRUCT_TYPE:
-        getStructType().clear();
-        getStructType().addAll((Collection<? extends StructType>)newValue);
+        setStructType((StructType)newValue);
         return;
       case GoPackage.TYPE_LIT__POINTER_TYPE:
-        getPointerType().clear();
-        getPointerType().addAll((Collection<? extends PointerType>)newValue);
+        setPointerType((PointerType)newValue);
         return;
       case GoPackage.TYPE_LIT__FUNCTION_TYPE:
-        getFunctionType().clear();
-        getFunctionType().addAll((Collection<? extends FunctionType>)newValue);
+        setFunctionType((FunctionType)newValue);
         return;
       case GoPackage.TYPE_LIT__INTERFACE_TYPE:
-        getInterfaceType().clear();
-        getInterfaceType().addAll((Collection<? extends InterfaceType>)newValue);
+        setInterfaceType((InterfaceType)newValue);
         return;
       case GoPackage.TYPE_LIT__MAP_TYPE:
-        getMapType().clear();
-        getMapType().addAll((Collection<? extends MapType>)newValue);
+        setMapType((MapType)newValue);
         return;
       case GoPackage.TYPE_LIT__CHANNEL_TYPE:
-        getChannelType().clear();
-        getChannelType().addAll((Collection<? extends ChannelType>)newValue);
+        setChannelType((ChannelType)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -345,25 +572,25 @@ public class TypeLitImpl extends TypeImpl implements TypeLit
     switch (featureID)
     {
       case GoPackage.TYPE_LIT__TYPE_LIT_LINHA:
-        getTypeLitLinha().clear();
+        setTypeLitLinha((TypeLitLinha)null);
         return;
       case GoPackage.TYPE_LIT__STRUCT_TYPE:
-        getStructType().clear();
+        setStructType((StructType)null);
         return;
       case GoPackage.TYPE_LIT__POINTER_TYPE:
-        getPointerType().clear();
+        setPointerType((PointerType)null);
         return;
       case GoPackage.TYPE_LIT__FUNCTION_TYPE:
-        getFunctionType().clear();
+        setFunctionType((FunctionType)null);
         return;
       case GoPackage.TYPE_LIT__INTERFACE_TYPE:
-        getInterfaceType().clear();
+        setInterfaceType((InterfaceType)null);
         return;
       case GoPackage.TYPE_LIT__MAP_TYPE:
-        getMapType().clear();
+        setMapType((MapType)null);
         return;
       case GoPackage.TYPE_LIT__CHANNEL_TYPE:
-        getChannelType().clear();
+        setChannelType((ChannelType)null);
         return;
     }
     super.eUnset(featureID);
@@ -380,19 +607,19 @@ public class TypeLitImpl extends TypeImpl implements TypeLit
     switch (featureID)
     {
       case GoPackage.TYPE_LIT__TYPE_LIT_LINHA:
-        return typeLitLinha != null && !typeLitLinha.isEmpty();
+        return typeLitLinha != null;
       case GoPackage.TYPE_LIT__STRUCT_TYPE:
-        return structType != null && !structType.isEmpty();
+        return structType != null;
       case GoPackage.TYPE_LIT__POINTER_TYPE:
-        return pointerType != null && !pointerType.isEmpty();
+        return pointerType != null;
       case GoPackage.TYPE_LIT__FUNCTION_TYPE:
-        return functionType != null && !functionType.isEmpty();
+        return functionType != null;
       case GoPackage.TYPE_LIT__INTERFACE_TYPE:
-        return interfaceType != null && !interfaceType.isEmpty();
+        return interfaceType != null;
       case GoPackage.TYPE_LIT__MAP_TYPE:
-        return mapType != null && !mapType.isEmpty();
+        return mapType != null;
       case GoPackage.TYPE_LIT__CHANNEL_TYPE:
-        return channelType != null && !channelType.isEmpty();
+        return channelType != null;
     }
     return super.eIsSet(featureID);
   }

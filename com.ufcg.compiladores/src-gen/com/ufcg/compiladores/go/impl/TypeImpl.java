@@ -3,61 +3,19 @@
  */
 package com.ufcg.compiladores.go.impl;
 
-import com.ufcg.compiladores.go.AliasDecl;
-import com.ufcg.compiladores.go.Arguments;
-import com.ufcg.compiladores.go.ConstDecl;
-import com.ufcg.compiladores.go.ConstSpec;
-import com.ufcg.compiladores.go.Conversion;
-import com.ufcg.compiladores.go.Declaration;
-import com.ufcg.compiladores.go.ElementType;
-import com.ufcg.compiladores.go.Expression;
-import com.ufcg.compiladores.go.ExpressionList;
-import com.ufcg.compiladores.go.FieldDecl;
-import com.ufcg.compiladores.go.FunctionBody;
-import com.ufcg.compiladores.go.FunctionDecl;
-import com.ufcg.compiladores.go.FunctionLit;
-import com.ufcg.compiladores.go.FunctionType;
 import com.ufcg.compiladores.go.GoPackage;
-import com.ufcg.compiladores.go.InterfaceType;
-import com.ufcg.compiladores.go.KeyType;
-import com.ufcg.compiladores.go.MapType;
-import com.ufcg.compiladores.go.MethodDecl;
-import com.ufcg.compiladores.go.MethodExpr;
-import com.ufcg.compiladores.go.MethodSpec;
-import com.ufcg.compiladores.go.ParameterDecl;
-import com.ufcg.compiladores.go.ParameterList;
-import com.ufcg.compiladores.go.Parameters;
-import com.ufcg.compiladores.go.PointerType;
-import com.ufcg.compiladores.go.Receiver;
-import com.ufcg.compiladores.go.ReceiverType;
-import com.ufcg.compiladores.go.Result;
-import com.ufcg.compiladores.go.Signature;
-import com.ufcg.compiladores.go.SouceFile;
-import com.ufcg.compiladores.go.StatementList;
-import com.ufcg.compiladores.go.TopLevelDecl;
 import com.ufcg.compiladores.go.Type;
-import com.ufcg.compiladores.go.TypeAssertion;
-import com.ufcg.compiladores.go.TypeCaseClause;
-import com.ufcg.compiladores.go.TypeDecl;
-import com.ufcg.compiladores.go.TypeDef;
-import com.ufcg.compiladores.go.TypeList;
-import com.ufcg.compiladores.go.TypeSpec;
-import com.ufcg.compiladores.go.TypeSwitchCase;
-import com.ufcg.compiladores.go.VarDecl;
-import com.ufcg.compiladores.go.VarSpec;
-import com.ufcg.compiladores.go.topLevelDeclLinha;
+import com.ufcg.compiladores.go.TypeLit;
+import com.ufcg.compiladores.go.TypeName;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,110 +25,44 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.ufcg.compiladores.go.impl.TypeImpl#getFunctionBody <em>Function Body</em>}</li>
- *   <li>{@link com.ufcg.compiladores.go.impl.TypeImpl#getSignature <em>Signature</em>}</li>
- *   <li>{@link com.ufcg.compiladores.go.impl.TypeImpl#getResult <em>Result</em>}</li>
- *   <li>{@link com.ufcg.compiladores.go.impl.TypeImpl#getParameterDecl <em>Parameter Decl</em>}</li>
- *   <li>{@link com.ufcg.compiladores.go.impl.TypeImpl#getElementType <em>Element Type</em>}</li>
- *   <li>{@link com.ufcg.compiladores.go.impl.TypeImpl#getExpressionList <em>Expression List</em>}</li>
- *   <li>{@link com.ufcg.compiladores.go.impl.TypeImpl#getStatementList <em>Statement List</em>}</li>
- *   <li>{@link com.ufcg.compiladores.go.impl.TypeImpl#getExpression <em>Expression</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.TypeImpl#getTypeName <em>Type Name</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.TypeImpl#getTypeLit <em>Type Lit</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.impl.TypeImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TypeImpl extends ElementTypeImpl implements Type
+public class TypeImpl extends MinimalEObjectImpl.Container implements Type
 {
   /**
-   * The cached value of the '{@link #getFunctionBody() <em>Function Body</em>}' containment reference list.
+   * The cached value of the '{@link #getTypeName() <em>Type Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFunctionBody()
+   * @see #getTypeName()
    * @generated
    * @ordered
    */
-  protected EList<FunctionBody> functionBody;
+  protected TypeName typeName;
 
   /**
-   * The cached value of the '{@link #getSignature() <em>Signature</em>}' containment reference list.
+   * The cached value of the '{@link #getTypeLit() <em>Type Lit</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSignature()
+   * @see #getTypeLit()
    * @generated
    * @ordered
    */
-  protected EList<Signature> signature;
+  protected TypeLit typeLit;
 
   /**
-   * The cached value of the '{@link #getResult() <em>Result</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getResult()
-   * @generated
-   * @ordered
-   */
-  protected EList<Result> result;
-
-  /**
-   * The cached value of the '{@link #getParameterDecl() <em>Parameter Decl</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getParameterDecl()
-   * @generated
-   * @ordered
-   */
-  protected EList<ParameterDecl> parameterDecl;
-
-  /**
-   * The cached value of the '{@link #getElementType() <em>Element Type</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getElementType()
-   * @generated
-   * @ordered
-   */
-  protected EList<ElementType> elementType;
-
-  /**
-   * The cached value of the '{@link #getExpressionList() <em>Expression List</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExpressionList()
-   * @generated
-   * @ordered
-   */
-  protected EList<ExpressionList> expressionList;
-
-  /**
-   * The cached value of the '{@link #getStatementList() <em>Statement List</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getStatementList()
-   * @generated
-   * @ordered
-   */
-  protected EList<StatementList> statementList;
-
-  /**
-   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExpression()
-   * @generated
-   * @ordered
-   */
-  protected EList<Expression> expression;
-
-  /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
+   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getType()
    * @generated
    * @ordered
    */
-  protected EList<Type> type;
+  protected Type type;
 
   /**
    * <!-- begin-user-doc -->
@@ -198,13 +90,9 @@ public class TypeImpl extends ElementTypeImpl implements Type
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<FunctionBody> getFunctionBody()
+  public TypeName getTypeName()
   {
-    if (functionBody == null)
-    {
-      functionBody = new EObjectContainmentEList<FunctionBody>(FunctionBody.class, this, GoPackage.TYPE__FUNCTION_BODY);
-    }
-    return functionBody;
+    return typeName;
   }
 
   /**
@@ -212,13 +100,16 @@ public class TypeImpl extends ElementTypeImpl implements Type
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Signature> getSignature()
+  public NotificationChain basicSetTypeName(TypeName newTypeName, NotificationChain msgs)
   {
-    if (signature == null)
+    TypeName oldTypeName = typeName;
+    typeName = newTypeName;
+    if (eNotificationRequired())
     {
-      signature = new EObjectContainmentEList<Signature>(Signature.class, this, GoPackage.TYPE__SIGNATURE);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE__TYPE_NAME, oldTypeName, newTypeName);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return signature;
+    return msgs;
   }
 
   /**
@@ -226,13 +117,20 @@ public class TypeImpl extends ElementTypeImpl implements Type
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Result> getResult()
+  public void setTypeName(TypeName newTypeName)
   {
-    if (result == null)
+    if (newTypeName != typeName)
     {
-      result = new EObjectContainmentEList<Result>(Result.class, this, GoPackage.TYPE__RESULT);
+      NotificationChain msgs = null;
+      if (typeName != null)
+        msgs = ((InternalEObject)typeName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE__TYPE_NAME, null, msgs);
+      if (newTypeName != null)
+        msgs = ((InternalEObject)newTypeName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE__TYPE_NAME, null, msgs);
+      msgs = basicSetTypeName(newTypeName, msgs);
+      if (msgs != null) msgs.dispatch();
     }
-    return result;
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE__TYPE_NAME, newTypeName, newTypeName));
   }
 
   /**
@@ -240,13 +138,9 @@ public class TypeImpl extends ElementTypeImpl implements Type
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ParameterDecl> getParameterDecl()
+  public TypeLit getTypeLit()
   {
-    if (parameterDecl == null)
-    {
-      parameterDecl = new EObjectContainmentEList<ParameterDecl>(ParameterDecl.class, this, GoPackage.TYPE__PARAMETER_DECL);
-    }
-    return parameterDecl;
+    return typeLit;
   }
 
   /**
@@ -254,13 +148,16 @@ public class TypeImpl extends ElementTypeImpl implements Type
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ElementType> getElementType()
+  public NotificationChain basicSetTypeLit(TypeLit newTypeLit, NotificationChain msgs)
   {
-    if (elementType == null)
+    TypeLit oldTypeLit = typeLit;
+    typeLit = newTypeLit;
+    if (eNotificationRequired())
     {
-      elementType = new EObjectContainmentEList<ElementType>(ElementType.class, this, GoPackage.TYPE__ELEMENT_TYPE);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE__TYPE_LIT, oldTypeLit, newTypeLit);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return elementType;
+    return msgs;
   }
 
   /**
@@ -268,13 +165,20 @@ public class TypeImpl extends ElementTypeImpl implements Type
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ExpressionList> getExpressionList()
+  public void setTypeLit(TypeLit newTypeLit)
   {
-    if (expressionList == null)
+    if (newTypeLit != typeLit)
     {
-      expressionList = new EObjectContainmentEList<ExpressionList>(ExpressionList.class, this, GoPackage.TYPE__EXPRESSION_LIST);
+      NotificationChain msgs = null;
+      if (typeLit != null)
+        msgs = ((InternalEObject)typeLit).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE__TYPE_LIT, null, msgs);
+      if (newTypeLit != null)
+        msgs = ((InternalEObject)newTypeLit).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE__TYPE_LIT, null, msgs);
+      msgs = basicSetTypeLit(newTypeLit, msgs);
+      if (msgs != null) msgs.dispatch();
     }
-    return expressionList;
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE__TYPE_LIT, newTypeLit, newTypeLit));
   }
 
   /**
@@ -282,41 +186,47 @@ public class TypeImpl extends ElementTypeImpl implements Type
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<StatementList> getStatementList()
+  public Type getType()
   {
-    if (statementList == null)
-    {
-      statementList = new EObjectContainmentEList<StatementList>(StatementList.class, this, GoPackage.TYPE__STATEMENT_LIST);
-    }
-    return statementList;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Expression> getExpression()
-  {
-    if (expression == null)
-    {
-      expression = new EObjectContainmentEList<Expression>(Expression.class, this, GoPackage.TYPE__EXPRESSION);
-    }
-    return expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Type> getType()
-  {
-    if (type == null)
-    {
-      type = new EObjectContainmentEList<Type>(Type.class, this, GoPackage.TYPE__TYPE);
-    }
     return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetType(Type newType, NotificationChain msgs)
+  {
+    Type oldType = type;
+    type = newType;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE__TYPE, oldType, newType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setType(Type newType)
+  {
+    if (newType != type)
+    {
+      NotificationChain msgs = null;
+      if (type != null)
+        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE__TYPE, null, msgs);
+      if (newType != null)
+        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE__TYPE, null, msgs);
+      msgs = basicSetType(newType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE__TYPE, newType, newType));
   }
 
   /**
@@ -329,24 +239,12 @@ public class TypeImpl extends ElementTypeImpl implements Type
   {
     switch (featureID)
     {
-      case GoPackage.TYPE__FUNCTION_BODY:
-        return ((InternalEList<?>)getFunctionBody()).basicRemove(otherEnd, msgs);
-      case GoPackage.TYPE__SIGNATURE:
-        return ((InternalEList<?>)getSignature()).basicRemove(otherEnd, msgs);
-      case GoPackage.TYPE__RESULT:
-        return ((InternalEList<?>)getResult()).basicRemove(otherEnd, msgs);
-      case GoPackage.TYPE__PARAMETER_DECL:
-        return ((InternalEList<?>)getParameterDecl()).basicRemove(otherEnd, msgs);
-      case GoPackage.TYPE__ELEMENT_TYPE:
-        return ((InternalEList<?>)getElementType()).basicRemove(otherEnd, msgs);
-      case GoPackage.TYPE__EXPRESSION_LIST:
-        return ((InternalEList<?>)getExpressionList()).basicRemove(otherEnd, msgs);
-      case GoPackage.TYPE__STATEMENT_LIST:
-        return ((InternalEList<?>)getStatementList()).basicRemove(otherEnd, msgs);
-      case GoPackage.TYPE__EXPRESSION:
-        return ((InternalEList<?>)getExpression()).basicRemove(otherEnd, msgs);
+      case GoPackage.TYPE__TYPE_NAME:
+        return basicSetTypeName(null, msgs);
+      case GoPackage.TYPE__TYPE_LIT:
+        return basicSetTypeLit(null, msgs);
       case GoPackage.TYPE__TYPE:
-        return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
+        return basicSetType(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -361,22 +259,10 @@ public class TypeImpl extends ElementTypeImpl implements Type
   {
     switch (featureID)
     {
-      case GoPackage.TYPE__FUNCTION_BODY:
-        return getFunctionBody();
-      case GoPackage.TYPE__SIGNATURE:
-        return getSignature();
-      case GoPackage.TYPE__RESULT:
-        return getResult();
-      case GoPackage.TYPE__PARAMETER_DECL:
-        return getParameterDecl();
-      case GoPackage.TYPE__ELEMENT_TYPE:
-        return getElementType();
-      case GoPackage.TYPE__EXPRESSION_LIST:
-        return getExpressionList();
-      case GoPackage.TYPE__STATEMENT_LIST:
-        return getStatementList();
-      case GoPackage.TYPE__EXPRESSION:
-        return getExpression();
+      case GoPackage.TYPE__TYPE_NAME:
+        return getTypeName();
+      case GoPackage.TYPE__TYPE_LIT:
+        return getTypeLit();
       case GoPackage.TYPE__TYPE:
         return getType();
     }
@@ -388,47 +274,19 @@ public class TypeImpl extends ElementTypeImpl implements Type
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case GoPackage.TYPE__FUNCTION_BODY:
-        getFunctionBody().clear();
-        getFunctionBody().addAll((Collection<? extends FunctionBody>)newValue);
+      case GoPackage.TYPE__TYPE_NAME:
+        setTypeName((TypeName)newValue);
         return;
-      case GoPackage.TYPE__SIGNATURE:
-        getSignature().clear();
-        getSignature().addAll((Collection<? extends Signature>)newValue);
-        return;
-      case GoPackage.TYPE__RESULT:
-        getResult().clear();
-        getResult().addAll((Collection<? extends Result>)newValue);
-        return;
-      case GoPackage.TYPE__PARAMETER_DECL:
-        getParameterDecl().clear();
-        getParameterDecl().addAll((Collection<? extends ParameterDecl>)newValue);
-        return;
-      case GoPackage.TYPE__ELEMENT_TYPE:
-        getElementType().clear();
-        getElementType().addAll((Collection<? extends ElementType>)newValue);
-        return;
-      case GoPackage.TYPE__EXPRESSION_LIST:
-        getExpressionList().clear();
-        getExpressionList().addAll((Collection<? extends ExpressionList>)newValue);
-        return;
-      case GoPackage.TYPE__STATEMENT_LIST:
-        getStatementList().clear();
-        getStatementList().addAll((Collection<? extends StatementList>)newValue);
-        return;
-      case GoPackage.TYPE__EXPRESSION:
-        getExpression().clear();
-        getExpression().addAll((Collection<? extends Expression>)newValue);
+      case GoPackage.TYPE__TYPE_LIT:
+        setTypeLit((TypeLit)newValue);
         return;
       case GoPackage.TYPE__TYPE:
-        getType().clear();
-        getType().addAll((Collection<? extends Type>)newValue);
+        setType((Type)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -444,32 +302,14 @@ public class TypeImpl extends ElementTypeImpl implements Type
   {
     switch (featureID)
     {
-      case GoPackage.TYPE__FUNCTION_BODY:
-        getFunctionBody().clear();
+      case GoPackage.TYPE__TYPE_NAME:
+        setTypeName((TypeName)null);
         return;
-      case GoPackage.TYPE__SIGNATURE:
-        getSignature().clear();
-        return;
-      case GoPackage.TYPE__RESULT:
-        getResult().clear();
-        return;
-      case GoPackage.TYPE__PARAMETER_DECL:
-        getParameterDecl().clear();
-        return;
-      case GoPackage.TYPE__ELEMENT_TYPE:
-        getElementType().clear();
-        return;
-      case GoPackage.TYPE__EXPRESSION_LIST:
-        getExpressionList().clear();
-        return;
-      case GoPackage.TYPE__STATEMENT_LIST:
-        getStatementList().clear();
-        return;
-      case GoPackage.TYPE__EXPRESSION:
-        getExpression().clear();
+      case GoPackage.TYPE__TYPE_LIT:
+        setTypeLit((TypeLit)null);
         return;
       case GoPackage.TYPE__TYPE:
-        getType().clear();
+        setType((Type)null);
         return;
     }
     super.eUnset(featureID);
@@ -485,566 +325,14 @@ public class TypeImpl extends ElementTypeImpl implements Type
   {
     switch (featureID)
     {
-      case GoPackage.TYPE__FUNCTION_BODY:
-        return functionBody != null && !functionBody.isEmpty();
-      case GoPackage.TYPE__SIGNATURE:
-        return signature != null && !signature.isEmpty();
-      case GoPackage.TYPE__RESULT:
-        return result != null && !result.isEmpty();
-      case GoPackage.TYPE__PARAMETER_DECL:
-        return parameterDecl != null && !parameterDecl.isEmpty();
-      case GoPackage.TYPE__ELEMENT_TYPE:
-        return elementType != null && !elementType.isEmpty();
-      case GoPackage.TYPE__EXPRESSION_LIST:
-        return expressionList != null && !expressionList.isEmpty();
-      case GoPackage.TYPE__STATEMENT_LIST:
-        return statementList != null && !statementList.isEmpty();
-      case GoPackage.TYPE__EXPRESSION:
-        return expression != null && !expression.isEmpty();
+      case GoPackage.TYPE__TYPE_NAME:
+        return typeName != null;
+      case GoPackage.TYPE__TYPE_LIT:
+        return typeLit != null;
       case GoPackage.TYPE__TYPE:
-        return type != null && !type.isEmpty();
+        return type != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == FieldDecl.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == PointerType.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Result.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == FunctionType.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == InterfaceType.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == MethodSpec.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == SouceFile.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == TopLevelDecl.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == topLevelDeclLinha.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.TYPE__FUNCTION_BODY: return GoPackage.TOP_LEVEL_DECL_LINHA__FUNCTION_BODY;
-        default: return -1;
-      }
-    }
-    if (baseClass == FunctionDecl.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == FunctionLit.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Signature.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == MethodDecl.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Receiver.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.TYPE__SIGNATURE: return GoPackage.RECEIVER__SIGNATURE;
-        default: return -1;
-      }
-    }
-    if (baseClass == Parameters.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.TYPE__RESULT: return GoPackage.PARAMETERS__RESULT;
-        default: return -1;
-      }
-    }
-    if (baseClass == ParameterList.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == ParameterDecl.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.TYPE__PARAMETER_DECL: return GoPackage.PARAMETER_DECL__PARAMETER_DECL;
-        default: return -1;
-      }
-    }
-    if (baseClass == MapType.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == KeyType.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.TYPE__ELEMENT_TYPE: return GoPackage.KEY_TYPE__ELEMENT_TYPE;
-        default: return -1;
-      }
-    }
-    if (baseClass == Declaration.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == ConstDecl.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == ConstSpec.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.TYPE__EXPRESSION_LIST: return GoPackage.CONST_SPEC__EXPRESSION_LIST;
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeDecl.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeSpec.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == AliasDecl.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeDef.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == VarDecl.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == VarSpec.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeAssertion.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Arguments.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == MethodExpr.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == ReceiverType.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Conversion.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeCaseClause.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeSwitchCase.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.TYPE__STATEMENT_LIST: return GoPackage.TYPE_SWITCH_CASE__STATEMENT_LIST;
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeList.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == FieldDecl.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == PointerType.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Result.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == FunctionType.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == InterfaceType.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == MethodSpec.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == SouceFile.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == TopLevelDecl.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == topLevelDeclLinha.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.TOP_LEVEL_DECL_LINHA__FUNCTION_BODY: return GoPackage.TYPE__FUNCTION_BODY;
-        default: return -1;
-      }
-    }
-    if (baseClass == FunctionDecl.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == FunctionLit.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Signature.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == MethodDecl.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Receiver.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.RECEIVER__SIGNATURE: return GoPackage.TYPE__SIGNATURE;
-        default: return -1;
-      }
-    }
-    if (baseClass == Parameters.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.PARAMETERS__RESULT: return GoPackage.TYPE__RESULT;
-        default: return -1;
-      }
-    }
-    if (baseClass == ParameterList.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == ParameterDecl.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.PARAMETER_DECL__PARAMETER_DECL: return GoPackage.TYPE__PARAMETER_DECL;
-        default: return -1;
-      }
-    }
-    if (baseClass == MapType.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == KeyType.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.KEY_TYPE__ELEMENT_TYPE: return GoPackage.TYPE__ELEMENT_TYPE;
-        default: return -1;
-      }
-    }
-    if (baseClass == Declaration.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == ConstDecl.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == ConstSpec.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.CONST_SPEC__EXPRESSION_LIST: return GoPackage.TYPE__EXPRESSION_LIST;
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeDecl.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeSpec.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == AliasDecl.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeDef.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == VarDecl.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == VarSpec.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeAssertion.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Arguments.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == MethodExpr.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == ReceiverType.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Conversion.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeCaseClause.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeSwitchCase.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.TYPE_SWITCH_CASE__STATEMENT_LIST: return GoPackage.TYPE__STATEMENT_LIST;
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeList.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
 } //TypeImpl

@@ -3,21 +3,18 @@
  */
 package com.ufcg.compiladores.go.impl;
 
-import com.ufcg.compiladores.go.ElementType;
 import com.ufcg.compiladores.go.GoPackage;
 import com.ufcg.compiladores.go.KeyType;
+import com.ufcg.compiladores.go.Type;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,22 +24,22 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.ufcg.compiladores.go.impl.KeyTypeImpl#getElementType <em>Element Type</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.KeyTypeImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class KeyTypeImpl extends MapTypeImpl implements KeyType
+public class KeyTypeImpl extends MinimalEObjectImpl.Container implements KeyType
 {
   /**
-   * The cached value of the '{@link #getElementType() <em>Element Type</em>}' containment reference list.
+   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getElementType()
+   * @see #getType()
    * @generated
    * @ordered
    */
-  protected EList<ElementType> elementType;
+  protected Type type;
 
   /**
    * <!-- begin-user-doc -->
@@ -70,13 +67,47 @@ public class KeyTypeImpl extends MapTypeImpl implements KeyType
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ElementType> getElementType()
+  public Type getType()
   {
-    if (elementType == null)
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetType(Type newType, NotificationChain msgs)
+  {
+    Type oldType = type;
+    type = newType;
+    if (eNotificationRequired())
     {
-      elementType = new EObjectContainmentEList<ElementType>(ElementType.class, this, GoPackage.KEY_TYPE__ELEMENT_TYPE);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.KEY_TYPE__TYPE, oldType, newType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return elementType;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setType(Type newType)
+  {
+    if (newType != type)
+    {
+      NotificationChain msgs = null;
+      if (type != null)
+        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.KEY_TYPE__TYPE, null, msgs);
+      if (newType != null)
+        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.KEY_TYPE__TYPE, null, msgs);
+      msgs = basicSetType(newType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.KEY_TYPE__TYPE, newType, newType));
   }
 
   /**
@@ -89,8 +120,8 @@ public class KeyTypeImpl extends MapTypeImpl implements KeyType
   {
     switch (featureID)
     {
-      case GoPackage.KEY_TYPE__ELEMENT_TYPE:
-        return ((InternalEList<?>)getElementType()).basicRemove(otherEnd, msgs);
+      case GoPackage.KEY_TYPE__TYPE:
+        return basicSetType(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -105,8 +136,8 @@ public class KeyTypeImpl extends MapTypeImpl implements KeyType
   {
     switch (featureID)
     {
-      case GoPackage.KEY_TYPE__ELEMENT_TYPE:
-        return getElementType();
+      case GoPackage.KEY_TYPE__TYPE:
+        return getType();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -116,15 +147,13 @@ public class KeyTypeImpl extends MapTypeImpl implements KeyType
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case GoPackage.KEY_TYPE__ELEMENT_TYPE:
-        getElementType().clear();
-        getElementType().addAll((Collection<? extends ElementType>)newValue);
+      case GoPackage.KEY_TYPE__TYPE:
+        setType((Type)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,8 +169,8 @@ public class KeyTypeImpl extends MapTypeImpl implements KeyType
   {
     switch (featureID)
     {
-      case GoPackage.KEY_TYPE__ELEMENT_TYPE:
-        getElementType().clear();
+      case GoPackage.KEY_TYPE__TYPE:
+        setType((Type)null);
         return;
     }
     super.eUnset(featureID);
@@ -157,8 +186,8 @@ public class KeyTypeImpl extends MapTypeImpl implements KeyType
   {
     switch (featureID)
     {
-      case GoPackage.KEY_TYPE__ELEMENT_TYPE:
-        return elementType != null && !elementType.isEmpty();
+      case GoPackage.KEY_TYPE__TYPE:
+        return type != null;
     }
     return super.eIsSet(featureID);
   }

@@ -3,7 +3,7 @@
  */
 package com.ufcg.compiladores.go;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.Expression#getUnaryExpr <em>Unary Expr</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.Expression#getExpressionLinha <em>Expression Linha</em>}</li>
  * </ul>
  *
@@ -21,22 +22,58 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Expression extends ArrayLength, ExpressionList, Operand, Element, ExpressionLinha, ExpressionStmt, Channel, IncDecStmt, Condition, GoStmt, RecvExpr
+public interface Expression extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Expression Linha</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.ExpressionLinha}.
+   * Returns the value of the '<em><b>Unary Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Expression Linha</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Unary Expr</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expression Linha</em>' containment reference list.
+   * @return the value of the '<em>Unary Expr</em>' containment reference.
+   * @see #setUnaryExpr(UnaryExpr)
+   * @see com.ufcg.compiladores.go.GoPackage#getExpression_UnaryExpr()
+   * @model containment="true"
+   * @generated
+   */
+  UnaryExpr getUnaryExpr();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Expression#getUnaryExpr <em>Unary Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Unary Expr</em>' containment reference.
+   * @see #getUnaryExpr()
+   * @generated
+   */
+  void setUnaryExpr(UnaryExpr value);
+
+  /**
+   * Returns the value of the '<em><b>Expression Linha</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expression Linha</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expression Linha</em>' containment reference.
+   * @see #setExpressionLinha(ExpressionLinha)
    * @see com.ufcg.compiladores.go.GoPackage#getExpression_ExpressionLinha()
    * @model containment="true"
    * @generated
    */
-  EList<ExpressionLinha> getExpressionLinha();
+  ExpressionLinha getExpressionLinha();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Expression#getExpressionLinha <em>Expression Linha</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expression Linha</em>' containment reference.
+   * @see #getExpressionLinha()
+   * @generated
+   */
+  void setExpressionLinha(ExpressionLinha value);
 
 } // Expression

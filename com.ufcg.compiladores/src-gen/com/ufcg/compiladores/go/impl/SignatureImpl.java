@@ -3,34 +3,19 @@
  */
 package com.ufcg.compiladores.go.impl;
 
-import com.ufcg.compiladores.go.FunctionBody;
-import com.ufcg.compiladores.go.FunctionDecl;
-import com.ufcg.compiladores.go.FunctionLit;
 import com.ufcg.compiladores.go.GoPackage;
-import com.ufcg.compiladores.go.InterfaceType;
-import com.ufcg.compiladores.go.Literal;
-import com.ufcg.compiladores.go.MethodSpec;
-import com.ufcg.compiladores.go.Operand;
-import com.ufcg.compiladores.go.PrimaryExpr;
-import com.ufcg.compiladores.go.PrimaryExprLinha;
+import com.ufcg.compiladores.go.Parameters;
+import com.ufcg.compiladores.go.Result;
 import com.ufcg.compiladores.go.Signature;
-import com.ufcg.compiladores.go.SouceFile;
-import com.ufcg.compiladores.go.TopLevelDecl;
-import com.ufcg.compiladores.go.TypeSwitchGuard;
-import com.ufcg.compiladores.go.topLevelDeclLinha;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,44 +25,33 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.ufcg.compiladores.go.impl.SignatureImpl#getFunctionBody <em>Function Body</em>}</li>
- *   <li>{@link com.ufcg.compiladores.go.impl.SignatureImpl#getIndexLinha <em>Index Linha</em>}</li>
- *   <li>{@link com.ufcg.compiladores.go.impl.SignatureImpl#getPrimaryExprLinha <em>Primary Expr Linha</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.SignatureImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.SignatureImpl#getResult <em>Result</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SignatureImpl extends FunctionTypeImpl implements Signature
+public class SignatureImpl extends MinimalEObjectImpl.Container implements Signature
 {
   /**
-   * The cached value of the '{@link #getFunctionBody() <em>Function Body</em>}' containment reference list.
+   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFunctionBody()
+   * @see #getParameters()
    * @generated
    * @ordered
    */
-  protected EList<FunctionBody> functionBody;
+  protected Parameters parameters;
 
   /**
-   * The cached value of the '{@link #getIndexLinha() <em>Index Linha</em>}' attribute list.
+   * The cached value of the '{@link #getResult() <em>Result</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getIndexLinha()
+   * @see #getResult()
    * @generated
    * @ordered
    */
-  protected EList<String> indexLinha;
-
-  /**
-   * The cached value of the '{@link #getPrimaryExprLinha() <em>Primary Expr Linha</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPrimaryExprLinha()
-   * @generated
-   * @ordered
-   */
-  protected EList<PrimaryExprLinha> primaryExprLinha;
+  protected Result result;
 
   /**
    * <!-- begin-user-doc -->
@@ -105,13 +79,9 @@ public class SignatureImpl extends FunctionTypeImpl implements Signature
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<FunctionBody> getFunctionBody()
+  public Parameters getParameters()
   {
-    if (functionBody == null)
-    {
-      functionBody = new EObjectContainmentEList<FunctionBody>(FunctionBody.class, this, GoPackage.SIGNATURE__FUNCTION_BODY);
-    }
-    return functionBody;
+    return parameters;
   }
 
   /**
@@ -119,13 +89,16 @@ public class SignatureImpl extends FunctionTypeImpl implements Signature
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getIndexLinha()
+  public NotificationChain basicSetParameters(Parameters newParameters, NotificationChain msgs)
   {
-    if (indexLinha == null)
+    Parameters oldParameters = parameters;
+    parameters = newParameters;
+    if (eNotificationRequired())
     {
-      indexLinha = new EDataTypeEList<String>(String.class, this, GoPackage.SIGNATURE__INDEX_LINHA);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SIGNATURE__PARAMETERS, oldParameters, newParameters);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return indexLinha;
+    return msgs;
   }
 
   /**
@@ -133,13 +106,68 @@ public class SignatureImpl extends FunctionTypeImpl implements Signature
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<PrimaryExprLinha> getPrimaryExprLinha()
+  public void setParameters(Parameters newParameters)
   {
-    if (primaryExprLinha == null)
+    if (newParameters != parameters)
     {
-      primaryExprLinha = new EObjectContainmentEList<PrimaryExprLinha>(PrimaryExprLinha.class, this, GoPackage.SIGNATURE__PRIMARY_EXPR_LINHA);
+      NotificationChain msgs = null;
+      if (parameters != null)
+        msgs = ((InternalEObject)parameters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIGNATURE__PARAMETERS, null, msgs);
+      if (newParameters != null)
+        msgs = ((InternalEObject)newParameters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIGNATURE__PARAMETERS, null, msgs);
+      msgs = basicSetParameters(newParameters, msgs);
+      if (msgs != null) msgs.dispatch();
     }
-    return primaryExprLinha;
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SIGNATURE__PARAMETERS, newParameters, newParameters));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Result getResult()
+  {
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetResult(Result newResult, NotificationChain msgs)
+  {
+    Result oldResult = result;
+    result = newResult;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SIGNATURE__RESULT, oldResult, newResult);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setResult(Result newResult)
+  {
+    if (newResult != result)
+    {
+      NotificationChain msgs = null;
+      if (result != null)
+        msgs = ((InternalEObject)result).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIGNATURE__RESULT, null, msgs);
+      if (newResult != null)
+        msgs = ((InternalEObject)newResult).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SIGNATURE__RESULT, null, msgs);
+      msgs = basicSetResult(newResult, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SIGNATURE__RESULT, newResult, newResult));
   }
 
   /**
@@ -152,10 +180,10 @@ public class SignatureImpl extends FunctionTypeImpl implements Signature
   {
     switch (featureID)
     {
-      case GoPackage.SIGNATURE__FUNCTION_BODY:
-        return ((InternalEList<?>)getFunctionBody()).basicRemove(otherEnd, msgs);
-      case GoPackage.SIGNATURE__PRIMARY_EXPR_LINHA:
-        return ((InternalEList<?>)getPrimaryExprLinha()).basicRemove(otherEnd, msgs);
+      case GoPackage.SIGNATURE__PARAMETERS:
+        return basicSetParameters(null, msgs);
+      case GoPackage.SIGNATURE__RESULT:
+        return basicSetResult(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -170,12 +198,10 @@ public class SignatureImpl extends FunctionTypeImpl implements Signature
   {
     switch (featureID)
     {
-      case GoPackage.SIGNATURE__FUNCTION_BODY:
-        return getFunctionBody();
-      case GoPackage.SIGNATURE__INDEX_LINHA:
-        return getIndexLinha();
-      case GoPackage.SIGNATURE__PRIMARY_EXPR_LINHA:
-        return getPrimaryExprLinha();
+      case GoPackage.SIGNATURE__PARAMETERS:
+        return getParameters();
+      case GoPackage.SIGNATURE__RESULT:
+        return getResult();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -185,23 +211,16 @@ public class SignatureImpl extends FunctionTypeImpl implements Signature
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case GoPackage.SIGNATURE__FUNCTION_BODY:
-        getFunctionBody().clear();
-        getFunctionBody().addAll((Collection<? extends FunctionBody>)newValue);
+      case GoPackage.SIGNATURE__PARAMETERS:
+        setParameters((Parameters)newValue);
         return;
-      case GoPackage.SIGNATURE__INDEX_LINHA:
-        getIndexLinha().clear();
-        getIndexLinha().addAll((Collection<? extends String>)newValue);
-        return;
-      case GoPackage.SIGNATURE__PRIMARY_EXPR_LINHA:
-        getPrimaryExprLinha().clear();
-        getPrimaryExprLinha().addAll((Collection<? extends PrimaryExprLinha>)newValue);
+      case GoPackage.SIGNATURE__RESULT:
+        setResult((Result)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -217,14 +236,11 @@ public class SignatureImpl extends FunctionTypeImpl implements Signature
   {
     switch (featureID)
     {
-      case GoPackage.SIGNATURE__FUNCTION_BODY:
-        getFunctionBody().clear();
+      case GoPackage.SIGNATURE__PARAMETERS:
+        setParameters((Parameters)null);
         return;
-      case GoPackage.SIGNATURE__INDEX_LINHA:
-        getIndexLinha().clear();
-        return;
-      case GoPackage.SIGNATURE__PRIMARY_EXPR_LINHA:
-        getPrimaryExprLinha().clear();
+      case GoPackage.SIGNATURE__RESULT:
+        setResult((Result)null);
         return;
     }
     super.eUnset(featureID);
@@ -240,227 +256,12 @@ public class SignatureImpl extends FunctionTypeImpl implements Signature
   {
     switch (featureID)
     {
-      case GoPackage.SIGNATURE__FUNCTION_BODY:
-        return functionBody != null && !functionBody.isEmpty();
-      case GoPackage.SIGNATURE__INDEX_LINHA:
-        return indexLinha != null && !indexLinha.isEmpty();
-      case GoPackage.SIGNATURE__PRIMARY_EXPR_LINHA:
-        return primaryExprLinha != null && !primaryExprLinha.isEmpty();
+      case GoPackage.SIGNATURE__PARAMETERS:
+        return parameters != null;
+      case GoPackage.SIGNATURE__RESULT:
+        return result != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == InterfaceType.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == MethodSpec.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == SouceFile.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == TopLevelDecl.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == topLevelDeclLinha.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.SIGNATURE__FUNCTION_BODY: return GoPackage.TOP_LEVEL_DECL_LINHA__FUNCTION_BODY;
-        default: return -1;
-      }
-    }
-    if (baseClass == FunctionDecl.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == PrimaryExprLinha.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.SIGNATURE__INDEX_LINHA: return GoPackage.PRIMARY_EXPR_LINHA__INDEX_LINHA;
-        case GoPackage.SIGNATURE__PRIMARY_EXPR_LINHA: return GoPackage.PRIMARY_EXPR_LINHA__PRIMARY_EXPR_LINHA;
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeSwitchGuard.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == PrimaryExpr.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Operand.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Literal.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == FunctionLit.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == InterfaceType.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == MethodSpec.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == SouceFile.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == TopLevelDecl.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == topLevelDeclLinha.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.TOP_LEVEL_DECL_LINHA__FUNCTION_BODY: return GoPackage.SIGNATURE__FUNCTION_BODY;
-        default: return -1;
-      }
-    }
-    if (baseClass == FunctionDecl.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == PrimaryExprLinha.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.PRIMARY_EXPR_LINHA__INDEX_LINHA: return GoPackage.SIGNATURE__INDEX_LINHA;
-        case GoPackage.PRIMARY_EXPR_LINHA__PRIMARY_EXPR_LINHA: return GoPackage.SIGNATURE__PRIMARY_EXPR_LINHA;
-        default: return -1;
-      }
-    }
-    if (baseClass == TypeSwitchGuard.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == PrimaryExpr.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Operand.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Literal.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == FunctionLit.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (IndexLinha: ");
-    result.append(indexLinha);
-    result.append(')');
-    return result.toString();
   }
 
 } //SignatureImpl

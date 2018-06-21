@@ -4,21 +4,55 @@
 package com.ufcg.compiladores.go.impl;
 
 import com.ufcg.compiladores.go.GoPackage;
+import com.ufcg.compiladores.go.PrimaryExpr;
 import com.ufcg.compiladores.go.TypeSwitchGuard;
+import com.ufcg.compiladores.go.identifier;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Type Switch Guard</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.impl.TypeSwitchGuardImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.TypeSwitchGuardImpl#getPrimaryExpr <em>Primary Expr</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class TypeSwitchGuardImpl extends MinimalEObjectImpl.Container implements TypeSwitchGuard
 {
+  /**
+   * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIdentifier()
+   * @generated
+   * @ordered
+   */
+  protected identifier identifier;
+
+  /**
+   * The cached value of the '{@link #getPrimaryExpr() <em>Primary Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPrimaryExpr()
+   * @generated
+   * @ordered
+   */
+  protected PrimaryExpr primaryExpr;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -38,6 +72,196 @@ public class TypeSwitchGuardImpl extends MinimalEObjectImpl.Container implements
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.TYPE_SWITCH_GUARD;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public identifier getIdentifier()
+  {
+    return identifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetIdentifier(identifier newIdentifier, NotificationChain msgs)
+  {
+    identifier oldIdentifier = identifier;
+    identifier = newIdentifier;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_SWITCH_GUARD__IDENTIFIER, oldIdentifier, newIdentifier);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIdentifier(identifier newIdentifier)
+  {
+    if (newIdentifier != identifier)
+    {
+      NotificationChain msgs = null;
+      if (identifier != null)
+        msgs = ((InternalEObject)identifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_SWITCH_GUARD__IDENTIFIER, null, msgs);
+      if (newIdentifier != null)
+        msgs = ((InternalEObject)newIdentifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_SWITCH_GUARD__IDENTIFIER, null, msgs);
+      msgs = basicSetIdentifier(newIdentifier, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_SWITCH_GUARD__IDENTIFIER, newIdentifier, newIdentifier));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PrimaryExpr getPrimaryExpr()
+  {
+    return primaryExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPrimaryExpr(PrimaryExpr newPrimaryExpr, NotificationChain msgs)
+  {
+    PrimaryExpr oldPrimaryExpr = primaryExpr;
+    primaryExpr = newPrimaryExpr;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_SWITCH_GUARD__PRIMARY_EXPR, oldPrimaryExpr, newPrimaryExpr);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPrimaryExpr(PrimaryExpr newPrimaryExpr)
+  {
+    if (newPrimaryExpr != primaryExpr)
+    {
+      NotificationChain msgs = null;
+      if (primaryExpr != null)
+        msgs = ((InternalEObject)primaryExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_SWITCH_GUARD__PRIMARY_EXPR, null, msgs);
+      if (newPrimaryExpr != null)
+        msgs = ((InternalEObject)newPrimaryExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_SWITCH_GUARD__PRIMARY_EXPR, null, msgs);
+      msgs = basicSetPrimaryExpr(newPrimaryExpr, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_SWITCH_GUARD__PRIMARY_EXPR, newPrimaryExpr, newPrimaryExpr));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.TYPE_SWITCH_GUARD__IDENTIFIER:
+        return basicSetIdentifier(null, msgs);
+      case GoPackage.TYPE_SWITCH_GUARD__PRIMARY_EXPR:
+        return basicSetPrimaryExpr(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.TYPE_SWITCH_GUARD__IDENTIFIER:
+        return getIdentifier();
+      case GoPackage.TYPE_SWITCH_GUARD__PRIMARY_EXPR:
+        return getPrimaryExpr();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.TYPE_SWITCH_GUARD__IDENTIFIER:
+        setIdentifier((identifier)newValue);
+        return;
+      case GoPackage.TYPE_SWITCH_GUARD__PRIMARY_EXPR:
+        setPrimaryExpr((PrimaryExpr)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.TYPE_SWITCH_GUARD__IDENTIFIER:
+        setIdentifier((identifier)null);
+        return;
+      case GoPackage.TYPE_SWITCH_GUARD__PRIMARY_EXPR:
+        setPrimaryExpr((PrimaryExpr)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.TYPE_SWITCH_GUARD__IDENTIFIER:
+        return identifier != null;
+      case GoPackage.TYPE_SWITCH_GUARD__PRIMARY_EXPR:
+        return primaryExpr != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //TypeSwitchGuardImpl

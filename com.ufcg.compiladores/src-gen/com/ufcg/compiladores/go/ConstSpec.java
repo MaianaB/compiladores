@@ -3,7 +3,7 @@
  */
 package com.ufcg.compiladores.go;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +14,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.ConstSpec#getIdentifierList <em>Identifier List</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.ConstSpec#getType <em>Type</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.ConstSpec#getExpressionList <em>Expression List</em>}</li>
  * </ul>
  *
@@ -21,22 +23,84 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface ConstSpec extends ConstDecl
+public interface ConstSpec extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Expression List</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.ExpressionList}.
+   * Returns the value of the '<em><b>Identifier List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Expression List</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Identifier List</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expression List</em>' containment reference list.
+   * @return the value of the '<em>Identifier List</em>' containment reference.
+   * @see #setIdentifierList(IdentifierList)
+   * @see com.ufcg.compiladores.go.GoPackage#getConstSpec_IdentifierList()
+   * @model containment="true"
+   * @generated
+   */
+  IdentifierList getIdentifierList();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.ConstSpec#getIdentifierList <em>Identifier List</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Identifier List</em>' containment reference.
+   * @see #getIdentifierList()
+   * @generated
+   */
+  void setIdentifierList(IdentifierList value);
+
+  /**
+   * Returns the value of the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type</em>' containment reference.
+   * @see #setType(Type)
+   * @see com.ufcg.compiladores.go.GoPackage#getConstSpec_Type()
+   * @model containment="true"
+   * @generated
+   */
+  Type getType();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.ConstSpec#getType <em>Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type</em>' containment reference.
+   * @see #getType()
+   * @generated
+   */
+  void setType(Type value);
+
+  /**
+   * Returns the value of the '<em><b>Expression List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expression List</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expression List</em>' containment reference.
+   * @see #setExpressionList(ExpressionList)
    * @see com.ufcg.compiladores.go.GoPackage#getConstSpec_ExpressionList()
    * @model containment="true"
    * @generated
    */
-  EList<ExpressionList> getExpressionList();
+  ExpressionList getExpressionList();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.ConstSpec#getExpressionList <em>Expression List</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expression List</em>' containment reference.
+   * @see #getExpressionList()
+   * @generated
+   */
+  void setExpressionList(ExpressionList value);
 
 } // ConstSpec

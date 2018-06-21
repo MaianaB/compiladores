@@ -3,22 +3,80 @@
  */
 package com.ufcg.compiladores.go.impl;
 
+import com.ufcg.compiladores.go.Block;
+import com.ufcg.compiladores.go.Condition;
+import com.ufcg.compiladores.go.ForClause;
 import com.ufcg.compiladores.go.ForStmt;
 import com.ufcg.compiladores.go.GoPackage;
+import com.ufcg.compiladores.go.RangeClause;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>For Stmt</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.impl.ForStmtImpl#getCondition <em>Condition</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.ForStmtImpl#getForClause <em>For Clause</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.ForStmtImpl#getRangeClause <em>Range Clause</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.ForStmtImpl#getBlock <em>Block</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class ForStmtImpl extends MinimalEObjectImpl.Container implements ForStmt
 {
+  /**
+   * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCondition()
+   * @generated
+   * @ordered
+   */
+  protected Condition condition;
+
+  /**
+   * The cached value of the '{@link #getForClause() <em>For Clause</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getForClause()
+   * @generated
+   * @ordered
+   */
+  protected ForClause forClause;
+
+  /**
+   * The cached value of the '{@link #getRangeClause() <em>Range Clause</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRangeClause()
+   * @generated
+   * @ordered
+   */
+  protected RangeClause rangeClause;
+
+  /**
+   * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBlock()
+   * @generated
+   * @ordered
+   */
+  protected Block block;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -38,6 +96,316 @@ public class ForStmtImpl extends MinimalEObjectImpl.Container implements ForStmt
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.FOR_STMT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Condition getCondition()
+  {
+    return condition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetCondition(Condition newCondition, NotificationChain msgs)
+  {
+    Condition oldCondition = condition;
+    condition = newCondition;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.FOR_STMT__CONDITION, oldCondition, newCondition);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCondition(Condition newCondition)
+  {
+    if (newCondition != condition)
+    {
+      NotificationChain msgs = null;
+      if (condition != null)
+        msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.FOR_STMT__CONDITION, null, msgs);
+      if (newCondition != null)
+        msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.FOR_STMT__CONDITION, null, msgs);
+      msgs = basicSetCondition(newCondition, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.FOR_STMT__CONDITION, newCondition, newCondition));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ForClause getForClause()
+  {
+    return forClause;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetForClause(ForClause newForClause, NotificationChain msgs)
+  {
+    ForClause oldForClause = forClause;
+    forClause = newForClause;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.FOR_STMT__FOR_CLAUSE, oldForClause, newForClause);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setForClause(ForClause newForClause)
+  {
+    if (newForClause != forClause)
+    {
+      NotificationChain msgs = null;
+      if (forClause != null)
+        msgs = ((InternalEObject)forClause).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.FOR_STMT__FOR_CLAUSE, null, msgs);
+      if (newForClause != null)
+        msgs = ((InternalEObject)newForClause).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.FOR_STMT__FOR_CLAUSE, null, msgs);
+      msgs = basicSetForClause(newForClause, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.FOR_STMT__FOR_CLAUSE, newForClause, newForClause));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RangeClause getRangeClause()
+  {
+    return rangeClause;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetRangeClause(RangeClause newRangeClause, NotificationChain msgs)
+  {
+    RangeClause oldRangeClause = rangeClause;
+    rangeClause = newRangeClause;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.FOR_STMT__RANGE_CLAUSE, oldRangeClause, newRangeClause);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRangeClause(RangeClause newRangeClause)
+  {
+    if (newRangeClause != rangeClause)
+    {
+      NotificationChain msgs = null;
+      if (rangeClause != null)
+        msgs = ((InternalEObject)rangeClause).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.FOR_STMT__RANGE_CLAUSE, null, msgs);
+      if (newRangeClause != null)
+        msgs = ((InternalEObject)newRangeClause).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.FOR_STMT__RANGE_CLAUSE, null, msgs);
+      msgs = basicSetRangeClause(newRangeClause, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.FOR_STMT__RANGE_CLAUSE, newRangeClause, newRangeClause));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Block getBlock()
+  {
+    return block;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetBlock(Block newBlock, NotificationChain msgs)
+  {
+    Block oldBlock = block;
+    block = newBlock;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.FOR_STMT__BLOCK, oldBlock, newBlock);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBlock(Block newBlock)
+  {
+    if (newBlock != block)
+    {
+      NotificationChain msgs = null;
+      if (block != null)
+        msgs = ((InternalEObject)block).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.FOR_STMT__BLOCK, null, msgs);
+      if (newBlock != null)
+        msgs = ((InternalEObject)newBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.FOR_STMT__BLOCK, null, msgs);
+      msgs = basicSetBlock(newBlock, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.FOR_STMT__BLOCK, newBlock, newBlock));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.FOR_STMT__CONDITION:
+        return basicSetCondition(null, msgs);
+      case GoPackage.FOR_STMT__FOR_CLAUSE:
+        return basicSetForClause(null, msgs);
+      case GoPackage.FOR_STMT__RANGE_CLAUSE:
+        return basicSetRangeClause(null, msgs);
+      case GoPackage.FOR_STMT__BLOCK:
+        return basicSetBlock(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.FOR_STMT__CONDITION:
+        return getCondition();
+      case GoPackage.FOR_STMT__FOR_CLAUSE:
+        return getForClause();
+      case GoPackage.FOR_STMT__RANGE_CLAUSE:
+        return getRangeClause();
+      case GoPackage.FOR_STMT__BLOCK:
+        return getBlock();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.FOR_STMT__CONDITION:
+        setCondition((Condition)newValue);
+        return;
+      case GoPackage.FOR_STMT__FOR_CLAUSE:
+        setForClause((ForClause)newValue);
+        return;
+      case GoPackage.FOR_STMT__RANGE_CLAUSE:
+        setRangeClause((RangeClause)newValue);
+        return;
+      case GoPackage.FOR_STMT__BLOCK:
+        setBlock((Block)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.FOR_STMT__CONDITION:
+        setCondition((Condition)null);
+        return;
+      case GoPackage.FOR_STMT__FOR_CLAUSE:
+        setForClause((ForClause)null);
+        return;
+      case GoPackage.FOR_STMT__RANGE_CLAUSE:
+        setRangeClause((RangeClause)null);
+        return;
+      case GoPackage.FOR_STMT__BLOCK:
+        setBlock((Block)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.FOR_STMT__CONDITION:
+        return condition != null;
+      case GoPackage.FOR_STMT__FOR_CLAUSE:
+        return forClause != null;
+      case GoPackage.FOR_STMT__RANGE_CLAUSE:
+        return rangeClause != null;
+      case GoPackage.FOR_STMT__BLOCK:
+        return block != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //ForStmtImpl

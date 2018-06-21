@@ -4,11 +4,14 @@
 package com.ufcg.compiladores.go.impl;
 
 import com.ufcg.compiladores.go.Block;
+import com.ufcg.compiladores.go.BreakStmt;
+import com.ufcg.compiladores.go.ContinueStmt;
 import com.ufcg.compiladores.go.Declaration;
 import com.ufcg.compiladores.go.DeferStmt;
 import com.ufcg.compiladores.go.ForStmt;
 import com.ufcg.compiladores.go.GoPackage;
 import com.ufcg.compiladores.go.GoStmt;
+import com.ufcg.compiladores.go.GotoStmt;
 import com.ufcg.compiladores.go.IfStmt;
 import com.ufcg.compiladores.go.LabeledStmt;
 import com.ufcg.compiladores.go.ReturnStmt;
@@ -17,18 +20,14 @@ import com.ufcg.compiladores.go.SimpleStmt;
 import com.ufcg.compiladores.go.Statement;
 import com.ufcg.compiladores.go.SwitchStmt;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,157 +56,167 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class StatementImpl extends StatementListImpl implements Statement
+public class StatementImpl extends MinimalEObjectImpl.Container implements Statement
 {
   /**
-   * The cached value of the '{@link #getDeclaration() <em>Declaration</em>}' containment reference list.
+   * The cached value of the '{@link #getDeclaration() <em>Declaration</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getDeclaration()
    * @generated
    * @ordered
    */
-  protected EList<Declaration> declaration;
+  protected Declaration declaration;
 
   /**
-   * The cached value of the '{@link #getLabeledStmt() <em>Labeled Stmt</em>}' containment reference list.
+   * The cached value of the '{@link #getLabeledStmt() <em>Labeled Stmt</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getLabeledStmt()
    * @generated
    * @ordered
    */
-  protected EList<LabeledStmt> labeledStmt;
+  protected LabeledStmt labeledStmt;
 
   /**
-   * The cached value of the '{@link #getSimpleStmt() <em>Simple Stmt</em>}' containment reference list.
+   * The cached value of the '{@link #getSimpleStmt() <em>Simple Stmt</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getSimpleStmt()
    * @generated
    * @ordered
    */
-  protected EList<SimpleStmt> simpleStmt;
+  protected SimpleStmt simpleStmt;
 
   /**
-   * The cached value of the '{@link #getGoStmt() <em>Go Stmt</em>}' containment reference list.
+   * The cached value of the '{@link #getGoStmt() <em>Go Stmt</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getGoStmt()
    * @generated
    * @ordered
    */
-  protected EList<GoStmt> goStmt;
+  protected GoStmt goStmt;
 
   /**
-   * The cached value of the '{@link #getReturnStmt() <em>Return Stmt</em>}' containment reference list.
+   * The cached value of the '{@link #getReturnStmt() <em>Return Stmt</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getReturnStmt()
    * @generated
    * @ordered
    */
-  protected EList<ReturnStmt> returnStmt;
+  protected ReturnStmt returnStmt;
 
   /**
-   * The cached value of the '{@link #getBreakStmt() <em>Break Stmt</em>}' attribute list.
+   * The cached value of the '{@link #getBreakStmt() <em>Break Stmt</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getBreakStmt()
    * @generated
    * @ordered
    */
-  protected EList<String> breakStmt;
+  protected BreakStmt breakStmt;
 
   /**
-   * The cached value of the '{@link #getContinueStmt() <em>Continue Stmt</em>}' attribute list.
+   * The cached value of the '{@link #getContinueStmt() <em>Continue Stmt</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getContinueStmt()
    * @generated
    * @ordered
    */
-  protected EList<String> continueStmt;
+  protected ContinueStmt continueStmt;
 
   /**
-   * The cached value of the '{@link #getGotoStmt() <em>Goto Stmt</em>}' attribute list.
+   * The cached value of the '{@link #getGotoStmt() <em>Goto Stmt</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getGotoStmt()
    * @generated
    * @ordered
    */
-  protected EList<String> gotoStmt;
+  protected GotoStmt gotoStmt;
 
   /**
-   * The cached value of the '{@link #getFallthroughStmt() <em>Fallthrough Stmt</em>}' attribute list.
+   * The default value of the '{@link #getFallthroughStmt() <em>Fallthrough Stmt</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getFallthroughStmt()
    * @generated
    * @ordered
    */
-  protected EList<String> fallthroughStmt;
+  protected static final String FALLTHROUGH_STMT_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference list.
+   * The cached value of the '{@link #getFallthroughStmt() <em>Fallthrough Stmt</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFallthroughStmt()
+   * @generated
+   * @ordered
+   */
+  protected String fallthroughStmt = FALLTHROUGH_STMT_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getBlock()
    * @generated
    * @ordered
    */
-  protected EList<Block> block;
+  protected Block block;
 
   /**
-   * The cached value of the '{@link #getIfStmt() <em>If Stmt</em>}' containment reference list.
+   * The cached value of the '{@link #getIfStmt() <em>If Stmt</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getIfStmt()
    * @generated
    * @ordered
    */
-  protected EList<IfStmt> ifStmt;
+  protected IfStmt ifStmt;
 
   /**
-   * The cached value of the '{@link #getSwitchStmt() <em>Switch Stmt</em>}' containment reference list.
+   * The cached value of the '{@link #getSwitchStmt() <em>Switch Stmt</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getSwitchStmt()
    * @generated
    * @ordered
    */
-  protected EList<SwitchStmt> switchStmt;
+  protected SwitchStmt switchStmt;
 
   /**
-   * The cached value of the '{@link #getSelectStmt() <em>Select Stmt</em>}' containment reference list.
+   * The cached value of the '{@link #getSelectStmt() <em>Select Stmt</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getSelectStmt()
    * @generated
    * @ordered
    */
-  protected EList<SelectStmt> selectStmt;
+  protected SelectStmt selectStmt;
 
   /**
-   * The cached value of the '{@link #getForStmt() <em>For Stmt</em>}' containment reference list.
+   * The cached value of the '{@link #getForStmt() <em>For Stmt</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getForStmt()
    * @generated
    * @ordered
    */
-  protected EList<ForStmt> forStmt;
+  protected ForStmt forStmt;
 
   /**
-   * The cached value of the '{@link #getDeferStmt() <em>Defer Stmt</em>}' containment reference list.
+   * The cached value of the '{@link #getDeferStmt() <em>Defer Stmt</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getDeferStmt()
    * @generated
    * @ordered
    */
-  protected EList<DeferStmt> deferStmt;
+  protected DeferStmt deferStmt;
 
   /**
    * <!-- begin-user-doc -->
@@ -235,12 +244,8 @@ public class StatementImpl extends StatementListImpl implements Statement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Declaration> getDeclaration()
+  public Declaration getDeclaration()
   {
-    if (declaration == null)
-    {
-      declaration = new EObjectContainmentEList<Declaration>(Declaration.class, this, GoPackage.STATEMENT__DECLARATION);
-    }
     return declaration;
   }
 
@@ -249,12 +254,46 @@ public class StatementImpl extends StatementListImpl implements Statement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<LabeledStmt> getLabeledStmt()
+  public NotificationChain basicSetDeclaration(Declaration newDeclaration, NotificationChain msgs)
   {
-    if (labeledStmt == null)
+    Declaration oldDeclaration = declaration;
+    declaration = newDeclaration;
+    if (eNotificationRequired())
     {
-      labeledStmt = new EObjectContainmentEList<LabeledStmt>(LabeledStmt.class, this, GoPackage.STATEMENT__LABELED_STMT);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__DECLARATION, oldDeclaration, newDeclaration);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDeclaration(Declaration newDeclaration)
+  {
+    if (newDeclaration != declaration)
+    {
+      NotificationChain msgs = null;
+      if (declaration != null)
+        msgs = ((InternalEObject)declaration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__DECLARATION, null, msgs);
+      if (newDeclaration != null)
+        msgs = ((InternalEObject)newDeclaration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__DECLARATION, null, msgs);
+      msgs = basicSetDeclaration(newDeclaration, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__DECLARATION, newDeclaration, newDeclaration));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LabeledStmt getLabeledStmt()
+  {
     return labeledStmt;
   }
 
@@ -263,12 +302,46 @@ public class StatementImpl extends StatementListImpl implements Statement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<SimpleStmt> getSimpleStmt()
+  public NotificationChain basicSetLabeledStmt(LabeledStmt newLabeledStmt, NotificationChain msgs)
   {
-    if (simpleStmt == null)
+    LabeledStmt oldLabeledStmt = labeledStmt;
+    labeledStmt = newLabeledStmt;
+    if (eNotificationRequired())
     {
-      simpleStmt = new EObjectContainmentEList<SimpleStmt>(SimpleStmt.class, this, GoPackage.STATEMENT__SIMPLE_STMT);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__LABELED_STMT, oldLabeledStmt, newLabeledStmt);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLabeledStmt(LabeledStmt newLabeledStmt)
+  {
+    if (newLabeledStmt != labeledStmt)
+    {
+      NotificationChain msgs = null;
+      if (labeledStmt != null)
+        msgs = ((InternalEObject)labeledStmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__LABELED_STMT, null, msgs);
+      if (newLabeledStmt != null)
+        msgs = ((InternalEObject)newLabeledStmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__LABELED_STMT, null, msgs);
+      msgs = basicSetLabeledStmt(newLabeledStmt, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__LABELED_STMT, newLabeledStmt, newLabeledStmt));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SimpleStmt getSimpleStmt()
+  {
     return simpleStmt;
   }
 
@@ -277,12 +350,46 @@ public class StatementImpl extends StatementListImpl implements Statement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<GoStmt> getGoStmt()
+  public NotificationChain basicSetSimpleStmt(SimpleStmt newSimpleStmt, NotificationChain msgs)
   {
-    if (goStmt == null)
+    SimpleStmt oldSimpleStmt = simpleStmt;
+    simpleStmt = newSimpleStmt;
+    if (eNotificationRequired())
     {
-      goStmt = new EObjectContainmentEList<GoStmt>(GoStmt.class, this, GoPackage.STATEMENT__GO_STMT);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__SIMPLE_STMT, oldSimpleStmt, newSimpleStmt);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSimpleStmt(SimpleStmt newSimpleStmt)
+  {
+    if (newSimpleStmt != simpleStmt)
+    {
+      NotificationChain msgs = null;
+      if (simpleStmt != null)
+        msgs = ((InternalEObject)simpleStmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__SIMPLE_STMT, null, msgs);
+      if (newSimpleStmt != null)
+        msgs = ((InternalEObject)newSimpleStmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__SIMPLE_STMT, null, msgs);
+      msgs = basicSetSimpleStmt(newSimpleStmt, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__SIMPLE_STMT, newSimpleStmt, newSimpleStmt));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GoStmt getGoStmt()
+  {
     return goStmt;
   }
 
@@ -291,12 +398,46 @@ public class StatementImpl extends StatementListImpl implements Statement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ReturnStmt> getReturnStmt()
+  public NotificationChain basicSetGoStmt(GoStmt newGoStmt, NotificationChain msgs)
   {
-    if (returnStmt == null)
+    GoStmt oldGoStmt = goStmt;
+    goStmt = newGoStmt;
+    if (eNotificationRequired())
     {
-      returnStmt = new EObjectContainmentEList<ReturnStmt>(ReturnStmt.class, this, GoPackage.STATEMENT__RETURN_STMT);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__GO_STMT, oldGoStmt, newGoStmt);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setGoStmt(GoStmt newGoStmt)
+  {
+    if (newGoStmt != goStmt)
+    {
+      NotificationChain msgs = null;
+      if (goStmt != null)
+        msgs = ((InternalEObject)goStmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__GO_STMT, null, msgs);
+      if (newGoStmt != null)
+        msgs = ((InternalEObject)newGoStmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__GO_STMT, null, msgs);
+      msgs = basicSetGoStmt(newGoStmt, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__GO_STMT, newGoStmt, newGoStmt));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ReturnStmt getReturnStmt()
+  {
     return returnStmt;
   }
 
@@ -305,12 +446,46 @@ public class StatementImpl extends StatementListImpl implements Statement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getBreakStmt()
+  public NotificationChain basicSetReturnStmt(ReturnStmt newReturnStmt, NotificationChain msgs)
   {
-    if (breakStmt == null)
+    ReturnStmt oldReturnStmt = returnStmt;
+    returnStmt = newReturnStmt;
+    if (eNotificationRequired())
     {
-      breakStmt = new EDataTypeEList<String>(String.class, this, GoPackage.STATEMENT__BREAK_STMT);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__RETURN_STMT, oldReturnStmt, newReturnStmt);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setReturnStmt(ReturnStmt newReturnStmt)
+  {
+    if (newReturnStmt != returnStmt)
+    {
+      NotificationChain msgs = null;
+      if (returnStmt != null)
+        msgs = ((InternalEObject)returnStmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__RETURN_STMT, null, msgs);
+      if (newReturnStmt != null)
+        msgs = ((InternalEObject)newReturnStmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__RETURN_STMT, null, msgs);
+      msgs = basicSetReturnStmt(newReturnStmt, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__RETURN_STMT, newReturnStmt, newReturnStmt));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BreakStmt getBreakStmt()
+  {
     return breakStmt;
   }
 
@@ -319,12 +494,46 @@ public class StatementImpl extends StatementListImpl implements Statement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getContinueStmt()
+  public NotificationChain basicSetBreakStmt(BreakStmt newBreakStmt, NotificationChain msgs)
   {
-    if (continueStmt == null)
+    BreakStmt oldBreakStmt = breakStmt;
+    breakStmt = newBreakStmt;
+    if (eNotificationRequired())
     {
-      continueStmt = new EDataTypeEList<String>(String.class, this, GoPackage.STATEMENT__CONTINUE_STMT);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__BREAK_STMT, oldBreakStmt, newBreakStmt);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBreakStmt(BreakStmt newBreakStmt)
+  {
+    if (newBreakStmt != breakStmt)
+    {
+      NotificationChain msgs = null;
+      if (breakStmt != null)
+        msgs = ((InternalEObject)breakStmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__BREAK_STMT, null, msgs);
+      if (newBreakStmt != null)
+        msgs = ((InternalEObject)newBreakStmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__BREAK_STMT, null, msgs);
+      msgs = basicSetBreakStmt(newBreakStmt, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__BREAK_STMT, newBreakStmt, newBreakStmt));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ContinueStmt getContinueStmt()
+  {
     return continueStmt;
   }
 
@@ -333,12 +542,46 @@ public class StatementImpl extends StatementListImpl implements Statement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getGotoStmt()
+  public NotificationChain basicSetContinueStmt(ContinueStmt newContinueStmt, NotificationChain msgs)
   {
-    if (gotoStmt == null)
+    ContinueStmt oldContinueStmt = continueStmt;
+    continueStmt = newContinueStmt;
+    if (eNotificationRequired())
     {
-      gotoStmt = new EDataTypeEList<String>(String.class, this, GoPackage.STATEMENT__GOTO_STMT);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__CONTINUE_STMT, oldContinueStmt, newContinueStmt);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setContinueStmt(ContinueStmt newContinueStmt)
+  {
+    if (newContinueStmt != continueStmt)
+    {
+      NotificationChain msgs = null;
+      if (continueStmt != null)
+        msgs = ((InternalEObject)continueStmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__CONTINUE_STMT, null, msgs);
+      if (newContinueStmt != null)
+        msgs = ((InternalEObject)newContinueStmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__CONTINUE_STMT, null, msgs);
+      msgs = basicSetContinueStmt(newContinueStmt, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__CONTINUE_STMT, newContinueStmt, newContinueStmt));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GotoStmt getGotoStmt()
+  {
     return gotoStmt;
   }
 
@@ -347,12 +590,46 @@ public class StatementImpl extends StatementListImpl implements Statement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getFallthroughStmt()
+  public NotificationChain basicSetGotoStmt(GotoStmt newGotoStmt, NotificationChain msgs)
   {
-    if (fallthroughStmt == null)
+    GotoStmt oldGotoStmt = gotoStmt;
+    gotoStmt = newGotoStmt;
+    if (eNotificationRequired())
     {
-      fallthroughStmt = new EDataTypeEList<String>(String.class, this, GoPackage.STATEMENT__FALLTHROUGH_STMT);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__GOTO_STMT, oldGotoStmt, newGotoStmt);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setGotoStmt(GotoStmt newGotoStmt)
+  {
+    if (newGotoStmt != gotoStmt)
+    {
+      NotificationChain msgs = null;
+      if (gotoStmt != null)
+        msgs = ((InternalEObject)gotoStmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__GOTO_STMT, null, msgs);
+      if (newGotoStmt != null)
+        msgs = ((InternalEObject)newGotoStmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__GOTO_STMT, null, msgs);
+      msgs = basicSetGotoStmt(newGotoStmt, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__GOTO_STMT, newGotoStmt, newGotoStmt));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getFallthroughStmt()
+  {
     return fallthroughStmt;
   }
 
@@ -361,12 +638,21 @@ public class StatementImpl extends StatementListImpl implements Statement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Block> getBlock()
+  public void setFallthroughStmt(String newFallthroughStmt)
   {
-    if (block == null)
-    {
-      block = new EObjectContainmentEList<Block>(Block.class, this, GoPackage.STATEMENT__BLOCK);
-    }
+    String oldFallthroughStmt = fallthroughStmt;
+    fallthroughStmt = newFallthroughStmt;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__FALLTHROUGH_STMT, oldFallthroughStmt, fallthroughStmt));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Block getBlock()
+  {
     return block;
   }
 
@@ -375,12 +661,46 @@ public class StatementImpl extends StatementListImpl implements Statement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<IfStmt> getIfStmt()
+  public NotificationChain basicSetBlock(Block newBlock, NotificationChain msgs)
   {
-    if (ifStmt == null)
+    Block oldBlock = block;
+    block = newBlock;
+    if (eNotificationRequired())
     {
-      ifStmt = new EObjectContainmentEList<IfStmt>(IfStmt.class, this, GoPackage.STATEMENT__IF_STMT);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__BLOCK, oldBlock, newBlock);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBlock(Block newBlock)
+  {
+    if (newBlock != block)
+    {
+      NotificationChain msgs = null;
+      if (block != null)
+        msgs = ((InternalEObject)block).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__BLOCK, null, msgs);
+      if (newBlock != null)
+        msgs = ((InternalEObject)newBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__BLOCK, null, msgs);
+      msgs = basicSetBlock(newBlock, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__BLOCK, newBlock, newBlock));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IfStmt getIfStmt()
+  {
     return ifStmt;
   }
 
@@ -389,12 +709,46 @@ public class StatementImpl extends StatementListImpl implements Statement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<SwitchStmt> getSwitchStmt()
+  public NotificationChain basicSetIfStmt(IfStmt newIfStmt, NotificationChain msgs)
   {
-    if (switchStmt == null)
+    IfStmt oldIfStmt = ifStmt;
+    ifStmt = newIfStmt;
+    if (eNotificationRequired())
     {
-      switchStmt = new EObjectContainmentEList<SwitchStmt>(SwitchStmt.class, this, GoPackage.STATEMENT__SWITCH_STMT);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__IF_STMT, oldIfStmt, newIfStmt);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIfStmt(IfStmt newIfStmt)
+  {
+    if (newIfStmt != ifStmt)
+    {
+      NotificationChain msgs = null;
+      if (ifStmt != null)
+        msgs = ((InternalEObject)ifStmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__IF_STMT, null, msgs);
+      if (newIfStmt != null)
+        msgs = ((InternalEObject)newIfStmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__IF_STMT, null, msgs);
+      msgs = basicSetIfStmt(newIfStmt, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__IF_STMT, newIfStmt, newIfStmt));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SwitchStmt getSwitchStmt()
+  {
     return switchStmt;
   }
 
@@ -403,12 +757,46 @@ public class StatementImpl extends StatementListImpl implements Statement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<SelectStmt> getSelectStmt()
+  public NotificationChain basicSetSwitchStmt(SwitchStmt newSwitchStmt, NotificationChain msgs)
   {
-    if (selectStmt == null)
+    SwitchStmt oldSwitchStmt = switchStmt;
+    switchStmt = newSwitchStmt;
+    if (eNotificationRequired())
     {
-      selectStmt = new EObjectContainmentEList<SelectStmt>(SelectStmt.class, this, GoPackage.STATEMENT__SELECT_STMT);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__SWITCH_STMT, oldSwitchStmt, newSwitchStmt);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSwitchStmt(SwitchStmt newSwitchStmt)
+  {
+    if (newSwitchStmt != switchStmt)
+    {
+      NotificationChain msgs = null;
+      if (switchStmt != null)
+        msgs = ((InternalEObject)switchStmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__SWITCH_STMT, null, msgs);
+      if (newSwitchStmt != null)
+        msgs = ((InternalEObject)newSwitchStmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__SWITCH_STMT, null, msgs);
+      msgs = basicSetSwitchStmt(newSwitchStmt, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__SWITCH_STMT, newSwitchStmt, newSwitchStmt));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SelectStmt getSelectStmt()
+  {
     return selectStmt;
   }
 
@@ -417,12 +805,46 @@ public class StatementImpl extends StatementListImpl implements Statement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ForStmt> getForStmt()
+  public NotificationChain basicSetSelectStmt(SelectStmt newSelectStmt, NotificationChain msgs)
   {
-    if (forStmt == null)
+    SelectStmt oldSelectStmt = selectStmt;
+    selectStmt = newSelectStmt;
+    if (eNotificationRequired())
     {
-      forStmt = new EObjectContainmentEList<ForStmt>(ForStmt.class, this, GoPackage.STATEMENT__FOR_STMT);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__SELECT_STMT, oldSelectStmt, newSelectStmt);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSelectStmt(SelectStmt newSelectStmt)
+  {
+    if (newSelectStmt != selectStmt)
+    {
+      NotificationChain msgs = null;
+      if (selectStmt != null)
+        msgs = ((InternalEObject)selectStmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__SELECT_STMT, null, msgs);
+      if (newSelectStmt != null)
+        msgs = ((InternalEObject)newSelectStmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__SELECT_STMT, null, msgs);
+      msgs = basicSetSelectStmt(newSelectStmt, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__SELECT_STMT, newSelectStmt, newSelectStmt));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ForStmt getForStmt()
+  {
     return forStmt;
   }
 
@@ -431,13 +853,85 @@ public class StatementImpl extends StatementListImpl implements Statement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<DeferStmt> getDeferStmt()
+  public NotificationChain basicSetForStmt(ForStmt newForStmt, NotificationChain msgs)
   {
-    if (deferStmt == null)
+    ForStmt oldForStmt = forStmt;
+    forStmt = newForStmt;
+    if (eNotificationRequired())
     {
-      deferStmt = new EObjectContainmentEList<DeferStmt>(DeferStmt.class, this, GoPackage.STATEMENT__DEFER_STMT);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__FOR_STMT, oldForStmt, newForStmt);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setForStmt(ForStmt newForStmt)
+  {
+    if (newForStmt != forStmt)
+    {
+      NotificationChain msgs = null;
+      if (forStmt != null)
+        msgs = ((InternalEObject)forStmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__FOR_STMT, null, msgs);
+      if (newForStmt != null)
+        msgs = ((InternalEObject)newForStmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__FOR_STMT, null, msgs);
+      msgs = basicSetForStmt(newForStmt, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__FOR_STMT, newForStmt, newForStmt));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DeferStmt getDeferStmt()
+  {
     return deferStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetDeferStmt(DeferStmt newDeferStmt, NotificationChain msgs)
+  {
+    DeferStmt oldDeferStmt = deferStmt;
+    deferStmt = newDeferStmt;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__DEFER_STMT, oldDeferStmt, newDeferStmt);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDeferStmt(DeferStmt newDeferStmt)
+  {
+    if (newDeferStmt != deferStmt)
+    {
+      NotificationChain msgs = null;
+      if (deferStmt != null)
+        msgs = ((InternalEObject)deferStmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__DEFER_STMT, null, msgs);
+      if (newDeferStmt != null)
+        msgs = ((InternalEObject)newDeferStmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.STATEMENT__DEFER_STMT, null, msgs);
+      msgs = basicSetDeferStmt(newDeferStmt, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.STATEMENT__DEFER_STMT, newDeferStmt, newDeferStmt));
   }
 
   /**
@@ -451,27 +945,33 @@ public class StatementImpl extends StatementListImpl implements Statement
     switch (featureID)
     {
       case GoPackage.STATEMENT__DECLARATION:
-        return ((InternalEList<?>)getDeclaration()).basicRemove(otherEnd, msgs);
+        return basicSetDeclaration(null, msgs);
       case GoPackage.STATEMENT__LABELED_STMT:
-        return ((InternalEList<?>)getLabeledStmt()).basicRemove(otherEnd, msgs);
+        return basicSetLabeledStmt(null, msgs);
       case GoPackage.STATEMENT__SIMPLE_STMT:
-        return ((InternalEList<?>)getSimpleStmt()).basicRemove(otherEnd, msgs);
+        return basicSetSimpleStmt(null, msgs);
       case GoPackage.STATEMENT__GO_STMT:
-        return ((InternalEList<?>)getGoStmt()).basicRemove(otherEnd, msgs);
+        return basicSetGoStmt(null, msgs);
       case GoPackage.STATEMENT__RETURN_STMT:
-        return ((InternalEList<?>)getReturnStmt()).basicRemove(otherEnd, msgs);
+        return basicSetReturnStmt(null, msgs);
+      case GoPackage.STATEMENT__BREAK_STMT:
+        return basicSetBreakStmt(null, msgs);
+      case GoPackage.STATEMENT__CONTINUE_STMT:
+        return basicSetContinueStmt(null, msgs);
+      case GoPackage.STATEMENT__GOTO_STMT:
+        return basicSetGotoStmt(null, msgs);
       case GoPackage.STATEMENT__BLOCK:
-        return ((InternalEList<?>)getBlock()).basicRemove(otherEnd, msgs);
+        return basicSetBlock(null, msgs);
       case GoPackage.STATEMENT__IF_STMT:
-        return ((InternalEList<?>)getIfStmt()).basicRemove(otherEnd, msgs);
+        return basicSetIfStmt(null, msgs);
       case GoPackage.STATEMENT__SWITCH_STMT:
-        return ((InternalEList<?>)getSwitchStmt()).basicRemove(otherEnd, msgs);
+        return basicSetSwitchStmt(null, msgs);
       case GoPackage.STATEMENT__SELECT_STMT:
-        return ((InternalEList<?>)getSelectStmt()).basicRemove(otherEnd, msgs);
+        return basicSetSelectStmt(null, msgs);
       case GoPackage.STATEMENT__FOR_STMT:
-        return ((InternalEList<?>)getForStmt()).basicRemove(otherEnd, msgs);
+        return basicSetForStmt(null, msgs);
       case GoPackage.STATEMENT__DEFER_STMT:
-        return ((InternalEList<?>)getDeferStmt()).basicRemove(otherEnd, msgs);
+        return basicSetDeferStmt(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -525,71 +1025,55 @@ public class StatementImpl extends StatementListImpl implements Statement
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
       case GoPackage.STATEMENT__DECLARATION:
-        getDeclaration().clear();
-        getDeclaration().addAll((Collection<? extends Declaration>)newValue);
+        setDeclaration((Declaration)newValue);
         return;
       case GoPackage.STATEMENT__LABELED_STMT:
-        getLabeledStmt().clear();
-        getLabeledStmt().addAll((Collection<? extends LabeledStmt>)newValue);
+        setLabeledStmt((LabeledStmt)newValue);
         return;
       case GoPackage.STATEMENT__SIMPLE_STMT:
-        getSimpleStmt().clear();
-        getSimpleStmt().addAll((Collection<? extends SimpleStmt>)newValue);
+        setSimpleStmt((SimpleStmt)newValue);
         return;
       case GoPackage.STATEMENT__GO_STMT:
-        getGoStmt().clear();
-        getGoStmt().addAll((Collection<? extends GoStmt>)newValue);
+        setGoStmt((GoStmt)newValue);
         return;
       case GoPackage.STATEMENT__RETURN_STMT:
-        getReturnStmt().clear();
-        getReturnStmt().addAll((Collection<? extends ReturnStmt>)newValue);
+        setReturnStmt((ReturnStmt)newValue);
         return;
       case GoPackage.STATEMENT__BREAK_STMT:
-        getBreakStmt().clear();
-        getBreakStmt().addAll((Collection<? extends String>)newValue);
+        setBreakStmt((BreakStmt)newValue);
         return;
       case GoPackage.STATEMENT__CONTINUE_STMT:
-        getContinueStmt().clear();
-        getContinueStmt().addAll((Collection<? extends String>)newValue);
+        setContinueStmt((ContinueStmt)newValue);
         return;
       case GoPackage.STATEMENT__GOTO_STMT:
-        getGotoStmt().clear();
-        getGotoStmt().addAll((Collection<? extends String>)newValue);
+        setGotoStmt((GotoStmt)newValue);
         return;
       case GoPackage.STATEMENT__FALLTHROUGH_STMT:
-        getFallthroughStmt().clear();
-        getFallthroughStmt().addAll((Collection<? extends String>)newValue);
+        setFallthroughStmt((String)newValue);
         return;
       case GoPackage.STATEMENT__BLOCK:
-        getBlock().clear();
-        getBlock().addAll((Collection<? extends Block>)newValue);
+        setBlock((Block)newValue);
         return;
       case GoPackage.STATEMENT__IF_STMT:
-        getIfStmt().clear();
-        getIfStmt().addAll((Collection<? extends IfStmt>)newValue);
+        setIfStmt((IfStmt)newValue);
         return;
       case GoPackage.STATEMENT__SWITCH_STMT:
-        getSwitchStmt().clear();
-        getSwitchStmt().addAll((Collection<? extends SwitchStmt>)newValue);
+        setSwitchStmt((SwitchStmt)newValue);
         return;
       case GoPackage.STATEMENT__SELECT_STMT:
-        getSelectStmt().clear();
-        getSelectStmt().addAll((Collection<? extends SelectStmt>)newValue);
+        setSelectStmt((SelectStmt)newValue);
         return;
       case GoPackage.STATEMENT__FOR_STMT:
-        getForStmt().clear();
-        getForStmt().addAll((Collection<? extends ForStmt>)newValue);
+        setForStmt((ForStmt)newValue);
         return;
       case GoPackage.STATEMENT__DEFER_STMT:
-        getDeferStmt().clear();
-        getDeferStmt().addAll((Collection<? extends DeferStmt>)newValue);
+        setDeferStmt((DeferStmt)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -606,49 +1090,49 @@ public class StatementImpl extends StatementListImpl implements Statement
     switch (featureID)
     {
       case GoPackage.STATEMENT__DECLARATION:
-        getDeclaration().clear();
+        setDeclaration((Declaration)null);
         return;
       case GoPackage.STATEMENT__LABELED_STMT:
-        getLabeledStmt().clear();
+        setLabeledStmt((LabeledStmt)null);
         return;
       case GoPackage.STATEMENT__SIMPLE_STMT:
-        getSimpleStmt().clear();
+        setSimpleStmt((SimpleStmt)null);
         return;
       case GoPackage.STATEMENT__GO_STMT:
-        getGoStmt().clear();
+        setGoStmt((GoStmt)null);
         return;
       case GoPackage.STATEMENT__RETURN_STMT:
-        getReturnStmt().clear();
+        setReturnStmt((ReturnStmt)null);
         return;
       case GoPackage.STATEMENT__BREAK_STMT:
-        getBreakStmt().clear();
+        setBreakStmt((BreakStmt)null);
         return;
       case GoPackage.STATEMENT__CONTINUE_STMT:
-        getContinueStmt().clear();
+        setContinueStmt((ContinueStmt)null);
         return;
       case GoPackage.STATEMENT__GOTO_STMT:
-        getGotoStmt().clear();
+        setGotoStmt((GotoStmt)null);
         return;
       case GoPackage.STATEMENT__FALLTHROUGH_STMT:
-        getFallthroughStmt().clear();
+        setFallthroughStmt(FALLTHROUGH_STMT_EDEFAULT);
         return;
       case GoPackage.STATEMENT__BLOCK:
-        getBlock().clear();
+        setBlock((Block)null);
         return;
       case GoPackage.STATEMENT__IF_STMT:
-        getIfStmt().clear();
+        setIfStmt((IfStmt)null);
         return;
       case GoPackage.STATEMENT__SWITCH_STMT:
-        getSwitchStmt().clear();
+        setSwitchStmt((SwitchStmt)null);
         return;
       case GoPackage.STATEMENT__SELECT_STMT:
-        getSelectStmt().clear();
+        setSelectStmt((SelectStmt)null);
         return;
       case GoPackage.STATEMENT__FOR_STMT:
-        getForStmt().clear();
+        setForStmt((ForStmt)null);
         return;
       case GoPackage.STATEMENT__DEFER_STMT:
-        getDeferStmt().clear();
+        setDeferStmt((DeferStmt)null);
         return;
     }
     super.eUnset(featureID);
@@ -665,35 +1149,35 @@ public class StatementImpl extends StatementListImpl implements Statement
     switch (featureID)
     {
       case GoPackage.STATEMENT__DECLARATION:
-        return declaration != null && !declaration.isEmpty();
+        return declaration != null;
       case GoPackage.STATEMENT__LABELED_STMT:
-        return labeledStmt != null && !labeledStmt.isEmpty();
+        return labeledStmt != null;
       case GoPackage.STATEMENT__SIMPLE_STMT:
-        return simpleStmt != null && !simpleStmt.isEmpty();
+        return simpleStmt != null;
       case GoPackage.STATEMENT__GO_STMT:
-        return goStmt != null && !goStmt.isEmpty();
+        return goStmt != null;
       case GoPackage.STATEMENT__RETURN_STMT:
-        return returnStmt != null && !returnStmt.isEmpty();
+        return returnStmt != null;
       case GoPackage.STATEMENT__BREAK_STMT:
-        return breakStmt != null && !breakStmt.isEmpty();
+        return breakStmt != null;
       case GoPackage.STATEMENT__CONTINUE_STMT:
-        return continueStmt != null && !continueStmt.isEmpty();
+        return continueStmt != null;
       case GoPackage.STATEMENT__GOTO_STMT:
-        return gotoStmt != null && !gotoStmt.isEmpty();
+        return gotoStmt != null;
       case GoPackage.STATEMENT__FALLTHROUGH_STMT:
-        return fallthroughStmt != null && !fallthroughStmt.isEmpty();
+        return FALLTHROUGH_STMT_EDEFAULT == null ? fallthroughStmt != null : !FALLTHROUGH_STMT_EDEFAULT.equals(fallthroughStmt);
       case GoPackage.STATEMENT__BLOCK:
-        return block != null && !block.isEmpty();
+        return block != null;
       case GoPackage.STATEMENT__IF_STMT:
-        return ifStmt != null && !ifStmt.isEmpty();
+        return ifStmt != null;
       case GoPackage.STATEMENT__SWITCH_STMT:
-        return switchStmt != null && !switchStmt.isEmpty();
+        return switchStmt != null;
       case GoPackage.STATEMENT__SELECT_STMT:
-        return selectStmt != null && !selectStmt.isEmpty();
+        return selectStmt != null;
       case GoPackage.STATEMENT__FOR_STMT:
-        return forStmt != null && !forStmt.isEmpty();
+        return forStmt != null;
       case GoPackage.STATEMENT__DEFER_STMT:
-        return deferStmt != null && !deferStmt.isEmpty();
+        return deferStmt != null;
     }
     return super.eIsSet(featureID);
   }
@@ -709,13 +1193,7 @@ public class StatementImpl extends StatementListImpl implements Statement
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (BreakStmt: ");
-    result.append(breakStmt);
-    result.append(", ContinueStmt: ");
-    result.append(continueStmt);
-    result.append(", GotoStmt: ");
-    result.append(gotoStmt);
-    result.append(", FallthroughStmt: ");
+    result.append(" (FallthroughStmt: ");
     result.append(fallthroughStmt);
     result.append(')');
     return result.toString();

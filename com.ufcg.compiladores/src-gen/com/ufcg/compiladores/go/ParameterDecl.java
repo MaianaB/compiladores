@@ -3,7 +3,7 @@
  */
 package com.ufcg.compiladores.go;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,29 +14,66 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.ufcg.compiladores.go.ParameterDecl#getParameterDecl <em>Parameter Decl</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.ParameterDecl#getIdentifierList <em>Identifier List</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.ParameterDecl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getParameterDecl()
  * @model
  * @generated
  */
-public interface ParameterDecl extends ParameterList
+public interface ParameterDecl extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Parameter Decl</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.ParameterDecl}.
+   * Returns the value of the '<em><b>Identifier List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Parameter Decl</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Identifier List</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Parameter Decl</em>' containment reference list.
-   * @see com.ufcg.compiladores.go.GoPackage#getParameterDecl_ParameterDecl()
+   * @return the value of the '<em>Identifier List</em>' containment reference.
+   * @see #setIdentifierList(IdentifierList)
+   * @see com.ufcg.compiladores.go.GoPackage#getParameterDecl_IdentifierList()
    * @model containment="true"
    * @generated
    */
-  EList<ParameterDecl> getParameterDecl();
+  IdentifierList getIdentifierList();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.ParameterDecl#getIdentifierList <em>Identifier List</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Identifier List</em>' containment reference.
+   * @see #getIdentifierList()
+   * @generated
+   */
+  void setIdentifierList(IdentifierList value);
+
+  /**
+   * Returns the value of the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type</em>' containment reference.
+   * @see #setType(Type)
+   * @see com.ufcg.compiladores.go.GoPackage#getParameterDecl_Type()
+   * @model containment="true"
+   * @generated
+   */
+  Type getType();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.ParameterDecl#getType <em>Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type</em>' containment reference.
+   * @see #getType()
+   * @generated
+   */
+  void setType(Type value);
 
 } // ParameterDecl

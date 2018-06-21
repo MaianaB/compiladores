@@ -4,23 +4,16 @@
 package com.ufcg.compiladores.go.impl;
 
 import com.ufcg.compiladores.go.GoPackage;
-import com.ufcg.compiladores.go.MethodDecl;
+import com.ufcg.compiladores.go.ParameterList;
 import com.ufcg.compiladores.go.Parameters;
-import com.ufcg.compiladores.go.Receiver;
-import com.ufcg.compiladores.go.Result;
-import com.ufcg.compiladores.go.Signature;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,33 +23,22 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.ufcg.compiladores.go.impl.ParametersImpl#getSignature <em>Signature</em>}</li>
- *   <li>{@link com.ufcg.compiladores.go.impl.ParametersImpl#getResult <em>Result</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.ParametersImpl#getParameterList <em>Parameter List</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ParametersImpl extends SignatureImpl implements Parameters
+public class ParametersImpl extends ReceiverImpl implements Parameters
 {
   /**
-   * The cached value of the '{@link #getSignature() <em>Signature</em>}' containment reference list.
+   * The cached value of the '{@link #getParameterList() <em>Parameter List</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSignature()
+   * @see #getParameterList()
    * @generated
    * @ordered
    */
-  protected EList<Signature> signature;
-
-  /**
-   * The cached value of the '{@link #getResult() <em>Result</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getResult()
-   * @generated
-   * @ordered
-   */
-  protected EList<Result> result;
+  protected ParameterList parameterList;
 
   /**
    * <!-- begin-user-doc -->
@@ -84,13 +66,9 @@ public class ParametersImpl extends SignatureImpl implements Parameters
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Signature> getSignature()
+  public ParameterList getParameterList()
   {
-    if (signature == null)
-    {
-      signature = new EObjectContainmentEList<Signature>(Signature.class, this, GoPackage.PARAMETERS__SIGNATURE);
-    }
-    return signature;
+    return parameterList;
   }
 
   /**
@@ -98,13 +76,37 @@ public class ParametersImpl extends SignatureImpl implements Parameters
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Result> getResult()
+  public NotificationChain basicSetParameterList(ParameterList newParameterList, NotificationChain msgs)
   {
-    if (result == null)
+    ParameterList oldParameterList = parameterList;
+    parameterList = newParameterList;
+    if (eNotificationRequired())
     {
-      result = new EObjectContainmentEList<Result>(Result.class, this, GoPackage.PARAMETERS__RESULT);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.PARAMETERS__PARAMETER_LIST, oldParameterList, newParameterList);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return result;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParameterList(ParameterList newParameterList)
+  {
+    if (newParameterList != parameterList)
+    {
+      NotificationChain msgs = null;
+      if (parameterList != null)
+        msgs = ((InternalEObject)parameterList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.PARAMETERS__PARAMETER_LIST, null, msgs);
+      if (newParameterList != null)
+        msgs = ((InternalEObject)newParameterList).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.PARAMETERS__PARAMETER_LIST, null, msgs);
+      msgs = basicSetParameterList(newParameterList, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.PARAMETERS__PARAMETER_LIST, newParameterList, newParameterList));
   }
 
   /**
@@ -117,10 +119,8 @@ public class ParametersImpl extends SignatureImpl implements Parameters
   {
     switch (featureID)
     {
-      case GoPackage.PARAMETERS__SIGNATURE:
-        return ((InternalEList<?>)getSignature()).basicRemove(otherEnd, msgs);
-      case GoPackage.PARAMETERS__RESULT:
-        return ((InternalEList<?>)getResult()).basicRemove(otherEnd, msgs);
+      case GoPackage.PARAMETERS__PARAMETER_LIST:
+        return basicSetParameterList(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -135,10 +135,8 @@ public class ParametersImpl extends SignatureImpl implements Parameters
   {
     switch (featureID)
     {
-      case GoPackage.PARAMETERS__SIGNATURE:
-        return getSignature();
-      case GoPackage.PARAMETERS__RESULT:
-        return getResult();
+      case GoPackage.PARAMETERS__PARAMETER_LIST:
+        return getParameterList();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -148,19 +146,13 @@ public class ParametersImpl extends SignatureImpl implements Parameters
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case GoPackage.PARAMETERS__SIGNATURE:
-        getSignature().clear();
-        getSignature().addAll((Collection<? extends Signature>)newValue);
-        return;
-      case GoPackage.PARAMETERS__RESULT:
-        getResult().clear();
-        getResult().addAll((Collection<? extends Result>)newValue);
+      case GoPackage.PARAMETERS__PARAMETER_LIST:
+        setParameterList((ParameterList)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -176,11 +168,8 @@ public class ParametersImpl extends SignatureImpl implements Parameters
   {
     switch (featureID)
     {
-      case GoPackage.PARAMETERS__SIGNATURE:
-        getSignature().clear();
-        return;
-      case GoPackage.PARAMETERS__RESULT:
-        getResult().clear();
+      case GoPackage.PARAMETERS__PARAMETER_LIST:
+        setParameterList((ParameterList)null);
         return;
     }
     super.eUnset(featureID);
@@ -196,78 +185,10 @@ public class ParametersImpl extends SignatureImpl implements Parameters
   {
     switch (featureID)
     {
-      case GoPackage.PARAMETERS__SIGNATURE:
-        return signature != null && !signature.isEmpty();
-      case GoPackage.PARAMETERS__RESULT:
-        return result != null && !result.isEmpty();
+      case GoPackage.PARAMETERS__PARAMETER_LIST:
+        return parameterList != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == Result.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == MethodDecl.class)
-    {
-      switch (derivedFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Receiver.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case GoPackage.PARAMETERS__SIGNATURE: return GoPackage.RECEIVER__SIGNATURE;
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == Result.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == MethodDecl.class)
-    {
-      switch (baseFeatureID)
-      {
-        default: return -1;
-      }
-    }
-    if (baseClass == Receiver.class)
-    {
-      switch (baseFeatureID)
-      {
-        case GoPackage.RECEIVER__SIGNATURE: return GoPackage.PARAMETERS__SIGNATURE;
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
 } //ParametersImpl

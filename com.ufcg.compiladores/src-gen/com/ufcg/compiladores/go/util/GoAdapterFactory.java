@@ -86,6 +86,16 @@ public class GoAdapterFactory extends AdapterFactoryImpl
         return createTypeAdapter();
       }
       @Override
+      public Adapter caseTypeName(TypeName object)
+      {
+        return createTypeNameAdapter();
+      }
+      @Override
+      public Adapter caseTypeNameLinha(TypeNameLinha object)
+      {
+        return createTypeNameLinhaAdapter();
+      }
+      @Override
       public Adapter caseTypeLit(TypeLit object)
       {
         return createTypeLitAdapter();
@@ -114,6 +124,16 @@ public class GoAdapterFactory extends AdapterFactoryImpl
       public Adapter caseFieldDecl(FieldDecl object)
       {
         return createFieldDeclAdapter();
+      }
+      @Override
+      public Adapter caseEmbeddedField(EmbeddedField object)
+      {
+        return createEmbeddedFieldAdapter();
+      }
+      @Override
+      public Adapter caseTag(Tag object)
+      {
+        return createTagAdapter();
       }
       @Override
       public Adapter casePointerType(PointerType object)
@@ -159,6 +179,16 @@ public class GoAdapterFactory extends AdapterFactoryImpl
       public Adapter caseMethodSpec(MethodSpec object)
       {
         return createMethodSpecAdapter();
+      }
+      @Override
+      public Adapter caseMethodName(MethodName object)
+      {
+        return createMethodNameAdapter();
+      }
+      @Override
+      public Adapter caseInterfaceTypeName(InterfaceTypeName object)
+      {
+        return createInterfaceTypeNameAdapter();
       }
       @Override
       public Adapter caseMapType(MapType object)
@@ -211,6 +241,11 @@ public class GoAdapterFactory extends AdapterFactoryImpl
         return createConstSpecAdapter();
       }
       @Override
+      public Adapter caseIdentifierList(IdentifierList object)
+      {
+        return createIdentifierListAdapter();
+      }
+      @Override
       public Adapter caseExpressionList(ExpressionList object)
       {
         return createExpressionListAdapter();
@@ -256,6 +291,11 @@ public class GoAdapterFactory extends AdapterFactoryImpl
         return createFunctionDeclAdapter();
       }
       @Override
+      public Adapter caseFunctionName(FunctionName object)
+      {
+        return createFunctionNameAdapter();
+      }
+      @Override
       public Adapter caseFunctionBody(FunctionBody object)
       {
         return createFunctionBodyAdapter();
@@ -279,6 +319,21 @@ public class GoAdapterFactory extends AdapterFactoryImpl
       public Adapter caseLiteral(Literal object)
       {
         return createLiteralAdapter();
+      }
+      @Override
+      public Adapter caseBasicLit(BasicLit object)
+      {
+        return createBasicLitAdapter();
+      }
+      @Override
+      public Adapter caseOperandName(OperandName object)
+      {
+        return createOperandNameAdapter();
+      }
+      @Override
+      public Adapter caseQualifiedIdent(QualifiedIdent object)
+      {
+        return createQualifiedIdentAdapter();
       }
       @Override
       public Adapter caseCompositeLit(CompositeLit object)
@@ -321,6 +376,11 @@ public class GoAdapterFactory extends AdapterFactoryImpl
         return createKeyAdapter();
       }
       @Override
+      public Adapter caseFieldName(FieldName object)
+      {
+        return createFieldNameAdapter();
+      }
+      @Override
       public Adapter caseFunctionLit(FunctionLit object)
       {
         return createFunctionLitAdapter();
@@ -334,6 +394,31 @@ public class GoAdapterFactory extends AdapterFactoryImpl
       public Adapter casePrimaryExprLinha(PrimaryExprLinha object)
       {
         return createPrimaryExprLinhaAdapter();
+      }
+      @Override
+      public Adapter caseponto(ponto object)
+      {
+        return createpontoAdapter();
+      }
+      @Override
+      public Adapter casecochetes(cochetes object)
+      {
+        return createcochetesAdapter();
+      }
+      @Override
+      public Adapter caseSelector(Selector object)
+      {
+        return createSelectorAdapter();
+      }
+      @Override
+      public Adapter caseIndex(Index object)
+      {
+        return createIndexAdapter();
+      }
+      @Override
+      public Adapter caseSlice(Slice object)
+      {
+        return createSliceAdapter();
       }
       @Override
       public Adapter caseTypeAssertion(TypeAssertion object)
@@ -366,6 +451,16 @@ public class GoAdapterFactory extends AdapterFactoryImpl
         return createExpressionLinhaAdapter();
       }
       @Override
+      public Adapter caseUnaryExpr(UnaryExpr object)
+      {
+        return createUnaryExprAdapter();
+      }
+      @Override
+      public Adapter casebinary_op(binary_op object)
+      {
+        return createbinary_opAdapter();
+      }
+      @Override
       public Adapter caseConversion(Conversion object)
       {
         return createConversionAdapter();
@@ -384,6 +479,11 @@ public class GoAdapterFactory extends AdapterFactoryImpl
       public Adapter caseLabeledStmt(LabeledStmt object)
       {
         return createLabeledStmtAdapter();
+      }
+      @Override
+      public Adapter caseLabel(Label object)
+      {
+        return createLabelAdapter();
       }
       @Override
       public Adapter caseExpressionStmt(ExpressionStmt object)
@@ -521,9 +621,84 @@ public class GoAdapterFactory extends AdapterFactoryImpl
         return createReturnStmtAdapter();
       }
       @Override
+      public Adapter caseBreakStmt(BreakStmt object)
+      {
+        return createBreakStmtAdapter();
+      }
+      @Override
+      public Adapter caseContinueStmt(ContinueStmt object)
+      {
+        return createContinueStmtAdapter();
+      }
+      @Override
+      public Adapter caseGotoStmt(GotoStmt object)
+      {
+        return createGotoStmtAdapter();
+      }
+      @Override
       public Adapter caseDeferStmt(DeferStmt object)
       {
         return createDeferStmtAdapter();
+      }
+      @Override
+      public Adapter casePackageClause(PackageClause object)
+      {
+        return createPackageClauseAdapter();
+      }
+      @Override
+      public Adapter casePackageName(PackageName object)
+      {
+        return createPackageNameAdapter();
+      }
+      @Override
+      public Adapter caseImportDecl(ImportDecl object)
+      {
+        return createImportDeclAdapter();
+      }
+      @Override
+      public Adapter caseImportSpec(ImportSpec object)
+      {
+        return createImportSpecAdapter();
+      }
+      @Override
+      public Adapter caseImportPath(ImportPath object)
+      {
+        return createImportPathAdapter();
+      }
+      @Override
+      public Adapter caseidentifier(identifier object)
+      {
+        return createidentifierAdapter();
+      }
+      @Override
+      public Adapter casefloat_lit(float_lit object)
+      {
+        return createfloat_litAdapter();
+      }
+      @Override
+      public Adapter casestring_lit(string_lit object)
+      {
+        return createstring_litAdapter();
+      }
+      @Override
+      public Adapter casedecimals(decimals object)
+      {
+        return createdecimalsAdapter();
+      }
+      @Override
+      public Adapter caseexponent(exponent object)
+      {
+        return createexponentAdapter();
+      }
+      @Override
+      public Adapter caseimaginary_lit(imaginary_lit object)
+      {
+        return createimaginary_litAdapter();
+      }
+      @Override
+      public Adapter caserune_lit(rune_lit object)
+      {
+        return createrune_litAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -573,6 +748,36 @@ public class GoAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.TypeName <em>Type Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.TypeName
+   * @generated
+   */
+  public Adapter createTypeNameAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.TypeNameLinha <em>Type Name Linha</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.TypeNameLinha
+   * @generated
+   */
+  public Adapter createTypeNameLinhaAdapter()
   {
     return null;
   }
@@ -663,6 +868,36 @@ public class GoAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFieldDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.EmbeddedField <em>Embedded Field</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.EmbeddedField
+   * @generated
+   */
+  public Adapter createEmbeddedFieldAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.Tag <em>Tag</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.Tag
+   * @generated
+   */
+  public Adapter createTagAdapter()
   {
     return null;
   }
@@ -798,6 +1033,36 @@ public class GoAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMethodSpecAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.MethodName <em>Method Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.MethodName
+   * @generated
+   */
+  public Adapter createMethodNameAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.InterfaceTypeName <em>Interface Type Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.InterfaceTypeName
+   * @generated
+   */
+  public Adapter createInterfaceTypeNameAdapter()
   {
     return null;
   }
@@ -953,6 +1218,21 @@ public class GoAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.IdentifierList <em>Identifier List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.IdentifierList
+   * @generated
+   */
+  public Adapter createIdentifierListAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.ExpressionList <em>Expression List</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1088,6 +1368,21 @@ public class GoAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.FunctionName <em>Function Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.FunctionName
+   * @generated
+   */
+  public Adapter createFunctionNameAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.FunctionBody <em>Function Body</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1158,6 +1453,51 @@ public class GoAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.BasicLit <em>Basic Lit</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.BasicLit
+   * @generated
+   */
+  public Adapter createBasicLitAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.OperandName <em>Operand Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.OperandName
+   * @generated
+   */
+  public Adapter createOperandNameAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.QualifiedIdent <em>Qualified Ident</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.QualifiedIdent
+   * @generated
+   */
+  public Adapter createQualifiedIdentAdapter()
   {
     return null;
   }
@@ -1283,6 +1623,21 @@ public class GoAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.FieldName <em>Field Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.FieldName
+   * @generated
+   */
+  public Adapter createFieldNameAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.FunctionLit <em>Function Lit</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1323,6 +1678,81 @@ public class GoAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPrimaryExprLinhaAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.ponto <em>ponto</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.ponto
+   * @generated
+   */
+  public Adapter createpontoAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.cochetes <em>cochetes</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.cochetes
+   * @generated
+   */
+  public Adapter createcochetesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.Selector <em>Selector</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.Selector
+   * @generated
+   */
+  public Adapter createSelectorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.Index <em>Index</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.Index
+   * @generated
+   */
+  public Adapter createIndexAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.Slice <em>Slice</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.Slice
+   * @generated
+   */
+  public Adapter createSliceAdapter()
   {
     return null;
   }
@@ -1418,6 +1848,36 @@ public class GoAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.UnaryExpr <em>Unary Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.UnaryExpr
+   * @generated
+   */
+  public Adapter createUnaryExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.binary_op <em>binary op</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.binary_op
+   * @generated
+   */
+  public Adapter createbinary_opAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.Conversion <em>Conversion</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1473,6 +1933,21 @@ public class GoAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createLabeledStmtAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.Label <em>Label</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.Label
+   * @generated
+   */
+  public Adapter createLabelAdapter()
   {
     return null;
   }
@@ -1883,6 +2358,51 @@ public class GoAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.BreakStmt <em>Break Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.BreakStmt
+   * @generated
+   */
+  public Adapter createBreakStmtAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.ContinueStmt <em>Continue Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.ContinueStmt
+   * @generated
+   */
+  public Adapter createContinueStmtAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.GotoStmt <em>Goto Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.GotoStmt
+   * @generated
+   */
+  public Adapter createGotoStmtAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.DeferStmt <em>Defer Stmt</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1893,6 +2413,186 @@ public class GoAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDeferStmtAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.PackageClause <em>Package Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.PackageClause
+   * @generated
+   */
+  public Adapter createPackageClauseAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.PackageName <em>Package Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.PackageName
+   * @generated
+   */
+  public Adapter createPackageNameAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.ImportDecl <em>Import Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.ImportDecl
+   * @generated
+   */
+  public Adapter createImportDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.ImportSpec <em>Import Spec</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.ImportSpec
+   * @generated
+   */
+  public Adapter createImportSpecAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.ImportPath <em>Import Path</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.ImportPath
+   * @generated
+   */
+  public Adapter createImportPathAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.identifier <em>identifier</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.identifier
+   * @generated
+   */
+  public Adapter createidentifierAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.float_lit <em>float lit</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.float_lit
+   * @generated
+   */
+  public Adapter createfloat_litAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.string_lit <em>string lit</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.string_lit
+   * @generated
+   */
+  public Adapter createstring_litAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.decimals <em>decimals</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.decimals
+   * @generated
+   */
+  public Adapter createdecimalsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.exponent <em>exponent</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.exponent
+   * @generated
+   */
+  public Adapter createexponentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.imaginary_lit <em>imaginary lit</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.imaginary_lit
+   * @generated
+   */
+  public Adapter createimaginary_litAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.ufcg.compiladores.go.rune_lit <em>rune lit</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.ufcg.compiladores.go.rune_lit
+   * @generated
+   */
+  public Adapter createrune_litAdapter()
   {
     return null;
   }

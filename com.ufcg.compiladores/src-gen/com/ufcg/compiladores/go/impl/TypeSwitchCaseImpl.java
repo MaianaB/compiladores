@@ -4,20 +4,17 @@
 package com.ufcg.compiladores.go.impl;
 
 import com.ufcg.compiladores.go.GoPackage;
-import com.ufcg.compiladores.go.StatementList;
+import com.ufcg.compiladores.go.TypeList;
 import com.ufcg.compiladores.go.TypeSwitchCase;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,22 +24,22 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.ufcg.compiladores.go.impl.TypeSwitchCaseImpl#getStatementList <em>Statement List</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.TypeSwitchCaseImpl#getTypeList <em>Type List</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TypeSwitchCaseImpl extends TypeCaseClauseImpl implements TypeSwitchCase
+public class TypeSwitchCaseImpl extends MinimalEObjectImpl.Container implements TypeSwitchCase
 {
   /**
-   * The cached value of the '{@link #getStatementList() <em>Statement List</em>}' containment reference list.
+   * The cached value of the '{@link #getTypeList() <em>Type List</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStatementList()
+   * @see #getTypeList()
    * @generated
    * @ordered
    */
-  protected EList<StatementList> statementList;
+  protected TypeList typeList;
 
   /**
    * <!-- begin-user-doc -->
@@ -70,13 +67,47 @@ public class TypeSwitchCaseImpl extends TypeCaseClauseImpl implements TypeSwitch
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<StatementList> getStatementList()
+  public TypeList getTypeList()
   {
-    if (statementList == null)
+    return typeList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTypeList(TypeList newTypeList, NotificationChain msgs)
+  {
+    TypeList oldTypeList = typeList;
+    typeList = newTypeList;
+    if (eNotificationRequired())
     {
-      statementList = new EObjectContainmentEList<StatementList>(StatementList.class, this, GoPackage.TYPE_SWITCH_CASE__STATEMENT_LIST);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_SWITCH_CASE__TYPE_LIST, oldTypeList, newTypeList);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return statementList;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTypeList(TypeList newTypeList)
+  {
+    if (newTypeList != typeList)
+    {
+      NotificationChain msgs = null;
+      if (typeList != null)
+        msgs = ((InternalEObject)typeList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_SWITCH_CASE__TYPE_LIST, null, msgs);
+      if (newTypeList != null)
+        msgs = ((InternalEObject)newTypeList).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.TYPE_SWITCH_CASE__TYPE_LIST, null, msgs);
+      msgs = basicSetTypeList(newTypeList, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.TYPE_SWITCH_CASE__TYPE_LIST, newTypeList, newTypeList));
   }
 
   /**
@@ -89,8 +120,8 @@ public class TypeSwitchCaseImpl extends TypeCaseClauseImpl implements TypeSwitch
   {
     switch (featureID)
     {
-      case GoPackage.TYPE_SWITCH_CASE__STATEMENT_LIST:
-        return ((InternalEList<?>)getStatementList()).basicRemove(otherEnd, msgs);
+      case GoPackage.TYPE_SWITCH_CASE__TYPE_LIST:
+        return basicSetTypeList(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -105,8 +136,8 @@ public class TypeSwitchCaseImpl extends TypeCaseClauseImpl implements TypeSwitch
   {
     switch (featureID)
     {
-      case GoPackage.TYPE_SWITCH_CASE__STATEMENT_LIST:
-        return getStatementList();
+      case GoPackage.TYPE_SWITCH_CASE__TYPE_LIST:
+        return getTypeList();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -116,15 +147,13 @@ public class TypeSwitchCaseImpl extends TypeCaseClauseImpl implements TypeSwitch
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case GoPackage.TYPE_SWITCH_CASE__STATEMENT_LIST:
-        getStatementList().clear();
-        getStatementList().addAll((Collection<? extends StatementList>)newValue);
+      case GoPackage.TYPE_SWITCH_CASE__TYPE_LIST:
+        setTypeList((TypeList)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,8 +169,8 @@ public class TypeSwitchCaseImpl extends TypeCaseClauseImpl implements TypeSwitch
   {
     switch (featureID)
     {
-      case GoPackage.TYPE_SWITCH_CASE__STATEMENT_LIST:
-        getStatementList().clear();
+      case GoPackage.TYPE_SWITCH_CASE__TYPE_LIST:
+        setTypeList((TypeList)null);
         return;
     }
     super.eUnset(featureID);
@@ -157,8 +186,8 @@ public class TypeSwitchCaseImpl extends TypeCaseClauseImpl implements TypeSwitch
   {
     switch (featureID)
     {
-      case GoPackage.TYPE_SWITCH_CASE__STATEMENT_LIST:
-        return statementList != null && !statementList.isEmpty();
+      case GoPackage.TYPE_SWITCH_CASE__TYPE_LIST:
+        return typeList != null;
     }
     return super.eIsSet(featureID);
   }

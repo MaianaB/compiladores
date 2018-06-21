@@ -68,78 +68,40 @@ public interface GoPackage extends EPackage
   int SOUCE_FILE = 0;
 
   /**
+   * The feature id for the '<em><b>Package Clause</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOUCE_FILE__PACKAGE_CLAUSE = 0;
+
+  /**
+   * The feature id for the '<em><b>Import Decl</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOUCE_FILE__IMPORT_DECL = 1;
+
+  /**
+   * The feature id for the '<em><b>Top Level Decl</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOUCE_FILE__TOP_LEVEL_DECL = 2;
+
+  /**
    * The number of structural features of the '<em>Souce File</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SOUCE_FILE_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.TypeLitLinhaImpl <em>Type Lit Linha</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.ufcg.compiladores.go.impl.TypeLitLinhaImpl
-   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getTypeLitLinha()
-   * @generated
-   */
-  int TYPE_LIT_LINHA = 3;
-
-  /**
-   * The number of structural features of the '<em>Type Lit Linha</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_LIT_LINHA_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ElementTypeImpl <em>Element Type</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.ufcg.compiladores.go.impl.ElementTypeImpl
-   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getElementType()
-   * @generated
-   */
-  int ELEMENT_TYPE = 5;
-
-  /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELEMENT_TYPE__INDEX_LINHA = TYPE_LIT_LINHA_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELEMENT_TYPE__PRIMARY_EXPR_LINHA = TYPE_LIT_LINHA_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Literal Value</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELEMENT_TYPE__LITERAL_VALUE = TYPE_LIT_LINHA_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Element Type</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELEMENT_TYPE_FEATURE_COUNT = TYPE_LIT_LINHA_FEATURE_COUNT + 3;
+  int SOUCE_FILE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.TypeImpl <em>Type</em>}' class.
@@ -152,112 +114,31 @@ public interface GoPackage extends EPackage
   int TYPE = 1;
 
   /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
+   * The feature id for the '<em><b>Type Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE__INDEX_LINHA = ELEMENT_TYPE__INDEX_LINHA;
+  int TYPE__TYPE_NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
+   * The feature id for the '<em><b>Type Lit</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE__PRIMARY_EXPR_LINHA = ELEMENT_TYPE__PRIMARY_EXPR_LINHA;
+  int TYPE__TYPE_LIT = 1;
 
   /**
-   * The feature id for the '<em><b>Literal Value</b></em>' containment reference list.
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE__LITERAL_VALUE = ELEMENT_TYPE__LITERAL_VALUE;
-
-  /**
-   * The feature id for the '<em><b>Function Body</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE__FUNCTION_BODY = ELEMENT_TYPE_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Signature</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE__SIGNATURE = ELEMENT_TYPE_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Result</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE__RESULT = ELEMENT_TYPE_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Parameter Decl</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE__PARAMETER_DECL = ELEMENT_TYPE_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Element Type</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE__ELEMENT_TYPE = ELEMENT_TYPE_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>Expression List</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE__EXPRESSION_LIST = ELEMENT_TYPE_FEATURE_COUNT + 5;
-
-  /**
-   * The feature id for the '<em><b>Statement List</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE__STATEMENT_LIST = ELEMENT_TYPE_FEATURE_COUNT + 6;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE__EXPRESSION = ELEMENT_TYPE_FEATURE_COUNT + 7;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE__TYPE = ELEMENT_TYPE_FEATURE_COUNT + 8;
+  int TYPE__TYPE = 2;
 
   /**
    * The number of structural features of the '<em>Type</em>' class.
@@ -266,7 +147,90 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FEATURE_COUNT = ELEMENT_TYPE_FEATURE_COUNT + 9;
+  int TYPE_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.TypeNameImpl <em>Type Name</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.TypeNameImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getTypeName()
+   * @generated
+   */
+  int TYPE_NAME = 2;
+
+  /**
+   * The feature id for the '<em><b>Identifier</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_NAME__IDENTIFIER = 0;
+
+  /**
+   * The feature id for the '<em><b>Type Name Linha</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_NAME__TYPE_NAME_LINHA = 1;
+
+  /**
+   * The number of structural features of the '<em>Type Name</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_NAME_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.TypeNameLinhaImpl <em>Type Name Linha</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.TypeNameLinhaImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getTypeNameLinha()
+   * @generated
+   */
+  int TYPE_NAME_LINHA = 3;
+
+  /**
+   * The feature id for the '<em><b>Identifier</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_NAME_LINHA__IDENTIFIER = 0;
+
+  /**
+   * The feature id for the '<em><b>Type Name Linha</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_NAME_LINHA__TYPE_NAME_LINHA = 1;
+
+  /**
+   * The feature id for the '<em><b>Qualified Ident</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_NAME_LINHA__QUALIFIED_IDENT = 2;
+
+  /**
+   * The number of structural features of the '<em>Type Name Linha</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_NAME_LINHA_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.TypeLitImpl <em>Type Lit</em>}' class.
@@ -276,178 +240,70 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getTypeLit()
    * @generated
    */
-  int TYPE_LIT = 2;
+  int TYPE_LIT = 4;
 
   /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
+   * The feature id for the '<em><b>Type Lit Linha</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_LIT__INDEX_LINHA = TYPE__INDEX_LINHA;
+  int TYPE_LIT__TYPE_LIT_LINHA = 0;
 
   /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
+   * The feature id for the '<em><b>Struct Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_LIT__PRIMARY_EXPR_LINHA = TYPE__PRIMARY_EXPR_LINHA;
+  int TYPE_LIT__STRUCT_TYPE = 1;
 
   /**
-   * The feature id for the '<em><b>Literal Value</b></em>' containment reference list.
+   * The feature id for the '<em><b>Pointer Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_LIT__LITERAL_VALUE = TYPE__LITERAL_VALUE;
+  int TYPE_LIT__POINTER_TYPE = 2;
 
   /**
-   * The feature id for the '<em><b>Function Body</b></em>' containment reference list.
+   * The feature id for the '<em><b>Function Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_LIT__FUNCTION_BODY = TYPE__FUNCTION_BODY;
+  int TYPE_LIT__FUNCTION_TYPE = 3;
 
   /**
-   * The feature id for the '<em><b>Signature</b></em>' containment reference list.
+   * The feature id for the '<em><b>Interface Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_LIT__SIGNATURE = TYPE__SIGNATURE;
+  int TYPE_LIT__INTERFACE_TYPE = 4;
 
   /**
-   * The feature id for the '<em><b>Result</b></em>' containment reference list.
+   * The feature id for the '<em><b>Map Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_LIT__RESULT = TYPE__RESULT;
+  int TYPE_LIT__MAP_TYPE = 5;
 
   /**
-   * The feature id for the '<em><b>Parameter Decl</b></em>' containment reference list.
+   * The feature id for the '<em><b>Channel Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_LIT__PARAMETER_DECL = TYPE__PARAMETER_DECL;
-
-  /**
-   * The feature id for the '<em><b>Element Type</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_LIT__ELEMENT_TYPE = TYPE__ELEMENT_TYPE;
-
-  /**
-   * The feature id for the '<em><b>Expression List</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_LIT__EXPRESSION_LIST = TYPE__EXPRESSION_LIST;
-
-  /**
-   * The feature id for the '<em><b>Statement List</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_LIT__STATEMENT_LIST = TYPE__STATEMENT_LIST;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_LIT__EXPRESSION = TYPE__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_LIT__TYPE = TYPE__TYPE;
-
-  /**
-   * The feature id for the '<em><b>Type Lit Linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_LIT__TYPE_LIT_LINHA = TYPE_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Struct Type</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_LIT__STRUCT_TYPE = TYPE_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Pointer Type</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_LIT__POINTER_TYPE = TYPE_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Function Type</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_LIT__FUNCTION_TYPE = TYPE_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Interface Type</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_LIT__INTERFACE_TYPE = TYPE_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>Map Type</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_LIT__MAP_TYPE = TYPE_FEATURE_COUNT + 5;
-
-  /**
-   * The feature id for the '<em><b>Channel Type</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_LIT__CHANNEL_TYPE = TYPE_FEATURE_COUNT + 6;
+  int TYPE_LIT__CHANNEL_TYPE = 6;
 
   /**
    * The number of structural features of the '<em>Type Lit</em>' class.
@@ -456,7 +312,53 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_LIT_FEATURE_COUNT = TYPE_FEATURE_COUNT + 7;
+  int TYPE_LIT_FEATURE_COUNT = 7;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.TypeLitLinhaImpl <em>Type Lit Linha</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.TypeLitLinhaImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getTypeLitLinha()
+   * @generated
+   */
+  int TYPE_LIT_LINHA = 5;
+
+  /**
+   * The feature id for the '<em><b>Array Length</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_LIT_LINHA__ARRAY_LENGTH = 0;
+
+  /**
+   * The feature id for the '<em><b>Element Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_LIT_LINHA__ELEMENT_TYPE = 1;
+
+  /**
+   * The feature id for the '<em><b>Type Lit Linha</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_LIT_LINHA__TYPE_LIT_LINHA = 2;
+
+  /**
+   * The number of structural features of the '<em>Type Lit Linha</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_LIT_LINHA_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ArrayLengthImpl <em>Array Length</em>}' class.
@@ -466,43 +368,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getArrayLength()
    * @generated
    */
-  int ARRAY_LENGTH = 4;
+  int ARRAY_LENGTH = 6;
 
   /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ARRAY_LENGTH__INDEX_LINHA = TYPE_LIT_LINHA_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_LENGTH__PRIMARY_EXPR_LINHA = TYPE_LIT_LINHA_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Literal Value</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_LENGTH__LITERAL_VALUE = TYPE_LIT_LINHA_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Element Type</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_LENGTH__ELEMENT_TYPE = TYPE_LIT_LINHA_FEATURE_COUNT + 3;
+  int ARRAY_LENGTH__EXPRESSION = 0;
 
   /**
    * The number of structural features of the '<em>Array Length</em>' class.
@@ -511,238 +386,35 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARRAY_LENGTH_FEATURE_COUNT = TYPE_LIT_LINHA_FEATURE_COUNT + 4;
+  int ARRAY_LENGTH_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.PrimaryExprLinhaImpl <em>Primary Expr Linha</em>}' class.
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ElementTypeImpl <em>Element Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.ufcg.compiladores.go.impl.PrimaryExprLinhaImpl
-   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getPrimaryExprLinha()
+   * @see com.ufcg.compiladores.go.impl.ElementTypeImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getElementType()
    * @generated
    */
-  int PRIMARY_EXPR_LINHA = 51;
+  int ELEMENT_TYPE = 7;
 
   /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPR_LINHA__INDEX_LINHA = 0;
-
-  /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPR_LINHA__PRIMARY_EXPR_LINHA = 1;
+  int ELEMENT_TYPE__TYPE = 0;
 
   /**
-   * The number of structural features of the '<em>Primary Expr Linha</em>' class.
+   * The number of structural features of the '<em>Element Type</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPR_LINHA_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.PrimaryExprImpl <em>Primary Expr</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.ufcg.compiladores.go.impl.PrimaryExprImpl
-   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getPrimaryExpr()
-   * @generated
-   */
-  int PRIMARY_EXPR = 50;
-
-  /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPR__INDEX_LINHA = PRIMARY_EXPR_LINHA__INDEX_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPR__PRIMARY_EXPR_LINHA = PRIMARY_EXPR_LINHA__PRIMARY_EXPR_LINHA;
-
-  /**
-   * The number of structural features of the '<em>Primary Expr</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPR_FEATURE_COUNT = PRIMARY_EXPR_LINHA_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.OperandImpl <em>Operand</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.ufcg.compiladores.go.impl.OperandImpl
-   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getOperand()
-   * @generated
-   */
-  int OPERAND = 39;
-
-  /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERAND__INDEX_LINHA = PRIMARY_EXPR__INDEX_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERAND__PRIMARY_EXPR_LINHA = PRIMARY_EXPR__PRIMARY_EXPR_LINHA;
-
-  /**
-   * The number of structural features of the '<em>Operand</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERAND_FEATURE_COUNT = PRIMARY_EXPR_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.LiteralImpl <em>Literal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.ufcg.compiladores.go.impl.LiteralImpl
-   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getLiteral()
-   * @generated
-   */
-  int LITERAL = 40;
-
-  /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LITERAL__INDEX_LINHA = OPERAND__INDEX_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LITERAL__PRIMARY_EXPR_LINHA = OPERAND__PRIMARY_EXPR_LINHA;
-
-  /**
-   * The number of structural features of the '<em>Literal</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LITERAL_FEATURE_COUNT = OPERAND_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.CompositeLitImpl <em>Composite Lit</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.ufcg.compiladores.go.impl.CompositeLitImpl
-   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getCompositeLit()
-   * @generated
-   */
-  int COMPOSITE_LIT = 41;
-
-  /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPOSITE_LIT__INDEX_LINHA = LITERAL__INDEX_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPOSITE_LIT__PRIMARY_EXPR_LINHA = LITERAL__PRIMARY_EXPR_LINHA;
-
-  /**
-   * The number of structural features of the '<em>Composite Lit</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPOSITE_LIT_FEATURE_COUNT = LITERAL_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.LiteralTypeImpl <em>Literal Type</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.ufcg.compiladores.go.impl.LiteralTypeImpl
-   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getLiteralType()
-   * @generated
-   */
-  int LITERAL_TYPE = 42;
-
-  /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LITERAL_TYPE__INDEX_LINHA = COMPOSITE_LIT__INDEX_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LITERAL_TYPE__PRIMARY_EXPR_LINHA = COMPOSITE_LIT__PRIMARY_EXPR_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Literal Value</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LITERAL_TYPE__LITERAL_VALUE = COMPOSITE_LIT_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Literal Type</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LITERAL_TYPE_FEATURE_COUNT = COMPOSITE_LIT_FEATURE_COUNT + 1;
+  int ELEMENT_TYPE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.StructTypeImpl <em>Struct Type</em>}' class.
@@ -752,34 +424,7 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getStructType()
    * @generated
    */
-  int STRUCT_TYPE = 6;
-
-  /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STRUCT_TYPE__INDEX_LINHA = LITERAL_TYPE__INDEX_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STRUCT_TYPE__PRIMARY_EXPR_LINHA = LITERAL_TYPE__PRIMARY_EXPR_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Literal Value</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STRUCT_TYPE__LITERAL_VALUE = LITERAL_TYPE__LITERAL_VALUE;
+  int STRUCT_TYPE = 8;
 
   /**
    * The feature id for the '<em><b>Field Decl</b></em>' containment reference list.
@@ -788,7 +433,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STRUCT_TYPE__FIELD_DECL = LITERAL_TYPE_FEATURE_COUNT + 0;
+  int STRUCT_TYPE__FIELD_DECL = 0;
 
   /**
    * The number of structural features of the '<em>Struct Type</em>' class.
@@ -797,7 +442,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STRUCT_TYPE_FEATURE_COUNT = LITERAL_TYPE_FEATURE_COUNT + 1;
+  int STRUCT_TYPE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.FieldDeclImpl <em>Field Decl</em>}' class.
@@ -807,7 +452,43 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getFieldDecl()
    * @generated
    */
-  int FIELD_DECL = 7;
+  int FIELD_DECL = 9;
+
+  /**
+   * The feature id for the '<em><b>Identifier List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_DECL__IDENTIFIER_LIST = 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_DECL__TYPE = 1;
+
+  /**
+   * The feature id for the '<em><b>Embedded Field</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_DECL__EMBEDDED_FIELD = 2;
+
+  /**
+   * The feature id for the '<em><b>Tag</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_DECL__TAG = 3;
 
   /**
    * The number of structural features of the '<em>Field Decl</em>' class.
@@ -816,7 +497,63 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_DECL_FEATURE_COUNT = 0;
+  int FIELD_DECL_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.EmbeddedFieldImpl <em>Embedded Field</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.EmbeddedFieldImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getEmbeddedField()
+   * @generated
+   */
+  int EMBEDDED_FIELD = 10;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EMBEDDED_FIELD__TYPE_NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Embedded Field</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EMBEDDED_FIELD_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.TagImpl <em>Tag</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.TagImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getTag()
+   * @generated
+   */
+  int TAG = 11;
+
+  /**
+   * The feature id for the '<em><b>String lit</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAG__STRING_LIT = 0;
+
+  /**
+   * The number of structural features of the '<em>Tag</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAG_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.PointerTypeImpl <em>Pointer Type</em>}' class.
@@ -826,7 +563,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getPointerType()
    * @generated
    */
-  int POINTER_TYPE = 8;
+  int POINTER_TYPE = 12;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POINTER_TYPE__TYPE = 0;
 
   /**
    * The number of structural features of the '<em>Pointer Type</em>' class.
@@ -835,7 +581,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int POINTER_TYPE_FEATURE_COUNT = 0;
+  int POINTER_TYPE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.FunctionTypeImpl <em>Function Type</em>}' class.
@@ -845,7 +591,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getFunctionType()
    * @generated
    */
-  int FUNCTION_TYPE = 9;
+  int FUNCTION_TYPE = 13;
+
+  /**
+   * The feature id for the '<em><b>Signature</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_TYPE__SIGNATURE = 0;
 
   /**
    * The number of structural features of the '<em>Function Type</em>' class.
@@ -854,7 +609,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION_TYPE_FEATURE_COUNT = 0;
+  int FUNCTION_TYPE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.SignatureImpl <em>Signature</em>}' class.
@@ -864,34 +619,25 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getSignature()
    * @generated
    */
-  int SIGNATURE = 10;
+  int SIGNATURE = 14;
 
   /**
-   * The feature id for the '<em><b>Function Body</b></em>' containment reference list.
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SIGNATURE__FUNCTION_BODY = FUNCTION_TYPE_FEATURE_COUNT + 0;
+  int SIGNATURE__PARAMETERS = 0;
 
   /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
+   * The feature id for the '<em><b>Result</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SIGNATURE__INDEX_LINHA = FUNCTION_TYPE_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIGNATURE__PRIMARY_EXPR_LINHA = FUNCTION_TYPE_FEATURE_COUNT + 2;
+  int SIGNATURE__RESULT = 1;
 
   /**
    * The number of structural features of the '<em>Signature</em>' class.
@@ -900,7 +646,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIGNATURE_FEATURE_COUNT = FUNCTION_TYPE_FEATURE_COUNT + 3;
+  int SIGNATURE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ResultImpl <em>Result</em>}' class.
@@ -910,7 +656,25 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getResult()
    * @generated
    */
-  int RESULT = 11;
+  int RESULT = 15;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESULT__PARAMETERS = 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESULT__TYPE = 1;
 
   /**
    * The number of structural features of the '<em>Result</em>' class.
@@ -919,7 +683,26 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RESULT_FEATURE_COUNT = 0;
+  int RESULT_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ReceiverImpl <em>Receiver</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.ReceiverImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getReceiver()
+   * @generated
+   */
+  int RECEIVER = 46;
+
+  /**
+   * The number of structural features of the '<em>Receiver</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECEIVER_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ParametersImpl <em>Parameters</em>}' class.
@@ -929,52 +712,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getParameters()
    * @generated
    */
-  int PARAMETERS = 12;
+  int PARAMETERS = 16;
 
   /**
-   * The feature id for the '<em><b>Function Body</b></em>' containment reference list.
+   * The feature id for the '<em><b>Parameter List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAMETERS__FUNCTION_BODY = SIGNATURE__FUNCTION_BODY;
-
-  /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETERS__INDEX_LINHA = SIGNATURE__INDEX_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETERS__PRIMARY_EXPR_LINHA = SIGNATURE__PRIMARY_EXPR_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Signature</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETERS__SIGNATURE = SIGNATURE_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Result</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETERS__RESULT = SIGNATURE_FEATURE_COUNT + 1;
+  int PARAMETERS__PARAMETER_LIST = RECEIVER_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Parameters</em>' class.
@@ -983,7 +730,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARAMETERS_FEATURE_COUNT = SIGNATURE_FEATURE_COUNT + 2;
+  int PARAMETERS_FEATURE_COUNT = RECEIVER_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ParameterListImpl <em>Parameter List</em>}' class.
@@ -993,52 +740,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getParameterList()
    * @generated
    */
-  int PARAMETER_LIST = 13;
+  int PARAMETER_LIST = 17;
 
   /**
-   * The feature id for the '<em><b>Function Body</b></em>' containment reference list.
+   * The feature id for the '<em><b>Parameter Decl</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAMETER_LIST__FUNCTION_BODY = PARAMETERS__FUNCTION_BODY;
-
-  /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER_LIST__INDEX_LINHA = PARAMETERS__INDEX_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER_LIST__PRIMARY_EXPR_LINHA = PARAMETERS__PRIMARY_EXPR_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Signature</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER_LIST__SIGNATURE = PARAMETERS__SIGNATURE;
-
-  /**
-   * The feature id for the '<em><b>Result</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER_LIST__RESULT = PARAMETERS__RESULT;
+  int PARAMETER_LIST__PARAMETER_DECL = 0;
 
   /**
    * The number of structural features of the '<em>Parameter List</em>' class.
@@ -1047,7 +758,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARAMETER_LIST_FEATURE_COUNT = PARAMETERS_FEATURE_COUNT + 0;
+  int PARAMETER_LIST_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ParameterDeclImpl <em>Parameter Decl</em>}' class.
@@ -1057,61 +768,25 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getParameterDecl()
    * @generated
    */
-  int PARAMETER_DECL = 14;
+  int PARAMETER_DECL = 18;
 
   /**
-   * The feature id for the '<em><b>Function Body</b></em>' containment reference list.
+   * The feature id for the '<em><b>Identifier List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAMETER_DECL__FUNCTION_BODY = PARAMETER_LIST__FUNCTION_BODY;
+  int PARAMETER_DECL__IDENTIFIER_LIST = 0;
 
   /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAMETER_DECL__INDEX_LINHA = PARAMETER_LIST__INDEX_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER_DECL__PRIMARY_EXPR_LINHA = PARAMETER_LIST__PRIMARY_EXPR_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Signature</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER_DECL__SIGNATURE = PARAMETER_LIST__SIGNATURE;
-
-  /**
-   * The feature id for the '<em><b>Result</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER_DECL__RESULT = PARAMETER_LIST__RESULT;
-
-  /**
-   * The feature id for the '<em><b>Parameter Decl</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER_DECL__PARAMETER_DECL = PARAMETER_LIST_FEATURE_COUNT + 0;
+  int PARAMETER_DECL__TYPE = 1;
 
   /**
    * The number of structural features of the '<em>Parameter Decl</em>' class.
@@ -1120,7 +795,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARAMETER_DECL_FEATURE_COUNT = PARAMETER_LIST_FEATURE_COUNT + 1;
+  int PARAMETER_DECL_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.InterfaceTypeImpl <em>Interface Type</em>}' class.
@@ -1130,7 +805,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getInterfaceType()
    * @generated
    */
-  int INTERFACE_TYPE = 15;
+  int INTERFACE_TYPE = 19;
+
+  /**
+   * The feature id for the '<em><b>Method Spec</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE_TYPE__METHOD_SPEC = 0;
 
   /**
    * The number of structural features of the '<em>Interface Type</em>' class.
@@ -1139,7 +823,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INTERFACE_TYPE_FEATURE_COUNT = 0;
+  int INTERFACE_TYPE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.MethodSpecImpl <em>Method Spec</em>}' class.
@@ -1149,7 +833,34 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getMethodSpec()
    * @generated
    */
-  int METHOD_SPEC = 16;
+  int METHOD_SPEC = 20;
+
+  /**
+   * The feature id for the '<em><b>Method Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_SPEC__METHOD_NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Signature</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_SPEC__SIGNATURE = 1;
+
+  /**
+   * The feature id for the '<em><b>Interface Type Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_SPEC__INTERFACE_TYPE_NAME = 2;
 
   /**
    * The number of structural features of the '<em>Method Spec</em>' class.
@@ -1158,7 +869,63 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int METHOD_SPEC_FEATURE_COUNT = INTERFACE_TYPE_FEATURE_COUNT + 0;
+  int METHOD_SPEC_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.MethodNameImpl <em>Method Name</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.MethodNameImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getMethodName()
+   * @generated
+   */
+  int METHOD_NAME = 21;
+
+  /**
+   * The feature id for the '<em><b>Identifier</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_NAME__IDENTIFIER = 0;
+
+  /**
+   * The number of structural features of the '<em>Method Name</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_NAME_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.InterfaceTypeNameImpl <em>Interface Type Name</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.InterfaceTypeNameImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getInterfaceTypeName()
+   * @generated
+   */
+  int INTERFACE_TYPE_NAME = 22;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE_TYPE_NAME__TYPE_NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Interface Type Name</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE_TYPE_NAME_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.MapTypeImpl <em>Map Type</em>}' class.
@@ -1168,34 +935,25 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getMapType()
    * @generated
    */
-  int MAP_TYPE = 17;
+  int MAP_TYPE = 23;
 
   /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
+   * The feature id for the '<em><b>Key Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAP_TYPE__INDEX_LINHA = LITERAL_TYPE__INDEX_LINHA;
+  int MAP_TYPE__KEY_TYPE = 0;
 
   /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
+   * The feature id for the '<em><b>Element Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAP_TYPE__PRIMARY_EXPR_LINHA = LITERAL_TYPE__PRIMARY_EXPR_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Literal Value</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MAP_TYPE__LITERAL_VALUE = LITERAL_TYPE__LITERAL_VALUE;
+  int MAP_TYPE__ELEMENT_TYPE = 1;
 
   /**
    * The number of structural features of the '<em>Map Type</em>' class.
@@ -1204,7 +962,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAP_TYPE_FEATURE_COUNT = LITERAL_TYPE_FEATURE_COUNT + 0;
+  int MAP_TYPE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.KeyTypeImpl <em>Key Type</em>}' class.
@@ -1214,43 +972,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getKeyType()
    * @generated
    */
-  int KEY_TYPE = 18;
+  int KEY_TYPE = 24;
 
   /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int KEY_TYPE__INDEX_LINHA = MAP_TYPE__INDEX_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int KEY_TYPE__PRIMARY_EXPR_LINHA = MAP_TYPE__PRIMARY_EXPR_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Literal Value</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int KEY_TYPE__LITERAL_VALUE = MAP_TYPE__LITERAL_VALUE;
-
-  /**
-   * The feature id for the '<em><b>Element Type</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int KEY_TYPE__ELEMENT_TYPE = MAP_TYPE_FEATURE_COUNT + 0;
+  int KEY_TYPE__TYPE = 0;
 
   /**
    * The number of structural features of the '<em>Key Type</em>' class.
@@ -1259,7 +990,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int KEY_TYPE_FEATURE_COUNT = MAP_TYPE_FEATURE_COUNT + 1;
+  int KEY_TYPE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ChannelTypeImpl <em>Channel Type</em>}' class.
@@ -1269,7 +1000,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getChannelType()
    * @generated
    */
-  int CHANNEL_TYPE = 19;
+  int CHANNEL_TYPE = 25;
+
+  /**
+   * The feature id for the '<em><b>Element Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHANNEL_TYPE__ELEMENT_TYPE = 0;
 
   /**
    * The number of structural features of the '<em>Channel Type</em>' class.
@@ -1278,26 +1018,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHANNEL_TYPE_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.FunctionBodyImpl <em>Function Body</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.ufcg.compiladores.go.impl.FunctionBodyImpl
-   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getFunctionBody()
-   * @generated
-   */
-  int FUNCTION_BODY = 36;
-
-  /**
-   * The number of structural features of the '<em>Function Body</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_BODY_FEATURE_COUNT = 0;
+  int CHANNEL_TYPE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.BlockImpl <em>Block</em>}' class.
@@ -1307,7 +1028,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getBlock()
    * @generated
    */
-  int BLOCK = 20;
+  int BLOCK = 26;
+
+  /**
+   * The feature id for the '<em><b>Statement List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BLOCK__STATEMENT_LIST = 0;
 
   /**
    * The number of structural features of the '<em>Block</em>' class.
@@ -1316,7 +1046,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BLOCK_FEATURE_COUNT = FUNCTION_BODY_FEATURE_COUNT + 0;
+  int BLOCK_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.StatementListImpl <em>Statement List</em>}' class.
@@ -1326,7 +1056,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getStatementList()
    * @generated
    */
-  int STATEMENT_LIST = 21;
+  int STATEMENT_LIST = 27;
+
+  /**
+   * The feature id for the '<em><b>Statement</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_LIST__STATEMENT = 0;
 
   /**
    * The number of structural features of the '<em>Statement List</em>' class.
@@ -1335,26 +1074,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT_LIST_FEATURE_COUNT = BLOCK_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.TopLevelDeclImpl <em>Top Level Decl</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.ufcg.compiladores.go.impl.TopLevelDeclImpl
-   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getTopLevelDecl()
-   * @generated
-   */
-  int TOP_LEVEL_DECL = 23;
-
-  /**
-   * The number of structural features of the '<em>Top Level Decl</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TOP_LEVEL_DECL_FEATURE_COUNT = SOUCE_FILE_FEATURE_COUNT + 0;
+  int STATEMENT_LIST_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.DeclarationImpl <em>Declaration</em>}' class.
@@ -1364,7 +1084,34 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getDeclaration()
    * @generated
    */
-  int DECLARATION = 22;
+  int DECLARATION = 28;
+
+  /**
+   * The feature id for the '<em><b>Const Decl</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECLARATION__CONST_DECL = 0;
+
+  /**
+   * The feature id for the '<em><b>Type Decl</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECLARATION__TYPE_DECL = 1;
+
+  /**
+   * The feature id for the '<em><b>Var Decl</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECLARATION__VAR_DECL = 2;
 
   /**
    * The number of structural features of the '<em>Declaration</em>' class.
@@ -1373,7 +1120,44 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DECLARATION_FEATURE_COUNT = TOP_LEVEL_DECL_FEATURE_COUNT + 0;
+  int DECLARATION_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.TopLevelDeclImpl <em>Top Level Decl</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.TopLevelDeclImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getTopLevelDecl()
+   * @generated
+   */
+  int TOP_LEVEL_DECL = 29;
+
+  /**
+   * The feature id for the '<em><b>Declaration</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TOP_LEVEL_DECL__DECLARATION = 0;
+
+  /**
+   * The feature id for the '<em><b>Top Level Decl Linha</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TOP_LEVEL_DECL__TOP_LEVEL_DECL_LINHA = 1;
+
+  /**
+   * The number of structural features of the '<em>Top Level Decl</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TOP_LEVEL_DECL_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.topLevelDeclLinhaImpl <em>top Level Decl Linha</em>}' class.
@@ -1383,16 +1167,52 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#gettopLevelDeclLinha()
    * @generated
    */
-  int TOP_LEVEL_DECL_LINHA = 24;
+  int TOP_LEVEL_DECL_LINHA = 30;
 
   /**
-   * The feature id for the '<em><b>Function Body</b></em>' containment reference list.
+   * The feature id for the '<em><b>Function Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TOP_LEVEL_DECL_LINHA__FUNCTION_BODY = TOP_LEVEL_DECL_FEATURE_COUNT + 0;
+  int TOP_LEVEL_DECL_LINHA__FUNCTION_NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Signature</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TOP_LEVEL_DECL_LINHA__SIGNATURE = 1;
+
+  /**
+   * The feature id for the '<em><b>Function Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TOP_LEVEL_DECL_LINHA__FUNCTION_BODY = 2;
+
+  /**
+   * The feature id for the '<em><b>Receiver</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TOP_LEVEL_DECL_LINHA__RECEIVER = 3;
+
+  /**
+   * The feature id for the '<em><b>Method Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TOP_LEVEL_DECL_LINHA__METHOD_NAME = 4;
 
   /**
    * The number of structural features of the '<em>top Level Decl Linha</em>' class.
@@ -1401,7 +1221,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TOP_LEVEL_DECL_LINHA_FEATURE_COUNT = TOP_LEVEL_DECL_FEATURE_COUNT + 1;
+  int TOP_LEVEL_DECL_LINHA_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ConstDeclImpl <em>Const Decl</em>}' class.
@@ -1411,7 +1231,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getConstDecl()
    * @generated
    */
-  int CONST_DECL = 25;
+  int CONST_DECL = 31;
+
+  /**
+   * The feature id for the '<em><b>Const Spec</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONST_DECL__CONST_SPEC = 0;
 
   /**
    * The number of structural features of the '<em>Const Decl</em>' class.
@@ -1420,7 +1249,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONST_DECL_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 0;
+  int CONST_DECL_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ConstSpecImpl <em>Const Spec</em>}' class.
@@ -1430,16 +1259,34 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getConstSpec()
    * @generated
    */
-  int CONST_SPEC = 26;
+  int CONST_SPEC = 32;
 
   /**
-   * The feature id for the '<em><b>Expression List</b></em>' containment reference list.
+   * The feature id for the '<em><b>Identifier List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONST_SPEC__EXPRESSION_LIST = CONST_DECL_FEATURE_COUNT + 0;
+  int CONST_SPEC__IDENTIFIER_LIST = 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONST_SPEC__TYPE = 1;
+
+  /**
+   * The feature id for the '<em><b>Expression List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONST_SPEC__EXPRESSION_LIST = 2;
 
   /**
    * The number of structural features of the '<em>Const Spec</em>' class.
@@ -1448,45 +1295,35 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONST_SPEC_FEATURE_COUNT = CONST_DECL_FEATURE_COUNT + 1;
+  int CONST_SPEC_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.VarDeclImpl <em>Var Decl</em>}' class.
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.IdentifierListImpl <em>Identifier List</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.ufcg.compiladores.go.impl.VarDeclImpl
-   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getVarDecl()
+   * @see com.ufcg.compiladores.go.impl.IdentifierListImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getIdentifierList()
    * @generated
    */
-  int VAR_DECL = 32;
+  int IDENTIFIER_LIST = 33;
 
   /**
-   * The number of structural features of the '<em>Var Decl</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VAR_DECL_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.VarSpecImpl <em>Var Spec</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.ufcg.compiladores.go.impl.VarSpecImpl
-   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getVarSpec()
-   * @generated
-   */
-  int VAR_SPEC = 33;
-
-  /**
-   * The number of structural features of the '<em>Var Spec</em>' class.
+   * The feature id for the '<em><b>Identifier</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VAR_SPEC_FEATURE_COUNT = VAR_DECL_FEATURE_COUNT + 0;
+  int IDENTIFIER_LIST__IDENTIFIER = 0;
+
+  /**
+   * The number of structural features of the '<em>Identifier List</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTIFIER_LIST_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ExpressionListImpl <em>Expression List</em>}' class.
@@ -1496,7 +1333,7 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getExpressionList()
    * @generated
    */
-  int EXPRESSION_LIST = 27;
+  int EXPRESSION_LIST = 34;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference list.
@@ -1505,97 +1342,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_LIST__EXPRESSION = VAR_SPEC_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_LIST__BLOCK = VAR_SPEC_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>If Stmt</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_LIST__IF_STMT = VAR_SPEC_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Switch stmt linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_LIST__SWITCH_STMT_LINHA = VAR_SPEC_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_LIST__CONDITION = VAR_SPEC_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>Post Stmt</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_LIST__POST_STMT = VAR_SPEC_FEATURE_COUNT + 5;
-
-  /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_LIST__INDEX_LINHA = VAR_SPEC_FEATURE_COUNT + 6;
-
-  /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_LIST__PRIMARY_EXPR_LINHA = VAR_SPEC_FEATURE_COUNT + 7;
-
-  /**
-   * The feature id for the '<em><b>Statement List</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_LIST__STATEMENT_LIST = VAR_SPEC_FEATURE_COUNT + 8;
-
-  /**
-   * The feature id for the '<em><b>Recv Expr</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_LIST__RECV_EXPR = VAR_SPEC_FEATURE_COUNT + 9;
-
-  /**
-   * The feature id for the '<em><b>Expression List</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_LIST__EXPRESSION_LIST = VAR_SPEC_FEATURE_COUNT + 10;
+  int EXPRESSION_LIST__EXPRESSION = 0;
 
   /**
    * The number of structural features of the '<em>Expression List</em>' class.
@@ -1604,7 +1351,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_LIST_FEATURE_COUNT = VAR_SPEC_FEATURE_COUNT + 11;
+  int EXPRESSION_LIST_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.TypeDeclImpl <em>Type Decl</em>}' class.
@@ -1614,7 +1361,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getTypeDecl()
    * @generated
    */
-  int TYPE_DECL = 28;
+  int TYPE_DECL = 35;
+
+  /**
+   * The feature id for the '<em><b>Type Spec</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_DECL__TYPE_SPEC = 0;
 
   /**
    * The number of structural features of the '<em>Type Decl</em>' class.
@@ -1623,7 +1379,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_DECL_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 0;
+  int TYPE_DECL_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.TypeSpecImpl <em>Type Spec</em>}' class.
@@ -1633,7 +1389,25 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getTypeSpec()
    * @generated
    */
-  int TYPE_SPEC = 29;
+  int TYPE_SPEC = 36;
+
+  /**
+   * The feature id for the '<em><b>Identifier</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_SPEC__IDENTIFIER = 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_SPEC__TYPE = 1;
 
   /**
    * The number of structural features of the '<em>Type Spec</em>' class.
@@ -1642,7 +1416,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_SPEC_FEATURE_COUNT = TYPE_DECL_FEATURE_COUNT + 0;
+  int TYPE_SPEC_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.AliasDeclImpl <em>Alias Decl</em>}' class.
@@ -1652,7 +1426,25 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getAliasDecl()
    * @generated
    */
-  int ALIAS_DECL = 30;
+  int ALIAS_DECL = 37;
+
+  /**
+   * The feature id for the '<em><b>Identifier</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALIAS_DECL__IDENTIFIER = TYPE_SPEC__IDENTIFIER;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALIAS_DECL__TYPE = TYPE_SPEC__TYPE;
 
   /**
    * The number of structural features of the '<em>Alias Decl</em>' class.
@@ -1671,7 +1463,25 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getTypeDef()
    * @generated
    */
-  int TYPE_DEF = 31;
+  int TYPE_DEF = 38;
+
+  /**
+   * The feature id for the '<em><b>Identifier</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_DEF__IDENTIFIER = TYPE_SPEC__IDENTIFIER;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_DEF__TYPE = TYPE_SPEC__TYPE;
 
   /**
    * The number of structural features of the '<em>Type Def</em>' class.
@@ -1683,123 +1493,78 @@ public interface GoPackage extends EPackage
   int TYPE_DEF_FEATURE_COUNT = TYPE_SPEC_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.IfStmtImpl <em>If Stmt</em>}' class.
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.VarDeclImpl <em>Var Decl</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.ufcg.compiladores.go.impl.IfStmtImpl
-   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getIfStmt()
+   * @see com.ufcg.compiladores.go.impl.VarDeclImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getVarDecl()
    * @generated
    */
-  int IF_STMT = 67;
+  int VAR_DECL = 39;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
+   * The feature id for the '<em><b>Var Spec</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IF_STMT__EXPRESSION = 0;
+  int VAR_DECL__VAR_SPEC = 0;
 
   /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference list.
+   * The number of structural features of the '<em>Var Decl</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IF_STMT__BLOCK = 1;
+  int VAR_DECL_FEATURE_COUNT = 1;
 
   /**
-   * The feature id for the '<em><b>If Stmt</b></em>' containment reference list.
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.VarSpecImpl <em>Var Spec</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.VarSpecImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getVarSpec()
+   * @generated
+   */
+  int VAR_SPEC = 40;
+
+  /**
+   * The feature id for the '<em><b>Identifier List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IF_STMT__IF_STMT = 2;
+  int VAR_SPEC__IDENTIFIER_LIST = 0;
 
   /**
-   * The number of structural features of the '<em>If Stmt</em>' class.
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IF_STMT_FEATURE_COUNT = 3;
+  int VAR_SPEC__TYPE = 1;
 
   /**
-   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.SimpleStmtImpl <em>Simple Stmt</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.ufcg.compiladores.go.impl.SimpleStmtImpl
-   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getSimpleStmt()
-   * @generated
-   */
-  int SIMPLE_STMT = 60;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
+   * The feature id for the '<em><b>Expression List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SIMPLE_STMT__EXPRESSION = IF_STMT__EXPRESSION;
+  int VAR_SPEC__EXPRESSION_LIST = 2;
 
   /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference list.
+   * The number of structural features of the '<em>Var Spec</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SIMPLE_STMT__BLOCK = IF_STMT__BLOCK;
-
-  /**
-   * The feature id for the '<em><b>If Stmt</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_STMT__IF_STMT = IF_STMT__IF_STMT;
-
-  /**
-   * The feature id for the '<em><b>Switch stmt linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_STMT__SWITCH_STMT_LINHA = IF_STMT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_STMT__CONDITION = IF_STMT_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Post Stmt</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_STMT__POST_STMT = IF_STMT_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Simple Stmt</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_STMT_FEATURE_COUNT = IF_STMT_FEATURE_COUNT + 3;
+  int VAR_SPEC_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ShortVarDeclImpl <em>Short Var Decl</em>}' class.
@@ -1809,61 +1574,25 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getShortVarDecl()
    * @generated
    */
-  int SHORT_VAR_DECL = 34;
+  int SHORT_VAR_DECL = 41;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
+   * The feature id for the '<em><b>Identifier List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SHORT_VAR_DECL__EXPRESSION = SIMPLE_STMT__EXPRESSION;
+  int SHORT_VAR_DECL__IDENTIFIER_LIST = 0;
 
   /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference list.
+   * The feature id for the '<em><b>Expression List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SHORT_VAR_DECL__BLOCK = SIMPLE_STMT__BLOCK;
-
-  /**
-   * The feature id for the '<em><b>If Stmt</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SHORT_VAR_DECL__IF_STMT = SIMPLE_STMT__IF_STMT;
-
-  /**
-   * The feature id for the '<em><b>Switch stmt linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SHORT_VAR_DECL__SWITCH_STMT_LINHA = SIMPLE_STMT__SWITCH_STMT_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SHORT_VAR_DECL__CONDITION = SIMPLE_STMT__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Post Stmt</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SHORT_VAR_DECL__POST_STMT = SIMPLE_STMT__POST_STMT;
+  int SHORT_VAR_DECL__EXPRESSION_LIST = 1;
 
   /**
    * The number of structural features of the '<em>Short Var Decl</em>' class.
@@ -1872,7 +1601,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SHORT_VAR_DECL_FEATURE_COUNT = SIMPLE_STMT_FEATURE_COUNT + 0;
+  int SHORT_VAR_DECL_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.FunctionDeclImpl <em>Function Decl</em>}' class.
@@ -1882,7 +1611,34 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getFunctionDecl()
    * @generated
    */
-  int FUNCTION_DECL = 35;
+  int FUNCTION_DECL = 42;
+
+  /**
+   * The feature id for the '<em><b>Function Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_DECL__FUNCTION_NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Signature</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_DECL__SIGNATURE = 1;
+
+  /**
+   * The feature id for the '<em><b>Function Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_DECL__FUNCTION_BODY = 2;
 
   /**
    * The number of structural features of the '<em>Function Decl</em>' class.
@@ -1891,7 +1647,63 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION_DECL_FEATURE_COUNT = 0;
+  int FUNCTION_DECL_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.FunctionNameImpl <em>Function Name</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.FunctionNameImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getFunctionName()
+   * @generated
+   */
+  int FUNCTION_NAME = 43;
+
+  /**
+   * The feature id for the '<em><b>Identifier</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_NAME__IDENTIFIER = 0;
+
+  /**
+   * The number of structural features of the '<em>Function Name</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_NAME_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.FunctionBodyImpl <em>Function Body</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.FunctionBodyImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getFunctionBody()
+   * @generated
+   */
+  int FUNCTION_BODY = 44;
+
+  /**
+   * The feature id for the '<em><b>Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_BODY__BLOCK = 0;
+
+  /**
+   * The number of structural features of the '<em>Function Body</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_BODY_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.MethodDeclImpl <em>Method Decl</em>}' class.
@@ -1901,7 +1713,43 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getMethodDecl()
    * @generated
    */
-  int METHOD_DECL = 37;
+  int METHOD_DECL = 45;
+
+  /**
+   * The feature id for the '<em><b>Receiver</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_DECL__RECEIVER = 0;
+
+  /**
+   * The feature id for the '<em><b>Method Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_DECL__METHOD_NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Signature</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_DECL__SIGNATURE = 2;
+
+  /**
+   * The feature id for the '<em><b>Function Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_DECL__FUNCTION_BODY = 3;
 
   /**
    * The number of structural features of the '<em>Method Decl</em>' class.
@@ -1910,44 +1758,302 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int METHOD_DECL_FEATURE_COUNT = 0;
+  int METHOD_DECL_FEATURE_COUNT = 4;
 
   /**
-   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ReceiverImpl <em>Receiver</em>}' class.
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.OperandImpl <em>Operand</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.ufcg.compiladores.go.impl.ReceiverImpl
-   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getReceiver()
+   * @see com.ufcg.compiladores.go.impl.OperandImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getOperand()
    * @generated
    */
-  int RECEIVER = 38;
+  int OPERAND = 47;
 
   /**
-   * The feature id for the '<em><b>Function Body</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RECEIVER__FUNCTION_BODY = TOP_LEVEL_DECL_LINHA__FUNCTION_BODY;
-
-  /**
-   * The feature id for the '<em><b>Signature</b></em>' containment reference list.
+   * The feature id for the '<em><b>Literal</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RECEIVER__SIGNATURE = TOP_LEVEL_DECL_LINHA_FEATURE_COUNT + 0;
+  int OPERAND__LITERAL = 0;
 
   /**
-   * The number of structural features of the '<em>Receiver</em>' class.
+   * The feature id for the '<em><b>Operand Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RECEIVER_FEATURE_COUNT = TOP_LEVEL_DECL_LINHA_FEATURE_COUNT + 1;
+  int OPERAND__OPERAND_NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERAND__EXPRESSION = 2;
+
+  /**
+   * The number of structural features of the '<em>Operand</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERAND_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.LiteralImpl <em>Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.LiteralImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getLiteral()
+   * @generated
+   */
+  int LITERAL = 48;
+
+  /**
+   * The feature id for the '<em><b>Basic Lit</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LITERAL__BASIC_LIT = 0;
+
+  /**
+   * The number of structural features of the '<em>Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LITERAL_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.BasicLitImpl <em>Basic Lit</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.BasicLitImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getBasicLit()
+   * @generated
+   */
+  int BASIC_LIT = 49;
+
+  /**
+   * The feature id for the '<em><b>Int lit</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BASIC_LIT__INT_LIT = 0;
+
+  /**
+   * The feature id for the '<em><b>Float lit</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BASIC_LIT__FLOAT_LIT = 1;
+
+  /**
+   * The feature id for the '<em><b>Rune lit</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BASIC_LIT__RUNE_LIT = 2;
+
+  /**
+   * The feature id for the '<em><b>String lit</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BASIC_LIT__STRING_LIT = 3;
+
+  /**
+   * The number of structural features of the '<em>Basic Lit</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BASIC_LIT_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.OperandNameImpl <em>Operand Name</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.OperandNameImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getOperandName()
+   * @generated
+   */
+  int OPERAND_NAME = 50;
+
+  /**
+   * The number of structural features of the '<em>Operand Name</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERAND_NAME_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.QualifiedIdentImpl <em>Qualified Ident</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.QualifiedIdentImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getQualifiedIdent()
+   * @generated
+   */
+  int QUALIFIED_IDENT = 51;
+
+  /**
+   * The feature id for the '<em><b>Package Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int QUALIFIED_IDENT__PACKAGE_NAME = OPERAND_NAME_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Identifier</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int QUALIFIED_IDENT__IDENTIFIER = OPERAND_NAME_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Qualified Ident</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int QUALIFIED_IDENT_FEATURE_COUNT = OPERAND_NAME_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.CompositeLitImpl <em>Composite Lit</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.CompositeLitImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getCompositeLit()
+   * @generated
+   */
+  int COMPOSITE_LIT = 52;
+
+  /**
+   * The feature id for the '<em><b>Basic Lit</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPOSITE_LIT__BASIC_LIT = LITERAL__BASIC_LIT;
+
+  /**
+   * The feature id for the '<em><b>Literal Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPOSITE_LIT__LITERAL_TYPE = LITERAL_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Literal Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPOSITE_LIT__LITERAL_VALUE = LITERAL_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Composite Lit</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPOSITE_LIT_FEATURE_COUNT = LITERAL_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.LiteralTypeImpl <em>Literal Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.LiteralTypeImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getLiteralType()
+   * @generated
+   */
+  int LITERAL_TYPE = 53;
+
+  /**
+   * The feature id for the '<em><b>Struct Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LITERAL_TYPE__STRUCT_TYPE = 0;
+
+  /**
+   * The feature id for the '<em><b>Literal Type Linha</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LITERAL_TYPE__LITERAL_TYPE_LINHA = 1;
+
+  /**
+   * The feature id for the '<em><b>Element Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LITERAL_TYPE__ELEMENT_TYPE = 2;
+
+  /**
+   * The feature id for the '<em><b>Map Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LITERAL_TYPE__MAP_TYPE = 3;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LITERAL_TYPE__TYPE_NAME = 4;
+
+  /**
+   * The number of structural features of the '<em>Literal Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LITERAL_TYPE_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.LiteralTypeLinhaImpl <em>Literal Type Linha</em>}' class.
@@ -1957,34 +2063,25 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getLiteralTypeLinha()
    * @generated
    */
-  int LITERAL_TYPE_LINHA = 43;
+  int LITERAL_TYPE_LINHA = 54;
 
   /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
+   * The feature id for the '<em><b>Array Length</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LITERAL_TYPE_LINHA__INDEX_LINHA = LITERAL_TYPE__INDEX_LINHA;
+  int LITERAL_TYPE_LINHA__ARRAY_LENGTH = 0;
 
   /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
+   * The feature id for the '<em><b>Element Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LITERAL_TYPE_LINHA__PRIMARY_EXPR_LINHA = LITERAL_TYPE__PRIMARY_EXPR_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Literal Value</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LITERAL_TYPE_LINHA__LITERAL_VALUE = LITERAL_TYPE__LITERAL_VALUE;
+  int LITERAL_TYPE_LINHA__ELEMENT_TYPE = 1;
 
   /**
    * The number of structural features of the '<em>Literal Type Linha</em>' class.
@@ -1993,26 +2090,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LITERAL_TYPE_LINHA_FEATURE_COUNT = LITERAL_TYPE_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ElementImpl <em>Element</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.ufcg.compiladores.go.impl.ElementImpl
-   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getElement()
-   * @generated
-   */
-  int ELEMENT = 46;
-
-  /**
-   * The number of structural features of the '<em>Element</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELEMENT_FEATURE_COUNT = 0;
+  int LITERAL_TYPE_LINHA_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.LiteralValueImpl <em>Literal Value</em>}' class.
@@ -2022,43 +2100,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getLiteralValue()
    * @generated
    */
-  int LITERAL_VALUE = 44;
+  int LITERAL_VALUE = 55;
 
   /**
-   * The feature id for the '<em><b>Keyed Element</b></em>' containment reference list.
+   * The feature id for the '<em><b>Element List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LITERAL_VALUE__KEYED_ELEMENT = ELEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Element</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LITERAL_VALUE__ELEMENT = ELEMENT_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LITERAL_VALUE__EXPRESSION = ELEMENT_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Element List</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LITERAL_VALUE__ELEMENT_LIST = ELEMENT_FEATURE_COUNT + 3;
+  int LITERAL_VALUE__ELEMENT_LIST = 0;
 
   /**
    * The number of structural features of the '<em>Literal Value</em>' class.
@@ -2067,7 +2118,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LITERAL_VALUE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 4;
+  int LITERAL_VALUE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ElementListImpl <em>Element List</em>}' class.
@@ -2077,7 +2128,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getElementList()
    * @generated
    */
-  int ELEMENT_LIST = 45;
+  int ELEMENT_LIST = 56;
+
+  /**
+   * The feature id for the '<em><b>Keyed Element</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELEMENT_LIST__KEYED_ELEMENT = 0;
 
   /**
    * The number of structural features of the '<em>Element List</em>' class.
@@ -2086,7 +2146,44 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ELEMENT_LIST_FEATURE_COUNT = 0;
+  int ELEMENT_LIST_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ElementImpl <em>Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.ElementImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getElement()
+   * @generated
+   */
+  int ELEMENT = 57;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELEMENT__EXPRESSION = 0;
+
+  /**
+   * The feature id for the '<em><b>Literal Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELEMENT__LITERAL_VALUE = 1;
+
+  /**
+   * The number of structural features of the '<em>Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELEMENT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.KeyedElementImpl <em>Keyed Element</em>}' class.
@@ -2096,25 +2193,25 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getKeyedElement()
    * @generated
    */
-  int KEYED_ELEMENT = 47;
+  int KEYED_ELEMENT = 58;
 
   /**
-   * The feature id for the '<em><b>Keyed Element</b></em>' containment reference list.
+   * The feature id for the '<em><b>Key</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int KEYED_ELEMENT__KEYED_ELEMENT = ELEMENT_LIST_FEATURE_COUNT + 0;
+  int KEYED_ELEMENT__KEY = 0;
 
   /**
-   * The feature id for the '<em><b>Element</b></em>' containment reference list.
+   * The feature id for the '<em><b>Element</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int KEYED_ELEMENT__ELEMENT = ELEMENT_LIST_FEATURE_COUNT + 1;
+  int KEYED_ELEMENT__ELEMENT = 1;
 
   /**
    * The number of structural features of the '<em>Keyed Element</em>' class.
@@ -2123,7 +2220,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int KEYED_ELEMENT_FEATURE_COUNT = ELEMENT_LIST_FEATURE_COUNT + 2;
+  int KEYED_ELEMENT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.KeyImpl <em>Key</em>}' class.
@@ -2133,34 +2230,34 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getKey()
    * @generated
    */
-  int KEY = 48;
+  int KEY = 59;
 
   /**
-   * The feature id for the '<em><b>Keyed Element</b></em>' containment reference list.
+   * The feature id for the '<em><b>Field Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int KEY__KEYED_ELEMENT = KEYED_ELEMENT__KEYED_ELEMENT;
+  int KEY__FIELD_NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Element</b></em>' containment reference list.
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int KEY__ELEMENT = KEYED_ELEMENT__ELEMENT;
+  int KEY__EXPRESSION = 1;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
+   * The feature id for the '<em><b>Literal Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int KEY__EXPRESSION = KEYED_ELEMENT_FEATURE_COUNT + 0;
+  int KEY__LITERAL_VALUE = 2;
 
   /**
    * The number of structural features of the '<em>Key</em>' class.
@@ -2169,7 +2266,35 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int KEY_FEATURE_COUNT = KEYED_ELEMENT_FEATURE_COUNT + 1;
+  int KEY_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.FieldNameImpl <em>Field Name</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.FieldNameImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getFieldName()
+   * @generated
+   */
+  int FIELD_NAME = 60;
+
+  /**
+   * The feature id for the '<em><b>Identifier</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_NAME__IDENTIFIER = 0;
+
+  /**
+   * The number of structural features of the '<em>Field Name</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_NAME_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.FunctionLitImpl <em>Function Lit</em>}' class.
@@ -2179,25 +2304,34 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getFunctionLit()
    * @generated
    */
-  int FUNCTION_LIT = 49;
+  int FUNCTION_LIT = 61;
 
   /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
+   * The feature id for the '<em><b>Basic Lit</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUNCTION_LIT__INDEX_LINHA = LITERAL__INDEX_LINHA;
+  int FUNCTION_LIT__BASIC_LIT = LITERAL__BASIC_LIT;
 
   /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
+   * The feature id for the '<em><b>Signature</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUNCTION_LIT__PRIMARY_EXPR_LINHA = LITERAL__PRIMARY_EXPR_LINHA;
+  int FUNCTION_LIT__SIGNATURE = LITERAL_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Function Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_LIT__FUNCTION_BODY = LITERAL_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Function Lit</em>' class.
@@ -2206,7 +2340,293 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION_LIT_FEATURE_COUNT = LITERAL_FEATURE_COUNT + 0;
+  int FUNCTION_LIT_FEATURE_COUNT = LITERAL_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.PrimaryExprImpl <em>Primary Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.PrimaryExprImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getPrimaryExpr()
+   * @generated
+   */
+  int PRIMARY_EXPR = 62;
+
+  /**
+   * The feature id for the '<em><b>Operand</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPR__OPERAND = 0;
+
+  /**
+   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPR__PRIMARY_EXPR_LINHA = 1;
+
+  /**
+   * The feature id for the '<em><b>Conversion</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPR__CONVERSION = 2;
+
+  /**
+   * The feature id for the '<em><b>Method Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPR__METHOD_EXPR = 3;
+
+  /**
+   * The number of structural features of the '<em>Primary Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPR_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.PrimaryExprLinhaImpl <em>Primary Expr Linha</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.PrimaryExprLinhaImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getPrimaryExprLinha()
+   * @generated
+   */
+  int PRIMARY_EXPR_LINHA = 63;
+
+  /**
+   * The feature id for the '<em><b>Arguments</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPR_LINHA__ARGUMENTS = 0;
+
+  /**
+   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPR_LINHA__PRIMARY_EXPR_LINHA = 1;
+
+  /**
+   * The feature id for the '<em><b>Ponto</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPR_LINHA__PONTO = 2;
+
+  /**
+   * The feature id for the '<em><b>Cochetes</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPR_LINHA__COCHETES = 3;
+
+  /**
+   * The number of structural features of the '<em>Primary Expr Linha</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPR_LINHA_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.pontoImpl <em>ponto</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.pontoImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getponto()
+   * @generated
+   */
+  int PONTO = 64;
+
+  /**
+   * The feature id for the '<em><b>Selector</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PONTO__SELECTOR = 0;
+
+  /**
+   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PONTO__PRIMARY_EXPR_LINHA = 1;
+
+  /**
+   * The feature id for the '<em><b>Type Assertion</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PONTO__TYPE_ASSERTION = 2;
+
+  /**
+   * The number of structural features of the '<em>ponto</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PONTO_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.cochetesImpl <em>cochetes</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.cochetesImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getcochetes()
+   * @generated
+   */
+  int COCHETES = 65;
+
+  /**
+   * The feature id for the '<em><b>Index</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COCHETES__INDEX = 0;
+
+  /**
+   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COCHETES__PRIMARY_EXPR_LINHA = 1;
+
+  /**
+   * The feature id for the '<em><b>Slice</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COCHETES__SLICE = 2;
+
+  /**
+   * The number of structural features of the '<em>cochetes</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COCHETES_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.SelectorImpl <em>Selector</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.SelectorImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getSelector()
+   * @generated
+   */
+  int SELECTOR = 66;
+
+  /**
+   * The feature id for the '<em><b>Identifier</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECTOR__IDENTIFIER = 0;
+
+  /**
+   * The number of structural features of the '<em>Selector</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECTOR_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.IndexImpl <em>Index</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.IndexImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getIndex()
+   * @generated
+   */
+  int INDEX = 67;
+
+  /**
+   * The feature id for the '<em><b>Slice</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INDEX__SLICE = 0;
+
+  /**
+   * The number of structural features of the '<em>Index</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INDEX_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.SliceImpl <em>Slice</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.SliceImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getSlice()
+   * @generated
+   */
+  int SLICE = 68;
+
+  /**
+   * The feature id for the '<em><b>Decimals</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLICE__DECIMALS = 0;
+
+  /**
+   * The number of structural features of the '<em>Slice</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SLICE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.TypeAssertionImpl <em>Type Assertion</em>}' class.
@@ -2216,25 +2636,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getTypeAssertion()
    * @generated
    */
-  int TYPE_ASSERTION = 52;
+  int TYPE_ASSERTION = 69;
 
   /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_ASSERTION__INDEX_LINHA = PRIMARY_EXPR_LINHA__INDEX_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_ASSERTION__PRIMARY_EXPR_LINHA = PRIMARY_EXPR_LINHA__PRIMARY_EXPR_LINHA;
+  int TYPE_ASSERTION__TYPE = 0;
 
   /**
    * The number of structural features of the '<em>Type Assertion</em>' class.
@@ -2243,7 +2654,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_ASSERTION_FEATURE_COUNT = PRIMARY_EXPR_LINHA_FEATURE_COUNT + 0;
+  int TYPE_ASSERTION_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ArgumentsImpl <em>Arguments</em>}' class.
@@ -2253,25 +2664,25 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getArguments()
    * @generated
    */
-  int ARGUMENTS = 53;
+  int ARGUMENTS = 70;
 
   /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
+   * The feature id for the '<em><b>Expression List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ARGUMENTS__INDEX_LINHA = PRIMARY_EXPR_LINHA__INDEX_LINHA;
+  int ARGUMENTS__EXPRESSION_LIST = 0;
 
   /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ARGUMENTS__PRIMARY_EXPR_LINHA = PRIMARY_EXPR_LINHA__PRIMARY_EXPR_LINHA;
+  int ARGUMENTS__TYPE = 1;
 
   /**
    * The number of structural features of the '<em>Arguments</em>' class.
@@ -2280,7 +2691,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARGUMENTS_FEATURE_COUNT = PRIMARY_EXPR_LINHA_FEATURE_COUNT + 0;
+  int ARGUMENTS_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.MethodExprImpl <em>Method Expr</em>}' class.
@@ -2290,25 +2701,25 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getMethodExpr()
    * @generated
    */
-  int METHOD_EXPR = 54;
+  int METHOD_EXPR = 71;
 
   /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
+   * The feature id for the '<em><b>Receiver Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int METHOD_EXPR__INDEX_LINHA = PRIMARY_EXPR__INDEX_LINHA;
+  int METHOD_EXPR__RECEIVER_TYPE = 0;
 
   /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
+   * The feature id for the '<em><b>Method Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int METHOD_EXPR__PRIMARY_EXPR_LINHA = PRIMARY_EXPR__PRIMARY_EXPR_LINHA;
+  int METHOD_EXPR__METHOD_NAME = 1;
 
   /**
    * The number of structural features of the '<em>Method Expr</em>' class.
@@ -2317,7 +2728,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int METHOD_EXPR_FEATURE_COUNT = PRIMARY_EXPR_FEATURE_COUNT + 0;
+  int METHOD_EXPR_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ReceiverTypeImpl <em>Receiver Type</em>}' class.
@@ -2327,25 +2738,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getReceiverType()
    * @generated
    */
-  int RECEIVER_TYPE = 55;
+  int RECEIVER_TYPE = 72;
 
   /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RECEIVER_TYPE__INDEX_LINHA = METHOD_EXPR__INDEX_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RECEIVER_TYPE__PRIMARY_EXPR_LINHA = METHOD_EXPR__PRIMARY_EXPR_LINHA;
+  int RECEIVER_TYPE__TYPE = 0;
 
   /**
    * The number of structural features of the '<em>Receiver Type</em>' class.
@@ -2354,7 +2756,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RECEIVER_TYPE_FEATURE_COUNT = METHOD_EXPR_FEATURE_COUNT + 0;
+  int RECEIVER_TYPE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -2364,133 +2766,25 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 56;
+  int EXPRESSION = 73;
 
   /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
+   * The feature id for the '<em><b>Unary Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION__INDEX_LINHA = ARRAY_LENGTH__INDEX_LINHA;
+  int EXPRESSION__UNARY_EXPR = 0;
 
   /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
+   * The feature id for the '<em><b>Expression Linha</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION__PRIMARY_EXPR_LINHA = ARRAY_LENGTH__PRIMARY_EXPR_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Literal Value</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__LITERAL_VALUE = ARRAY_LENGTH__LITERAL_VALUE;
-
-  /**
-   * The feature id for the '<em><b>Element Type</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__ELEMENT_TYPE = ARRAY_LENGTH__ELEMENT_TYPE;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__EXPRESSION = ARRAY_LENGTH_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__BLOCK = ARRAY_LENGTH_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>If Stmt</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__IF_STMT = ARRAY_LENGTH_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Switch stmt linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__SWITCH_STMT_LINHA = ARRAY_LENGTH_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__CONDITION = ARRAY_LENGTH_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>Post Stmt</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__POST_STMT = ARRAY_LENGTH_FEATURE_COUNT + 5;
-
-  /**
-   * The feature id for the '<em><b>Statement List</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__STATEMENT_LIST = ARRAY_LENGTH_FEATURE_COUNT + 6;
-
-  /**
-   * The feature id for the '<em><b>Recv Expr</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__RECV_EXPR = ARRAY_LENGTH_FEATURE_COUNT + 7;
-
-  /**
-   * The feature id for the '<em><b>Expression List</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__EXPRESSION_LIST = ARRAY_LENGTH_FEATURE_COUNT + 8;
-
-  /**
-   * The feature id for the '<em><b>Expression Linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__EXPRESSION_LINHA = ARRAY_LENGTH_FEATURE_COUNT + 9;
+  int EXPRESSION__EXPRESSION_LINHA = 1;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -2499,7 +2793,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = ARRAY_LENGTH_FEATURE_COUNT + 10;
+  int EXPRESSION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ExpressionLinhaImpl <em>Expression Linha</em>}' class.
@@ -2509,7 +2803,34 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getExpressionLinha()
    * @generated
    */
-  int EXPRESSION_LINHA = 57;
+  int EXPRESSION_LINHA = 74;
+
+  /**
+   * The feature id for the '<em><b>Binary op</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_LINHA__BINARY_OP = 0;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_LINHA__EXPRESSION = 1;
+
+  /**
+   * The feature id for the '<em><b>Expression Linha</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_LINHA__EXPRESSION_LINHA = 2;
 
   /**
    * The number of structural features of the '<em>Expression Linha</em>' class.
@@ -2518,7 +2839,99 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_LINHA_FEATURE_COUNT = 0;
+  int EXPRESSION_LINHA_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.UnaryExprImpl <em>Unary Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.UnaryExprImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getUnaryExpr()
+   * @generated
+   */
+  int UNARY_EXPR = 75;
+
+  /**
+   * The feature id for the '<em><b>Primary Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPR__PRIMARY_EXPR = 0;
+
+  /**
+   * The feature id for the '<em><b>Unary op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPR__UNARY_OP = 1;
+
+  /**
+   * The feature id for the '<em><b>Unary Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPR__UNARY_EXPR = 2;
+
+  /**
+   * The number of structural features of the '<em>Unary Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPR_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.binary_opImpl <em>binary op</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.binary_opImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getbinary_op()
+   * @generated
+   */
+  int BINARY_OP = 76;
+
+  /**
+   * The feature id for the '<em><b>Rel op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINARY_OP__REL_OP = 0;
+
+  /**
+   * The feature id for the '<em><b>Add op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINARY_OP__ADD_OP = 1;
+
+  /**
+   * The feature id for the '<em><b>Mul op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINARY_OP__MUL_OP = 2;
+
+  /**
+   * The number of structural features of the '<em>binary op</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINARY_OP_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ConversionImpl <em>Conversion</em>}' class.
@@ -2528,25 +2941,25 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getConversion()
    * @generated
    */
-  int CONVERSION = 58;
+  int CONVERSION = 77;
 
   /**
-   * The feature id for the '<em><b>Index Linha</b></em>' attribute list.
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONVERSION__INDEX_LINHA = PRIMARY_EXPR__INDEX_LINHA;
+  int CONVERSION__TYPE = 0;
 
   /**
-   * The feature id for the '<em><b>Primary Expr Linha</b></em>' containment reference list.
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONVERSION__PRIMARY_EXPR_LINHA = PRIMARY_EXPR__PRIMARY_EXPR_LINHA;
+  int CONVERSION__EXPRESSION = 1;
 
   /**
    * The number of structural features of the '<em>Conversion</em>' class.
@@ -2555,7 +2968,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONVERSION_FEATURE_COUNT = PRIMARY_EXPR_FEATURE_COUNT + 0;
+  int CONVERSION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.StatementImpl <em>Statement</em>}' class.
@@ -2565,142 +2978,142 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getStatement()
    * @generated
    */
-  int STATEMENT = 59;
+  int STATEMENT = 78;
 
   /**
-   * The feature id for the '<em><b>Declaration</b></em>' containment reference list.
+   * The feature id for the '<em><b>Declaration</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__DECLARATION = STATEMENT_LIST_FEATURE_COUNT + 0;
+  int STATEMENT__DECLARATION = 0;
 
   /**
-   * The feature id for the '<em><b>Labeled Stmt</b></em>' containment reference list.
+   * The feature id for the '<em><b>Labeled Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__LABELED_STMT = STATEMENT_LIST_FEATURE_COUNT + 1;
+  int STATEMENT__LABELED_STMT = 1;
 
   /**
-   * The feature id for the '<em><b>Simple Stmt</b></em>' containment reference list.
+   * The feature id for the '<em><b>Simple Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__SIMPLE_STMT = STATEMENT_LIST_FEATURE_COUNT + 2;
+  int STATEMENT__SIMPLE_STMT = 2;
 
   /**
-   * The feature id for the '<em><b>Go Stmt</b></em>' containment reference list.
+   * The feature id for the '<em><b>Go Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__GO_STMT = STATEMENT_LIST_FEATURE_COUNT + 3;
+  int STATEMENT__GO_STMT = 3;
 
   /**
-   * The feature id for the '<em><b>Return Stmt</b></em>' containment reference list.
+   * The feature id for the '<em><b>Return Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__RETURN_STMT = STATEMENT_LIST_FEATURE_COUNT + 4;
+  int STATEMENT__RETURN_STMT = 4;
 
   /**
-   * The feature id for the '<em><b>Break Stmt</b></em>' attribute list.
+   * The feature id for the '<em><b>Break Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__BREAK_STMT = STATEMENT_LIST_FEATURE_COUNT + 5;
+  int STATEMENT__BREAK_STMT = 5;
 
   /**
-   * The feature id for the '<em><b>Continue Stmt</b></em>' attribute list.
+   * The feature id for the '<em><b>Continue Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__CONTINUE_STMT = STATEMENT_LIST_FEATURE_COUNT + 6;
+  int STATEMENT__CONTINUE_STMT = 6;
 
   /**
-   * The feature id for the '<em><b>Goto Stmt</b></em>' attribute list.
+   * The feature id for the '<em><b>Goto Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__GOTO_STMT = STATEMENT_LIST_FEATURE_COUNT + 7;
+  int STATEMENT__GOTO_STMT = 7;
 
   /**
-   * The feature id for the '<em><b>Fallthrough Stmt</b></em>' attribute list.
+   * The feature id for the '<em><b>Fallthrough Stmt</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__FALLTHROUGH_STMT = STATEMENT_LIST_FEATURE_COUNT + 8;
+  int STATEMENT__FALLTHROUGH_STMT = 8;
 
   /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference list.
+   * The feature id for the '<em><b>Block</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__BLOCK = STATEMENT_LIST_FEATURE_COUNT + 9;
+  int STATEMENT__BLOCK = 9;
 
   /**
-   * The feature id for the '<em><b>If Stmt</b></em>' containment reference list.
+   * The feature id for the '<em><b>If Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__IF_STMT = STATEMENT_LIST_FEATURE_COUNT + 10;
+  int STATEMENT__IF_STMT = 10;
 
   /**
-   * The feature id for the '<em><b>Switch Stmt</b></em>' containment reference list.
+   * The feature id for the '<em><b>Switch Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__SWITCH_STMT = STATEMENT_LIST_FEATURE_COUNT + 11;
+  int STATEMENT__SWITCH_STMT = 11;
 
   /**
-   * The feature id for the '<em><b>Select Stmt</b></em>' containment reference list.
+   * The feature id for the '<em><b>Select Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__SELECT_STMT = STATEMENT_LIST_FEATURE_COUNT + 12;
+  int STATEMENT__SELECT_STMT = 12;
 
   /**
-   * The feature id for the '<em><b>For Stmt</b></em>' containment reference list.
+   * The feature id for the '<em><b>For Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__FOR_STMT = STATEMENT_LIST_FEATURE_COUNT + 13;
+  int STATEMENT__FOR_STMT = 13;
 
   /**
-   * The feature id for the '<em><b>Defer Stmt</b></em>' containment reference list.
+   * The feature id for the '<em><b>Defer Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__DEFER_STMT = STATEMENT_LIST_FEATURE_COUNT + 14;
+  int STATEMENT__DEFER_STMT = 14;
 
   /**
    * The number of structural features of the '<em>Statement</em>' class.
@@ -2709,391 +3122,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT_FEATURE_COUNT = STATEMENT_LIST_FEATURE_COUNT + 15;
-
-  /**
-   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.LabeledStmtImpl <em>Labeled Stmt</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.ufcg.compiladores.go.impl.LabeledStmtImpl
-   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getLabeledStmt()
-   * @generated
-   */
-  int LABELED_STMT = 61;
-
-  /**
-   * The number of structural features of the '<em>Labeled Stmt</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LABELED_STMT_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ExpressionStmtImpl <em>Expression Stmt</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.ufcg.compiladores.go.impl.ExpressionStmtImpl
-   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getExpressionStmt()
-   * @generated
-   */
-  int EXPRESSION_STMT = 62;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_STMT__EXPRESSION = SIMPLE_STMT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_STMT__BLOCK = SIMPLE_STMT__BLOCK;
-
-  /**
-   * The feature id for the '<em><b>If Stmt</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_STMT__IF_STMT = SIMPLE_STMT__IF_STMT;
-
-  /**
-   * The feature id for the '<em><b>Switch stmt linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_STMT__SWITCH_STMT_LINHA = SIMPLE_STMT__SWITCH_STMT_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_STMT__CONDITION = SIMPLE_STMT__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Post Stmt</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_STMT__POST_STMT = SIMPLE_STMT__POST_STMT;
-
-  /**
-   * The number of structural features of the '<em>Expression Stmt</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_STMT_FEATURE_COUNT = SIMPLE_STMT_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.SendStmtImpl <em>Send Stmt</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.ufcg.compiladores.go.impl.SendStmtImpl
-   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getSendStmt()
-   * @generated
-   */
-  int SEND_STMT = 63;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEND_STMT__EXPRESSION = SIMPLE_STMT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEND_STMT__BLOCK = SIMPLE_STMT__BLOCK;
-
-  /**
-   * The feature id for the '<em><b>If Stmt</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEND_STMT__IF_STMT = SIMPLE_STMT__IF_STMT;
-
-  /**
-   * The feature id for the '<em><b>Switch stmt linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEND_STMT__SWITCH_STMT_LINHA = SIMPLE_STMT__SWITCH_STMT_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEND_STMT__CONDITION = SIMPLE_STMT__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Post Stmt</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEND_STMT__POST_STMT = SIMPLE_STMT__POST_STMT;
-
-  /**
-   * The number of structural features of the '<em>Send Stmt</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEND_STMT_FEATURE_COUNT = SIMPLE_STMT_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ChannelImpl <em>Channel</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.ufcg.compiladores.go.impl.ChannelImpl
-   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getChannel()
-   * @generated
-   */
-  int CHANNEL = 64;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHANNEL__EXPRESSION = SEND_STMT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHANNEL__BLOCK = SEND_STMT__BLOCK;
-
-  /**
-   * The feature id for the '<em><b>If Stmt</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHANNEL__IF_STMT = SEND_STMT__IF_STMT;
-
-  /**
-   * The feature id for the '<em><b>Switch stmt linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHANNEL__SWITCH_STMT_LINHA = SEND_STMT__SWITCH_STMT_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHANNEL__CONDITION = SEND_STMT__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Post Stmt</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHANNEL__POST_STMT = SEND_STMT__POST_STMT;
-
-  /**
-   * The number of structural features of the '<em>Channel</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHANNEL_FEATURE_COUNT = SEND_STMT_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.IncDecStmtImpl <em>Inc Dec Stmt</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.ufcg.compiladores.go.impl.IncDecStmtImpl
-   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getIncDecStmt()
-   * @generated
-   */
-  int INC_DEC_STMT = 65;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INC_DEC_STMT__EXPRESSION = SIMPLE_STMT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INC_DEC_STMT__BLOCK = SIMPLE_STMT__BLOCK;
-
-  /**
-   * The feature id for the '<em><b>If Stmt</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INC_DEC_STMT__IF_STMT = SIMPLE_STMT__IF_STMT;
-
-  /**
-   * The feature id for the '<em><b>Switch stmt linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INC_DEC_STMT__SWITCH_STMT_LINHA = SIMPLE_STMT__SWITCH_STMT_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INC_DEC_STMT__CONDITION = SIMPLE_STMT__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Post Stmt</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INC_DEC_STMT__POST_STMT = SIMPLE_STMT__POST_STMT;
-
-  /**
-   * The number of structural features of the '<em>Inc Dec Stmt</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INC_DEC_STMT_FEATURE_COUNT = SIMPLE_STMT_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.AssignmentImpl <em>Assignment</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.ufcg.compiladores.go.impl.AssignmentImpl
-   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getAssignment()
-   * @generated
-   */
-  int ASSIGNMENT = 66;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGNMENT__EXPRESSION = SIMPLE_STMT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGNMENT__BLOCK = SIMPLE_STMT__BLOCK;
-
-  /**
-   * The feature id for the '<em><b>If Stmt</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGNMENT__IF_STMT = SIMPLE_STMT__IF_STMT;
-
-  /**
-   * The feature id for the '<em><b>Switch stmt linha</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGNMENT__SWITCH_STMT_LINHA = SIMPLE_STMT__SWITCH_STMT_LINHA;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGNMENT__CONDITION = SIMPLE_STMT__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Post Stmt</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGNMENT__POST_STMT = SIMPLE_STMT__POST_STMT;
-
-  /**
-   * The number of structural features of the '<em>Assignment</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSIGNMENT_FEATURE_COUNT = SIMPLE_STMT_FEATURE_COUNT + 0;
+  int STATEMENT_FEATURE_COUNT = 15;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.SwitchStmtImpl <em>Switch Stmt</em>}' class.
@@ -3103,10 +3132,10 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getSwitchStmt()
    * @generated
    */
-  int SWITCH_STMT = 68;
+  int SWITCH_STMT = 88;
 
   /**
-   * The feature id for the '<em><b>Switch stmt linha</b></em>' containment reference list.
+   * The feature id for the '<em><b>Switch stmt linha</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -3124,6 +3153,366 @@ public interface GoPackage extends EPackage
   int SWITCH_STMT_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.SimpleStmtImpl <em>Simple Stmt</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.SimpleStmtImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getSimpleStmt()
+   * @generated
+   */
+  int SIMPLE_STMT = 79;
+
+  /**
+   * The feature id for the '<em><b>Switch stmt linha</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_STMT__SWITCH_STMT_LINHA = SWITCH_STMT__SWITCH_STMT_LINHA;
+
+  /**
+   * The feature id for the '<em><b>Empty Stmt</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_STMT__EMPTY_STMT = SWITCH_STMT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Expression Stmt</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_STMT__EXPRESSION_STMT = SWITCH_STMT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Send Stmt</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_STMT__SEND_STMT = SWITCH_STMT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Inc Dec Stmt</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_STMT__INC_DEC_STMT = SWITCH_STMT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Assignment</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_STMT__ASSIGNMENT = SWITCH_STMT_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Short Var Decl</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_STMT__SHORT_VAR_DECL = SWITCH_STMT_FEATURE_COUNT + 5;
+
+  /**
+   * The number of structural features of the '<em>Simple Stmt</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_STMT_FEATURE_COUNT = SWITCH_STMT_FEATURE_COUNT + 6;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.LabeledStmtImpl <em>Labeled Stmt</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.LabeledStmtImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getLabeledStmt()
+   * @generated
+   */
+  int LABELED_STMT = 80;
+
+  /**
+   * The feature id for the '<em><b>Label</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABELED_STMT__LABEL = 0;
+
+  /**
+   * The feature id for the '<em><b>Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABELED_STMT__STATEMENT = 1;
+
+  /**
+   * The number of structural features of the '<em>Labeled Stmt</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABELED_STMT_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.LabelImpl <em>Label</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.LabelImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getLabel()
+   * @generated
+   */
+  int LABEL = 81;
+
+  /**
+   * The feature id for the '<em><b>Identifier</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABEL__IDENTIFIER = 0;
+
+  /**
+   * The number of structural features of the '<em>Label</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABEL_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ExpressionStmtImpl <em>Expression Stmt</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.ExpressionStmtImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getExpressionStmt()
+   * @generated
+   */
+  int EXPRESSION_STMT = 82;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_STMT__EXPRESSION = 0;
+
+  /**
+   * The number of structural features of the '<em>Expression Stmt</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_STMT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.SendStmtImpl <em>Send Stmt</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.SendStmtImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getSendStmt()
+   * @generated
+   */
+  int SEND_STMT = 83;
+
+  /**
+   * The feature id for the '<em><b>Channel</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEND_STMT__CHANNEL = 0;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEND_STMT__EXPRESSION = 1;
+
+  /**
+   * The number of structural features of the '<em>Send Stmt</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEND_STMT_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ChannelImpl <em>Channel</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.ChannelImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getChannel()
+   * @generated
+   */
+  int CHANNEL = 84;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHANNEL__EXPRESSION = 0;
+
+  /**
+   * The number of structural features of the '<em>Channel</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHANNEL_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.IncDecStmtImpl <em>Inc Dec Stmt</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.IncDecStmtImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getIncDecStmt()
+   * @generated
+   */
+  int INC_DEC_STMT = 85;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INC_DEC_STMT__EXPRESSION = 0;
+
+  /**
+   * The number of structural features of the '<em>Inc Dec Stmt</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INC_DEC_STMT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.AssignmentImpl <em>Assignment</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.AssignmentImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getAssignment()
+   * @generated
+   */
+  int ASSIGNMENT = 86;
+
+  /**
+   * The feature id for the '<em><b>Expression List</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSIGNMENT__EXPRESSION_LIST = 0;
+
+  /**
+   * The feature id for the '<em><b>Assign op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSIGNMENT__ASSIGN_OP = 1;
+
+  /**
+   * The number of structural features of the '<em>Assignment</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSIGNMENT_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.IfStmtImpl <em>If Stmt</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.IfStmtImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getIfStmt()
+   * @generated
+   */
+  int IF_STMT = 87;
+
+  /**
+   * The feature id for the '<em><b>Simple Stmt</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_STMT__SIMPLE_STMT = 0;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_STMT__EXPRESSION = 1;
+
+  /**
+   * The feature id for the '<em><b>Block</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_STMT__BLOCK = 2;
+
+  /**
+   * The feature id for the '<em><b>If Stmt</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_STMT__IF_STMT = 3;
+
+  /**
+   * The number of structural features of the '<em>If Stmt</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_STMT_FEATURE_COUNT = 4;
+
+  /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ExprCaseClauseImpl <em>Expr Case Clause</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3131,7 +3520,25 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getExprCaseClause()
    * @generated
    */
-  int EXPR_CASE_CLAUSE = 69;
+  int EXPR_CASE_CLAUSE = 89;
+
+  /**
+   * The feature id for the '<em><b>Expr Switch Case</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_CASE_CLAUSE__EXPR_SWITCH_CASE = 0;
+
+  /**
+   * The feature id for the '<em><b>Statement List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_CASE_CLAUSE__STATEMENT_LIST = 1;
 
   /**
    * The number of structural features of the '<em>Expr Case Clause</em>' class.
@@ -3140,7 +3547,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPR_CASE_CLAUSE_FEATURE_COUNT = 0;
+  int EXPR_CASE_CLAUSE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ExprSwitchCaseImpl <em>Expr Switch Case</em>}' class.
@@ -3150,16 +3557,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getExprSwitchCase()
    * @generated
    */
-  int EXPR_SWITCH_CASE = 70;
+  int EXPR_SWITCH_CASE = 90;
 
   /**
-   * The feature id for the '<em><b>Statement List</b></em>' containment reference list.
+   * The feature id for the '<em><b>Expression List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPR_SWITCH_CASE__STATEMENT_LIST = EXPR_CASE_CLAUSE_FEATURE_COUNT + 0;
+  int EXPR_SWITCH_CASE__EXPRESSION_LIST = 0;
 
   /**
    * The number of structural features of the '<em>Expr Switch Case</em>' class.
@@ -3168,7 +3575,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPR_SWITCH_CASE_FEATURE_COUNT = EXPR_CASE_CLAUSE_FEATURE_COUNT + 1;
+  int EXPR_SWITCH_CASE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.switch_stmt_linhaImpl <em>switch stmt linha</em>}' class.
@@ -3178,10 +3585,10 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getswitch_stmt_linha()
    * @generated
    */
-  int SWITCH_STMT_LINHA = 71;
+  int SWITCH_STMT_LINHA = 91;
 
   /**
-   * The feature id for the '<em><b>Type Switch Guard</b></em>' containment reference list.
+   * The feature id for the '<em><b>Type Switch Guard</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -3199,13 +3606,22 @@ public interface GoPackage extends EPackage
   int SWITCH_STMT_LINHA__TYPE_CASE_CLAUSE = 1;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
+   * The feature id for the '<em><b>Switch stmt linha</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SWITCH_STMT_LINHA__EXPRESSION = 2;
+  int SWITCH_STMT_LINHA__SWITCH_STMT_LINHA = 2;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SWITCH_STMT_LINHA__EXPRESSION = 3;
 
   /**
    * The feature id for the '<em><b>Expr Case Clause</b></em>' containment reference list.
@@ -3214,7 +3630,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SWITCH_STMT_LINHA__EXPR_CASE_CLAUSE = 3;
+  int SWITCH_STMT_LINHA__EXPR_CASE_CLAUSE = 4;
 
   /**
    * The number of structural features of the '<em>switch stmt linha</em>' class.
@@ -3223,7 +3639,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SWITCH_STMT_LINHA_FEATURE_COUNT = 4;
+  int SWITCH_STMT_LINHA_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.TypeSwitchGuardImpl <em>Type Switch Guard</em>}' class.
@@ -3233,7 +3649,25 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getTypeSwitchGuard()
    * @generated
    */
-  int TYPE_SWITCH_GUARD = 72;
+  int TYPE_SWITCH_GUARD = 92;
+
+  /**
+   * The feature id for the '<em><b>Identifier</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_SWITCH_GUARD__IDENTIFIER = 0;
+
+  /**
+   * The feature id for the '<em><b>Primary Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_SWITCH_GUARD__PRIMARY_EXPR = 1;
 
   /**
    * The number of structural features of the '<em>Type Switch Guard</em>' class.
@@ -3242,7 +3676,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_SWITCH_GUARD_FEATURE_COUNT = 0;
+  int TYPE_SWITCH_GUARD_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.TypeCaseClauseImpl <em>Type Case Clause</em>}' class.
@@ -3252,7 +3686,25 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getTypeCaseClause()
    * @generated
    */
-  int TYPE_CASE_CLAUSE = 73;
+  int TYPE_CASE_CLAUSE = 93;
+
+  /**
+   * The feature id for the '<em><b>Type Switch Case</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_CASE_CLAUSE__TYPE_SWITCH_CASE = 0;
+
+  /**
+   * The feature id for the '<em><b>Statement List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_CASE_CLAUSE__STATEMENT_LIST = 1;
 
   /**
    * The number of structural features of the '<em>Type Case Clause</em>' class.
@@ -3261,7 +3713,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_CASE_CLAUSE_FEATURE_COUNT = 0;
+  int TYPE_CASE_CLAUSE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.TypeSwitchCaseImpl <em>Type Switch Case</em>}' class.
@@ -3271,16 +3723,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getTypeSwitchCase()
    * @generated
    */
-  int TYPE_SWITCH_CASE = 74;
+  int TYPE_SWITCH_CASE = 94;
 
   /**
-   * The feature id for the '<em><b>Statement List</b></em>' containment reference list.
+   * The feature id for the '<em><b>Type List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_SWITCH_CASE__STATEMENT_LIST = TYPE_CASE_CLAUSE_FEATURE_COUNT + 0;
+  int TYPE_SWITCH_CASE__TYPE_LIST = 0;
 
   /**
    * The number of structural features of the '<em>Type Switch Case</em>' class.
@@ -3289,7 +3741,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_SWITCH_CASE_FEATURE_COUNT = TYPE_CASE_CLAUSE_FEATURE_COUNT + 1;
+  int TYPE_SWITCH_CASE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.TypeListImpl <em>Type List</em>}' class.
@@ -3299,16 +3751,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getTypeList()
    * @generated
    */
-  int TYPE_LIST = 75;
+  int TYPE_LIST = 95;
 
   /**
-   * The feature id for the '<em><b>Statement List</b></em>' containment reference list.
+   * The feature id for the '<em><b>Type</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_LIST__STATEMENT_LIST = TYPE_SWITCH_CASE__STATEMENT_LIST;
+  int TYPE_LIST__TYPE = 0;
 
   /**
    * The number of structural features of the '<em>Type List</em>' class.
@@ -3317,7 +3769,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_LIST_FEATURE_COUNT = TYPE_SWITCH_CASE_FEATURE_COUNT + 0;
+  int TYPE_LIST_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ForStmtImpl <em>For Stmt</em>}' class.
@@ -3327,7 +3779,43 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getForStmt()
    * @generated
    */
-  int FOR_STMT = 76;
+  int FOR_STMT = 96;
+
+  /**
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_STMT__CONDITION = 0;
+
+  /**
+   * The feature id for the '<em><b>For Clause</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_STMT__FOR_CLAUSE = 1;
+
+  /**
+   * The feature id for the '<em><b>Range Clause</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_STMT__RANGE_CLAUSE = 2;
+
+  /**
+   * The feature id for the '<em><b>Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_STMT__BLOCK = 3;
 
   /**
    * The number of structural features of the '<em>For Stmt</em>' class.
@@ -3336,7 +3824,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FOR_STMT_FEATURE_COUNT = 0;
+  int FOR_STMT_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ConditionImpl <em>Condition</em>}' class.
@@ -3346,7 +3834,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getCondition()
    * @generated
    */
-  int CONDITION = 77;
+  int CONDITION = 97;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__EXPRESSION = 0;
 
   /**
    * The number of structural features of the '<em>Condition</em>' class.
@@ -3355,7 +3852,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONDITION_FEATURE_COUNT = FOR_STMT_FEATURE_COUNT + 0;
+  int CONDITION_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ForClauseImpl <em>For Clause</em>}' class.
@@ -3365,25 +3862,34 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getForClause()
    * @generated
    */
-  int FOR_CLAUSE = 78;
+  int FOR_CLAUSE = 98;
 
   /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference list.
+   * The feature id for the '<em><b>Init Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FOR_CLAUSE__CONDITION = FOR_STMT_FEATURE_COUNT + 0;
+  int FOR_CLAUSE__INIT_STMT = 0;
 
   /**
-   * The feature id for the '<em><b>Post Stmt</b></em>' containment reference list.
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FOR_CLAUSE__POST_STMT = FOR_STMT_FEATURE_COUNT + 1;
+  int FOR_CLAUSE__CONDITION = 1;
+
+  /**
+   * The feature id for the '<em><b>Post Stmt</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_CLAUSE__POST_STMT = 2;
 
   /**
    * The number of structural features of the '<em>For Clause</em>' class.
@@ -3392,7 +3898,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FOR_CLAUSE_FEATURE_COUNT = FOR_STMT_FEATURE_COUNT + 2;
+  int FOR_CLAUSE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.InitStmtImpl <em>Init Stmt</em>}' class.
@@ -3402,25 +3908,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getInitStmt()
    * @generated
    */
-  int INIT_STMT = 79;
+  int INIT_STMT = 99;
 
   /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference list.
+   * The feature id for the '<em><b>Simple Stmt</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INIT_STMT__CONDITION = FOR_CLAUSE__CONDITION;
-
-  /**
-   * The feature id for the '<em><b>Post Stmt</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INIT_STMT__POST_STMT = FOR_CLAUSE__POST_STMT;
+  int INIT_STMT__SIMPLE_STMT = 0;
 
   /**
    * The number of structural features of the '<em>Init Stmt</em>' class.
@@ -3429,7 +3926,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INIT_STMT_FEATURE_COUNT = FOR_CLAUSE_FEATURE_COUNT + 0;
+  int INIT_STMT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.PostStmtImpl <em>Post Stmt</em>}' class.
@@ -3439,7 +3936,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getPostStmt()
    * @generated
    */
-  int POST_STMT = 80;
+  int POST_STMT = 100;
+
+  /**
+   * The feature id for the '<em><b>Simple Stmt</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POST_STMT__SIMPLE_STMT = 0;
 
   /**
    * The number of structural features of the '<em>Post Stmt</em>' class.
@@ -3448,7 +3954,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int POST_STMT_FEATURE_COUNT = 0;
+  int POST_STMT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.RangeClauseImpl <em>Range Clause</em>}' class.
@@ -3458,7 +3964,34 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getRangeClause()
    * @generated
    */
-  int RANGE_CLAUSE = 81;
+  int RANGE_CLAUSE = 101;
+
+  /**
+   * The feature id for the '<em><b>Expression List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RANGE_CLAUSE__EXPRESSION_LIST = 0;
+
+  /**
+   * The feature id for the '<em><b>Identifier List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RANGE_CLAUSE__IDENTIFIER_LIST = 1;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RANGE_CLAUSE__EXPRESSION = 2;
 
   /**
    * The number of structural features of the '<em>Range Clause</em>' class.
@@ -3467,7 +4000,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RANGE_CLAUSE_FEATURE_COUNT = FOR_STMT_FEATURE_COUNT + 0;
+  int RANGE_CLAUSE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.GoStmtImpl <em>Stmt</em>}' class.
@@ -3477,7 +4010,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getGoStmt()
    * @generated
    */
-  int GO_STMT = 82;
+  int GO_STMT = 102;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GO_STMT__EXPRESSION = 0;
 
   /**
    * The number of structural features of the '<em>Stmt</em>' class.
@@ -3486,7 +4028,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GO_STMT_FEATURE_COUNT = 0;
+  int GO_STMT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.SelectStmtImpl <em>Select Stmt</em>}' class.
@@ -3496,7 +4038,7 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getSelectStmt()
    * @generated
    */
-  int SELECT_STMT = 83;
+  int SELECT_STMT = 103;
 
   /**
    * The feature id for the '<em><b>Comm Clause</b></em>' containment reference list.
@@ -3524,7 +4066,25 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getCommClause()
    * @generated
    */
-  int COMM_CLAUSE = 84;
+  int COMM_CLAUSE = 104;
+
+  /**
+   * The feature id for the '<em><b>Comm Case</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMM_CLAUSE__COMM_CASE = 0;
+
+  /**
+   * The feature id for the '<em><b>Statement List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMM_CLAUSE__STATEMENT_LIST = 1;
 
   /**
    * The number of structural features of the '<em>Comm Clause</em>' class.
@@ -3533,7 +4093,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMM_CLAUSE_FEATURE_COUNT = 0;
+  int COMM_CLAUSE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.CommCaseImpl <em>Comm Case</em>}' class.
@@ -3543,7 +4103,25 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getCommCase()
    * @generated
    */
-  int COMM_CASE = 85;
+  int COMM_CASE = 105;
+
+  /**
+   * The feature id for the '<em><b>Send Stmt</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMM_CASE__SEND_STMT = 0;
+
+  /**
+   * The feature id for the '<em><b>Recv Stmt</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMM_CASE__RECV_STMT = 1;
 
   /**
    * The number of structural features of the '<em>Comm Case</em>' class.
@@ -3552,7 +4130,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMM_CASE_FEATURE_COUNT = COMM_CLAUSE_FEATURE_COUNT + 0;
+  int COMM_CASE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.RecvStmtImpl <em>Recv Stmt</em>}' class.
@@ -3562,16 +4140,34 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getRecvStmt()
    * @generated
    */
-  int RECV_STMT = 86;
+  int RECV_STMT = 106;
 
   /**
-   * The feature id for the '<em><b>Recv Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Expression List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RECV_STMT__RECV_EXPR = COMM_CASE_FEATURE_COUNT + 0;
+  int RECV_STMT__EXPRESSION_LIST = 0;
+
+  /**
+   * The feature id for the '<em><b>Identifier List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECV_STMT__IDENTIFIER_LIST = 1;
+
+  /**
+   * The feature id for the '<em><b>Recv Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECV_STMT__RECV_EXPR = 2;
 
   /**
    * The number of structural features of the '<em>Recv Stmt</em>' class.
@@ -3580,7 +4176,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RECV_STMT_FEATURE_COUNT = COMM_CASE_FEATURE_COUNT + 1;
+  int RECV_STMT_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.RecvExprImpl <em>Recv Expr</em>}' class.
@@ -3590,7 +4186,16 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getRecvExpr()
    * @generated
    */
-  int RECV_EXPR = 87;
+  int RECV_EXPR = 107;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RECV_EXPR__EXPRESSION = 0;
 
   /**
    * The number of structural features of the '<em>Recv Expr</em>' class.
@@ -3599,7 +4204,7 @@ public interface GoPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RECV_EXPR_FEATURE_COUNT = 0;
+  int RECV_EXPR_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ReturnStmtImpl <em>Return Stmt</em>}' class.
@@ -3609,10 +4214,10 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getReturnStmt()
    * @generated
    */
-  int RETURN_STMT = 88;
+  int RETURN_STMT = 108;
 
   /**
-   * The feature id for the '<em><b>Expression List</b></em>' containment reference list.
+   * The feature id for the '<em><b>Expression List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -3630,6 +4235,90 @@ public interface GoPackage extends EPackage
   int RETURN_STMT_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.BreakStmtImpl <em>Break Stmt</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.BreakStmtImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getBreakStmt()
+   * @generated
+   */
+  int BREAK_STMT = 109;
+
+  /**
+   * The feature id for the '<em><b>Label</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BREAK_STMT__LABEL = 0;
+
+  /**
+   * The number of structural features of the '<em>Break Stmt</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BREAK_STMT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ContinueStmtImpl <em>Continue Stmt</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.ContinueStmtImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getContinueStmt()
+   * @generated
+   */
+  int CONTINUE_STMT = 110;
+
+  /**
+   * The feature id for the '<em><b>Label</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTINUE_STMT__LABEL = 0;
+
+  /**
+   * The number of structural features of the '<em>Continue Stmt</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTINUE_STMT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.GotoStmtImpl <em>Goto Stmt</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.GotoStmtImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getGotoStmt()
+   * @generated
+   */
+  int GOTO_STMT = 111;
+
+  /**
+   * The feature id for the '<em><b>Label</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GOTO_STMT__LABEL = 0;
+
+  /**
+   * The number of structural features of the '<em>Goto Stmt</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GOTO_STMT_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link com.ufcg.compiladores.go.impl.DeferStmtImpl <em>Defer Stmt</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3637,10 +4326,10 @@ public interface GoPackage extends EPackage
    * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getDeferStmt()
    * @generated
    */
-  int DEFER_STMT = 89;
+  int DEFER_STMT = 112;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -3657,6 +4346,405 @@ public interface GoPackage extends EPackage
    */
   int DEFER_STMT_FEATURE_COUNT = 1;
 
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.PackageClauseImpl <em>Package Clause</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.PackageClauseImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getPackageClause()
+   * @generated
+   */
+  int PACKAGE_CLAUSE = 113;
+
+  /**
+   * The feature id for the '<em><b>Package Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE_CLAUSE__PACKAGE_NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Package Clause</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE_CLAUSE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.PackageNameImpl <em>Package Name</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.PackageNameImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getPackageName()
+   * @generated
+   */
+  int PACKAGE_NAME = 114;
+
+  /**
+   * The feature id for the '<em><b>Identifier</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE_NAME__IDENTIFIER = 0;
+
+  /**
+   * The number of structural features of the '<em>Package Name</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE_NAME_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ImportDeclImpl <em>Import Decl</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.ImportDeclImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getImportDecl()
+   * @generated
+   */
+  int IMPORT_DECL = 115;
+
+  /**
+   * The feature id for the '<em><b>Import Spec</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT_DECL__IMPORT_SPEC = 0;
+
+  /**
+   * The number of structural features of the '<em>Import Decl</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT_DECL_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ImportSpecImpl <em>Import Spec</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.ImportSpecImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getImportSpec()
+   * @generated
+   */
+  int IMPORT_SPEC = 116;
+
+  /**
+   * The feature id for the '<em><b>Package Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT_SPEC__PACKAGE_NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Import Path</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT_SPEC__IMPORT_PATH = 1;
+
+  /**
+   * The number of structural features of the '<em>Import Spec</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT_SPEC_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.ImportPathImpl <em>Import Path</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.ImportPathImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getImportPath()
+   * @generated
+   */
+  int IMPORT_PATH = 117;
+
+  /**
+   * The feature id for the '<em><b>String lit</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT_PATH__STRING_LIT = 0;
+
+  /**
+   * The number of structural features of the '<em>Import Path</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT_PATH_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.identifierImpl <em>identifier</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.identifierImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getidentifier()
+   * @generated
+   */
+  int IDENTIFIER = 118;
+
+  /**
+   * The feature id for the '<em><b>LETTER</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTIFIER__LETTER = OPERAND_NAME_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>DECIMAL DIGIT</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTIFIER__DECIMAL_DIGIT = OPERAND_NAME_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>identifier</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTIFIER_FEATURE_COUNT = OPERAND_NAME_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.float_litImpl <em>float lit</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.float_litImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getfloat_lit()
+   * @generated
+   */
+  int FLOAT_LIT = 119;
+
+  /**
+   * The number of structural features of the '<em>float lit</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FLOAT_LIT_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.string_litImpl <em>string lit</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.string_litImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getstring_lit()
+   * @generated
+   */
+  int STRING_LIT = 120;
+
+  /**
+   * The feature id for the '<em><b>Raw string lit</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_LIT__RAW_STRING_LIT = 0;
+
+  /**
+   * The feature id for the '<em><b>Interpreted string lit</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_LIT__INTERPRETED_STRING_LIT = 1;
+
+  /**
+   * The number of structural features of the '<em>string lit</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_LIT_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.decimalsImpl <em>decimals</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.decimalsImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getdecimals()
+   * @generated
+   */
+  int DECIMALS = 121;
+
+  /**
+   * The feature id for the '<em><b>Decimals</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECIMALS__DECIMALS = FLOAT_LIT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Exponent</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECIMALS__EXPONENT = FLOAT_LIT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Exponen</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECIMALS__EXPONEN = FLOAT_LIT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>DECIMAL DIGIT</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECIMALS__DECIMAL_DIGIT = FLOAT_LIT_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>decimals</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECIMALS_FEATURE_COUNT = FLOAT_LIT_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.exponentImpl <em>exponent</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.exponentImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getexponent()
+   * @generated
+   */
+  int EXPONENT = 122;
+
+  /**
+   * The feature id for the '<em><b>Decimals</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPONENT__DECIMALS = 0;
+
+  /**
+   * The number of structural features of the '<em>exponent</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPONENT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.imaginary_litImpl <em>imaginary lit</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.imaginary_litImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getimaginary_lit()
+   * @generated
+   */
+  int IMAGINARY_LIT = 123;
+
+  /**
+   * The feature id for the '<em><b>Decimals</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMAGINARY_LIT__DECIMALS = 0;
+
+  /**
+   * The feature id for the '<em><b>Float lit</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMAGINARY_LIT__FLOAT_LIT = 1;
+
+  /**
+   * The number of structural features of the '<em>imaginary lit</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMAGINARY_LIT_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link com.ufcg.compiladores.go.impl.rune_litImpl <em>rune lit</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.ufcg.compiladores.go.impl.rune_litImpl
+   * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getrune_lit()
+   * @generated
+   */
+  int RUNE_LIT = 124;
+
+  /**
+   * The feature id for the '<em><b>Unicode value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RUNE_LIT__UNICODE_VALUE = 0;
+
+  /**
+   * The feature id for the '<em><b>Byte value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RUNE_LIT__BYTE_VALUE = 1;
+
+  /**
+   * The number of structural features of the '<em>rune lit</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RUNE_LIT_FEATURE_COUNT = 2;
+
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.SouceFile <em>Souce File</em>}'.
@@ -3669,6 +4757,39 @@ public interface GoPackage extends EPackage
   EClass getSouceFile();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.SouceFile#getPackageClause <em>Package Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Package Clause</em>'.
+   * @see com.ufcg.compiladores.go.SouceFile#getPackageClause()
+   * @see #getSouceFile()
+   * @generated
+   */
+  EReference getSouceFile_PackageClause();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.SouceFile#getImportDecl <em>Import Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Import Decl</em>'.
+   * @see com.ufcg.compiladores.go.SouceFile#getImportDecl()
+   * @see #getSouceFile()
+   * @generated
+   */
+  EReference getSouceFile_ImportDecl();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.SouceFile#getTopLevelDecl <em>Top Level Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Top Level Decl</em>'.
+   * @see com.ufcg.compiladores.go.SouceFile#getTopLevelDecl()
+   * @see #getSouceFile()
+   * @generated
+   */
+  EReference getSouceFile_TopLevelDecl();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.Type <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3679,26 +4800,112 @@ public interface GoPackage extends EPackage
   EClass getType();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.Type#getExpression <em>Expression</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Type#getTypeName <em>Type Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expression</em>'.
-   * @see com.ufcg.compiladores.go.Type#getExpression()
+   * @return the meta object for the containment reference '<em>Type Name</em>'.
+   * @see com.ufcg.compiladores.go.Type#getTypeName()
    * @see #getType()
    * @generated
    */
-  EReference getType_Expression();
+  EReference getType_TypeName();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.Type#getType <em>Type</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Type#getTypeLit <em>Type Lit</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Type</em>'.
+   * @return the meta object for the containment reference '<em>Type Lit</em>'.
+   * @see com.ufcg.compiladores.go.Type#getTypeLit()
+   * @see #getType()
+   * @generated
+   */
+  EReference getType_TypeLit();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Type#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
    * @see com.ufcg.compiladores.go.Type#getType()
    * @see #getType()
    * @generated
    */
   EReference getType_Type();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.TypeName <em>Type Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Type Name</em>'.
+   * @see com.ufcg.compiladores.go.TypeName
+   * @generated
+   */
+  EClass getTypeName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeName#getIdentifier <em>Identifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Identifier</em>'.
+   * @see com.ufcg.compiladores.go.TypeName#getIdentifier()
+   * @see #getTypeName()
+   * @generated
+   */
+  EReference getTypeName_Identifier();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeName#getTypeNameLinha <em>Type Name Linha</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type Name Linha</em>'.
+   * @see com.ufcg.compiladores.go.TypeName#getTypeNameLinha()
+   * @see #getTypeName()
+   * @generated
+   */
+  EReference getTypeName_TypeNameLinha();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.TypeNameLinha <em>Type Name Linha</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Type Name Linha</em>'.
+   * @see com.ufcg.compiladores.go.TypeNameLinha
+   * @generated
+   */
+  EClass getTypeNameLinha();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeNameLinha#getIdentifier <em>Identifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Identifier</em>'.
+   * @see com.ufcg.compiladores.go.TypeNameLinha#getIdentifier()
+   * @see #getTypeNameLinha()
+   * @generated
+   */
+  EReference getTypeNameLinha_Identifier();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeNameLinha#getTypeNameLinha <em>Type Name Linha</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type Name Linha</em>'.
+   * @see com.ufcg.compiladores.go.TypeNameLinha#getTypeNameLinha()
+   * @see #getTypeNameLinha()
+   * @generated
+   */
+  EReference getTypeNameLinha_TypeNameLinha();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeNameLinha#getQualifiedIdent <em>Qualified Ident</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Qualified Ident</em>'.
+   * @see com.ufcg.compiladores.go.TypeNameLinha#getQualifiedIdent()
+   * @see #getTypeNameLinha()
+   * @generated
+   */
+  EReference getTypeNameLinha_QualifiedIdent();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.TypeLit <em>Type Lit</em>}'.
@@ -3711,10 +4918,10 @@ public interface GoPackage extends EPackage
   EClass getTypeLit();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.TypeLit#getTypeLitLinha <em>Type Lit Linha</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeLit#getTypeLitLinha <em>Type Lit Linha</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Type Lit Linha</em>'.
+   * @return the meta object for the containment reference '<em>Type Lit Linha</em>'.
    * @see com.ufcg.compiladores.go.TypeLit#getTypeLitLinha()
    * @see #getTypeLit()
    * @generated
@@ -3722,10 +4929,10 @@ public interface GoPackage extends EPackage
   EReference getTypeLit_TypeLitLinha();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.TypeLit#getStructType <em>Struct Type</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeLit#getStructType <em>Struct Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Struct Type</em>'.
+   * @return the meta object for the containment reference '<em>Struct Type</em>'.
    * @see com.ufcg.compiladores.go.TypeLit#getStructType()
    * @see #getTypeLit()
    * @generated
@@ -3733,10 +4940,10 @@ public interface GoPackage extends EPackage
   EReference getTypeLit_StructType();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.TypeLit#getPointerType <em>Pointer Type</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeLit#getPointerType <em>Pointer Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Pointer Type</em>'.
+   * @return the meta object for the containment reference '<em>Pointer Type</em>'.
    * @see com.ufcg.compiladores.go.TypeLit#getPointerType()
    * @see #getTypeLit()
    * @generated
@@ -3744,10 +4951,10 @@ public interface GoPackage extends EPackage
   EReference getTypeLit_PointerType();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.TypeLit#getFunctionType <em>Function Type</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeLit#getFunctionType <em>Function Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Function Type</em>'.
+   * @return the meta object for the containment reference '<em>Function Type</em>'.
    * @see com.ufcg.compiladores.go.TypeLit#getFunctionType()
    * @see #getTypeLit()
    * @generated
@@ -3755,10 +4962,10 @@ public interface GoPackage extends EPackage
   EReference getTypeLit_FunctionType();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.TypeLit#getInterfaceType <em>Interface Type</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeLit#getInterfaceType <em>Interface Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Interface Type</em>'.
+   * @return the meta object for the containment reference '<em>Interface Type</em>'.
    * @see com.ufcg.compiladores.go.TypeLit#getInterfaceType()
    * @see #getTypeLit()
    * @generated
@@ -3766,10 +4973,10 @@ public interface GoPackage extends EPackage
   EReference getTypeLit_InterfaceType();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.TypeLit#getMapType <em>Map Type</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeLit#getMapType <em>Map Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Map Type</em>'.
+   * @return the meta object for the containment reference '<em>Map Type</em>'.
    * @see com.ufcg.compiladores.go.TypeLit#getMapType()
    * @see #getTypeLit()
    * @generated
@@ -3777,10 +4984,10 @@ public interface GoPackage extends EPackage
   EReference getTypeLit_MapType();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.TypeLit#getChannelType <em>Channel Type</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeLit#getChannelType <em>Channel Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Channel Type</em>'.
+   * @return the meta object for the containment reference '<em>Channel Type</em>'.
    * @see com.ufcg.compiladores.go.TypeLit#getChannelType()
    * @see #getTypeLit()
    * @generated
@@ -3798,6 +5005,39 @@ public interface GoPackage extends EPackage
   EClass getTypeLitLinha();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeLitLinha#getArrayLength <em>Array Length</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Array Length</em>'.
+   * @see com.ufcg.compiladores.go.TypeLitLinha#getArrayLength()
+   * @see #getTypeLitLinha()
+   * @generated
+   */
+  EReference getTypeLitLinha_ArrayLength();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeLitLinha#getElementType <em>Element Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Element Type</em>'.
+   * @see com.ufcg.compiladores.go.TypeLitLinha#getElementType()
+   * @see #getTypeLitLinha()
+   * @generated
+   */
+  EReference getTypeLitLinha_ElementType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeLitLinha#getTypeLitLinha <em>Type Lit Linha</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type Lit Linha</em>'.
+   * @see com.ufcg.compiladores.go.TypeLitLinha#getTypeLitLinha()
+   * @see #getTypeLitLinha()
+   * @generated
+   */
+  EReference getTypeLitLinha_TypeLitLinha();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.ArrayLength <em>Array Length</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3808,15 +5048,15 @@ public interface GoPackage extends EPackage
   EClass getArrayLength();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.ArrayLength#getElementType <em>Element Type</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ArrayLength#getExpression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Element Type</em>'.
-   * @see com.ufcg.compiladores.go.ArrayLength#getElementType()
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see com.ufcg.compiladores.go.ArrayLength#getExpression()
    * @see #getArrayLength()
    * @generated
    */
-  EReference getArrayLength_ElementType();
+  EReference getArrayLength_Expression();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.ElementType <em>Element Type</em>}'.
@@ -3827,6 +5067,17 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getElementType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ElementType#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see com.ufcg.compiladores.go.ElementType#getType()
+   * @see #getElementType()
+   * @generated
+   */
+  EReference getElementType_Type();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.StructType <em>Struct Type</em>}'.
@@ -3860,6 +5111,92 @@ public interface GoPackage extends EPackage
   EClass getFieldDecl();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.FieldDecl#getIdentifierList <em>Identifier List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Identifier List</em>'.
+   * @see com.ufcg.compiladores.go.FieldDecl#getIdentifierList()
+   * @see #getFieldDecl()
+   * @generated
+   */
+  EReference getFieldDecl_IdentifierList();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.FieldDecl#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see com.ufcg.compiladores.go.FieldDecl#getType()
+   * @see #getFieldDecl()
+   * @generated
+   */
+  EReference getFieldDecl_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.FieldDecl#getEmbeddedField <em>Embedded Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Embedded Field</em>'.
+   * @see com.ufcg.compiladores.go.FieldDecl#getEmbeddedField()
+   * @see #getFieldDecl()
+   * @generated
+   */
+  EReference getFieldDecl_EmbeddedField();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.FieldDecl#getTag <em>Tag</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Tag</em>'.
+   * @see com.ufcg.compiladores.go.FieldDecl#getTag()
+   * @see #getFieldDecl()
+   * @generated
+   */
+  EReference getFieldDecl_Tag();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.EmbeddedField <em>Embedded Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Embedded Field</em>'.
+   * @see com.ufcg.compiladores.go.EmbeddedField
+   * @generated
+   */
+  EClass getEmbeddedField();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.EmbeddedField#getTypeName <em>Type Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type Name</em>'.
+   * @see com.ufcg.compiladores.go.EmbeddedField#getTypeName()
+   * @see #getEmbeddedField()
+   * @generated
+   */
+  EReference getEmbeddedField_TypeName();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.Tag <em>Tag</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Tag</em>'.
+   * @see com.ufcg.compiladores.go.Tag
+   * @generated
+   */
+  EClass getTag();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Tag#getString_lit <em>String lit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>String lit</em>'.
+   * @see com.ufcg.compiladores.go.Tag#getString_lit()
+   * @see #getTag()
+   * @generated
+   */
+  EReference getTag_String_lit();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.PointerType <em>Pointer Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3868,6 +5205,17 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getPointerType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.PointerType#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see com.ufcg.compiladores.go.PointerType#getType()
+   * @see #getPointerType()
+   * @generated
+   */
+  EReference getPointerType_Type();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.FunctionType <em>Function Type</em>}'.
@@ -3880,6 +5228,17 @@ public interface GoPackage extends EPackage
   EClass getFunctionType();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.FunctionType#getSignature <em>Signature</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Signature</em>'.
+   * @see com.ufcg.compiladores.go.FunctionType#getSignature()
+   * @see #getFunctionType()
+   * @generated
+   */
+  EReference getFunctionType_Signature();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.Signature <em>Signature</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3888,6 +5247,28 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getSignature();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Signature#getParameters <em>Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Parameters</em>'.
+   * @see com.ufcg.compiladores.go.Signature#getParameters()
+   * @see #getSignature()
+   * @generated
+   */
+  EReference getSignature_Parameters();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Signature#getResult <em>Result</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Result</em>'.
+   * @see com.ufcg.compiladores.go.Signature#getResult()
+   * @see #getSignature()
+   * @generated
+   */
+  EReference getSignature_Result();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.Result <em>Result</em>}'.
@@ -3900,6 +5281,28 @@ public interface GoPackage extends EPackage
   EClass getResult();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Result#getParameters <em>Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Parameters</em>'.
+   * @see com.ufcg.compiladores.go.Result#getParameters()
+   * @see #getResult()
+   * @generated
+   */
+  EReference getResult_Parameters();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Result#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see com.ufcg.compiladores.go.Result#getType()
+   * @see #getResult()
+   * @generated
+   */
+  EReference getResult_Type();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.Parameters <em>Parameters</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3910,15 +5313,15 @@ public interface GoPackage extends EPackage
   EClass getParameters();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.Parameters#getResult <em>Result</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Parameters#getParameterList <em>Parameter List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Result</em>'.
-   * @see com.ufcg.compiladores.go.Parameters#getResult()
+   * @return the meta object for the containment reference '<em>Parameter List</em>'.
+   * @see com.ufcg.compiladores.go.Parameters#getParameterList()
    * @see #getParameters()
    * @generated
    */
-  EReference getParameters_Result();
+  EReference getParameters_ParameterList();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.ParameterList <em>Parameter List</em>}'.
@@ -3931,6 +5334,17 @@ public interface GoPackage extends EPackage
   EClass getParameterList();
 
   /**
+   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.ParameterList#getParameterDecl <em>Parameter Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Parameter Decl</em>'.
+   * @see com.ufcg.compiladores.go.ParameterList#getParameterDecl()
+   * @see #getParameterList()
+   * @generated
+   */
+  EReference getParameterList_ParameterDecl();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.ParameterDecl <em>Parameter Decl</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3941,15 +5355,26 @@ public interface GoPackage extends EPackage
   EClass getParameterDecl();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.ParameterDecl#getParameterDecl <em>Parameter Decl</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ParameterDecl#getIdentifierList <em>Identifier List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Parameter Decl</em>'.
-   * @see com.ufcg.compiladores.go.ParameterDecl#getParameterDecl()
+   * @return the meta object for the containment reference '<em>Identifier List</em>'.
+   * @see com.ufcg.compiladores.go.ParameterDecl#getIdentifierList()
    * @see #getParameterDecl()
    * @generated
    */
-  EReference getParameterDecl_ParameterDecl();
+  EReference getParameterDecl_IdentifierList();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ParameterDecl#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see com.ufcg.compiladores.go.ParameterDecl#getType()
+   * @see #getParameterDecl()
+   * @generated
+   */
+  EReference getParameterDecl_Type();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.InterfaceType <em>Interface Type</em>}'.
@@ -3962,6 +5387,17 @@ public interface GoPackage extends EPackage
   EClass getInterfaceType();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.InterfaceType#getMethodSpec <em>Method Spec</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Method Spec</em>'.
+   * @see com.ufcg.compiladores.go.InterfaceType#getMethodSpec()
+   * @see #getInterfaceType()
+   * @generated
+   */
+  EReference getInterfaceType_MethodSpec();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.MethodSpec <em>Method Spec</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3970,6 +5406,81 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getMethodSpec();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.MethodSpec#getMethodName <em>Method Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Method Name</em>'.
+   * @see com.ufcg.compiladores.go.MethodSpec#getMethodName()
+   * @see #getMethodSpec()
+   * @generated
+   */
+  EReference getMethodSpec_MethodName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.MethodSpec#getSignature <em>Signature</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Signature</em>'.
+   * @see com.ufcg.compiladores.go.MethodSpec#getSignature()
+   * @see #getMethodSpec()
+   * @generated
+   */
+  EReference getMethodSpec_Signature();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.MethodSpec#getInterfaceTypeName <em>Interface Type Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Interface Type Name</em>'.
+   * @see com.ufcg.compiladores.go.MethodSpec#getInterfaceTypeName()
+   * @see #getMethodSpec()
+   * @generated
+   */
+  EReference getMethodSpec_InterfaceTypeName();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.MethodName <em>Method Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Method Name</em>'.
+   * @see com.ufcg.compiladores.go.MethodName
+   * @generated
+   */
+  EClass getMethodName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.MethodName#getIdentifier <em>Identifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Identifier</em>'.
+   * @see com.ufcg.compiladores.go.MethodName#getIdentifier()
+   * @see #getMethodName()
+   * @generated
+   */
+  EReference getMethodName_Identifier();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.InterfaceTypeName <em>Interface Type Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Interface Type Name</em>'.
+   * @see com.ufcg.compiladores.go.InterfaceTypeName
+   * @generated
+   */
+  EClass getInterfaceTypeName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.InterfaceTypeName#getTypeName <em>Type Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type Name</em>'.
+   * @see com.ufcg.compiladores.go.InterfaceTypeName#getTypeName()
+   * @see #getInterfaceTypeName()
+   * @generated
+   */
+  EReference getInterfaceTypeName_TypeName();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.MapType <em>Map Type</em>}'.
@@ -3982,6 +5493,28 @@ public interface GoPackage extends EPackage
   EClass getMapType();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.MapType#getKeyType <em>Key Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Key Type</em>'.
+   * @see com.ufcg.compiladores.go.MapType#getKeyType()
+   * @see #getMapType()
+   * @generated
+   */
+  EReference getMapType_KeyType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.MapType#getElementType <em>Element Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Element Type</em>'.
+   * @see com.ufcg.compiladores.go.MapType#getElementType()
+   * @see #getMapType()
+   * @generated
+   */
+  EReference getMapType_ElementType();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.KeyType <em>Key Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3992,15 +5525,15 @@ public interface GoPackage extends EPackage
   EClass getKeyType();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.KeyType#getElementType <em>Element Type</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.KeyType#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Element Type</em>'.
-   * @see com.ufcg.compiladores.go.KeyType#getElementType()
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see com.ufcg.compiladores.go.KeyType#getType()
    * @see #getKeyType()
    * @generated
    */
-  EReference getKeyType_ElementType();
+  EReference getKeyType_Type();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.ChannelType <em>Channel Type</em>}'.
@@ -4013,6 +5546,17 @@ public interface GoPackage extends EPackage
   EClass getChannelType();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ChannelType#getElementType <em>Element Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Element Type</em>'.
+   * @see com.ufcg.compiladores.go.ChannelType#getElementType()
+   * @see #getChannelType()
+   * @generated
+   */
+  EReference getChannelType_ElementType();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.Block <em>Block</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4021,6 +5565,17 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getBlock();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Block#getStatementList <em>Statement List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Statement List</em>'.
+   * @see com.ufcg.compiladores.go.Block#getStatementList()
+   * @see #getBlock()
+   * @generated
+   */
+  EReference getBlock_StatementList();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.StatementList <em>Statement List</em>}'.
@@ -4033,6 +5588,17 @@ public interface GoPackage extends EPackage
   EClass getStatementList();
 
   /**
+   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.StatementList#getStatement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Statement</em>'.
+   * @see com.ufcg.compiladores.go.StatementList#getStatement()
+   * @see #getStatementList()
+   * @generated
+   */
+  EReference getStatementList_Statement();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.Declaration <em>Declaration</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4041,6 +5607,39 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getDeclaration();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Declaration#getConstDecl <em>Const Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Const Decl</em>'.
+   * @see com.ufcg.compiladores.go.Declaration#getConstDecl()
+   * @see #getDeclaration()
+   * @generated
+   */
+  EReference getDeclaration_ConstDecl();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Declaration#getTypeDecl <em>Type Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type Decl</em>'.
+   * @see com.ufcg.compiladores.go.Declaration#getTypeDecl()
+   * @see #getDeclaration()
+   * @generated
+   */
+  EReference getDeclaration_TypeDecl();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Declaration#getVarDecl <em>Var Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Var Decl</em>'.
+   * @see com.ufcg.compiladores.go.Declaration#getVarDecl()
+   * @see #getDeclaration()
+   * @generated
+   */
+  EReference getDeclaration_VarDecl();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.TopLevelDecl <em>Top Level Decl</em>}'.
@@ -4053,6 +5652,28 @@ public interface GoPackage extends EPackage
   EClass getTopLevelDecl();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TopLevelDecl#getDeclaration <em>Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Declaration</em>'.
+   * @see com.ufcg.compiladores.go.TopLevelDecl#getDeclaration()
+   * @see #getTopLevelDecl()
+   * @generated
+   */
+  EReference getTopLevelDecl_Declaration();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TopLevelDecl#getTopLevelDeclLinha <em>Top Level Decl Linha</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Top Level Decl Linha</em>'.
+   * @see com.ufcg.compiladores.go.TopLevelDecl#getTopLevelDeclLinha()
+   * @see #getTopLevelDecl()
+   * @generated
+   */
+  EReference getTopLevelDecl_TopLevelDeclLinha();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.topLevelDeclLinha <em>top Level Decl Linha</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4063,15 +5684,59 @@ public interface GoPackage extends EPackage
   EClass gettopLevelDeclLinha();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.topLevelDeclLinha#getFunctionBody <em>Function Body</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.topLevelDeclLinha#getFunctionName <em>Function Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Function Body</em>'.
+   * @return the meta object for the containment reference '<em>Function Name</em>'.
+   * @see com.ufcg.compiladores.go.topLevelDeclLinha#getFunctionName()
+   * @see #gettopLevelDeclLinha()
+   * @generated
+   */
+  EReference gettopLevelDeclLinha_FunctionName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.topLevelDeclLinha#getSignature <em>Signature</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Signature</em>'.
+   * @see com.ufcg.compiladores.go.topLevelDeclLinha#getSignature()
+   * @see #gettopLevelDeclLinha()
+   * @generated
+   */
+  EReference gettopLevelDeclLinha_Signature();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.topLevelDeclLinha#getFunctionBody <em>Function Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Function Body</em>'.
    * @see com.ufcg.compiladores.go.topLevelDeclLinha#getFunctionBody()
    * @see #gettopLevelDeclLinha()
    * @generated
    */
   EReference gettopLevelDeclLinha_FunctionBody();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.topLevelDeclLinha#getReceiver <em>Receiver</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Receiver</em>'.
+   * @see com.ufcg.compiladores.go.topLevelDeclLinha#getReceiver()
+   * @see #gettopLevelDeclLinha()
+   * @generated
+   */
+  EReference gettopLevelDeclLinha_Receiver();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.topLevelDeclLinha#getMethodName <em>Method Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Method Name</em>'.
+   * @see com.ufcg.compiladores.go.topLevelDeclLinha#getMethodName()
+   * @see #gettopLevelDeclLinha()
+   * @generated
+   */
+  EReference gettopLevelDeclLinha_MethodName();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.ConstDecl <em>Const Decl</em>}'.
@@ -4084,6 +5749,17 @@ public interface GoPackage extends EPackage
   EClass getConstDecl();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ConstDecl#getConstSpec <em>Const Spec</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Const Spec</em>'.
+   * @see com.ufcg.compiladores.go.ConstDecl#getConstSpec()
+   * @see #getConstDecl()
+   * @generated
+   */
+  EReference getConstDecl_ConstSpec();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.ConstSpec <em>Const Spec</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4094,15 +5770,58 @@ public interface GoPackage extends EPackage
   EClass getConstSpec();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.ConstSpec#getExpressionList <em>Expression List</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ConstSpec#getIdentifierList <em>Identifier List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expression List</em>'.
+   * @return the meta object for the containment reference '<em>Identifier List</em>'.
+   * @see com.ufcg.compiladores.go.ConstSpec#getIdentifierList()
+   * @see #getConstSpec()
+   * @generated
+   */
+  EReference getConstSpec_IdentifierList();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ConstSpec#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see com.ufcg.compiladores.go.ConstSpec#getType()
+   * @see #getConstSpec()
+   * @generated
+   */
+  EReference getConstSpec_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ConstSpec#getExpressionList <em>Expression List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression List</em>'.
    * @see com.ufcg.compiladores.go.ConstSpec#getExpressionList()
    * @see #getConstSpec()
    * @generated
    */
   EReference getConstSpec_ExpressionList();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.IdentifierList <em>Identifier List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Identifier List</em>'.
+   * @see com.ufcg.compiladores.go.IdentifierList
+   * @generated
+   */
+  EClass getIdentifierList();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.IdentifierList#getIdentifier <em>Identifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Identifier</em>'.
+   * @see com.ufcg.compiladores.go.IdentifierList#getIdentifier()
+   * @see #getIdentifierList()
+   * @generated
+   */
+  EReference getIdentifierList_Identifier();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.ExpressionList <em>Expression List</em>}'.
@@ -4115,15 +5834,15 @@ public interface GoPackage extends EPackage
   EClass getExpressionList();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.ExpressionList#getExpressionList <em>Expression List</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.ExpressionList#getExpression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expression List</em>'.
-   * @see com.ufcg.compiladores.go.ExpressionList#getExpressionList()
+   * @return the meta object for the containment reference list '<em>Expression</em>'.
+   * @see com.ufcg.compiladores.go.ExpressionList#getExpression()
    * @see #getExpressionList()
    * @generated
    */
-  EReference getExpressionList_ExpressionList();
+  EReference getExpressionList_Expression();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.TypeDecl <em>Type Decl</em>}'.
@@ -4136,6 +5855,17 @@ public interface GoPackage extends EPackage
   EClass getTypeDecl();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeDecl#getTypeSpec <em>Type Spec</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type Spec</em>'.
+   * @see com.ufcg.compiladores.go.TypeDecl#getTypeSpec()
+   * @see #getTypeDecl()
+   * @generated
+   */
+  EReference getTypeDecl_TypeSpec();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.TypeSpec <em>Type Spec</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4144,6 +5874,28 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getTypeSpec();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeSpec#getIdentifier <em>Identifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Identifier</em>'.
+   * @see com.ufcg.compiladores.go.TypeSpec#getIdentifier()
+   * @see #getTypeSpec()
+   * @generated
+   */
+  EReference getTypeSpec_Identifier();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeSpec#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see com.ufcg.compiladores.go.TypeSpec#getType()
+   * @see #getTypeSpec()
+   * @generated
+   */
+  EReference getTypeSpec_Type();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.AliasDecl <em>Alias Decl</em>}'.
@@ -4176,6 +5928,17 @@ public interface GoPackage extends EPackage
   EClass getVarDecl();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.VarDecl#getVarSpec <em>Var Spec</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Var Spec</em>'.
+   * @see com.ufcg.compiladores.go.VarDecl#getVarSpec()
+   * @see #getVarDecl()
+   * @generated
+   */
+  EReference getVarDecl_VarSpec();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.VarSpec <em>Var Spec</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4184,6 +5947,39 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getVarSpec();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.VarSpec#getIdentifierList <em>Identifier List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Identifier List</em>'.
+   * @see com.ufcg.compiladores.go.VarSpec#getIdentifierList()
+   * @see #getVarSpec()
+   * @generated
+   */
+  EReference getVarSpec_IdentifierList();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.VarSpec#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see com.ufcg.compiladores.go.VarSpec#getType()
+   * @see #getVarSpec()
+   * @generated
+   */
+  EReference getVarSpec_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.VarSpec#getExpressionList <em>Expression List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression List</em>'.
+   * @see com.ufcg.compiladores.go.VarSpec#getExpressionList()
+   * @see #getVarSpec()
+   * @generated
+   */
+  EReference getVarSpec_ExpressionList();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.ShortVarDecl <em>Short Var Decl</em>}'.
@@ -4196,6 +5992,28 @@ public interface GoPackage extends EPackage
   EClass getShortVarDecl();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ShortVarDecl#getIdentifierList <em>Identifier List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Identifier List</em>'.
+   * @see com.ufcg.compiladores.go.ShortVarDecl#getIdentifierList()
+   * @see #getShortVarDecl()
+   * @generated
+   */
+  EReference getShortVarDecl_IdentifierList();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ShortVarDecl#getExpressionList <em>Expression List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression List</em>'.
+   * @see com.ufcg.compiladores.go.ShortVarDecl#getExpressionList()
+   * @see #getShortVarDecl()
+   * @generated
+   */
+  EReference getShortVarDecl_ExpressionList();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.FunctionDecl <em>Function Decl</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4204,6 +6022,60 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getFunctionDecl();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.FunctionDecl#getFunctionName <em>Function Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Function Name</em>'.
+   * @see com.ufcg.compiladores.go.FunctionDecl#getFunctionName()
+   * @see #getFunctionDecl()
+   * @generated
+   */
+  EReference getFunctionDecl_FunctionName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.FunctionDecl#getSignature <em>Signature</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Signature</em>'.
+   * @see com.ufcg.compiladores.go.FunctionDecl#getSignature()
+   * @see #getFunctionDecl()
+   * @generated
+   */
+  EReference getFunctionDecl_Signature();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.FunctionDecl#getFunctionBody <em>Function Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Function Body</em>'.
+   * @see com.ufcg.compiladores.go.FunctionDecl#getFunctionBody()
+   * @see #getFunctionDecl()
+   * @generated
+   */
+  EReference getFunctionDecl_FunctionBody();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.FunctionName <em>Function Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Function Name</em>'.
+   * @see com.ufcg.compiladores.go.FunctionName
+   * @generated
+   */
+  EClass getFunctionName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.FunctionName#getIdentifier <em>Identifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Identifier</em>'.
+   * @see com.ufcg.compiladores.go.FunctionName#getIdentifier()
+   * @see #getFunctionName()
+   * @generated
+   */
+  EReference getFunctionName_Identifier();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.FunctionBody <em>Function Body</em>}'.
@@ -4216,6 +6088,17 @@ public interface GoPackage extends EPackage
   EClass getFunctionBody();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.FunctionBody#getBlock <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Block</em>'.
+   * @see com.ufcg.compiladores.go.FunctionBody#getBlock()
+   * @see #getFunctionBody()
+   * @generated
+   */
+  EReference getFunctionBody_Block();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.MethodDecl <em>Method Decl</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4224,6 +6107,50 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getMethodDecl();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.MethodDecl#getReceiver <em>Receiver</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Receiver</em>'.
+   * @see com.ufcg.compiladores.go.MethodDecl#getReceiver()
+   * @see #getMethodDecl()
+   * @generated
+   */
+  EReference getMethodDecl_Receiver();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.MethodDecl#getMethodName <em>Method Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Method Name</em>'.
+   * @see com.ufcg.compiladores.go.MethodDecl#getMethodName()
+   * @see #getMethodDecl()
+   * @generated
+   */
+  EReference getMethodDecl_MethodName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.MethodDecl#getSignature <em>Signature</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Signature</em>'.
+   * @see com.ufcg.compiladores.go.MethodDecl#getSignature()
+   * @see #getMethodDecl()
+   * @generated
+   */
+  EReference getMethodDecl_Signature();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.MethodDecl#getFunctionBody <em>Function Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Function Body</em>'.
+   * @see com.ufcg.compiladores.go.MethodDecl#getFunctionBody()
+   * @see #getMethodDecl()
+   * @generated
+   */
+  EReference getMethodDecl_FunctionBody();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.Receiver <em>Receiver</em>}'.
@@ -4236,17 +6163,6 @@ public interface GoPackage extends EPackage
   EClass getReceiver();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.Receiver#getSignature <em>Signature</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Signature</em>'.
-   * @see com.ufcg.compiladores.go.Receiver#getSignature()
-   * @see #getReceiver()
-   * @generated
-   */
-  EReference getReceiver_Signature();
-
-  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.Operand <em>Operand</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4255,6 +6171,39 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getOperand();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Operand#getLiteral <em>Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Literal</em>'.
+   * @see com.ufcg.compiladores.go.Operand#getLiteral()
+   * @see #getOperand()
+   * @generated
+   */
+  EReference getOperand_Literal();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Operand#getOperandName <em>Operand Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Operand Name</em>'.
+   * @see com.ufcg.compiladores.go.Operand#getOperandName()
+   * @see #getOperand()
+   * @generated
+   */
+  EReference getOperand_OperandName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Operand#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see com.ufcg.compiladores.go.Operand#getExpression()
+   * @see #getOperand()
+   * @generated
+   */
+  EReference getOperand_Expression();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.Literal <em>Literal</em>}'.
@@ -4267,6 +6216,113 @@ public interface GoPackage extends EPackage
   EClass getLiteral();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Literal#getBasicLit <em>Basic Lit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Basic Lit</em>'.
+   * @see com.ufcg.compiladores.go.Literal#getBasicLit()
+   * @see #getLiteral()
+   * @generated
+   */
+  EReference getLiteral_BasicLit();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.BasicLit <em>Basic Lit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Basic Lit</em>'.
+   * @see com.ufcg.compiladores.go.BasicLit
+   * @generated
+   */
+  EClass getBasicLit();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ufcg.compiladores.go.BasicLit#getInt_lit <em>Int lit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Int lit</em>'.
+   * @see com.ufcg.compiladores.go.BasicLit#getInt_lit()
+   * @see #getBasicLit()
+   * @generated
+   */
+  EAttribute getBasicLit_Int_lit();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.BasicLit#getFloat_lit <em>Float lit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Float lit</em>'.
+   * @see com.ufcg.compiladores.go.BasicLit#getFloat_lit()
+   * @see #getBasicLit()
+   * @generated
+   */
+  EReference getBasicLit_Float_lit();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.BasicLit#getRune_lit <em>Rune lit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Rune lit</em>'.
+   * @see com.ufcg.compiladores.go.BasicLit#getRune_lit()
+   * @see #getBasicLit()
+   * @generated
+   */
+  EReference getBasicLit_Rune_lit();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.BasicLit#getString_lit <em>String lit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>String lit</em>'.
+   * @see com.ufcg.compiladores.go.BasicLit#getString_lit()
+   * @see #getBasicLit()
+   * @generated
+   */
+  EReference getBasicLit_String_lit();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.OperandName <em>Operand Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Operand Name</em>'.
+   * @see com.ufcg.compiladores.go.OperandName
+   * @generated
+   */
+  EClass getOperandName();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.QualifiedIdent <em>Qualified Ident</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Qualified Ident</em>'.
+   * @see com.ufcg.compiladores.go.QualifiedIdent
+   * @generated
+   */
+  EClass getQualifiedIdent();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.QualifiedIdent#getPackageName <em>Package Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Package Name</em>'.
+   * @see com.ufcg.compiladores.go.QualifiedIdent#getPackageName()
+   * @see #getQualifiedIdent()
+   * @generated
+   */
+  EReference getQualifiedIdent_PackageName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.QualifiedIdent#getIdentifier <em>Identifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Identifier</em>'.
+   * @see com.ufcg.compiladores.go.QualifiedIdent#getIdentifier()
+   * @see #getQualifiedIdent()
+   * @generated
+   */
+  EReference getQualifiedIdent_Identifier();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.CompositeLit <em>Composite Lit</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4275,6 +6331,28 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getCompositeLit();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.CompositeLit#getLiteralType <em>Literal Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Literal Type</em>'.
+   * @see com.ufcg.compiladores.go.CompositeLit#getLiteralType()
+   * @see #getCompositeLit()
+   * @generated
+   */
+  EReference getCompositeLit_LiteralType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.CompositeLit#getLiteralValue <em>Literal Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Literal Value</em>'.
+   * @see com.ufcg.compiladores.go.CompositeLit#getLiteralValue()
+   * @see #getCompositeLit()
+   * @generated
+   */
+  EReference getCompositeLit_LiteralValue();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.LiteralType <em>Literal Type</em>}'.
@@ -4287,15 +6365,59 @@ public interface GoPackage extends EPackage
   EClass getLiteralType();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.LiteralType#getLiteralValue <em>Literal Value</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.LiteralType#getStructType <em>Struct Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Literal Value</em>'.
-   * @see com.ufcg.compiladores.go.LiteralType#getLiteralValue()
+   * @return the meta object for the containment reference '<em>Struct Type</em>'.
+   * @see com.ufcg.compiladores.go.LiteralType#getStructType()
    * @see #getLiteralType()
    * @generated
    */
-  EReference getLiteralType_LiteralValue();
+  EReference getLiteralType_StructType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.LiteralType#getLiteralTypeLinha <em>Literal Type Linha</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Literal Type Linha</em>'.
+   * @see com.ufcg.compiladores.go.LiteralType#getLiteralTypeLinha()
+   * @see #getLiteralType()
+   * @generated
+   */
+  EReference getLiteralType_LiteralTypeLinha();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.LiteralType#getElementType <em>Element Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Element Type</em>'.
+   * @see com.ufcg.compiladores.go.LiteralType#getElementType()
+   * @see #getLiteralType()
+   * @generated
+   */
+  EReference getLiteralType_ElementType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.LiteralType#getMapType <em>Map Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Map Type</em>'.
+   * @see com.ufcg.compiladores.go.LiteralType#getMapType()
+   * @see #getLiteralType()
+   * @generated
+   */
+  EReference getLiteralType_MapType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.LiteralType#getTypeName <em>Type Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type Name</em>'.
+   * @see com.ufcg.compiladores.go.LiteralType#getTypeName()
+   * @see #getLiteralType()
+   * @generated
+   */
+  EReference getLiteralType_TypeName();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.LiteralTypeLinha <em>Literal Type Linha</em>}'.
@@ -4308,6 +6430,28 @@ public interface GoPackage extends EPackage
   EClass getLiteralTypeLinha();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.LiteralTypeLinha#getArrayLength <em>Array Length</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Array Length</em>'.
+   * @see com.ufcg.compiladores.go.LiteralTypeLinha#getArrayLength()
+   * @see #getLiteralTypeLinha()
+   * @generated
+   */
+  EReference getLiteralTypeLinha_ArrayLength();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.LiteralTypeLinha#getElementType <em>Element Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Element Type</em>'.
+   * @see com.ufcg.compiladores.go.LiteralTypeLinha#getElementType()
+   * @see #getLiteralTypeLinha()
+   * @generated
+   */
+  EReference getLiteralTypeLinha_ElementType();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.LiteralValue <em>Literal Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4318,10 +6462,10 @@ public interface GoPackage extends EPackage
   EClass getLiteralValue();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.LiteralValue#getElementList <em>Element List</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.LiteralValue#getElementList <em>Element List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Element List</em>'.
+   * @return the meta object for the containment reference '<em>Element List</em>'.
    * @see com.ufcg.compiladores.go.LiteralValue#getElementList()
    * @see #getLiteralValue()
    * @generated
@@ -4339,6 +6483,17 @@ public interface GoPackage extends EPackage
   EClass getElementList();
 
   /**
+   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.ElementList#getKeyedElement <em>Keyed Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Keyed Element</em>'.
+   * @see com.ufcg.compiladores.go.ElementList#getKeyedElement()
+   * @see #getElementList()
+   * @generated
+   */
+  EReference getElementList_KeyedElement();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.Element <em>Element</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4347,6 +6502,28 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getElement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Element#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see com.ufcg.compiladores.go.Element#getExpression()
+   * @see #getElement()
+   * @generated
+   */
+  EReference getElement_Expression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Element#getLiteralValue <em>Literal Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Literal Value</em>'.
+   * @see com.ufcg.compiladores.go.Element#getLiteralValue()
+   * @see #getElement()
+   * @generated
+   */
+  EReference getElement_LiteralValue();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.KeyedElement <em>Keyed Element</em>}'.
@@ -4359,21 +6536,21 @@ public interface GoPackage extends EPackage
   EClass getKeyedElement();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.KeyedElement#getKeyedElement <em>Keyed Element</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.KeyedElement#getKey <em>Key</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Keyed Element</em>'.
-   * @see com.ufcg.compiladores.go.KeyedElement#getKeyedElement()
+   * @return the meta object for the containment reference '<em>Key</em>'.
+   * @see com.ufcg.compiladores.go.KeyedElement#getKey()
    * @see #getKeyedElement()
    * @generated
    */
-  EReference getKeyedElement_KeyedElement();
+  EReference getKeyedElement_Key();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.KeyedElement#getElement <em>Element</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.KeyedElement#getElement <em>Element</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Element</em>'.
+   * @return the meta object for the containment reference '<em>Element</em>'.
    * @see com.ufcg.compiladores.go.KeyedElement#getElement()
    * @see #getKeyedElement()
    * @generated
@@ -4391,15 +6568,58 @@ public interface GoPackage extends EPackage
   EClass getKey();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.Key#getExpression <em>Expression</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Key#getFieldName <em>Field Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expression</em>'.
+   * @return the meta object for the containment reference '<em>Field Name</em>'.
+   * @see com.ufcg.compiladores.go.Key#getFieldName()
+   * @see #getKey()
+   * @generated
+   */
+  EReference getKey_FieldName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Key#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
    * @see com.ufcg.compiladores.go.Key#getExpression()
    * @see #getKey()
    * @generated
    */
   EReference getKey_Expression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Key#getLiteralValue <em>Literal Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Literal Value</em>'.
+   * @see com.ufcg.compiladores.go.Key#getLiteralValue()
+   * @see #getKey()
+   * @generated
+   */
+  EReference getKey_LiteralValue();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.FieldName <em>Field Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Field Name</em>'.
+   * @see com.ufcg.compiladores.go.FieldName
+   * @generated
+   */
+  EClass getFieldName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.FieldName#getIdentifier <em>Identifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Identifier</em>'.
+   * @see com.ufcg.compiladores.go.FieldName#getIdentifier()
+   * @see #getFieldName()
+   * @generated
+   */
+  EReference getFieldName_Identifier();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.FunctionLit <em>Function Lit</em>}'.
@@ -4412,6 +6632,28 @@ public interface GoPackage extends EPackage
   EClass getFunctionLit();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.FunctionLit#getSignature <em>Signature</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Signature</em>'.
+   * @see com.ufcg.compiladores.go.FunctionLit#getSignature()
+   * @see #getFunctionLit()
+   * @generated
+   */
+  EReference getFunctionLit_Signature();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.FunctionLit#getFunctionBody <em>Function Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Function Body</em>'.
+   * @see com.ufcg.compiladores.go.FunctionLit#getFunctionBody()
+   * @see #getFunctionLit()
+   * @generated
+   */
+  EReference getFunctionLit_FunctionBody();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.PrimaryExpr <em>Primary Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4420,6 +6662,50 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getPrimaryExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.PrimaryExpr#getOperand <em>Operand</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Operand</em>'.
+   * @see com.ufcg.compiladores.go.PrimaryExpr#getOperand()
+   * @see #getPrimaryExpr()
+   * @generated
+   */
+  EReference getPrimaryExpr_Operand();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.PrimaryExpr#getPrimaryExprLinha <em>Primary Expr Linha</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Primary Expr Linha</em>'.
+   * @see com.ufcg.compiladores.go.PrimaryExpr#getPrimaryExprLinha()
+   * @see #getPrimaryExpr()
+   * @generated
+   */
+  EReference getPrimaryExpr_PrimaryExprLinha();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.PrimaryExpr#getConversion <em>Conversion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Conversion</em>'.
+   * @see com.ufcg.compiladores.go.PrimaryExpr#getConversion()
+   * @see #getPrimaryExpr()
+   * @generated
+   */
+  EReference getPrimaryExpr_Conversion();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.PrimaryExpr#getMethodExpr <em>Method Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Method Expr</em>'.
+   * @see com.ufcg.compiladores.go.PrimaryExpr#getMethodExpr()
+   * @see #getPrimaryExpr()
+   * @generated
+   */
+  EReference getPrimaryExpr_MethodExpr();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.PrimaryExprLinha <em>Primary Expr Linha</em>}'.
@@ -4432,26 +6718,197 @@ public interface GoPackage extends EPackage
   EClass getPrimaryExprLinha();
 
   /**
-   * Returns the meta object for the attribute list '{@link com.ufcg.compiladores.go.PrimaryExprLinha#getIndexLinha <em>Index Linha</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.PrimaryExprLinha#getArguments <em>Arguments</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Index Linha</em>'.
-   * @see com.ufcg.compiladores.go.PrimaryExprLinha#getIndexLinha()
+   * @return the meta object for the containment reference '<em>Arguments</em>'.
+   * @see com.ufcg.compiladores.go.PrimaryExprLinha#getArguments()
    * @see #getPrimaryExprLinha()
    * @generated
    */
-  EAttribute getPrimaryExprLinha_IndexLinha();
+  EReference getPrimaryExprLinha_Arguments();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.PrimaryExprLinha#getPrimaryExprLinha <em>Primary Expr Linha</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.PrimaryExprLinha#getPrimaryExprLinha <em>Primary Expr Linha</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Primary Expr Linha</em>'.
+   * @return the meta object for the containment reference '<em>Primary Expr Linha</em>'.
    * @see com.ufcg.compiladores.go.PrimaryExprLinha#getPrimaryExprLinha()
    * @see #getPrimaryExprLinha()
    * @generated
    */
   EReference getPrimaryExprLinha_PrimaryExprLinha();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.PrimaryExprLinha#getPonto <em>Ponto</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Ponto</em>'.
+   * @see com.ufcg.compiladores.go.PrimaryExprLinha#getPonto()
+   * @see #getPrimaryExprLinha()
+   * @generated
+   */
+  EReference getPrimaryExprLinha_Ponto();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.PrimaryExprLinha#getCochetes <em>Cochetes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Cochetes</em>'.
+   * @see com.ufcg.compiladores.go.PrimaryExprLinha#getCochetes()
+   * @see #getPrimaryExprLinha()
+   * @generated
+   */
+  EReference getPrimaryExprLinha_Cochetes();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.ponto <em>ponto</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>ponto</em>'.
+   * @see com.ufcg.compiladores.go.ponto
+   * @generated
+   */
+  EClass getponto();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ponto#getSelector <em>Selector</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Selector</em>'.
+   * @see com.ufcg.compiladores.go.ponto#getSelector()
+   * @see #getponto()
+   * @generated
+   */
+  EReference getponto_Selector();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ponto#getPrimaryExprLinha <em>Primary Expr Linha</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Primary Expr Linha</em>'.
+   * @see com.ufcg.compiladores.go.ponto#getPrimaryExprLinha()
+   * @see #getponto()
+   * @generated
+   */
+  EReference getponto_PrimaryExprLinha();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ponto#getTypeAssertion <em>Type Assertion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type Assertion</em>'.
+   * @see com.ufcg.compiladores.go.ponto#getTypeAssertion()
+   * @see #getponto()
+   * @generated
+   */
+  EReference getponto_TypeAssertion();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.cochetes <em>cochetes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>cochetes</em>'.
+   * @see com.ufcg.compiladores.go.cochetes
+   * @generated
+   */
+  EClass getcochetes();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.cochetes#getIndex <em>Index</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Index</em>'.
+   * @see com.ufcg.compiladores.go.cochetes#getIndex()
+   * @see #getcochetes()
+   * @generated
+   */
+  EReference getcochetes_Index();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.cochetes#getPrimaryExprLinha <em>Primary Expr Linha</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Primary Expr Linha</em>'.
+   * @see com.ufcg.compiladores.go.cochetes#getPrimaryExprLinha()
+   * @see #getcochetes()
+   * @generated
+   */
+  EReference getcochetes_PrimaryExprLinha();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.cochetes#getSlice <em>Slice</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Slice</em>'.
+   * @see com.ufcg.compiladores.go.cochetes#getSlice()
+   * @see #getcochetes()
+   * @generated
+   */
+  EReference getcochetes_Slice();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.Selector <em>Selector</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Selector</em>'.
+   * @see com.ufcg.compiladores.go.Selector
+   * @generated
+   */
+  EClass getSelector();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Selector#getIdentifier <em>Identifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Identifier</em>'.
+   * @see com.ufcg.compiladores.go.Selector#getIdentifier()
+   * @see #getSelector()
+   * @generated
+   */
+  EReference getSelector_Identifier();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.Index <em>Index</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Index</em>'.
+   * @see com.ufcg.compiladores.go.Index
+   * @generated
+   */
+  EClass getIndex();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Index#getSlice <em>Slice</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Slice</em>'.
+   * @see com.ufcg.compiladores.go.Index#getSlice()
+   * @see #getIndex()
+   * @generated
+   */
+  EReference getIndex_Slice();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.Slice <em>Slice</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Slice</em>'.
+   * @see com.ufcg.compiladores.go.Slice
+   * @generated
+   */
+  EClass getSlice();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.Slice#getDecimals <em>Decimals</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Decimals</em>'.
+   * @see com.ufcg.compiladores.go.Slice#getDecimals()
+   * @see #getSlice()
+   * @generated
+   */
+  EReference getSlice_Decimals();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.TypeAssertion <em>Type Assertion</em>}'.
@@ -4464,6 +6921,17 @@ public interface GoPackage extends EPackage
   EClass getTypeAssertion();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeAssertion#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see com.ufcg.compiladores.go.TypeAssertion#getType()
+   * @see #getTypeAssertion()
+   * @generated
+   */
+  EReference getTypeAssertion_Type();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.Arguments <em>Arguments</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4472,6 +6940,28 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getArguments();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Arguments#getExpressionList <em>Expression List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression List</em>'.
+   * @see com.ufcg.compiladores.go.Arguments#getExpressionList()
+   * @see #getArguments()
+   * @generated
+   */
+  EReference getArguments_ExpressionList();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Arguments#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see com.ufcg.compiladores.go.Arguments#getType()
+   * @see #getArguments()
+   * @generated
+   */
+  EReference getArguments_Type();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.MethodExpr <em>Method Expr</em>}'.
@@ -4484,6 +6974,28 @@ public interface GoPackage extends EPackage
   EClass getMethodExpr();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.MethodExpr#getReceiverType <em>Receiver Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Receiver Type</em>'.
+   * @see com.ufcg.compiladores.go.MethodExpr#getReceiverType()
+   * @see #getMethodExpr()
+   * @generated
+   */
+  EReference getMethodExpr_ReceiverType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.MethodExpr#getMethodName <em>Method Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Method Name</em>'.
+   * @see com.ufcg.compiladores.go.MethodExpr#getMethodName()
+   * @see #getMethodExpr()
+   * @generated
+   */
+  EReference getMethodExpr_MethodName();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.ReceiverType <em>Receiver Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4492,6 +7004,17 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getReceiverType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ReceiverType#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see com.ufcg.compiladores.go.ReceiverType#getType()
+   * @see #getReceiverType()
+   * @generated
+   */
+  EReference getReceiverType_Type();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.Expression <em>Expression</em>}'.
@@ -4504,10 +7027,21 @@ public interface GoPackage extends EPackage
   EClass getExpression();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.Expression#getExpressionLinha <em>Expression Linha</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Expression#getUnaryExpr <em>Unary Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expression Linha</em>'.
+   * @return the meta object for the containment reference '<em>Unary Expr</em>'.
+   * @see com.ufcg.compiladores.go.Expression#getUnaryExpr()
+   * @see #getExpression()
+   * @generated
+   */
+  EReference getExpression_UnaryExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Expression#getExpressionLinha <em>Expression Linha</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression Linha</em>'.
    * @see com.ufcg.compiladores.go.Expression#getExpressionLinha()
    * @see #getExpression()
    * @generated
@@ -4525,6 +7059,125 @@ public interface GoPackage extends EPackage
   EClass getExpressionLinha();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ExpressionLinha#getBinary_op <em>Binary op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Binary op</em>'.
+   * @see com.ufcg.compiladores.go.ExpressionLinha#getBinary_op()
+   * @see #getExpressionLinha()
+   * @generated
+   */
+  EReference getExpressionLinha_Binary_op();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ExpressionLinha#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see com.ufcg.compiladores.go.ExpressionLinha#getExpression()
+   * @see #getExpressionLinha()
+   * @generated
+   */
+  EReference getExpressionLinha_Expression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ExpressionLinha#getExpressionLinha <em>Expression Linha</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression Linha</em>'.
+   * @see com.ufcg.compiladores.go.ExpressionLinha#getExpressionLinha()
+   * @see #getExpressionLinha()
+   * @generated
+   */
+  EReference getExpressionLinha_ExpressionLinha();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.UnaryExpr <em>Unary Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Unary Expr</em>'.
+   * @see com.ufcg.compiladores.go.UnaryExpr
+   * @generated
+   */
+  EClass getUnaryExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.UnaryExpr#getPrimaryExpr <em>Primary Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Primary Expr</em>'.
+   * @see com.ufcg.compiladores.go.UnaryExpr#getPrimaryExpr()
+   * @see #getUnaryExpr()
+   * @generated
+   */
+  EReference getUnaryExpr_PrimaryExpr();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ufcg.compiladores.go.UnaryExpr#getUnary_op <em>Unary op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Unary op</em>'.
+   * @see com.ufcg.compiladores.go.UnaryExpr#getUnary_op()
+   * @see #getUnaryExpr()
+   * @generated
+   */
+  EAttribute getUnaryExpr_Unary_op();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.UnaryExpr#getUnaryExpr <em>Unary Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Unary Expr</em>'.
+   * @see com.ufcg.compiladores.go.UnaryExpr#getUnaryExpr()
+   * @see #getUnaryExpr()
+   * @generated
+   */
+  EReference getUnaryExpr_UnaryExpr();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.binary_op <em>binary op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>binary op</em>'.
+   * @see com.ufcg.compiladores.go.binary_op
+   * @generated
+   */
+  EClass getbinary_op();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ufcg.compiladores.go.binary_op#getRel_op <em>Rel op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Rel op</em>'.
+   * @see com.ufcg.compiladores.go.binary_op#getRel_op()
+   * @see #getbinary_op()
+   * @generated
+   */
+  EAttribute getbinary_op_Rel_op();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ufcg.compiladores.go.binary_op#getAdd_op <em>Add op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Add op</em>'.
+   * @see com.ufcg.compiladores.go.binary_op#getAdd_op()
+   * @see #getbinary_op()
+   * @generated
+   */
+  EAttribute getbinary_op_Add_op();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ufcg.compiladores.go.binary_op#getMul_op <em>Mul op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Mul op</em>'.
+   * @see com.ufcg.compiladores.go.binary_op#getMul_op()
+   * @see #getbinary_op()
+   * @generated
+   */
+  EAttribute getbinary_op_Mul_op();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.Conversion <em>Conversion</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4533,6 +7186,28 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getConversion();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Conversion#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see com.ufcg.compiladores.go.Conversion#getType()
+   * @see #getConversion()
+   * @generated
+   */
+  EReference getConversion_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Conversion#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see com.ufcg.compiladores.go.Conversion#getExpression()
+   * @see #getConversion()
+   * @generated
+   */
+  EReference getConversion_Expression();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.Statement <em>Statement</em>}'.
@@ -4545,10 +7220,10 @@ public interface GoPackage extends EPackage
   EClass getStatement();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.Statement#getDeclaration <em>Declaration</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Statement#getDeclaration <em>Declaration</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Declaration</em>'.
+   * @return the meta object for the containment reference '<em>Declaration</em>'.
    * @see com.ufcg.compiladores.go.Statement#getDeclaration()
    * @see #getStatement()
    * @generated
@@ -4556,10 +7231,10 @@ public interface GoPackage extends EPackage
   EReference getStatement_Declaration();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.Statement#getLabeledStmt <em>Labeled Stmt</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Statement#getLabeledStmt <em>Labeled Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Labeled Stmt</em>'.
+   * @return the meta object for the containment reference '<em>Labeled Stmt</em>'.
    * @see com.ufcg.compiladores.go.Statement#getLabeledStmt()
    * @see #getStatement()
    * @generated
@@ -4567,10 +7242,10 @@ public interface GoPackage extends EPackage
   EReference getStatement_LabeledStmt();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.Statement#getSimpleStmt <em>Simple Stmt</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Statement#getSimpleStmt <em>Simple Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Simple Stmt</em>'.
+   * @return the meta object for the containment reference '<em>Simple Stmt</em>'.
    * @see com.ufcg.compiladores.go.Statement#getSimpleStmt()
    * @see #getStatement()
    * @generated
@@ -4578,10 +7253,10 @@ public interface GoPackage extends EPackage
   EReference getStatement_SimpleStmt();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.Statement#getGoStmt <em>Go Stmt</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Statement#getGoStmt <em>Go Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Go Stmt</em>'.
+   * @return the meta object for the containment reference '<em>Go Stmt</em>'.
    * @see com.ufcg.compiladores.go.Statement#getGoStmt()
    * @see #getStatement()
    * @generated
@@ -4589,10 +7264,10 @@ public interface GoPackage extends EPackage
   EReference getStatement_GoStmt();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.Statement#getReturnStmt <em>Return Stmt</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Statement#getReturnStmt <em>Return Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Return Stmt</em>'.
+   * @return the meta object for the containment reference '<em>Return Stmt</em>'.
    * @see com.ufcg.compiladores.go.Statement#getReturnStmt()
    * @see #getStatement()
    * @generated
@@ -4600,43 +7275,43 @@ public interface GoPackage extends EPackage
   EReference getStatement_ReturnStmt();
 
   /**
-   * Returns the meta object for the attribute list '{@link com.ufcg.compiladores.go.Statement#getBreakStmt <em>Break Stmt</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Statement#getBreakStmt <em>Break Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Break Stmt</em>'.
+   * @return the meta object for the containment reference '<em>Break Stmt</em>'.
    * @see com.ufcg.compiladores.go.Statement#getBreakStmt()
    * @see #getStatement()
    * @generated
    */
-  EAttribute getStatement_BreakStmt();
+  EReference getStatement_BreakStmt();
 
   /**
-   * Returns the meta object for the attribute list '{@link com.ufcg.compiladores.go.Statement#getContinueStmt <em>Continue Stmt</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Statement#getContinueStmt <em>Continue Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Continue Stmt</em>'.
+   * @return the meta object for the containment reference '<em>Continue Stmt</em>'.
    * @see com.ufcg.compiladores.go.Statement#getContinueStmt()
    * @see #getStatement()
    * @generated
    */
-  EAttribute getStatement_ContinueStmt();
+  EReference getStatement_ContinueStmt();
 
   /**
-   * Returns the meta object for the attribute list '{@link com.ufcg.compiladores.go.Statement#getGotoStmt <em>Goto Stmt</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Statement#getGotoStmt <em>Goto Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Goto Stmt</em>'.
+   * @return the meta object for the containment reference '<em>Goto Stmt</em>'.
    * @see com.ufcg.compiladores.go.Statement#getGotoStmt()
    * @see #getStatement()
    * @generated
    */
-  EAttribute getStatement_GotoStmt();
+  EReference getStatement_GotoStmt();
 
   /**
-   * Returns the meta object for the attribute list '{@link com.ufcg.compiladores.go.Statement#getFallthroughStmt <em>Fallthrough Stmt</em>}'.
+   * Returns the meta object for the attribute '{@link com.ufcg.compiladores.go.Statement#getFallthroughStmt <em>Fallthrough Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Fallthrough Stmt</em>'.
+   * @return the meta object for the attribute '<em>Fallthrough Stmt</em>'.
    * @see com.ufcg.compiladores.go.Statement#getFallthroughStmt()
    * @see #getStatement()
    * @generated
@@ -4644,10 +7319,10 @@ public interface GoPackage extends EPackage
   EAttribute getStatement_FallthroughStmt();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.Statement#getBlock <em>Block</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Statement#getBlock <em>Block</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Block</em>'.
+   * @return the meta object for the containment reference '<em>Block</em>'.
    * @see com.ufcg.compiladores.go.Statement#getBlock()
    * @see #getStatement()
    * @generated
@@ -4655,10 +7330,10 @@ public interface GoPackage extends EPackage
   EReference getStatement_Block();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.Statement#getIfStmt <em>If Stmt</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Statement#getIfStmt <em>If Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>If Stmt</em>'.
+   * @return the meta object for the containment reference '<em>If Stmt</em>'.
    * @see com.ufcg.compiladores.go.Statement#getIfStmt()
    * @see #getStatement()
    * @generated
@@ -4666,10 +7341,10 @@ public interface GoPackage extends EPackage
   EReference getStatement_IfStmt();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.Statement#getSwitchStmt <em>Switch Stmt</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Statement#getSwitchStmt <em>Switch Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Switch Stmt</em>'.
+   * @return the meta object for the containment reference '<em>Switch Stmt</em>'.
    * @see com.ufcg.compiladores.go.Statement#getSwitchStmt()
    * @see #getStatement()
    * @generated
@@ -4677,10 +7352,10 @@ public interface GoPackage extends EPackage
   EReference getStatement_SwitchStmt();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.Statement#getSelectStmt <em>Select Stmt</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Statement#getSelectStmt <em>Select Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Select Stmt</em>'.
+   * @return the meta object for the containment reference '<em>Select Stmt</em>'.
    * @see com.ufcg.compiladores.go.Statement#getSelectStmt()
    * @see #getStatement()
    * @generated
@@ -4688,10 +7363,10 @@ public interface GoPackage extends EPackage
   EReference getStatement_SelectStmt();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.Statement#getForStmt <em>For Stmt</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Statement#getForStmt <em>For Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>For Stmt</em>'.
+   * @return the meta object for the containment reference '<em>For Stmt</em>'.
    * @see com.ufcg.compiladores.go.Statement#getForStmt()
    * @see #getStatement()
    * @generated
@@ -4699,10 +7374,10 @@ public interface GoPackage extends EPackage
   EReference getStatement_ForStmt();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.Statement#getDeferStmt <em>Defer Stmt</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Statement#getDeferStmt <em>Defer Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Defer Stmt</em>'.
+   * @return the meta object for the containment reference '<em>Defer Stmt</em>'.
    * @see com.ufcg.compiladores.go.Statement#getDeferStmt()
    * @see #getStatement()
    * @generated
@@ -4720,6 +7395,72 @@ public interface GoPackage extends EPackage
   EClass getSimpleStmt();
 
   /**
+   * Returns the meta object for the attribute '{@link com.ufcg.compiladores.go.SimpleStmt#getEmptyStmt <em>Empty Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Empty Stmt</em>'.
+   * @see com.ufcg.compiladores.go.SimpleStmt#getEmptyStmt()
+   * @see #getSimpleStmt()
+   * @generated
+   */
+  EAttribute getSimpleStmt_EmptyStmt();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.SimpleStmt#getExpressionStmt <em>Expression Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression Stmt</em>'.
+   * @see com.ufcg.compiladores.go.SimpleStmt#getExpressionStmt()
+   * @see #getSimpleStmt()
+   * @generated
+   */
+  EReference getSimpleStmt_ExpressionStmt();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.SimpleStmt#getSendStmt <em>Send Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Send Stmt</em>'.
+   * @see com.ufcg.compiladores.go.SimpleStmt#getSendStmt()
+   * @see #getSimpleStmt()
+   * @generated
+   */
+  EReference getSimpleStmt_SendStmt();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.SimpleStmt#getIncDecStmt <em>Inc Dec Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Inc Dec Stmt</em>'.
+   * @see com.ufcg.compiladores.go.SimpleStmt#getIncDecStmt()
+   * @see #getSimpleStmt()
+   * @generated
+   */
+  EReference getSimpleStmt_IncDecStmt();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.SimpleStmt#getAssignment <em>Assignment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Assignment</em>'.
+   * @see com.ufcg.compiladores.go.SimpleStmt#getAssignment()
+   * @see #getSimpleStmt()
+   * @generated
+   */
+  EReference getSimpleStmt_Assignment();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.SimpleStmt#getShortVarDecl <em>Short Var Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Short Var Decl</em>'.
+   * @see com.ufcg.compiladores.go.SimpleStmt#getShortVarDecl()
+   * @see #getSimpleStmt()
+   * @generated
+   */
+  EReference getSimpleStmt_ShortVarDecl();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.LabeledStmt <em>Labeled Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4728,6 +7469,49 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getLabeledStmt();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.LabeledStmt#getLabel <em>Label</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Label</em>'.
+   * @see com.ufcg.compiladores.go.LabeledStmt#getLabel()
+   * @see #getLabeledStmt()
+   * @generated
+   */
+  EReference getLabeledStmt_Label();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.LabeledStmt#getStatement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Statement</em>'.
+   * @see com.ufcg.compiladores.go.LabeledStmt#getStatement()
+   * @see #getLabeledStmt()
+   * @generated
+   */
+  EReference getLabeledStmt_Statement();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.Label <em>Label</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Label</em>'.
+   * @see com.ufcg.compiladores.go.Label
+   * @generated
+   */
+  EClass getLabel();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Label#getIdentifier <em>Identifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Identifier</em>'.
+   * @see com.ufcg.compiladores.go.Label#getIdentifier()
+   * @see #getLabel()
+   * @generated
+   */
+  EReference getLabel_Identifier();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.ExpressionStmt <em>Expression Stmt</em>}'.
@@ -4740,6 +7524,17 @@ public interface GoPackage extends EPackage
   EClass getExpressionStmt();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ExpressionStmt#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see com.ufcg.compiladores.go.ExpressionStmt#getExpression()
+   * @see #getExpressionStmt()
+   * @generated
+   */
+  EReference getExpressionStmt_Expression();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.SendStmt <em>Send Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4748,6 +7543,28 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getSendStmt();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.SendStmt#getChannel <em>Channel</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Channel</em>'.
+   * @see com.ufcg.compiladores.go.SendStmt#getChannel()
+   * @see #getSendStmt()
+   * @generated
+   */
+  EReference getSendStmt_Channel();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.SendStmt#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see com.ufcg.compiladores.go.SendStmt#getExpression()
+   * @see #getSendStmt()
+   * @generated
+   */
+  EReference getSendStmt_Expression();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.Channel <em>Channel</em>}'.
@@ -4760,6 +7577,17 @@ public interface GoPackage extends EPackage
   EClass getChannel();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Channel#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see com.ufcg.compiladores.go.Channel#getExpression()
+   * @see #getChannel()
+   * @generated
+   */
+  EReference getChannel_Expression();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.IncDecStmt <em>Inc Dec Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4768,6 +7596,17 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getIncDecStmt();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.IncDecStmt#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see com.ufcg.compiladores.go.IncDecStmt#getExpression()
+   * @see #getIncDecStmt()
+   * @generated
+   */
+  EReference getIncDecStmt_Expression();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.Assignment <em>Assignment</em>}'.
@@ -4780,6 +7619,28 @@ public interface GoPackage extends EPackage
   EClass getAssignment();
 
   /**
+   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.Assignment#getExpressionList <em>Expression List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Expression List</em>'.
+   * @see com.ufcg.compiladores.go.Assignment#getExpressionList()
+   * @see #getAssignment()
+   * @generated
+   */
+  EReference getAssignment_ExpressionList();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ufcg.compiladores.go.Assignment#getAssign_op <em>Assign op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Assign op</em>'.
+   * @see com.ufcg.compiladores.go.Assignment#getAssign_op()
+   * @see #getAssignment()
+   * @generated
+   */
+  EAttribute getAssignment_Assign_op();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.IfStmt <em>If Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4790,10 +7651,21 @@ public interface GoPackage extends EPackage
   EClass getIfStmt();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.IfStmt#getExpression <em>Expression</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.IfStmt#getSimpleStmt <em>Simple Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expression</em>'.
+   * @return the meta object for the containment reference '<em>Simple Stmt</em>'.
+   * @see com.ufcg.compiladores.go.IfStmt#getSimpleStmt()
+   * @see #getIfStmt()
+   * @generated
+   */
+  EReference getIfStmt_SimpleStmt();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.IfStmt#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
    * @see com.ufcg.compiladores.go.IfStmt#getExpression()
    * @see #getIfStmt()
    * @generated
@@ -4812,10 +7684,10 @@ public interface GoPackage extends EPackage
   EReference getIfStmt_Block();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.IfStmt#getIfStmt <em>If Stmt</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.IfStmt#getIfStmt <em>If Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>If Stmt</em>'.
+   * @return the meta object for the containment reference '<em>If Stmt</em>'.
    * @see com.ufcg.compiladores.go.IfStmt#getIfStmt()
    * @see #getIfStmt()
    * @generated
@@ -4833,10 +7705,10 @@ public interface GoPackage extends EPackage
   EClass getSwitchStmt();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.SwitchStmt#getSwitch_stmt_linha <em>Switch stmt linha</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.SwitchStmt#getSwitch_stmt_linha <em>Switch stmt linha</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Switch stmt linha</em>'.
+   * @return the meta object for the containment reference '<em>Switch stmt linha</em>'.
    * @see com.ufcg.compiladores.go.SwitchStmt#getSwitch_stmt_linha()
    * @see #getSwitchStmt()
    * @generated
@@ -4854,6 +7726,28 @@ public interface GoPackage extends EPackage
   EClass getExprCaseClause();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ExprCaseClause#getExprSwitchCase <em>Expr Switch Case</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr Switch Case</em>'.
+   * @see com.ufcg.compiladores.go.ExprCaseClause#getExprSwitchCase()
+   * @see #getExprCaseClause()
+   * @generated
+   */
+  EReference getExprCaseClause_ExprSwitchCase();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ExprCaseClause#getStatementList <em>Statement List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Statement List</em>'.
+   * @see com.ufcg.compiladores.go.ExprCaseClause#getStatementList()
+   * @see #getExprCaseClause()
+   * @generated
+   */
+  EReference getExprCaseClause_StatementList();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.ExprSwitchCase <em>Expr Switch Case</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4864,15 +7758,15 @@ public interface GoPackage extends EPackage
   EClass getExprSwitchCase();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.ExprSwitchCase#getStatementList <em>Statement List</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ExprSwitchCase#getExpressionList <em>Expression List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Statement List</em>'.
-   * @see com.ufcg.compiladores.go.ExprSwitchCase#getStatementList()
+   * @return the meta object for the containment reference '<em>Expression List</em>'.
+   * @see com.ufcg.compiladores.go.ExprSwitchCase#getExpressionList()
    * @see #getExprSwitchCase()
    * @generated
    */
-  EReference getExprSwitchCase_StatementList();
+  EReference getExprSwitchCase_ExpressionList();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.switch_stmt_linha <em>switch stmt linha</em>}'.
@@ -4885,10 +7779,10 @@ public interface GoPackage extends EPackage
   EClass getswitch_stmt_linha();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.switch_stmt_linha#getTypeSwitchGuard <em>Type Switch Guard</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.switch_stmt_linha#getTypeSwitchGuard <em>Type Switch Guard</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Type Switch Guard</em>'.
+   * @return the meta object for the containment reference '<em>Type Switch Guard</em>'.
    * @see com.ufcg.compiladores.go.switch_stmt_linha#getTypeSwitchGuard()
    * @see #getswitch_stmt_linha()
    * @generated
@@ -4907,10 +7801,21 @@ public interface GoPackage extends EPackage
   EReference getswitch_stmt_linha_TypeCaseClause();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.switch_stmt_linha#getExpression <em>Expression</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.switch_stmt_linha#getSwitch_stmt_linha <em>Switch stmt linha</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expression</em>'.
+   * @return the meta object for the containment reference '<em>Switch stmt linha</em>'.
+   * @see com.ufcg.compiladores.go.switch_stmt_linha#getSwitch_stmt_linha()
+   * @see #getswitch_stmt_linha()
+   * @generated
+   */
+  EReference getswitch_stmt_linha_Switch_stmt_linha();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.switch_stmt_linha#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
    * @see com.ufcg.compiladores.go.switch_stmt_linha#getExpression()
    * @see #getswitch_stmt_linha()
    * @generated
@@ -4939,6 +7844,28 @@ public interface GoPackage extends EPackage
   EClass getTypeSwitchGuard();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeSwitchGuard#getIdentifier <em>Identifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Identifier</em>'.
+   * @see com.ufcg.compiladores.go.TypeSwitchGuard#getIdentifier()
+   * @see #getTypeSwitchGuard()
+   * @generated
+   */
+  EReference getTypeSwitchGuard_Identifier();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeSwitchGuard#getPrimaryExpr <em>Primary Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Primary Expr</em>'.
+   * @see com.ufcg.compiladores.go.TypeSwitchGuard#getPrimaryExpr()
+   * @see #getTypeSwitchGuard()
+   * @generated
+   */
+  EReference getTypeSwitchGuard_PrimaryExpr();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.TypeCaseClause <em>Type Case Clause</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4947,6 +7874,28 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getTypeCaseClause();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeCaseClause#getTypeSwitchCase <em>Type Switch Case</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type Switch Case</em>'.
+   * @see com.ufcg.compiladores.go.TypeCaseClause#getTypeSwitchCase()
+   * @see #getTypeCaseClause()
+   * @generated
+   */
+  EReference getTypeCaseClause_TypeSwitchCase();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeCaseClause#getStatementList <em>Statement List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Statement List</em>'.
+   * @see com.ufcg.compiladores.go.TypeCaseClause#getStatementList()
+   * @see #getTypeCaseClause()
+   * @generated
+   */
+  EReference getTypeCaseClause_StatementList();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.TypeSwitchCase <em>Type Switch Case</em>}'.
@@ -4959,15 +7908,15 @@ public interface GoPackage extends EPackage
   EClass getTypeSwitchCase();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.TypeSwitchCase#getStatementList <em>Statement List</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.TypeSwitchCase#getTypeList <em>Type List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Statement List</em>'.
-   * @see com.ufcg.compiladores.go.TypeSwitchCase#getStatementList()
+   * @return the meta object for the containment reference '<em>Type List</em>'.
+   * @see com.ufcg.compiladores.go.TypeSwitchCase#getTypeList()
    * @see #getTypeSwitchCase()
    * @generated
    */
-  EReference getTypeSwitchCase_StatementList();
+  EReference getTypeSwitchCase_TypeList();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.TypeList <em>Type List</em>}'.
@@ -4980,6 +7929,17 @@ public interface GoPackage extends EPackage
   EClass getTypeList();
 
   /**
+   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.TypeList#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Type</em>'.
+   * @see com.ufcg.compiladores.go.TypeList#getType()
+   * @see #getTypeList()
+   * @generated
+   */
+  EReference getTypeList_Type();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.ForStmt <em>For Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4988,6 +7948,50 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getForStmt();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ForStmt#getCondition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Condition</em>'.
+   * @see com.ufcg.compiladores.go.ForStmt#getCondition()
+   * @see #getForStmt()
+   * @generated
+   */
+  EReference getForStmt_Condition();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ForStmt#getForClause <em>For Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>For Clause</em>'.
+   * @see com.ufcg.compiladores.go.ForStmt#getForClause()
+   * @see #getForStmt()
+   * @generated
+   */
+  EReference getForStmt_ForClause();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ForStmt#getRangeClause <em>Range Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Range Clause</em>'.
+   * @see com.ufcg.compiladores.go.ForStmt#getRangeClause()
+   * @see #getForStmt()
+   * @generated
+   */
+  EReference getForStmt_RangeClause();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ForStmt#getBlock <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Block</em>'.
+   * @see com.ufcg.compiladores.go.ForStmt#getBlock()
+   * @see #getForStmt()
+   * @generated
+   */
+  EReference getForStmt_Block();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.Condition <em>Condition</em>}'.
@@ -5000,6 +8004,17 @@ public interface GoPackage extends EPackage
   EClass getCondition();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.Condition#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see com.ufcg.compiladores.go.Condition#getExpression()
+   * @see #getCondition()
+   * @generated
+   */
+  EReference getCondition_Expression();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.ForClause <em>For Clause</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5010,10 +8025,21 @@ public interface GoPackage extends EPackage
   EClass getForClause();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.ForClause#getCondition <em>Condition</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ForClause#getInitStmt <em>Init Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Condition</em>'.
+   * @return the meta object for the containment reference '<em>Init Stmt</em>'.
+   * @see com.ufcg.compiladores.go.ForClause#getInitStmt()
+   * @see #getForClause()
+   * @generated
+   */
+  EReference getForClause_InitStmt();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ForClause#getCondition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Condition</em>'.
    * @see com.ufcg.compiladores.go.ForClause#getCondition()
    * @see #getForClause()
    * @generated
@@ -5021,10 +8047,10 @@ public interface GoPackage extends EPackage
   EReference getForClause_Condition();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.ForClause#getPostStmt <em>Post Stmt</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ForClause#getPostStmt <em>Post Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Post Stmt</em>'.
+   * @return the meta object for the containment reference '<em>Post Stmt</em>'.
    * @see com.ufcg.compiladores.go.ForClause#getPostStmt()
    * @see #getForClause()
    * @generated
@@ -5042,6 +8068,17 @@ public interface GoPackage extends EPackage
   EClass getInitStmt();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.InitStmt#getSimpleStmt <em>Simple Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Simple Stmt</em>'.
+   * @see com.ufcg.compiladores.go.InitStmt#getSimpleStmt()
+   * @see #getInitStmt()
+   * @generated
+   */
+  EReference getInitStmt_SimpleStmt();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.PostStmt <em>Post Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5050,6 +8087,17 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getPostStmt();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.PostStmt#getSimpleStmt <em>Simple Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Simple Stmt</em>'.
+   * @see com.ufcg.compiladores.go.PostStmt#getSimpleStmt()
+   * @see #getPostStmt()
+   * @generated
+   */
+  EReference getPostStmt_SimpleStmt();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.RangeClause <em>Range Clause</em>}'.
@@ -5062,6 +8110,39 @@ public interface GoPackage extends EPackage
   EClass getRangeClause();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.RangeClause#getExpressionList <em>Expression List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression List</em>'.
+   * @see com.ufcg.compiladores.go.RangeClause#getExpressionList()
+   * @see #getRangeClause()
+   * @generated
+   */
+  EReference getRangeClause_ExpressionList();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.RangeClause#getIdentifierList <em>Identifier List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Identifier List</em>'.
+   * @see com.ufcg.compiladores.go.RangeClause#getIdentifierList()
+   * @see #getRangeClause()
+   * @generated
+   */
+  EReference getRangeClause_IdentifierList();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.RangeClause#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see com.ufcg.compiladores.go.RangeClause#getExpression()
+   * @see #getRangeClause()
+   * @generated
+   */
+  EReference getRangeClause_Expression();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.GoStmt <em>Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5070,6 +8151,17 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getGoStmt();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.GoStmt#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see com.ufcg.compiladores.go.GoStmt#getExpression()
+   * @see #getGoStmt()
+   * @generated
+   */
+  EReference getGoStmt_Expression();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.SelectStmt <em>Select Stmt</em>}'.
@@ -5103,6 +8195,28 @@ public interface GoPackage extends EPackage
   EClass getCommClause();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.CommClause#getCommCase <em>Comm Case</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Comm Case</em>'.
+   * @see com.ufcg.compiladores.go.CommClause#getCommCase()
+   * @see #getCommClause()
+   * @generated
+   */
+  EReference getCommClause_CommCase();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.CommClause#getStatementList <em>Statement List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Statement List</em>'.
+   * @see com.ufcg.compiladores.go.CommClause#getStatementList()
+   * @see #getCommClause()
+   * @generated
+   */
+  EReference getCommClause_StatementList();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.CommCase <em>Comm Case</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5111,6 +8225,28 @@ public interface GoPackage extends EPackage
    * @generated
    */
   EClass getCommCase();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.CommCase#getSendStmt <em>Send Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Send Stmt</em>'.
+   * @see com.ufcg.compiladores.go.CommCase#getSendStmt()
+   * @see #getCommCase()
+   * @generated
+   */
+  EReference getCommCase_SendStmt();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.CommCase#getRecvStmt <em>Recv Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Recv Stmt</em>'.
+   * @see com.ufcg.compiladores.go.CommCase#getRecvStmt()
+   * @see #getCommCase()
+   * @generated
+   */
+  EReference getCommCase_RecvStmt();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.RecvStmt <em>Recv Stmt</em>}'.
@@ -5123,10 +8259,32 @@ public interface GoPackage extends EPackage
   EClass getRecvStmt();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.RecvStmt#getRecvExpr <em>Recv Expr</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.RecvStmt#getExpressionList <em>Expression List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Recv Expr</em>'.
+   * @return the meta object for the containment reference '<em>Expression List</em>'.
+   * @see com.ufcg.compiladores.go.RecvStmt#getExpressionList()
+   * @see #getRecvStmt()
+   * @generated
+   */
+  EReference getRecvStmt_ExpressionList();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.RecvStmt#getIdentifierList <em>Identifier List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Identifier List</em>'.
+   * @see com.ufcg.compiladores.go.RecvStmt#getIdentifierList()
+   * @see #getRecvStmt()
+   * @generated
+   */
+  EReference getRecvStmt_IdentifierList();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.RecvStmt#getRecvExpr <em>Recv Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Recv Expr</em>'.
    * @see com.ufcg.compiladores.go.RecvStmt#getRecvExpr()
    * @see #getRecvStmt()
    * @generated
@@ -5144,6 +8302,17 @@ public interface GoPackage extends EPackage
   EClass getRecvExpr();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.RecvExpr#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see com.ufcg.compiladores.go.RecvExpr#getExpression()
+   * @see #getRecvExpr()
+   * @generated
+   */
+  EReference getRecvExpr_Expression();
+
+  /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.ReturnStmt <em>Return Stmt</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5154,15 +8323,78 @@ public interface GoPackage extends EPackage
   EClass getReturnStmt();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.ReturnStmt#getExpressionList <em>Expression List</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ReturnStmt#getExpressionList <em>Expression List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expression List</em>'.
+   * @return the meta object for the containment reference '<em>Expression List</em>'.
    * @see com.ufcg.compiladores.go.ReturnStmt#getExpressionList()
    * @see #getReturnStmt()
    * @generated
    */
   EReference getReturnStmt_ExpressionList();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.BreakStmt <em>Break Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Break Stmt</em>'.
+   * @see com.ufcg.compiladores.go.BreakStmt
+   * @generated
+   */
+  EClass getBreakStmt();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.BreakStmt#getLabel <em>Label</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Label</em>'.
+   * @see com.ufcg.compiladores.go.BreakStmt#getLabel()
+   * @see #getBreakStmt()
+   * @generated
+   */
+  EReference getBreakStmt_Label();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.ContinueStmt <em>Continue Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Continue Stmt</em>'.
+   * @see com.ufcg.compiladores.go.ContinueStmt
+   * @generated
+   */
+  EClass getContinueStmt();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ContinueStmt#getLabel <em>Label</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Label</em>'.
+   * @see com.ufcg.compiladores.go.ContinueStmt#getLabel()
+   * @see #getContinueStmt()
+   * @generated
+   */
+  EReference getContinueStmt_Label();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.GotoStmt <em>Goto Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Goto Stmt</em>'.
+   * @see com.ufcg.compiladores.go.GotoStmt
+   * @generated
+   */
+  EClass getGotoStmt();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.GotoStmt#getLabel <em>Label</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Label</em>'.
+   * @see com.ufcg.compiladores.go.GotoStmt#getLabel()
+   * @see #getGotoStmt()
+   * @generated
+   */
+  EReference getGotoStmt_Label();
 
   /**
    * Returns the meta object for class '{@link com.ufcg.compiladores.go.DeferStmt <em>Defer Stmt</em>}'.
@@ -5175,15 +8407,344 @@ public interface GoPackage extends EPackage
   EClass getDeferStmt();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.DeferStmt#getExpression <em>Expression</em>}'.
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.DeferStmt#getExpression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expression</em>'.
+   * @return the meta object for the containment reference '<em>Expression</em>'.
    * @see com.ufcg.compiladores.go.DeferStmt#getExpression()
    * @see #getDeferStmt()
    * @generated
    */
   EReference getDeferStmt_Expression();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.PackageClause <em>Package Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Package Clause</em>'.
+   * @see com.ufcg.compiladores.go.PackageClause
+   * @generated
+   */
+  EClass getPackageClause();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.PackageClause#getPackageName <em>Package Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Package Name</em>'.
+   * @see com.ufcg.compiladores.go.PackageClause#getPackageName()
+   * @see #getPackageClause()
+   * @generated
+   */
+  EReference getPackageClause_PackageName();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.PackageName <em>Package Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Package Name</em>'.
+   * @see com.ufcg.compiladores.go.PackageName
+   * @generated
+   */
+  EClass getPackageName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.PackageName#getIdentifier <em>Identifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Identifier</em>'.
+   * @see com.ufcg.compiladores.go.PackageName#getIdentifier()
+   * @see #getPackageName()
+   * @generated
+   */
+  EReference getPackageName_Identifier();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.ImportDecl <em>Import Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Import Decl</em>'.
+   * @see com.ufcg.compiladores.go.ImportDecl
+   * @generated
+   */
+  EClass getImportDecl();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.ufcg.compiladores.go.ImportDecl#getImportSpec <em>Import Spec</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Import Spec</em>'.
+   * @see com.ufcg.compiladores.go.ImportDecl#getImportSpec()
+   * @see #getImportDecl()
+   * @generated
+   */
+  EReference getImportDecl_ImportSpec();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.ImportSpec <em>Import Spec</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Import Spec</em>'.
+   * @see com.ufcg.compiladores.go.ImportSpec
+   * @generated
+   */
+  EClass getImportSpec();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ImportSpec#getPackageName <em>Package Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Package Name</em>'.
+   * @see com.ufcg.compiladores.go.ImportSpec#getPackageName()
+   * @see #getImportSpec()
+   * @generated
+   */
+  EReference getImportSpec_PackageName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ImportSpec#getImportPath <em>Import Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Import Path</em>'.
+   * @see com.ufcg.compiladores.go.ImportSpec#getImportPath()
+   * @see #getImportSpec()
+   * @generated
+   */
+  EReference getImportSpec_ImportPath();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.ImportPath <em>Import Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Import Path</em>'.
+   * @see com.ufcg.compiladores.go.ImportPath
+   * @generated
+   */
+  EClass getImportPath();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.ImportPath#getString_lit <em>String lit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>String lit</em>'.
+   * @see com.ufcg.compiladores.go.ImportPath#getString_lit()
+   * @see #getImportPath()
+   * @generated
+   */
+  EReference getImportPath_String_lit();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.identifier <em>identifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>identifier</em>'.
+   * @see com.ufcg.compiladores.go.identifier
+   * @generated
+   */
+  EClass getidentifier();
+
+  /**
+   * Returns the meta object for the attribute list '{@link com.ufcg.compiladores.go.identifier#getLETTER <em>LETTER</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>LETTER</em>'.
+   * @see com.ufcg.compiladores.go.identifier#getLETTER()
+   * @see #getidentifier()
+   * @generated
+   */
+  EAttribute getidentifier_LETTER();
+
+  /**
+   * Returns the meta object for the attribute list '{@link com.ufcg.compiladores.go.identifier#getDECIMAL_DIGIT <em>DECIMAL DIGIT</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>DECIMAL DIGIT</em>'.
+   * @see com.ufcg.compiladores.go.identifier#getDECIMAL_DIGIT()
+   * @see #getidentifier()
+   * @generated
+   */
+  EAttribute getidentifier_DECIMAL_DIGIT();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.float_lit <em>float lit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>float lit</em>'.
+   * @see com.ufcg.compiladores.go.float_lit
+   * @generated
+   */
+  EClass getfloat_lit();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.string_lit <em>string lit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>string lit</em>'.
+   * @see com.ufcg.compiladores.go.string_lit
+   * @generated
+   */
+  EClass getstring_lit();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ufcg.compiladores.go.string_lit#getRaw_string_lit <em>Raw string lit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Raw string lit</em>'.
+   * @see com.ufcg.compiladores.go.string_lit#getRaw_string_lit()
+   * @see #getstring_lit()
+   * @generated
+   */
+  EAttribute getstring_lit_Raw_string_lit();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ufcg.compiladores.go.string_lit#getInterpreted_string_lit <em>Interpreted string lit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Interpreted string lit</em>'.
+   * @see com.ufcg.compiladores.go.string_lit#getInterpreted_string_lit()
+   * @see #getstring_lit()
+   * @generated
+   */
+  EAttribute getstring_lit_Interpreted_string_lit();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.decimals <em>decimals</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>decimals</em>'.
+   * @see com.ufcg.compiladores.go.decimals
+   * @generated
+   */
+  EClass getdecimals();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.decimals#getDecimals <em>Decimals</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Decimals</em>'.
+   * @see com.ufcg.compiladores.go.decimals#getDecimals()
+   * @see #getdecimals()
+   * @generated
+   */
+  EReference getdecimals_Decimals();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.decimals#getExponent <em>Exponent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exponent</em>'.
+   * @see com.ufcg.compiladores.go.decimals#getExponent()
+   * @see #getdecimals()
+   * @generated
+   */
+  EReference getdecimals_Exponent();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.decimals#getExponen <em>Exponen</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exponen</em>'.
+   * @see com.ufcg.compiladores.go.decimals#getExponen()
+   * @see #getdecimals()
+   * @generated
+   */
+  EReference getdecimals_Exponen();
+
+  /**
+   * Returns the meta object for the attribute list '{@link com.ufcg.compiladores.go.decimals#getDECIMAL_DIGIT <em>DECIMAL DIGIT</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>DECIMAL DIGIT</em>'.
+   * @see com.ufcg.compiladores.go.decimals#getDECIMAL_DIGIT()
+   * @see #getdecimals()
+   * @generated
+   */
+  EAttribute getdecimals_DECIMAL_DIGIT();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.exponent <em>exponent</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>exponent</em>'.
+   * @see com.ufcg.compiladores.go.exponent
+   * @generated
+   */
+  EClass getexponent();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.exponent#getDecimals <em>Decimals</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Decimals</em>'.
+   * @see com.ufcg.compiladores.go.exponent#getDecimals()
+   * @see #getexponent()
+   * @generated
+   */
+  EReference getexponent_Decimals();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.imaginary_lit <em>imaginary lit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>imaginary lit</em>'.
+   * @see com.ufcg.compiladores.go.imaginary_lit
+   * @generated
+   */
+  EClass getimaginary_lit();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.imaginary_lit#getDecimals <em>Decimals</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Decimals</em>'.
+   * @see com.ufcg.compiladores.go.imaginary_lit#getDecimals()
+   * @see #getimaginary_lit()
+   * @generated
+   */
+  EReference getimaginary_lit_Decimals();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.ufcg.compiladores.go.imaginary_lit#getFloat_lit <em>Float lit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Float lit</em>'.
+   * @see com.ufcg.compiladores.go.imaginary_lit#getFloat_lit()
+   * @see #getimaginary_lit()
+   * @generated
+   */
+  EReference getimaginary_lit_Float_lit();
+
+  /**
+   * Returns the meta object for class '{@link com.ufcg.compiladores.go.rune_lit <em>rune lit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>rune lit</em>'.
+   * @see com.ufcg.compiladores.go.rune_lit
+   * @generated
+   */
+  EClass getrune_lit();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ufcg.compiladores.go.rune_lit#getUnicode_value <em>Unicode value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Unicode value</em>'.
+   * @see com.ufcg.compiladores.go.rune_lit#getUnicode_value()
+   * @see #getrune_lit()
+   * @generated
+   */
+  EAttribute getrune_lit_Unicode_value();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.ufcg.compiladores.go.rune_lit#getByte_value <em>Byte value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Byte value</em>'.
+   * @see com.ufcg.compiladores.go.rune_lit#getByte_value()
+   * @see #getrune_lit()
+   * @generated
+   */
+  EAttribute getrune_lit_Byte_value();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -5219,6 +8780,30 @@ public interface GoPackage extends EPackage
     EClass SOUCE_FILE = eINSTANCE.getSouceFile();
 
     /**
+     * The meta object literal for the '<em><b>Package Clause</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SOUCE_FILE__PACKAGE_CLAUSE = eINSTANCE.getSouceFile_PackageClause();
+
+    /**
+     * The meta object literal for the '<em><b>Import Decl</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SOUCE_FILE__IMPORT_DECL = eINSTANCE.getSouceFile_ImportDecl();
+
+    /**
+     * The meta object literal for the '<em><b>Top Level Decl</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SOUCE_FILE__TOP_LEVEL_DECL = eINSTANCE.getSouceFile_TopLevelDecl();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.TypeImpl <em>Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5229,20 +8814,88 @@ public interface GoPackage extends EPackage
     EClass TYPE = eINSTANCE.getType();
 
     /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Type Name</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TYPE__EXPRESSION = eINSTANCE.getType_Expression();
+    EReference TYPE__TYPE_NAME = eINSTANCE.getType_TypeName();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Type Lit</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE__TYPE_LIT = eINSTANCE.getType_TypeLit();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference TYPE__TYPE = eINSTANCE.getType_Type();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.TypeNameImpl <em>Type Name</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.TypeNameImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getTypeName()
+     * @generated
+     */
+    EClass TYPE_NAME = eINSTANCE.getTypeName();
+
+    /**
+     * The meta object literal for the '<em><b>Identifier</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_NAME__IDENTIFIER = eINSTANCE.getTypeName_Identifier();
+
+    /**
+     * The meta object literal for the '<em><b>Type Name Linha</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_NAME__TYPE_NAME_LINHA = eINSTANCE.getTypeName_TypeNameLinha();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.TypeNameLinhaImpl <em>Type Name Linha</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.TypeNameLinhaImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getTypeNameLinha()
+     * @generated
+     */
+    EClass TYPE_NAME_LINHA = eINSTANCE.getTypeNameLinha();
+
+    /**
+     * The meta object literal for the '<em><b>Identifier</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_NAME_LINHA__IDENTIFIER = eINSTANCE.getTypeNameLinha_Identifier();
+
+    /**
+     * The meta object literal for the '<em><b>Type Name Linha</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_NAME_LINHA__TYPE_NAME_LINHA = eINSTANCE.getTypeNameLinha_TypeNameLinha();
+
+    /**
+     * The meta object literal for the '<em><b>Qualified Ident</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_NAME_LINHA__QUALIFIED_IDENT = eINSTANCE.getTypeNameLinha_QualifiedIdent();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.TypeLitImpl <em>Type Lit</em>}' class.
@@ -5255,7 +8908,7 @@ public interface GoPackage extends EPackage
     EClass TYPE_LIT = eINSTANCE.getTypeLit();
 
     /**
-     * The meta object literal for the '<em><b>Type Lit Linha</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Type Lit Linha</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -5263,7 +8916,7 @@ public interface GoPackage extends EPackage
     EReference TYPE_LIT__TYPE_LIT_LINHA = eINSTANCE.getTypeLit_TypeLitLinha();
 
     /**
-     * The meta object literal for the '<em><b>Struct Type</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Struct Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -5271,7 +8924,7 @@ public interface GoPackage extends EPackage
     EReference TYPE_LIT__STRUCT_TYPE = eINSTANCE.getTypeLit_StructType();
 
     /**
-     * The meta object literal for the '<em><b>Pointer Type</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Pointer Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -5279,7 +8932,7 @@ public interface GoPackage extends EPackage
     EReference TYPE_LIT__POINTER_TYPE = eINSTANCE.getTypeLit_PointerType();
 
     /**
-     * The meta object literal for the '<em><b>Function Type</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Function Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -5287,7 +8940,7 @@ public interface GoPackage extends EPackage
     EReference TYPE_LIT__FUNCTION_TYPE = eINSTANCE.getTypeLit_FunctionType();
 
     /**
-     * The meta object literal for the '<em><b>Interface Type</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Interface Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -5295,7 +8948,7 @@ public interface GoPackage extends EPackage
     EReference TYPE_LIT__INTERFACE_TYPE = eINSTANCE.getTypeLit_InterfaceType();
 
     /**
-     * The meta object literal for the '<em><b>Map Type</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Map Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -5303,7 +8956,7 @@ public interface GoPackage extends EPackage
     EReference TYPE_LIT__MAP_TYPE = eINSTANCE.getTypeLit_MapType();
 
     /**
-     * The meta object literal for the '<em><b>Channel Type</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Channel Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -5321,6 +8974,30 @@ public interface GoPackage extends EPackage
     EClass TYPE_LIT_LINHA = eINSTANCE.getTypeLitLinha();
 
     /**
+     * The meta object literal for the '<em><b>Array Length</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_LIT_LINHA__ARRAY_LENGTH = eINSTANCE.getTypeLitLinha_ArrayLength();
+
+    /**
+     * The meta object literal for the '<em><b>Element Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_LIT_LINHA__ELEMENT_TYPE = eINSTANCE.getTypeLitLinha_ElementType();
+
+    /**
+     * The meta object literal for the '<em><b>Type Lit Linha</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_LIT_LINHA__TYPE_LIT_LINHA = eINSTANCE.getTypeLitLinha_TypeLitLinha();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ArrayLengthImpl <em>Array Length</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5331,12 +9008,12 @@ public interface GoPackage extends EPackage
     EClass ARRAY_LENGTH = eINSTANCE.getArrayLength();
 
     /**
-     * The meta object literal for the '<em><b>Element Type</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ARRAY_LENGTH__ELEMENT_TYPE = eINSTANCE.getArrayLength_ElementType();
+    EReference ARRAY_LENGTH__EXPRESSION = eINSTANCE.getArrayLength_Expression();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ElementTypeImpl <em>Element Type</em>}' class.
@@ -5347,6 +9024,14 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass ELEMENT_TYPE = eINSTANCE.getElementType();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ELEMENT_TYPE__TYPE = eINSTANCE.getElementType_Type();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.StructTypeImpl <em>Struct Type</em>}' class.
@@ -5377,6 +9062,74 @@ public interface GoPackage extends EPackage
     EClass FIELD_DECL = eINSTANCE.getFieldDecl();
 
     /**
+     * The meta object literal for the '<em><b>Identifier List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FIELD_DECL__IDENTIFIER_LIST = eINSTANCE.getFieldDecl_IdentifierList();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FIELD_DECL__TYPE = eINSTANCE.getFieldDecl_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Embedded Field</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FIELD_DECL__EMBEDDED_FIELD = eINSTANCE.getFieldDecl_EmbeddedField();
+
+    /**
+     * The meta object literal for the '<em><b>Tag</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FIELD_DECL__TAG = eINSTANCE.getFieldDecl_Tag();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.EmbeddedFieldImpl <em>Embedded Field</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.EmbeddedFieldImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getEmbeddedField()
+     * @generated
+     */
+    EClass EMBEDDED_FIELD = eINSTANCE.getEmbeddedField();
+
+    /**
+     * The meta object literal for the '<em><b>Type Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EMBEDDED_FIELD__TYPE_NAME = eINSTANCE.getEmbeddedField_TypeName();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.TagImpl <em>Tag</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.TagImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getTag()
+     * @generated
+     */
+    EClass TAG = eINSTANCE.getTag();
+
+    /**
+     * The meta object literal for the '<em><b>String lit</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TAG__STRING_LIT = eINSTANCE.getTag_String_lit();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.PointerTypeImpl <em>Pointer Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5385,6 +9138,14 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass POINTER_TYPE = eINSTANCE.getPointerType();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference POINTER_TYPE__TYPE = eINSTANCE.getPointerType_Type();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.FunctionTypeImpl <em>Function Type</em>}' class.
@@ -5397,6 +9158,14 @@ public interface GoPackage extends EPackage
     EClass FUNCTION_TYPE = eINSTANCE.getFunctionType();
 
     /**
+     * The meta object literal for the '<em><b>Signature</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION_TYPE__SIGNATURE = eINSTANCE.getFunctionType_Signature();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.SignatureImpl <em>Signature</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5405,6 +9174,22 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass SIGNATURE = eINSTANCE.getSignature();
+
+    /**
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIGNATURE__PARAMETERS = eINSTANCE.getSignature_Parameters();
+
+    /**
+     * The meta object literal for the '<em><b>Result</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIGNATURE__RESULT = eINSTANCE.getSignature_Result();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ResultImpl <em>Result</em>}' class.
@@ -5417,6 +9202,22 @@ public interface GoPackage extends EPackage
     EClass RESULT = eINSTANCE.getResult();
 
     /**
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RESULT__PARAMETERS = eINSTANCE.getResult_Parameters();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RESULT__TYPE = eINSTANCE.getResult_Type();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ParametersImpl <em>Parameters</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5427,12 +9228,12 @@ public interface GoPackage extends EPackage
     EClass PARAMETERS = eINSTANCE.getParameters();
 
     /**
-     * The meta object literal for the '<em><b>Result</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Parameter List</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PARAMETERS__RESULT = eINSTANCE.getParameters_Result();
+    EReference PARAMETERS__PARAMETER_LIST = eINSTANCE.getParameters_ParameterList();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ParameterListImpl <em>Parameter List</em>}' class.
@@ -5445,6 +9246,14 @@ public interface GoPackage extends EPackage
     EClass PARAMETER_LIST = eINSTANCE.getParameterList();
 
     /**
+     * The meta object literal for the '<em><b>Parameter Decl</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARAMETER_LIST__PARAMETER_DECL = eINSTANCE.getParameterList_ParameterDecl();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ParameterDeclImpl <em>Parameter Decl</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5455,12 +9264,20 @@ public interface GoPackage extends EPackage
     EClass PARAMETER_DECL = eINSTANCE.getParameterDecl();
 
     /**
-     * The meta object literal for the '<em><b>Parameter Decl</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Identifier List</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PARAMETER_DECL__PARAMETER_DECL = eINSTANCE.getParameterDecl_ParameterDecl();
+    EReference PARAMETER_DECL__IDENTIFIER_LIST = eINSTANCE.getParameterDecl_IdentifierList();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARAMETER_DECL__TYPE = eINSTANCE.getParameterDecl_Type();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.InterfaceTypeImpl <em>Interface Type</em>}' class.
@@ -5473,6 +9290,14 @@ public interface GoPackage extends EPackage
     EClass INTERFACE_TYPE = eINSTANCE.getInterfaceType();
 
     /**
+     * The meta object literal for the '<em><b>Method Spec</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INTERFACE_TYPE__METHOD_SPEC = eINSTANCE.getInterfaceType_MethodSpec();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.MethodSpecImpl <em>Method Spec</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5481,6 +9306,66 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass METHOD_SPEC = eINSTANCE.getMethodSpec();
+
+    /**
+     * The meta object literal for the '<em><b>Method Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference METHOD_SPEC__METHOD_NAME = eINSTANCE.getMethodSpec_MethodName();
+
+    /**
+     * The meta object literal for the '<em><b>Signature</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference METHOD_SPEC__SIGNATURE = eINSTANCE.getMethodSpec_Signature();
+
+    /**
+     * The meta object literal for the '<em><b>Interface Type Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference METHOD_SPEC__INTERFACE_TYPE_NAME = eINSTANCE.getMethodSpec_InterfaceTypeName();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.MethodNameImpl <em>Method Name</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.MethodNameImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getMethodName()
+     * @generated
+     */
+    EClass METHOD_NAME = eINSTANCE.getMethodName();
+
+    /**
+     * The meta object literal for the '<em><b>Identifier</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference METHOD_NAME__IDENTIFIER = eINSTANCE.getMethodName_Identifier();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.InterfaceTypeNameImpl <em>Interface Type Name</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.InterfaceTypeNameImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getInterfaceTypeName()
+     * @generated
+     */
+    EClass INTERFACE_TYPE_NAME = eINSTANCE.getInterfaceTypeName();
+
+    /**
+     * The meta object literal for the '<em><b>Type Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INTERFACE_TYPE_NAME__TYPE_NAME = eINSTANCE.getInterfaceTypeName_TypeName();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.MapTypeImpl <em>Map Type</em>}' class.
@@ -5493,6 +9378,22 @@ public interface GoPackage extends EPackage
     EClass MAP_TYPE = eINSTANCE.getMapType();
 
     /**
+     * The meta object literal for the '<em><b>Key Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAP_TYPE__KEY_TYPE = eINSTANCE.getMapType_KeyType();
+
+    /**
+     * The meta object literal for the '<em><b>Element Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAP_TYPE__ELEMENT_TYPE = eINSTANCE.getMapType_ElementType();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.KeyTypeImpl <em>Key Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5503,12 +9404,12 @@ public interface GoPackage extends EPackage
     EClass KEY_TYPE = eINSTANCE.getKeyType();
 
     /**
-     * The meta object literal for the '<em><b>Element Type</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference KEY_TYPE__ELEMENT_TYPE = eINSTANCE.getKeyType_ElementType();
+    EReference KEY_TYPE__TYPE = eINSTANCE.getKeyType_Type();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ChannelTypeImpl <em>Channel Type</em>}' class.
@@ -5521,6 +9422,14 @@ public interface GoPackage extends EPackage
     EClass CHANNEL_TYPE = eINSTANCE.getChannelType();
 
     /**
+     * The meta object literal for the '<em><b>Element Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CHANNEL_TYPE__ELEMENT_TYPE = eINSTANCE.getChannelType_ElementType();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.BlockImpl <em>Block</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5529,6 +9438,14 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass BLOCK = eINSTANCE.getBlock();
+
+    /**
+     * The meta object literal for the '<em><b>Statement List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BLOCK__STATEMENT_LIST = eINSTANCE.getBlock_StatementList();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.StatementListImpl <em>Statement List</em>}' class.
@@ -5541,6 +9458,14 @@ public interface GoPackage extends EPackage
     EClass STATEMENT_LIST = eINSTANCE.getStatementList();
 
     /**
+     * The meta object literal for the '<em><b>Statement</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATEMENT_LIST__STATEMENT = eINSTANCE.getStatementList_Statement();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.DeclarationImpl <em>Declaration</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5549,6 +9474,30 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass DECLARATION = eINSTANCE.getDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Const Decl</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DECLARATION__CONST_DECL = eINSTANCE.getDeclaration_ConstDecl();
+
+    /**
+     * The meta object literal for the '<em><b>Type Decl</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DECLARATION__TYPE_DECL = eINSTANCE.getDeclaration_TypeDecl();
+
+    /**
+     * The meta object literal for the '<em><b>Var Decl</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DECLARATION__VAR_DECL = eINSTANCE.getDeclaration_VarDecl();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.TopLevelDeclImpl <em>Top Level Decl</em>}' class.
@@ -5561,6 +9510,22 @@ public interface GoPackage extends EPackage
     EClass TOP_LEVEL_DECL = eINSTANCE.getTopLevelDecl();
 
     /**
+     * The meta object literal for the '<em><b>Declaration</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TOP_LEVEL_DECL__DECLARATION = eINSTANCE.getTopLevelDecl_Declaration();
+
+    /**
+     * The meta object literal for the '<em><b>Top Level Decl Linha</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TOP_LEVEL_DECL__TOP_LEVEL_DECL_LINHA = eINSTANCE.getTopLevelDecl_TopLevelDeclLinha();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.topLevelDeclLinhaImpl <em>top Level Decl Linha</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5571,12 +9536,44 @@ public interface GoPackage extends EPackage
     EClass TOP_LEVEL_DECL_LINHA = eINSTANCE.gettopLevelDeclLinha();
 
     /**
-     * The meta object literal for the '<em><b>Function Body</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Function Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TOP_LEVEL_DECL_LINHA__FUNCTION_NAME = eINSTANCE.gettopLevelDeclLinha_FunctionName();
+
+    /**
+     * The meta object literal for the '<em><b>Signature</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TOP_LEVEL_DECL_LINHA__SIGNATURE = eINSTANCE.gettopLevelDeclLinha_Signature();
+
+    /**
+     * The meta object literal for the '<em><b>Function Body</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference TOP_LEVEL_DECL_LINHA__FUNCTION_BODY = eINSTANCE.gettopLevelDeclLinha_FunctionBody();
+
+    /**
+     * The meta object literal for the '<em><b>Receiver</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TOP_LEVEL_DECL_LINHA__RECEIVER = eINSTANCE.gettopLevelDeclLinha_Receiver();
+
+    /**
+     * The meta object literal for the '<em><b>Method Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TOP_LEVEL_DECL_LINHA__METHOD_NAME = eINSTANCE.gettopLevelDeclLinha_MethodName();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ConstDeclImpl <em>Const Decl</em>}' class.
@@ -5589,6 +9586,14 @@ public interface GoPackage extends EPackage
     EClass CONST_DECL = eINSTANCE.getConstDecl();
 
     /**
+     * The meta object literal for the '<em><b>Const Spec</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONST_DECL__CONST_SPEC = eINSTANCE.getConstDecl_ConstSpec();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ConstSpecImpl <em>Const Spec</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5599,12 +9604,46 @@ public interface GoPackage extends EPackage
     EClass CONST_SPEC = eINSTANCE.getConstSpec();
 
     /**
-     * The meta object literal for the '<em><b>Expression List</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Identifier List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONST_SPEC__IDENTIFIER_LIST = eINSTANCE.getConstSpec_IdentifierList();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONST_SPEC__TYPE = eINSTANCE.getConstSpec_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Expression List</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference CONST_SPEC__EXPRESSION_LIST = eINSTANCE.getConstSpec_ExpressionList();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.IdentifierListImpl <em>Identifier List</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.IdentifierListImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getIdentifierList()
+     * @generated
+     */
+    EClass IDENTIFIER_LIST = eINSTANCE.getIdentifierList();
+
+    /**
+     * The meta object literal for the '<em><b>Identifier</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IDENTIFIER_LIST__IDENTIFIER = eINSTANCE.getIdentifierList_Identifier();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ExpressionListImpl <em>Expression List</em>}' class.
@@ -5617,12 +9656,12 @@ public interface GoPackage extends EPackage
     EClass EXPRESSION_LIST = eINSTANCE.getExpressionList();
 
     /**
-     * The meta object literal for the '<em><b>Expression List</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPRESSION_LIST__EXPRESSION_LIST = eINSTANCE.getExpressionList_ExpressionList();
+    EReference EXPRESSION_LIST__EXPRESSION = eINSTANCE.getExpressionList_Expression();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.TypeDeclImpl <em>Type Decl</em>}' class.
@@ -5635,6 +9674,14 @@ public interface GoPackage extends EPackage
     EClass TYPE_DECL = eINSTANCE.getTypeDecl();
 
     /**
+     * The meta object literal for the '<em><b>Type Spec</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_DECL__TYPE_SPEC = eINSTANCE.getTypeDecl_TypeSpec();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.TypeSpecImpl <em>Type Spec</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5643,6 +9690,22 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass TYPE_SPEC = eINSTANCE.getTypeSpec();
+
+    /**
+     * The meta object literal for the '<em><b>Identifier</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_SPEC__IDENTIFIER = eINSTANCE.getTypeSpec_Identifier();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_SPEC__TYPE = eINSTANCE.getTypeSpec_Type();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.AliasDeclImpl <em>Alias Decl</em>}' class.
@@ -5675,6 +9738,14 @@ public interface GoPackage extends EPackage
     EClass VAR_DECL = eINSTANCE.getVarDecl();
 
     /**
+     * The meta object literal for the '<em><b>Var Spec</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VAR_DECL__VAR_SPEC = eINSTANCE.getVarDecl_VarSpec();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.VarSpecImpl <em>Var Spec</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5683,6 +9754,30 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass VAR_SPEC = eINSTANCE.getVarSpec();
+
+    /**
+     * The meta object literal for the '<em><b>Identifier List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VAR_SPEC__IDENTIFIER_LIST = eINSTANCE.getVarSpec_IdentifierList();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VAR_SPEC__TYPE = eINSTANCE.getVarSpec_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Expression List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VAR_SPEC__EXPRESSION_LIST = eINSTANCE.getVarSpec_ExpressionList();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ShortVarDeclImpl <em>Short Var Decl</em>}' class.
@@ -5695,6 +9790,22 @@ public interface GoPackage extends EPackage
     EClass SHORT_VAR_DECL = eINSTANCE.getShortVarDecl();
 
     /**
+     * The meta object literal for the '<em><b>Identifier List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SHORT_VAR_DECL__IDENTIFIER_LIST = eINSTANCE.getShortVarDecl_IdentifierList();
+
+    /**
+     * The meta object literal for the '<em><b>Expression List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SHORT_VAR_DECL__EXPRESSION_LIST = eINSTANCE.getShortVarDecl_ExpressionList();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.FunctionDeclImpl <em>Function Decl</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5703,6 +9814,48 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass FUNCTION_DECL = eINSTANCE.getFunctionDecl();
+
+    /**
+     * The meta object literal for the '<em><b>Function Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION_DECL__FUNCTION_NAME = eINSTANCE.getFunctionDecl_FunctionName();
+
+    /**
+     * The meta object literal for the '<em><b>Signature</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION_DECL__SIGNATURE = eINSTANCE.getFunctionDecl_Signature();
+
+    /**
+     * The meta object literal for the '<em><b>Function Body</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION_DECL__FUNCTION_BODY = eINSTANCE.getFunctionDecl_FunctionBody();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.FunctionNameImpl <em>Function Name</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.FunctionNameImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getFunctionName()
+     * @generated
+     */
+    EClass FUNCTION_NAME = eINSTANCE.getFunctionName();
+
+    /**
+     * The meta object literal for the '<em><b>Identifier</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION_NAME__IDENTIFIER = eINSTANCE.getFunctionName_Identifier();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.FunctionBodyImpl <em>Function Body</em>}' class.
@@ -5715,6 +9868,14 @@ public interface GoPackage extends EPackage
     EClass FUNCTION_BODY = eINSTANCE.getFunctionBody();
 
     /**
+     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION_BODY__BLOCK = eINSTANCE.getFunctionBody_Block();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.MethodDeclImpl <em>Method Decl</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5723,6 +9884,38 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass METHOD_DECL = eINSTANCE.getMethodDecl();
+
+    /**
+     * The meta object literal for the '<em><b>Receiver</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference METHOD_DECL__RECEIVER = eINSTANCE.getMethodDecl_Receiver();
+
+    /**
+     * The meta object literal for the '<em><b>Method Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference METHOD_DECL__METHOD_NAME = eINSTANCE.getMethodDecl_MethodName();
+
+    /**
+     * The meta object literal for the '<em><b>Signature</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference METHOD_DECL__SIGNATURE = eINSTANCE.getMethodDecl_Signature();
+
+    /**
+     * The meta object literal for the '<em><b>Function Body</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference METHOD_DECL__FUNCTION_BODY = eINSTANCE.getMethodDecl_FunctionBody();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ReceiverImpl <em>Receiver</em>}' class.
@@ -5735,14 +9928,6 @@ public interface GoPackage extends EPackage
     EClass RECEIVER = eINSTANCE.getReceiver();
 
     /**
-     * The meta object literal for the '<em><b>Signature</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference RECEIVER__SIGNATURE = eINSTANCE.getReceiver_Signature();
-
-    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.OperandImpl <em>Operand</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5751,6 +9936,30 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass OPERAND = eINSTANCE.getOperand();
+
+    /**
+     * The meta object literal for the '<em><b>Literal</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPERAND__LITERAL = eINSTANCE.getOperand_Literal();
+
+    /**
+     * The meta object literal for the '<em><b>Operand Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPERAND__OPERAND_NAME = eINSTANCE.getOperand_OperandName();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPERAND__EXPRESSION = eINSTANCE.getOperand_Expression();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.LiteralImpl <em>Literal</em>}' class.
@@ -5763,6 +9972,92 @@ public interface GoPackage extends EPackage
     EClass LITERAL = eINSTANCE.getLiteral();
 
     /**
+     * The meta object literal for the '<em><b>Basic Lit</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LITERAL__BASIC_LIT = eINSTANCE.getLiteral_BasicLit();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.BasicLitImpl <em>Basic Lit</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.BasicLitImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getBasicLit()
+     * @generated
+     */
+    EClass BASIC_LIT = eINSTANCE.getBasicLit();
+
+    /**
+     * The meta object literal for the '<em><b>Int lit</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BASIC_LIT__INT_LIT = eINSTANCE.getBasicLit_Int_lit();
+
+    /**
+     * The meta object literal for the '<em><b>Float lit</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BASIC_LIT__FLOAT_LIT = eINSTANCE.getBasicLit_Float_lit();
+
+    /**
+     * The meta object literal for the '<em><b>Rune lit</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BASIC_LIT__RUNE_LIT = eINSTANCE.getBasicLit_Rune_lit();
+
+    /**
+     * The meta object literal for the '<em><b>String lit</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BASIC_LIT__STRING_LIT = eINSTANCE.getBasicLit_String_lit();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.OperandNameImpl <em>Operand Name</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.OperandNameImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getOperandName()
+     * @generated
+     */
+    EClass OPERAND_NAME = eINSTANCE.getOperandName();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.QualifiedIdentImpl <em>Qualified Ident</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.QualifiedIdentImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getQualifiedIdent()
+     * @generated
+     */
+    EClass QUALIFIED_IDENT = eINSTANCE.getQualifiedIdent();
+
+    /**
+     * The meta object literal for the '<em><b>Package Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference QUALIFIED_IDENT__PACKAGE_NAME = eINSTANCE.getQualifiedIdent_PackageName();
+
+    /**
+     * The meta object literal for the '<em><b>Identifier</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference QUALIFIED_IDENT__IDENTIFIER = eINSTANCE.getQualifiedIdent_Identifier();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.CompositeLitImpl <em>Composite Lit</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5771,6 +10066,22 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass COMPOSITE_LIT = eINSTANCE.getCompositeLit();
+
+    /**
+     * The meta object literal for the '<em><b>Literal Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPOSITE_LIT__LITERAL_TYPE = eINSTANCE.getCompositeLit_LiteralType();
+
+    /**
+     * The meta object literal for the '<em><b>Literal Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPOSITE_LIT__LITERAL_VALUE = eINSTANCE.getCompositeLit_LiteralValue();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.LiteralTypeImpl <em>Literal Type</em>}' class.
@@ -5783,12 +10094,44 @@ public interface GoPackage extends EPackage
     EClass LITERAL_TYPE = eINSTANCE.getLiteralType();
 
     /**
-     * The meta object literal for the '<em><b>Literal Value</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Struct Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference LITERAL_TYPE__LITERAL_VALUE = eINSTANCE.getLiteralType_LiteralValue();
+    EReference LITERAL_TYPE__STRUCT_TYPE = eINSTANCE.getLiteralType_StructType();
+
+    /**
+     * The meta object literal for the '<em><b>Literal Type Linha</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LITERAL_TYPE__LITERAL_TYPE_LINHA = eINSTANCE.getLiteralType_LiteralTypeLinha();
+
+    /**
+     * The meta object literal for the '<em><b>Element Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LITERAL_TYPE__ELEMENT_TYPE = eINSTANCE.getLiteralType_ElementType();
+
+    /**
+     * The meta object literal for the '<em><b>Map Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LITERAL_TYPE__MAP_TYPE = eINSTANCE.getLiteralType_MapType();
+
+    /**
+     * The meta object literal for the '<em><b>Type Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LITERAL_TYPE__TYPE_NAME = eINSTANCE.getLiteralType_TypeName();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.LiteralTypeLinhaImpl <em>Literal Type Linha</em>}' class.
@@ -5801,6 +10144,22 @@ public interface GoPackage extends EPackage
     EClass LITERAL_TYPE_LINHA = eINSTANCE.getLiteralTypeLinha();
 
     /**
+     * The meta object literal for the '<em><b>Array Length</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LITERAL_TYPE_LINHA__ARRAY_LENGTH = eINSTANCE.getLiteralTypeLinha_ArrayLength();
+
+    /**
+     * The meta object literal for the '<em><b>Element Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LITERAL_TYPE_LINHA__ELEMENT_TYPE = eINSTANCE.getLiteralTypeLinha_ElementType();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.LiteralValueImpl <em>Literal Value</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5811,7 +10170,7 @@ public interface GoPackage extends EPackage
     EClass LITERAL_VALUE = eINSTANCE.getLiteralValue();
 
     /**
-     * The meta object literal for the '<em><b>Element List</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Element List</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -5829,6 +10188,14 @@ public interface GoPackage extends EPackage
     EClass ELEMENT_LIST = eINSTANCE.getElementList();
 
     /**
+     * The meta object literal for the '<em><b>Keyed Element</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ELEMENT_LIST__KEYED_ELEMENT = eINSTANCE.getElementList_KeyedElement();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ElementImpl <em>Element</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5837,6 +10204,22 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass ELEMENT = eINSTANCE.getElement();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ELEMENT__EXPRESSION = eINSTANCE.getElement_Expression();
+
+    /**
+     * The meta object literal for the '<em><b>Literal Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ELEMENT__LITERAL_VALUE = eINSTANCE.getElement_LiteralValue();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.KeyedElementImpl <em>Keyed Element</em>}' class.
@@ -5849,15 +10232,15 @@ public interface GoPackage extends EPackage
     EClass KEYED_ELEMENT = eINSTANCE.getKeyedElement();
 
     /**
-     * The meta object literal for the '<em><b>Keyed Element</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Key</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference KEYED_ELEMENT__KEYED_ELEMENT = eINSTANCE.getKeyedElement_KeyedElement();
+    EReference KEYED_ELEMENT__KEY = eINSTANCE.getKeyedElement_Key();
 
     /**
-     * The meta object literal for the '<em><b>Element</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Element</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -5875,12 +10258,46 @@ public interface GoPackage extends EPackage
     EClass KEY = eINSTANCE.getKey();
 
     /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Field Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference KEY__FIELD_NAME = eINSTANCE.getKey_FieldName();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference KEY__EXPRESSION = eINSTANCE.getKey_Expression();
+
+    /**
+     * The meta object literal for the '<em><b>Literal Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference KEY__LITERAL_VALUE = eINSTANCE.getKey_LiteralValue();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.FieldNameImpl <em>Field Name</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.FieldNameImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getFieldName()
+     * @generated
+     */
+    EClass FIELD_NAME = eINSTANCE.getFieldName();
+
+    /**
+     * The meta object literal for the '<em><b>Identifier</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FIELD_NAME__IDENTIFIER = eINSTANCE.getFieldName_Identifier();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.FunctionLitImpl <em>Function Lit</em>}' class.
@@ -5893,6 +10310,22 @@ public interface GoPackage extends EPackage
     EClass FUNCTION_LIT = eINSTANCE.getFunctionLit();
 
     /**
+     * The meta object literal for the '<em><b>Signature</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION_LIT__SIGNATURE = eINSTANCE.getFunctionLit_Signature();
+
+    /**
+     * The meta object literal for the '<em><b>Function Body</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION_LIT__FUNCTION_BODY = eINSTANCE.getFunctionLit_FunctionBody();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.PrimaryExprImpl <em>Primary Expr</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5901,6 +10334,38 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass PRIMARY_EXPR = eINSTANCE.getPrimaryExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Operand</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRIMARY_EXPR__OPERAND = eINSTANCE.getPrimaryExpr_Operand();
+
+    /**
+     * The meta object literal for the '<em><b>Primary Expr Linha</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRIMARY_EXPR__PRIMARY_EXPR_LINHA = eINSTANCE.getPrimaryExpr_PrimaryExprLinha();
+
+    /**
+     * The meta object literal for the '<em><b>Conversion</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRIMARY_EXPR__CONVERSION = eINSTANCE.getPrimaryExpr_Conversion();
+
+    /**
+     * The meta object literal for the '<em><b>Method Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRIMARY_EXPR__METHOD_EXPR = eINSTANCE.getPrimaryExpr_MethodExpr();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.PrimaryExprLinhaImpl <em>Primary Expr Linha</em>}' class.
@@ -5913,20 +10378,158 @@ public interface GoPackage extends EPackage
     EClass PRIMARY_EXPR_LINHA = eINSTANCE.getPrimaryExprLinha();
 
     /**
-     * The meta object literal for the '<em><b>Index Linha</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Arguments</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PRIMARY_EXPR_LINHA__INDEX_LINHA = eINSTANCE.getPrimaryExprLinha_IndexLinha();
+    EReference PRIMARY_EXPR_LINHA__ARGUMENTS = eINSTANCE.getPrimaryExprLinha_Arguments();
 
     /**
-     * The meta object literal for the '<em><b>Primary Expr Linha</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Primary Expr Linha</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference PRIMARY_EXPR_LINHA__PRIMARY_EXPR_LINHA = eINSTANCE.getPrimaryExprLinha_PrimaryExprLinha();
+
+    /**
+     * The meta object literal for the '<em><b>Ponto</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRIMARY_EXPR_LINHA__PONTO = eINSTANCE.getPrimaryExprLinha_Ponto();
+
+    /**
+     * The meta object literal for the '<em><b>Cochetes</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRIMARY_EXPR_LINHA__COCHETES = eINSTANCE.getPrimaryExprLinha_Cochetes();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.pontoImpl <em>ponto</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.pontoImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getponto()
+     * @generated
+     */
+    EClass PONTO = eINSTANCE.getponto();
+
+    /**
+     * The meta object literal for the '<em><b>Selector</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PONTO__SELECTOR = eINSTANCE.getponto_Selector();
+
+    /**
+     * The meta object literal for the '<em><b>Primary Expr Linha</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PONTO__PRIMARY_EXPR_LINHA = eINSTANCE.getponto_PrimaryExprLinha();
+
+    /**
+     * The meta object literal for the '<em><b>Type Assertion</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PONTO__TYPE_ASSERTION = eINSTANCE.getponto_TypeAssertion();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.cochetesImpl <em>cochetes</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.cochetesImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getcochetes()
+     * @generated
+     */
+    EClass COCHETES = eINSTANCE.getcochetes();
+
+    /**
+     * The meta object literal for the '<em><b>Index</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COCHETES__INDEX = eINSTANCE.getcochetes_Index();
+
+    /**
+     * The meta object literal for the '<em><b>Primary Expr Linha</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COCHETES__PRIMARY_EXPR_LINHA = eINSTANCE.getcochetes_PrimaryExprLinha();
+
+    /**
+     * The meta object literal for the '<em><b>Slice</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COCHETES__SLICE = eINSTANCE.getcochetes_Slice();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.SelectorImpl <em>Selector</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.SelectorImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getSelector()
+     * @generated
+     */
+    EClass SELECTOR = eINSTANCE.getSelector();
+
+    /**
+     * The meta object literal for the '<em><b>Identifier</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SELECTOR__IDENTIFIER = eINSTANCE.getSelector_Identifier();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.IndexImpl <em>Index</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.IndexImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getIndex()
+     * @generated
+     */
+    EClass INDEX = eINSTANCE.getIndex();
+
+    /**
+     * The meta object literal for the '<em><b>Slice</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INDEX__SLICE = eINSTANCE.getIndex_Slice();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.SliceImpl <em>Slice</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.SliceImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getSlice()
+     * @generated
+     */
+    EClass SLICE = eINSTANCE.getSlice();
+
+    /**
+     * The meta object literal for the '<em><b>Decimals</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SLICE__DECIMALS = eINSTANCE.getSlice_Decimals();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.TypeAssertionImpl <em>Type Assertion</em>}' class.
@@ -5939,6 +10542,14 @@ public interface GoPackage extends EPackage
     EClass TYPE_ASSERTION = eINSTANCE.getTypeAssertion();
 
     /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_ASSERTION__TYPE = eINSTANCE.getTypeAssertion_Type();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ArgumentsImpl <em>Arguments</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5947,6 +10558,22 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass ARGUMENTS = eINSTANCE.getArguments();
+
+    /**
+     * The meta object literal for the '<em><b>Expression List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARGUMENTS__EXPRESSION_LIST = eINSTANCE.getArguments_ExpressionList();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARGUMENTS__TYPE = eINSTANCE.getArguments_Type();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.MethodExprImpl <em>Method Expr</em>}' class.
@@ -5959,6 +10586,22 @@ public interface GoPackage extends EPackage
     EClass METHOD_EXPR = eINSTANCE.getMethodExpr();
 
     /**
+     * The meta object literal for the '<em><b>Receiver Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference METHOD_EXPR__RECEIVER_TYPE = eINSTANCE.getMethodExpr_ReceiverType();
+
+    /**
+     * The meta object literal for the '<em><b>Method Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference METHOD_EXPR__METHOD_NAME = eINSTANCE.getMethodExpr_MethodName();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ReceiverTypeImpl <em>Receiver Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5967,6 +10610,14 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass RECEIVER_TYPE = eINSTANCE.getReceiverType();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RECEIVER_TYPE__TYPE = eINSTANCE.getReceiverType_Type();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -5979,7 +10630,15 @@ public interface GoPackage extends EPackage
     EClass EXPRESSION = eINSTANCE.getExpression();
 
     /**
-     * The meta object literal for the '<em><b>Expression Linha</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Unary Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION__UNARY_EXPR = eINSTANCE.getExpression_UnaryExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Expression Linha</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -5997,6 +10656,98 @@ public interface GoPackage extends EPackage
     EClass EXPRESSION_LINHA = eINSTANCE.getExpressionLinha();
 
     /**
+     * The meta object literal for the '<em><b>Binary op</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION_LINHA__BINARY_OP = eINSTANCE.getExpressionLinha_Binary_op();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION_LINHA__EXPRESSION = eINSTANCE.getExpressionLinha_Expression();
+
+    /**
+     * The meta object literal for the '<em><b>Expression Linha</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION_LINHA__EXPRESSION_LINHA = eINSTANCE.getExpressionLinha_ExpressionLinha();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.UnaryExprImpl <em>Unary Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.UnaryExprImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getUnaryExpr()
+     * @generated
+     */
+    EClass UNARY_EXPR = eINSTANCE.getUnaryExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Primary Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNARY_EXPR__PRIMARY_EXPR = eINSTANCE.getUnaryExpr_PrimaryExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Unary op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UNARY_EXPR__UNARY_OP = eINSTANCE.getUnaryExpr_Unary_op();
+
+    /**
+     * The meta object literal for the '<em><b>Unary Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNARY_EXPR__UNARY_EXPR = eINSTANCE.getUnaryExpr_UnaryExpr();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.binary_opImpl <em>binary op</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.binary_opImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getbinary_op()
+     * @generated
+     */
+    EClass BINARY_OP = eINSTANCE.getbinary_op();
+
+    /**
+     * The meta object literal for the '<em><b>Rel op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BINARY_OP__REL_OP = eINSTANCE.getbinary_op_Rel_op();
+
+    /**
+     * The meta object literal for the '<em><b>Add op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BINARY_OP__ADD_OP = eINSTANCE.getbinary_op_Add_op();
+
+    /**
+     * The meta object literal for the '<em><b>Mul op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BINARY_OP__MUL_OP = eINSTANCE.getbinary_op_Mul_op();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ConversionImpl <em>Conversion</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6005,6 +10756,22 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass CONVERSION = eINSTANCE.getConversion();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONVERSION__TYPE = eINSTANCE.getConversion_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONVERSION__EXPRESSION = eINSTANCE.getConversion_Expression();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.StatementImpl <em>Statement</em>}' class.
@@ -6017,7 +10784,7 @@ public interface GoPackage extends EPackage
     EClass STATEMENT = eINSTANCE.getStatement();
 
     /**
-     * The meta object literal for the '<em><b>Declaration</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Declaration</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6025,7 +10792,7 @@ public interface GoPackage extends EPackage
     EReference STATEMENT__DECLARATION = eINSTANCE.getStatement_Declaration();
 
     /**
-     * The meta object literal for the '<em><b>Labeled Stmt</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Labeled Stmt</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6033,7 +10800,7 @@ public interface GoPackage extends EPackage
     EReference STATEMENT__LABELED_STMT = eINSTANCE.getStatement_LabeledStmt();
 
     /**
-     * The meta object literal for the '<em><b>Simple Stmt</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Simple Stmt</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6041,7 +10808,7 @@ public interface GoPackage extends EPackage
     EReference STATEMENT__SIMPLE_STMT = eINSTANCE.getStatement_SimpleStmt();
 
     /**
-     * The meta object literal for the '<em><b>Go Stmt</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Go Stmt</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6049,7 +10816,7 @@ public interface GoPackage extends EPackage
     EReference STATEMENT__GO_STMT = eINSTANCE.getStatement_GoStmt();
 
     /**
-     * The meta object literal for the '<em><b>Return Stmt</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Return Stmt</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6057,31 +10824,31 @@ public interface GoPackage extends EPackage
     EReference STATEMENT__RETURN_STMT = eINSTANCE.getStatement_ReturnStmt();
 
     /**
-     * The meta object literal for the '<em><b>Break Stmt</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Break Stmt</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute STATEMENT__BREAK_STMT = eINSTANCE.getStatement_BreakStmt();
+    EReference STATEMENT__BREAK_STMT = eINSTANCE.getStatement_BreakStmt();
 
     /**
-     * The meta object literal for the '<em><b>Continue Stmt</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Continue Stmt</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute STATEMENT__CONTINUE_STMT = eINSTANCE.getStatement_ContinueStmt();
+    EReference STATEMENT__CONTINUE_STMT = eINSTANCE.getStatement_ContinueStmt();
 
     /**
-     * The meta object literal for the '<em><b>Goto Stmt</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Goto Stmt</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute STATEMENT__GOTO_STMT = eINSTANCE.getStatement_GotoStmt();
+    EReference STATEMENT__GOTO_STMT = eINSTANCE.getStatement_GotoStmt();
 
     /**
-     * The meta object literal for the '<em><b>Fallthrough Stmt</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Fallthrough Stmt</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6089,7 +10856,7 @@ public interface GoPackage extends EPackage
     EAttribute STATEMENT__FALLTHROUGH_STMT = eINSTANCE.getStatement_FallthroughStmt();
 
     /**
-     * The meta object literal for the '<em><b>Block</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6097,7 +10864,7 @@ public interface GoPackage extends EPackage
     EReference STATEMENT__BLOCK = eINSTANCE.getStatement_Block();
 
     /**
-     * The meta object literal for the '<em><b>If Stmt</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>If Stmt</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6105,7 +10872,7 @@ public interface GoPackage extends EPackage
     EReference STATEMENT__IF_STMT = eINSTANCE.getStatement_IfStmt();
 
     /**
-     * The meta object literal for the '<em><b>Switch Stmt</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Switch Stmt</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6113,7 +10880,7 @@ public interface GoPackage extends EPackage
     EReference STATEMENT__SWITCH_STMT = eINSTANCE.getStatement_SwitchStmt();
 
     /**
-     * The meta object literal for the '<em><b>Select Stmt</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Select Stmt</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6121,7 +10888,7 @@ public interface GoPackage extends EPackage
     EReference STATEMENT__SELECT_STMT = eINSTANCE.getStatement_SelectStmt();
 
     /**
-     * The meta object literal for the '<em><b>For Stmt</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>For Stmt</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6129,7 +10896,7 @@ public interface GoPackage extends EPackage
     EReference STATEMENT__FOR_STMT = eINSTANCE.getStatement_ForStmt();
 
     /**
-     * The meta object literal for the '<em><b>Defer Stmt</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Defer Stmt</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6147,6 +10914,54 @@ public interface GoPackage extends EPackage
     EClass SIMPLE_STMT = eINSTANCE.getSimpleStmt();
 
     /**
+     * The meta object literal for the '<em><b>Empty Stmt</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_STMT__EMPTY_STMT = eINSTANCE.getSimpleStmt_EmptyStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Expression Stmt</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIMPLE_STMT__EXPRESSION_STMT = eINSTANCE.getSimpleStmt_ExpressionStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Send Stmt</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIMPLE_STMT__SEND_STMT = eINSTANCE.getSimpleStmt_SendStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Inc Dec Stmt</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIMPLE_STMT__INC_DEC_STMT = eINSTANCE.getSimpleStmt_IncDecStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Assignment</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIMPLE_STMT__ASSIGNMENT = eINSTANCE.getSimpleStmt_Assignment();
+
+    /**
+     * The meta object literal for the '<em><b>Short Var Decl</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIMPLE_STMT__SHORT_VAR_DECL = eINSTANCE.getSimpleStmt_ShortVarDecl();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.LabeledStmtImpl <em>Labeled Stmt</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6155,6 +10970,40 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass LABELED_STMT = eINSTANCE.getLabeledStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Label</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LABELED_STMT__LABEL = eINSTANCE.getLabeledStmt_Label();
+
+    /**
+     * The meta object literal for the '<em><b>Statement</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LABELED_STMT__STATEMENT = eINSTANCE.getLabeledStmt_Statement();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.LabelImpl <em>Label</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.LabelImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getLabel()
+     * @generated
+     */
+    EClass LABEL = eINSTANCE.getLabel();
+
+    /**
+     * The meta object literal for the '<em><b>Identifier</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LABEL__IDENTIFIER = eINSTANCE.getLabel_Identifier();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ExpressionStmtImpl <em>Expression Stmt</em>}' class.
@@ -6167,6 +11016,14 @@ public interface GoPackage extends EPackage
     EClass EXPRESSION_STMT = eINSTANCE.getExpressionStmt();
 
     /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION_STMT__EXPRESSION = eINSTANCE.getExpressionStmt_Expression();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.SendStmtImpl <em>Send Stmt</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6175,6 +11032,22 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass SEND_STMT = eINSTANCE.getSendStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Channel</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SEND_STMT__CHANNEL = eINSTANCE.getSendStmt_Channel();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SEND_STMT__EXPRESSION = eINSTANCE.getSendStmt_Expression();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ChannelImpl <em>Channel</em>}' class.
@@ -6187,6 +11060,14 @@ public interface GoPackage extends EPackage
     EClass CHANNEL = eINSTANCE.getChannel();
 
     /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CHANNEL__EXPRESSION = eINSTANCE.getChannel_Expression();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.IncDecStmtImpl <em>Inc Dec Stmt</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6195,6 +11076,14 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass INC_DEC_STMT = eINSTANCE.getIncDecStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INC_DEC_STMT__EXPRESSION = eINSTANCE.getIncDecStmt_Expression();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.AssignmentImpl <em>Assignment</em>}' class.
@@ -6207,6 +11096,22 @@ public interface GoPackage extends EPackage
     EClass ASSIGNMENT = eINSTANCE.getAssignment();
 
     /**
+     * The meta object literal for the '<em><b>Expression List</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ASSIGNMENT__EXPRESSION_LIST = eINSTANCE.getAssignment_ExpressionList();
+
+    /**
+     * The meta object literal for the '<em><b>Assign op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ASSIGNMENT__ASSIGN_OP = eINSTANCE.getAssignment_Assign_op();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.IfStmtImpl <em>If Stmt</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6217,7 +11122,15 @@ public interface GoPackage extends EPackage
     EClass IF_STMT = eINSTANCE.getIfStmt();
 
     /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Simple Stmt</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_STMT__SIMPLE_STMT = eINSTANCE.getIfStmt_SimpleStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6233,7 +11146,7 @@ public interface GoPackage extends EPackage
     EReference IF_STMT__BLOCK = eINSTANCE.getIfStmt_Block();
 
     /**
-     * The meta object literal for the '<em><b>If Stmt</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>If Stmt</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6251,7 +11164,7 @@ public interface GoPackage extends EPackage
     EClass SWITCH_STMT = eINSTANCE.getSwitchStmt();
 
     /**
-     * The meta object literal for the '<em><b>Switch stmt linha</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Switch stmt linha</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6269,6 +11182,22 @@ public interface GoPackage extends EPackage
     EClass EXPR_CASE_CLAUSE = eINSTANCE.getExprCaseClause();
 
     /**
+     * The meta object literal for the '<em><b>Expr Switch Case</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR_CASE_CLAUSE__EXPR_SWITCH_CASE = eINSTANCE.getExprCaseClause_ExprSwitchCase();
+
+    /**
+     * The meta object literal for the '<em><b>Statement List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR_CASE_CLAUSE__STATEMENT_LIST = eINSTANCE.getExprCaseClause_StatementList();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ExprSwitchCaseImpl <em>Expr Switch Case</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6279,12 +11208,12 @@ public interface GoPackage extends EPackage
     EClass EXPR_SWITCH_CASE = eINSTANCE.getExprSwitchCase();
 
     /**
-     * The meta object literal for the '<em><b>Statement List</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Expression List</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPR_SWITCH_CASE__STATEMENT_LIST = eINSTANCE.getExprSwitchCase_StatementList();
+    EReference EXPR_SWITCH_CASE__EXPRESSION_LIST = eINSTANCE.getExprSwitchCase_ExpressionList();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.switch_stmt_linhaImpl <em>switch stmt linha</em>}' class.
@@ -6297,7 +11226,7 @@ public interface GoPackage extends EPackage
     EClass SWITCH_STMT_LINHA = eINSTANCE.getswitch_stmt_linha();
 
     /**
-     * The meta object literal for the '<em><b>Type Switch Guard</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Type Switch Guard</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6313,7 +11242,15 @@ public interface GoPackage extends EPackage
     EReference SWITCH_STMT_LINHA__TYPE_CASE_CLAUSE = eINSTANCE.getswitch_stmt_linha_TypeCaseClause();
 
     /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Switch stmt linha</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SWITCH_STMT_LINHA__SWITCH_STMT_LINHA = eINSTANCE.getswitch_stmt_linha_Switch_stmt_linha();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6339,6 +11276,22 @@ public interface GoPackage extends EPackage
     EClass TYPE_SWITCH_GUARD = eINSTANCE.getTypeSwitchGuard();
 
     /**
+     * The meta object literal for the '<em><b>Identifier</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_SWITCH_GUARD__IDENTIFIER = eINSTANCE.getTypeSwitchGuard_Identifier();
+
+    /**
+     * The meta object literal for the '<em><b>Primary Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_SWITCH_GUARD__PRIMARY_EXPR = eINSTANCE.getTypeSwitchGuard_PrimaryExpr();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.TypeCaseClauseImpl <em>Type Case Clause</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6347,6 +11300,22 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass TYPE_CASE_CLAUSE = eINSTANCE.getTypeCaseClause();
+
+    /**
+     * The meta object literal for the '<em><b>Type Switch Case</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_CASE_CLAUSE__TYPE_SWITCH_CASE = eINSTANCE.getTypeCaseClause_TypeSwitchCase();
+
+    /**
+     * The meta object literal for the '<em><b>Statement List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_CASE_CLAUSE__STATEMENT_LIST = eINSTANCE.getTypeCaseClause_StatementList();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.TypeSwitchCaseImpl <em>Type Switch Case</em>}' class.
@@ -6359,12 +11328,12 @@ public interface GoPackage extends EPackage
     EClass TYPE_SWITCH_CASE = eINSTANCE.getTypeSwitchCase();
 
     /**
-     * The meta object literal for the '<em><b>Statement List</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Type List</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TYPE_SWITCH_CASE__STATEMENT_LIST = eINSTANCE.getTypeSwitchCase_StatementList();
+    EReference TYPE_SWITCH_CASE__TYPE_LIST = eINSTANCE.getTypeSwitchCase_TypeList();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.TypeListImpl <em>Type List</em>}' class.
@@ -6377,6 +11346,14 @@ public interface GoPackage extends EPackage
     EClass TYPE_LIST = eINSTANCE.getTypeList();
 
     /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_LIST__TYPE = eINSTANCE.getTypeList_Type();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ForStmtImpl <em>For Stmt</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6385,6 +11362,38 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass FOR_STMT = eINSTANCE.getForStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOR_STMT__CONDITION = eINSTANCE.getForStmt_Condition();
+
+    /**
+     * The meta object literal for the '<em><b>For Clause</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOR_STMT__FOR_CLAUSE = eINSTANCE.getForStmt_ForClause();
+
+    /**
+     * The meta object literal for the '<em><b>Range Clause</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOR_STMT__RANGE_CLAUSE = eINSTANCE.getForStmt_RangeClause();
+
+    /**
+     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOR_STMT__BLOCK = eINSTANCE.getForStmt_Block();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ConditionImpl <em>Condition</em>}' class.
@@ -6397,6 +11406,14 @@ public interface GoPackage extends EPackage
     EClass CONDITION = eINSTANCE.getCondition();
 
     /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONDITION__EXPRESSION = eINSTANCE.getCondition_Expression();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ForClauseImpl <em>For Clause</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6407,7 +11424,15 @@ public interface GoPackage extends EPackage
     EClass FOR_CLAUSE = eINSTANCE.getForClause();
 
     /**
-     * The meta object literal for the '<em><b>Condition</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Init Stmt</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOR_CLAUSE__INIT_STMT = eINSTANCE.getForClause_InitStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6415,7 +11440,7 @@ public interface GoPackage extends EPackage
     EReference FOR_CLAUSE__CONDITION = eINSTANCE.getForClause_Condition();
 
     /**
-     * The meta object literal for the '<em><b>Post Stmt</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Post Stmt</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6433,6 +11458,14 @@ public interface GoPackage extends EPackage
     EClass INIT_STMT = eINSTANCE.getInitStmt();
 
     /**
+     * The meta object literal for the '<em><b>Simple Stmt</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INIT_STMT__SIMPLE_STMT = eINSTANCE.getInitStmt_SimpleStmt();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.PostStmtImpl <em>Post Stmt</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6441,6 +11474,14 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass POST_STMT = eINSTANCE.getPostStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Simple Stmt</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference POST_STMT__SIMPLE_STMT = eINSTANCE.getPostStmt_SimpleStmt();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.RangeClauseImpl <em>Range Clause</em>}' class.
@@ -6453,6 +11494,30 @@ public interface GoPackage extends EPackage
     EClass RANGE_CLAUSE = eINSTANCE.getRangeClause();
 
     /**
+     * The meta object literal for the '<em><b>Expression List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RANGE_CLAUSE__EXPRESSION_LIST = eINSTANCE.getRangeClause_ExpressionList();
+
+    /**
+     * The meta object literal for the '<em><b>Identifier List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RANGE_CLAUSE__IDENTIFIER_LIST = eINSTANCE.getRangeClause_IdentifierList();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RANGE_CLAUSE__EXPRESSION = eINSTANCE.getRangeClause_Expression();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.GoStmtImpl <em>Stmt</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6461,6 +11526,14 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass GO_STMT = eINSTANCE.getGoStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GO_STMT__EXPRESSION = eINSTANCE.getGoStmt_Expression();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.SelectStmtImpl <em>Select Stmt</em>}' class.
@@ -6491,6 +11564,22 @@ public interface GoPackage extends EPackage
     EClass COMM_CLAUSE = eINSTANCE.getCommClause();
 
     /**
+     * The meta object literal for the '<em><b>Comm Case</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMM_CLAUSE__COMM_CASE = eINSTANCE.getCommClause_CommCase();
+
+    /**
+     * The meta object literal for the '<em><b>Statement List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMM_CLAUSE__STATEMENT_LIST = eINSTANCE.getCommClause_StatementList();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.CommCaseImpl <em>Comm Case</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6499,6 +11588,22 @@ public interface GoPackage extends EPackage
      * @generated
      */
     EClass COMM_CASE = eINSTANCE.getCommCase();
+
+    /**
+     * The meta object literal for the '<em><b>Send Stmt</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMM_CASE__SEND_STMT = eINSTANCE.getCommCase_SendStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Recv Stmt</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMM_CASE__RECV_STMT = eINSTANCE.getCommCase_RecvStmt();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.RecvStmtImpl <em>Recv Stmt</em>}' class.
@@ -6511,7 +11616,23 @@ public interface GoPackage extends EPackage
     EClass RECV_STMT = eINSTANCE.getRecvStmt();
 
     /**
-     * The meta object literal for the '<em><b>Recv Expr</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Expression List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RECV_STMT__EXPRESSION_LIST = eINSTANCE.getRecvStmt_ExpressionList();
+
+    /**
+     * The meta object literal for the '<em><b>Identifier List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RECV_STMT__IDENTIFIER_LIST = eINSTANCE.getRecvStmt_IdentifierList();
+
+    /**
+     * The meta object literal for the '<em><b>Recv Expr</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6529,6 +11650,14 @@ public interface GoPackage extends EPackage
     EClass RECV_EXPR = eINSTANCE.getRecvExpr();
 
     /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RECV_EXPR__EXPRESSION = eINSTANCE.getRecvExpr_Expression();
+
+    /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ReturnStmtImpl <em>Return Stmt</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6539,12 +11668,66 @@ public interface GoPackage extends EPackage
     EClass RETURN_STMT = eINSTANCE.getReturnStmt();
 
     /**
-     * The meta object literal for the '<em><b>Expression List</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Expression List</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference RETURN_STMT__EXPRESSION_LIST = eINSTANCE.getReturnStmt_ExpressionList();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.BreakStmtImpl <em>Break Stmt</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.BreakStmtImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getBreakStmt()
+     * @generated
+     */
+    EClass BREAK_STMT = eINSTANCE.getBreakStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Label</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BREAK_STMT__LABEL = eINSTANCE.getBreakStmt_Label();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ContinueStmtImpl <em>Continue Stmt</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.ContinueStmtImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getContinueStmt()
+     * @generated
+     */
+    EClass CONTINUE_STMT = eINSTANCE.getContinueStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Label</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTINUE_STMT__LABEL = eINSTANCE.getContinueStmt_Label();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.GotoStmtImpl <em>Goto Stmt</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.GotoStmtImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getGotoStmt()
+     * @generated
+     */
+    EClass GOTO_STMT = eINSTANCE.getGotoStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Label</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GOTO_STMT__LABEL = eINSTANCE.getGotoStmt_Label();
 
     /**
      * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.DeferStmtImpl <em>Defer Stmt</em>}' class.
@@ -6557,12 +11740,284 @@ public interface GoPackage extends EPackage
     EClass DEFER_STMT = eINSTANCE.getDeferStmt();
 
     /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference DEFER_STMT__EXPRESSION = eINSTANCE.getDeferStmt_Expression();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.PackageClauseImpl <em>Package Clause</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.PackageClauseImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getPackageClause()
+     * @generated
+     */
+    EClass PACKAGE_CLAUSE = eINSTANCE.getPackageClause();
+
+    /**
+     * The meta object literal for the '<em><b>Package Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PACKAGE_CLAUSE__PACKAGE_NAME = eINSTANCE.getPackageClause_PackageName();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.PackageNameImpl <em>Package Name</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.PackageNameImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getPackageName()
+     * @generated
+     */
+    EClass PACKAGE_NAME = eINSTANCE.getPackageName();
+
+    /**
+     * The meta object literal for the '<em><b>Identifier</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PACKAGE_NAME__IDENTIFIER = eINSTANCE.getPackageName_Identifier();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ImportDeclImpl <em>Import Decl</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.ImportDeclImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getImportDecl()
+     * @generated
+     */
+    EClass IMPORT_DECL = eINSTANCE.getImportDecl();
+
+    /**
+     * The meta object literal for the '<em><b>Import Spec</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IMPORT_DECL__IMPORT_SPEC = eINSTANCE.getImportDecl_ImportSpec();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ImportSpecImpl <em>Import Spec</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.ImportSpecImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getImportSpec()
+     * @generated
+     */
+    EClass IMPORT_SPEC = eINSTANCE.getImportSpec();
+
+    /**
+     * The meta object literal for the '<em><b>Package Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IMPORT_SPEC__PACKAGE_NAME = eINSTANCE.getImportSpec_PackageName();
+
+    /**
+     * The meta object literal for the '<em><b>Import Path</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IMPORT_SPEC__IMPORT_PATH = eINSTANCE.getImportSpec_ImportPath();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.ImportPathImpl <em>Import Path</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.ImportPathImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getImportPath()
+     * @generated
+     */
+    EClass IMPORT_PATH = eINSTANCE.getImportPath();
+
+    /**
+     * The meta object literal for the '<em><b>String lit</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IMPORT_PATH__STRING_LIT = eINSTANCE.getImportPath_String_lit();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.identifierImpl <em>identifier</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.identifierImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getidentifier()
+     * @generated
+     */
+    EClass IDENTIFIER = eINSTANCE.getidentifier();
+
+    /**
+     * The meta object literal for the '<em><b>LETTER</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IDENTIFIER__LETTER = eINSTANCE.getidentifier_LETTER();
+
+    /**
+     * The meta object literal for the '<em><b>DECIMAL DIGIT</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IDENTIFIER__DECIMAL_DIGIT = eINSTANCE.getidentifier_DECIMAL_DIGIT();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.float_litImpl <em>float lit</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.float_litImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getfloat_lit()
+     * @generated
+     */
+    EClass FLOAT_LIT = eINSTANCE.getfloat_lit();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.string_litImpl <em>string lit</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.string_litImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getstring_lit()
+     * @generated
+     */
+    EClass STRING_LIT = eINSTANCE.getstring_lit();
+
+    /**
+     * The meta object literal for the '<em><b>Raw string lit</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRING_LIT__RAW_STRING_LIT = eINSTANCE.getstring_lit_Raw_string_lit();
+
+    /**
+     * The meta object literal for the '<em><b>Interpreted string lit</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRING_LIT__INTERPRETED_STRING_LIT = eINSTANCE.getstring_lit_Interpreted_string_lit();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.decimalsImpl <em>decimals</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.decimalsImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getdecimals()
+     * @generated
+     */
+    EClass DECIMALS = eINSTANCE.getdecimals();
+
+    /**
+     * The meta object literal for the '<em><b>Decimals</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DECIMALS__DECIMALS = eINSTANCE.getdecimals_Decimals();
+
+    /**
+     * The meta object literal for the '<em><b>Exponent</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DECIMALS__EXPONENT = eINSTANCE.getdecimals_Exponent();
+
+    /**
+     * The meta object literal for the '<em><b>Exponen</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DECIMALS__EXPONEN = eINSTANCE.getdecimals_Exponen();
+
+    /**
+     * The meta object literal for the '<em><b>DECIMAL DIGIT</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DECIMALS__DECIMAL_DIGIT = eINSTANCE.getdecimals_DECIMAL_DIGIT();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.exponentImpl <em>exponent</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.exponentImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getexponent()
+     * @generated
+     */
+    EClass EXPONENT = eINSTANCE.getexponent();
+
+    /**
+     * The meta object literal for the '<em><b>Decimals</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPONENT__DECIMALS = eINSTANCE.getexponent_Decimals();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.imaginary_litImpl <em>imaginary lit</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.imaginary_litImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getimaginary_lit()
+     * @generated
+     */
+    EClass IMAGINARY_LIT = eINSTANCE.getimaginary_lit();
+
+    /**
+     * The meta object literal for the '<em><b>Decimals</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IMAGINARY_LIT__DECIMALS = eINSTANCE.getimaginary_lit_Decimals();
+
+    /**
+     * The meta object literal for the '<em><b>Float lit</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IMAGINARY_LIT__FLOAT_LIT = eINSTANCE.getimaginary_lit_Float_lit();
+
+    /**
+     * The meta object literal for the '{@link com.ufcg.compiladores.go.impl.rune_litImpl <em>rune lit</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.ufcg.compiladores.go.impl.rune_litImpl
+     * @see com.ufcg.compiladores.go.impl.GoPackageImpl#getrune_lit()
+     * @generated
+     */
+    EClass RUNE_LIT = eINSTANCE.getrune_lit();
+
+    /**
+     * The meta object literal for the '<em><b>Unicode value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RUNE_LIT__UNICODE_VALUE = eINSTANCE.getrune_lit_Unicode_value();
+
+    /**
+     * The meta object literal for the '<em><b>Byte value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RUNE_LIT__BYTE_VALUE = eINSTANCE.getrune_lit_Byte_value();
 
   }
 

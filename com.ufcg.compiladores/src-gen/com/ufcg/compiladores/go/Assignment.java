@@ -3,17 +3,69 @@
  */
 package com.ufcg.compiladores.go;
 
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Assignment</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.Assignment#getExpressionList <em>Expression List</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.Assignment#getAssign_op <em>Assign op</em>}</li>
+ * </ul>
  *
  * @see com.ufcg.compiladores.go.GoPackage#getAssignment()
  * @model
  * @generated
  */
-public interface Assignment extends SimpleStmt
+public interface Assignment extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Expression List</b></em>' containment reference list.
+   * The list contents are of type {@link com.ufcg.compiladores.go.ExpressionList}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expression List</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expression List</em>' containment reference list.
+   * @see com.ufcg.compiladores.go.GoPackage#getAssignment_ExpressionList()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ExpressionList> getExpressionList();
+
+  /**
+   * Returns the value of the '<em><b>Assign op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Assign op</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Assign op</em>' attribute.
+   * @see #setAssign_op(String)
+   * @see com.ufcg.compiladores.go.GoPackage#getAssignment_Assign_op()
+   * @model
+   * @generated
+   */
+  String getAssign_op();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Assignment#getAssign_op <em>Assign op</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Assign op</em>' attribute.
+   * @see #getAssign_op()
+   * @generated
+   */
+  void setAssign_op(String value);
+
 } // Assignment

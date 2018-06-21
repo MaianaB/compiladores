@@ -3,6 +3,8 @@
  */
 package com.ufcg.compiladores.ui;
 
+import com.ufcg.compiladores.ui.AbstractGoUiModule;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 
 /**
@@ -10,5 +12,8 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
  */
 @FinalFieldsConstructor
 @SuppressWarnings("all")
-public class GoUiModule /* implements AbstractGoUiModule  */{
+public class GoUiModule extends AbstractGoUiModule {
+  public GoUiModule(final AbstractUIPlugin plugin) {
+    super(plugin);
+  }
 }

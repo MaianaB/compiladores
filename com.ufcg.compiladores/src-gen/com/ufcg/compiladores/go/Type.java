@@ -3,7 +3,7 @@
  */
 package com.ufcg.compiladores.go;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +14,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.ufcg.compiladores.go.Type#getExpression <em>Expression</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.Type#getTypeName <em>Type Name</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.Type#getTypeLit <em>Type Lit</em>}</li>
  *   <li>{@link com.ufcg.compiladores.go.Type#getType <em>Type</em>}</li>
  * </ul>
  *
@@ -22,38 +23,84 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Type extends ElementType, FieldDecl, PointerType, Result, ParameterDecl, KeyType, ConstSpec, AliasDecl, TypeDef, VarSpec, TypeAssertion, Arguments, ReceiverType, Conversion, TypeList
+public interface Type extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Expression</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.Expression}.
+   * Returns the value of the '<em><b>Type Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Expression</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Type Name</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expression</em>' containment reference list.
-   * @see com.ufcg.compiladores.go.GoPackage#getType_Expression()
+   * @return the value of the '<em>Type Name</em>' containment reference.
+   * @see #setTypeName(TypeName)
+   * @see com.ufcg.compiladores.go.GoPackage#getType_TypeName()
    * @model containment="true"
    * @generated
    */
-  EList<Expression> getExpression();
+  TypeName getTypeName();
 
   /**
-   * Returns the value of the '<em><b>Type</b></em>' containment reference list.
-   * The list contents are of type {@link com.ufcg.compiladores.go.Type}.
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Type#getTypeName <em>Type Name</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type Name</em>' containment reference.
+   * @see #getTypeName()
+   * @generated
+   */
+  void setTypeName(TypeName value);
+
+  /**
+   * Returns the value of the '<em><b>Type Lit</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Type Lit</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' containment reference list.
+   * @return the value of the '<em>Type Lit</em>' containment reference.
+   * @see #setTypeLit(TypeLit)
+   * @see com.ufcg.compiladores.go.GoPackage#getType_TypeLit()
+   * @model containment="true"
+   * @generated
+   */
+  TypeLit getTypeLit();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Type#getTypeLit <em>Type Lit</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type Lit</em>' containment reference.
+   * @see #getTypeLit()
+   * @generated
+   */
+  void setTypeLit(TypeLit value);
+
+  /**
+   * Returns the value of the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type</em>' containment reference.
+   * @see #setType(Type)
    * @see com.ufcg.compiladores.go.GoPackage#getType_Type()
    * @model containment="true"
    * @generated
    */
-  EList<Type> getType();
+  Type getType();
+
+  /**
+   * Sets the value of the '{@link com.ufcg.compiladores.go.Type#getType <em>Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type</em>' containment reference.
+   * @see #getType()
+   * @generated
+   */
+  void setType(Type value);
 
 } // Type

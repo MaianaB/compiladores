@@ -4,21 +4,74 @@
 package com.ufcg.compiladores.go.impl;
 
 import com.ufcg.compiladores.go.GoPackage;
+import com.ufcg.compiladores.go.ImportDecl;
+import com.ufcg.compiladores.go.PackageClause;
 import com.ufcg.compiladores.go.SouceFile;
+import com.ufcg.compiladores.go.TopLevelDecl;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Souce File</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.impl.SouceFileImpl#getPackageClause <em>Package Clause</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.SouceFileImpl#getImportDecl <em>Import Decl</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.SouceFileImpl#getTopLevelDecl <em>Top Level Decl</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class SouceFileImpl extends MinimalEObjectImpl.Container implements SouceFile
 {
+  /**
+   * The cached value of the '{@link #getPackageClause() <em>Package Clause</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPackageClause()
+   * @generated
+   * @ordered
+   */
+  protected PackageClause packageClause;
+
+  /**
+   * The cached value of the '{@link #getImportDecl() <em>Import Decl</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getImportDecl()
+   * @generated
+   * @ordered
+   */
+  protected EList<ImportDecl> importDecl;
+
+  /**
+   * The cached value of the '{@link #getTopLevelDecl() <em>Top Level Decl</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTopLevelDecl()
+   * @generated
+   * @ordered
+   */
+  protected TopLevelDecl topLevelDecl;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -38,6 +91,224 @@ public class SouceFileImpl extends MinimalEObjectImpl.Container implements Souce
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.SOUCE_FILE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PackageClause getPackageClause()
+  {
+    return packageClause;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPackageClause(PackageClause newPackageClause, NotificationChain msgs)
+  {
+    PackageClause oldPackageClause = packageClause;
+    packageClause = newPackageClause;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SOUCE_FILE__PACKAGE_CLAUSE, oldPackageClause, newPackageClause);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPackageClause(PackageClause newPackageClause)
+  {
+    if (newPackageClause != packageClause)
+    {
+      NotificationChain msgs = null;
+      if (packageClause != null)
+        msgs = ((InternalEObject)packageClause).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SOUCE_FILE__PACKAGE_CLAUSE, null, msgs);
+      if (newPackageClause != null)
+        msgs = ((InternalEObject)newPackageClause).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SOUCE_FILE__PACKAGE_CLAUSE, null, msgs);
+      msgs = basicSetPackageClause(newPackageClause, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SOUCE_FILE__PACKAGE_CLAUSE, newPackageClause, newPackageClause));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<ImportDecl> getImportDecl()
+  {
+    if (importDecl == null)
+    {
+      importDecl = new EObjectContainmentEList<ImportDecl>(ImportDecl.class, this, GoPackage.SOUCE_FILE__IMPORT_DECL);
+    }
+    return importDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TopLevelDecl getTopLevelDecl()
+  {
+    return topLevelDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTopLevelDecl(TopLevelDecl newTopLevelDecl, NotificationChain msgs)
+  {
+    TopLevelDecl oldTopLevelDecl = topLevelDecl;
+    topLevelDecl = newTopLevelDecl;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.SOUCE_FILE__TOP_LEVEL_DECL, oldTopLevelDecl, newTopLevelDecl);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTopLevelDecl(TopLevelDecl newTopLevelDecl)
+  {
+    if (newTopLevelDecl != topLevelDecl)
+    {
+      NotificationChain msgs = null;
+      if (topLevelDecl != null)
+        msgs = ((InternalEObject)topLevelDecl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.SOUCE_FILE__TOP_LEVEL_DECL, null, msgs);
+      if (newTopLevelDecl != null)
+        msgs = ((InternalEObject)newTopLevelDecl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.SOUCE_FILE__TOP_LEVEL_DECL, null, msgs);
+      msgs = basicSetTopLevelDecl(newTopLevelDecl, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.SOUCE_FILE__TOP_LEVEL_DECL, newTopLevelDecl, newTopLevelDecl));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.SOUCE_FILE__PACKAGE_CLAUSE:
+        return basicSetPackageClause(null, msgs);
+      case GoPackage.SOUCE_FILE__IMPORT_DECL:
+        return ((InternalEList<?>)getImportDecl()).basicRemove(otherEnd, msgs);
+      case GoPackage.SOUCE_FILE__TOP_LEVEL_DECL:
+        return basicSetTopLevelDecl(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.SOUCE_FILE__PACKAGE_CLAUSE:
+        return getPackageClause();
+      case GoPackage.SOUCE_FILE__IMPORT_DECL:
+        return getImportDecl();
+      case GoPackage.SOUCE_FILE__TOP_LEVEL_DECL:
+        return getTopLevelDecl();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.SOUCE_FILE__PACKAGE_CLAUSE:
+        setPackageClause((PackageClause)newValue);
+        return;
+      case GoPackage.SOUCE_FILE__IMPORT_DECL:
+        getImportDecl().clear();
+        getImportDecl().addAll((Collection<? extends ImportDecl>)newValue);
+        return;
+      case GoPackage.SOUCE_FILE__TOP_LEVEL_DECL:
+        setTopLevelDecl((TopLevelDecl)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.SOUCE_FILE__PACKAGE_CLAUSE:
+        setPackageClause((PackageClause)null);
+        return;
+      case GoPackage.SOUCE_FILE__IMPORT_DECL:
+        getImportDecl().clear();
+        return;
+      case GoPackage.SOUCE_FILE__TOP_LEVEL_DECL:
+        setTopLevelDecl((TopLevelDecl)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.SOUCE_FILE__PACKAGE_CLAUSE:
+        return packageClause != null;
+      case GoPackage.SOUCE_FILE__IMPORT_DECL:
+        return importDecl != null && !importDecl.isEmpty();
+      case GoPackage.SOUCE_FILE__TOP_LEVEL_DECL:
+        return topLevelDecl != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //SouceFileImpl

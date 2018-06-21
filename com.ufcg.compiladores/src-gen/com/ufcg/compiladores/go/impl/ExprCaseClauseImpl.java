@@ -4,21 +4,55 @@
 package com.ufcg.compiladores.go.impl;
 
 import com.ufcg.compiladores.go.ExprCaseClause;
+import com.ufcg.compiladores.go.ExprSwitchCase;
 import com.ufcg.compiladores.go.GoPackage;
+import com.ufcg.compiladores.go.StatementList;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Expr Case Clause</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link com.ufcg.compiladores.go.impl.ExprCaseClauseImpl#getExprSwitchCase <em>Expr Switch Case</em>}</li>
+ *   <li>{@link com.ufcg.compiladores.go.impl.ExprCaseClauseImpl#getStatementList <em>Statement List</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class ExprCaseClauseImpl extends MinimalEObjectImpl.Container implements ExprCaseClause
 {
+  /**
+   * The cached value of the '{@link #getExprSwitchCase() <em>Expr Switch Case</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExprSwitchCase()
+   * @generated
+   * @ordered
+   */
+  protected ExprSwitchCase exprSwitchCase;
+
+  /**
+   * The cached value of the '{@link #getStatementList() <em>Statement List</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getStatementList()
+   * @generated
+   * @ordered
+   */
+  protected StatementList statementList;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -38,6 +72,196 @@ public class ExprCaseClauseImpl extends MinimalEObjectImpl.Container implements 
   protected EClass eStaticClass()
   {
     return GoPackage.Literals.EXPR_CASE_CLAUSE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExprSwitchCase getExprSwitchCase()
+  {
+    return exprSwitchCase;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExprSwitchCase(ExprSwitchCase newExprSwitchCase, NotificationChain msgs)
+  {
+    ExprSwitchCase oldExprSwitchCase = exprSwitchCase;
+    exprSwitchCase = newExprSwitchCase;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.EXPR_CASE_CLAUSE__EXPR_SWITCH_CASE, oldExprSwitchCase, newExprSwitchCase);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExprSwitchCase(ExprSwitchCase newExprSwitchCase)
+  {
+    if (newExprSwitchCase != exprSwitchCase)
+    {
+      NotificationChain msgs = null;
+      if (exprSwitchCase != null)
+        msgs = ((InternalEObject)exprSwitchCase).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPR_CASE_CLAUSE__EXPR_SWITCH_CASE, null, msgs);
+      if (newExprSwitchCase != null)
+        msgs = ((InternalEObject)newExprSwitchCase).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPR_CASE_CLAUSE__EXPR_SWITCH_CASE, null, msgs);
+      msgs = basicSetExprSwitchCase(newExprSwitchCase, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.EXPR_CASE_CLAUSE__EXPR_SWITCH_CASE, newExprSwitchCase, newExprSwitchCase));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StatementList getStatementList()
+  {
+    return statementList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetStatementList(StatementList newStatementList, NotificationChain msgs)
+  {
+    StatementList oldStatementList = statementList;
+    statementList = newStatementList;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GoPackage.EXPR_CASE_CLAUSE__STATEMENT_LIST, oldStatementList, newStatementList);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setStatementList(StatementList newStatementList)
+  {
+    if (newStatementList != statementList)
+    {
+      NotificationChain msgs = null;
+      if (statementList != null)
+        msgs = ((InternalEObject)statementList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPR_CASE_CLAUSE__STATEMENT_LIST, null, msgs);
+      if (newStatementList != null)
+        msgs = ((InternalEObject)newStatementList).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GoPackage.EXPR_CASE_CLAUSE__STATEMENT_LIST, null, msgs);
+      msgs = basicSetStatementList(newStatementList, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GoPackage.EXPR_CASE_CLAUSE__STATEMENT_LIST, newStatementList, newStatementList));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GoPackage.EXPR_CASE_CLAUSE__EXPR_SWITCH_CASE:
+        return basicSetExprSwitchCase(null, msgs);
+      case GoPackage.EXPR_CASE_CLAUSE__STATEMENT_LIST:
+        return basicSetStatementList(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case GoPackage.EXPR_CASE_CLAUSE__EXPR_SWITCH_CASE:
+        return getExprSwitchCase();
+      case GoPackage.EXPR_CASE_CLAUSE__STATEMENT_LIST:
+        return getStatementList();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case GoPackage.EXPR_CASE_CLAUSE__EXPR_SWITCH_CASE:
+        setExprSwitchCase((ExprSwitchCase)newValue);
+        return;
+      case GoPackage.EXPR_CASE_CLAUSE__STATEMENT_LIST:
+        setStatementList((StatementList)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.EXPR_CASE_CLAUSE__EXPR_SWITCH_CASE:
+        setExprSwitchCase((ExprSwitchCase)null);
+        return;
+      case GoPackage.EXPR_CASE_CLAUSE__STATEMENT_LIST:
+        setStatementList((StatementList)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case GoPackage.EXPR_CASE_CLAUSE__EXPR_SWITCH_CASE:
+        return exprSwitchCase != null;
+      case GoPackage.EXPR_CASE_CLAUSE__STATEMENT_LIST:
+        return statementList != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //ExprCaseClauseImpl
